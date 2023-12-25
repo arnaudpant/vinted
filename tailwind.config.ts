@@ -19,6 +19,13 @@ const config = {
     },
     extend: {
       colors: {
+        vintedGreen: "#017782",
+        vintedBackgrounf: "#ffffff",
+        vintedTextBlack: "#171717",
+        vintedTextGrisClair: "#b7b7b7",
+        vintedTextGrisFonce: "#a7a7a7",
+        vintedBackgroundInput: "#b7b7b7",
+        vintedBackgroundCard: "#f2f2f2",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
