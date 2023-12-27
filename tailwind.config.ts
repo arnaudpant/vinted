@@ -20,7 +20,7 @@ const config = {
     extend: {
       colors: {
         vintedGreen: "#017782",
-        vintedBackgrounf: "#ffffff",
+        vintedBackground: "#ffffff",
         vintedTextBlack: "#171717",
         vintedTextGrisClair: "#b7b7b7",
         vintedTextGrisFonce: "#a7a7a7",
