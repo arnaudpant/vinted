@@ -1,9 +1,10 @@
+import ModalAuth from "@/components/modals/authentification/ModalAuth";
 
 
 const Home = () => {
     return (
-        <div>
-            
+        <div className="bg-vintedBackground">
+            <ModalAuth />
         </div>
     );
 };
