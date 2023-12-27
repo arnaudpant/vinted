@@ -1,10 +1,12 @@
 import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import { X } from 'lucide-react';
+import ModalAuthInitView from './ModalAuthInitView';
+import ModalAuthConnexionView from './ModalAuthConnexionView';
 
 const ModalAuth = () => {
   const [contenuModal, setContenuModal] = useState<
-    'init' | 'connexion' | 'inscription'
+    'init' | 'connexion' | 'inscription' | 'password-forget'
   >('init');
 
   return createPortal(
@@ -29,53 +31,11 @@ const ModalAuth = () => {
           </button>
         </div>
         {/* Partie Inf */}
-        <div className="flex flex-col items-center w-full px-4 pb-6">
+        {
+          contenuModal === 'init' ? (<ModalAuthInitView setContenuModal={setContenuModal} />) : 
+          contenuModal === 'connexion' ? (<ModalAuthConnexionView setContenuModal={setContenuModal} />) : ''
+        }
 
-          <h1 className="text-2xl text-center">
-            {
-              contenuModal === 'init' ? 'Bienvenue !' : 
-              contenuModal === 'connexion' ? 'Se connecter' : 'Rejoins le mouvement de la seconde main et vends sans frais !'
-            }
-            </h1>
-          <button
-            type="button"
-            className="h-11 w-full border border-solid border-vintedTextGrisClair rounded mt-6"
-            disabled
-          >
-            <span></span>
-            <span className="text-vintedTextGrisClair">
-              Continuer avec Facebook
-            </span>
-          </button>
-          <button
-            type="button"
-            className="h-11 w-full border border-solid border-vintedTextGrisClair rounded mt-2"
-            disabled
-          >
-            <span></span>
-            <span className="text-vintedTextGrisClair">
-              Continuer avec Google
-            </span>
-          </button>
-          <button
-            type="button"
-            className="h-11 w-full border border-solid border-vintedTextGrisClair rounded mt-2 mb-6"
-            disabled
-          >
-            <span></span>
-            <span className="text-vintedTextGrisClair">
-              Continuer avec Apple
-            </span>
-          </button>
-          <p className="text-vintedTextBlack pb-2">
-            Ou connecte toi avec{' '}
-            <span className="text-vintedGreen cursor-pointer" onClick={()=>setContenuModal('connexion')}>e-mail</span>
-          </p>
-          <p className="text-vintedTextBlack">
-            Tu n'as pas de compte Vinted ?{' '}
-            <span className="text-vintedGreen cursor-pointer" onClick={()=>setContenuModal('inscription')}>S'inscrire</span>
-          </p>
-        </div>
       </div>
     </>,
     document.body,
