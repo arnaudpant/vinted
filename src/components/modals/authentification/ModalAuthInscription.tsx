@@ -3,6 +3,8 @@
  */
 import { useForm } from 'react-hook-form';
 import { Checkbox } from '@/components/ui/checkbox';
+import { firebaseCreateUser } from '@/api/authentification';
+import { FirestoreCreateDocument } from '@/api/firestore';
 
 type LoginFormTypeInscription = {
   login: 'string';
@@ -10,10 +12,84 @@ type LoginFormTypeInscription = {
   password: 'string';
 };
 
-const ModalAuthInscription = () => {
-  const { handleSubmit, register } = useForm<LoginFormTypeInscription>();
+type Props = {
+  setContenuModal: React.Dispatch<
+    React.SetStateAction<
+      'init' | 'connexion' | 'inscription' | 'password-forget'
+    >
+  >;
+};
 
-  const onSubmit = (data: {}) => console.log(data);
+
+const ModalAuthInscription = ({ setContenuModal }: Props) => {
+
+  const { handleSubmit, register, setError, reset } = useForm<LoginFormTypeInscription>();
+
+
+
+    /**
+   * 3. Creation d'une collection dans la db Firestore
+   * await le retour du Firebase avec les infos users
+   * Copie des infos users utilent dans un objet
+   * Envoi de l'objet dans la db Firestore
+   */
+  const handleCreateUserAuthentification = async (collectionName: string, documentId: string, document: object) => {
+    const { error } = await FirestoreCreateDocument(collectionName, documentId, document)
+    if (error) {
+        console.log("Error handleCreateUserAuthentification")
+        //toast.error(error.message)
+        return
+    }
+    //toast.success('Bienvenu sur Vinted')
+    reset()
+    setContenuModal('init')
+  }
+  
+  /**
+   * 2. Envoi des data a Firebase
+   * await le retour du Firebase avec les infos users
+   * Copie des infos users utilent dans un objet
+   * Envoi de l'objet dans la db Firestore
+   */
+
+  const handleCreateUserAuth = async ({ email, password, login }: LoginFormTypeInscription) => {
+    const { error, data } = await firebaseCreateUser(email, password)
+    if (error) {
+      console.log('Error ModalAuthInscription')
+        //toast.error(error.message)
+        return
+    }
+    const userDocumentData = {
+        login: login,
+        uid: data.uid,
+        inscription: new Date(),
+        photoURL: "",
+    }
+    handleCreateUserAuthentification("users", data.uid, userDocumentData)
+}
+
+
+
+
+
+  /**
+   * 1. Submit du Form
+   * Test si password > 7 caracteres
+   * Appel function Firebase
+   */
+  const onSubmit = async (data: LoginFormTypeInscription) => {
+    const {password} = data
+
+    if (password.length < 7) {
+      setError("password", {
+          type: "manuel",
+          message: "Le mot de passe doit comporter 7 caractères minimum"
+      })
+      return
+  }
+    handleCreateUserAuth(data)
+    console.log(data)
+  };
 
   return (
     <>
@@ -82,9 +158,9 @@ const ModalAuthInscription = () => {
           </div>
 
           <div className="flex justify-center items-start gap-1 mb-4">
-            <Checkbox id="politique" />
+            <Checkbox id="MyCheckbox" />
             <label
-              htmlFor="politique"
+              htmlFor="MyCheckbox"
               className=" text-vintedTextBlackVar font-light cursor-pointer"
             >
               En t'inscrivant, tu confirmes que tu acceptes les{' '}
@@ -99,7 +175,10 @@ const ModalAuthInscription = () => {
             </label>
           </div>
 
-          <button className="w-full h-11 bg-vintedGreen text-vintedBackground rounded mb-6">
+          <button
+            type="submit"
+            className="w-full h-11 bg-vintedGreen text-vintedBackground rounded mb-6"
+          >
             Continuer
           </button>
         </form>

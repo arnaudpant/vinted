@@ -18,7 +18,7 @@ const ModalAuth = () => {
   return createPortal(
     <>
       {/* Fond gris */}
-      <div className="fixed h-screen top-0 left-0 bottom-0 right-0 bg-vintedTextGrisClair opacity-30"></div>
+      <div className="fixed h-screen top-0 left-0 bottom-0 right-0 bg-vintedTextGrisClair opacity-10"></div>
 
       {/* Modal */}
       <div
@@ -41,7 +41,7 @@ const ModalAuth = () => {
         {
           contenuModal === 'init' ? (<ModalAuthInitView setContenuModal={setContenuModal} />) : 
           contenuModal === 'connexion' ? (<ModalAuthConnexionView setContenuModal={setContenuModal} />) : 
-          contenuModal === 'inscription' ?(<ModalAuthInscription />) : null
+          contenuModal === 'inscription' ?(<ModalAuthInscription setContenuModal={setContenuModal} />) : null
         }
 
       </div>
