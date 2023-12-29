@@ -56,12 +56,12 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
         </form>
 
         <p
-          className="text-vintedGreen pb-2 cursor-pointer"
+          className="text-vintedGreen pb-2 cursor-pointer underline"
           onClick={() => setContenuModal('password-forget')}
         >
           Mot de passe oublié ?
         </p>
-        <p className="text-vintedGreen pb-2 cursor-pointer">Un problème ?</p>
+        <p className="text-vintedGreen pb-2 cursor-pointer underline">Un problème ?</p>
       </div>
     </>
   );
