@@ -12,7 +12,7 @@ type Props = {
   >;
 };
 
-type LoginFormType = {
+type LoginFormTypeConnexion = {
   email: 'string';
   password: 'string';
 };
@@ -21,7 +21,7 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
   const {
     handleSubmit,
     register,
-  } = useForm<LoginFormType>();
+  } = useForm<LoginFormTypeConnexion>();
 
   const onSubmit = (data: {}) => console.log(data);
 
@@ -39,7 +39,7 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
             {...register('email', {
               required: { value: true, message: 'Ce champ est requis' },
             })}
-            className='w-full border-b pb-1 my-8'
+            className='w-full border-b pb-1 my-8 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen'
           />
 
           <input
@@ -50,7 +50,7 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
             {...register('password', {
               required: { value: true, message: 'Ce champ est requis' },
             })}
-            className='w-full border-b pb-1 mb-8'
+            className='w-full border-b pb-1 mb-8 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen'
           />
           <button className='w-full h-11 bg-vintedGreen text-vintedBackground rounded mb-6'>Continuer</button>
         </form>

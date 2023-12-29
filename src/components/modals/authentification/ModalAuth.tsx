@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { X } from 'lucide-react';
 import ModalAuthInitView from './ModalAuthInitView';
 import ModalAuthConnexionView from './ModalAuthConnexionView';
+import ModalAuthInscription from './ModalAuthInscription';
 
 const ModalAuth = () => {
   const [contenuModal, setContenuModal] = useState<
@@ -39,7 +40,8 @@ const ModalAuth = () => {
         {/* Partie Inf */}
         {
           contenuModal === 'init' ? (<ModalAuthInitView setContenuModal={setContenuModal} />) : 
-          contenuModal === 'connexion' ? (<ModalAuthConnexionView setContenuModal={setContenuModal} />) : ''
+          contenuModal === 'connexion' ? (<ModalAuthConnexionView setContenuModal={setContenuModal} />) : 
+          contenuModal === 'inscription' ?(<ModalAuthInscription />) : null
         }
 
       </div>
