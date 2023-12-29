@@ -10,11 +10,17 @@ import ModalAuthInitView from './ModalAuthInitView';
 import ModalAuthConnexionView from './ModalAuthConnexionView';
 import ModalAuthInscription from './ModalAuthInscription';
 import ModalPasswordForget from './ModalPasswordForget';
+import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import ButtonDisconnect from './ButtonDisconnect';
 
 const ModalAuth = () => {
   const [contenuModal, setContenuModal] = useState<
     'init' | 'connexion' | 'inscription' | 'password-forget'
   >('init');
+
+  const {authUser} = useFirebaseAuth()
+  console.log(authUser)
+
 
   return createPortal(
     <>
@@ -50,6 +56,9 @@ const ModalAuth = () => {
         }
         {
           contenuModal === 'password-forget' && (<ModalPasswordForget setContenuModal={setContenuModal} />)
+        }
+        {
+          authUser && <ButtonDisconnect />
         }
 
       </div>

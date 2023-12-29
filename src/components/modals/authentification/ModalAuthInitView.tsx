@@ -1,3 +1,4 @@
+
 /**
  * Modal vue de base avec boutons google, facebook, apple non actifs
  */
@@ -6,6 +7,7 @@ type Props = {
 };
 
 const ModalAuthInitView = ({ setContenuModal}: Props ) => {
+
   return (
     <>
       <div className="flex flex-col items-center w-full px-4 pb-6">
