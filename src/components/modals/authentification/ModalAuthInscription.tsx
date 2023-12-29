@@ -37,10 +37,8 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     const { error } = await FirestoreCreateDocument(collectionName, documentId, document)
     if (error) {
         console.log("Error handleCreateUserAuthentification")
-        //toast.error(error.message)
         return
     }
-    //toast.success('Bienvenu sur Vinted')
     reset()
     setContenuModal('init')
   }
@@ -56,7 +54,6 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     const { error, data } = await firebaseCreateUser(email, password)
     if (error) {
       console.log('Error ModalAuthInscription')
-        //toast.error(error.message)
         return
     }
     const userDocumentData = {
@@ -88,7 +85,6 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
       return
   }
     handleCreateUserAuth(data)
-    console.log(data)
   };
 
   return (
