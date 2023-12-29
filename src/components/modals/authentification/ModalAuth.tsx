@@ -9,6 +9,7 @@ import { X } from 'lucide-react';
 import ModalAuthInitView from './ModalAuthInitView';
 import ModalAuthConnexionView from './ModalAuthConnexionView';
 import ModalAuthInscription from './ModalAuthInscription';
+import ModalPasswordForget from './ModalPasswordForget';
 
 const ModalAuth = () => {
   const [contenuModal, setContenuModal] = useState<
@@ -39,9 +40,16 @@ const ModalAuth = () => {
         </div>
         {/* Partie Inf */}
         {
-          contenuModal === 'init' ? (<ModalAuthInitView setContenuModal={setContenuModal} />) : 
-          contenuModal === 'connexion' ? (<ModalAuthConnexionView setContenuModal={setContenuModal} />) : 
-          contenuModal === 'inscription' ?(<ModalAuthInscription setContenuModal={setContenuModal} />) : null
+          contenuModal === 'init' && (<ModalAuthInitView setContenuModal={setContenuModal} />)
+        }
+        {
+          contenuModal === 'connexion' && (<ModalAuthConnexionView setContenuModal={setContenuModal} />)
+        }
+        {
+          contenuModal === 'inscription' && (<ModalAuthInscription setContenuModal={setContenuModal} />)
+        }
+        {
+          contenuModal === 'password-forget' && (<ModalPasswordForget setContenuModal={setContenuModal} />)
         }
 
       </div>
