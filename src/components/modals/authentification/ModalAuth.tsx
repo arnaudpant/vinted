@@ -1,3 +1,8 @@
+/**
+ * MODAL inscription / connexion
+ * LOGIQUE D'AFFICHAGE ENTRE CONNEXION - INSCRIPTION - MOT DE PASSE OUBLIE
+ */
+
 import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import { X } from 'lucide-react';
@@ -26,6 +31,7 @@ const ModalAuth = () => {
             type="button"
             className="ml-auto h-[46px] w-[44px] px-[10px]"
             aria-label="Fermer la fenêtre"
+            onClick={()=> setContenuModal('init')}
           >
             <X />
           </button>

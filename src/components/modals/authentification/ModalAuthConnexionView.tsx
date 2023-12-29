@@ -1,3 +1,7 @@
+/**
+ * Modal avec formulaire de connexion quand user deja inscrit
+ */
+
 import { useForm } from 'react-hook-form';
 
 type Props = {
