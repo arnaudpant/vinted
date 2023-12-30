@@ -1,11 +1,15 @@
-
+import NavBarHeader from '../components/NavBarHeader';
+import TopHeader from '../components/TopHeader';
+import Banner from '../components/Banner';
 
 const Home = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <>
+      <TopHeader />
+      <NavBarHeader />
+      <Banner />
+    </>
+  );
 };
 
 export default Home;
