@@ -3,6 +3,7 @@
  */
 
 import { sendEmailToResetPassword } from '@/api/authentification';
+import { Action } from '@/types/types';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 type LoginFormTypeForget = {
@@ -10,11 +11,7 @@ type LoginFormTypeForget = {
 };
 
 type Props = {
-  setContenuModal: React.Dispatch<
-    React.SetStateAction<
-      'init' | 'connexion' | 'inscription' | 'password-forget'
-    >
-  >;
+  setContenuModal: React.Dispatch<React.SetStateAction<Action>>;
 };
 
 const ModalPasswordForget = ({ setContenuModal }: Props) => {
@@ -36,7 +33,6 @@ const ModalPasswordForget = ({ setContenuModal }: Props) => {
   };
 
   return (
-    <>
       <div className="flex flex-col items-center w-full px-4 pb-6">
         <h1 className="text-2xl text-center">Mot de passe oublié ?</h1>
 
@@ -57,7 +53,6 @@ const ModalPasswordForget = ({ setContenuModal }: Props) => {
           </button>
         </form>
       </div>
-    </>
   );
 };
 

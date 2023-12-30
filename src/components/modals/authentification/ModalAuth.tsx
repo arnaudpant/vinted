@@ -12,11 +12,11 @@ import ModalAuthInscription from './ModalAuthInscription';
 import ModalPasswordForget from './ModalPasswordForget';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import ButtonDisconnect from './ButtonDisconnect';
+import { Action } from '@/types/types';
+
 
 const ModalAuth = () => {
-  const [contenuModal, setContenuModal] = useState<
-    'init' | 'connexion' | 'inscription' | 'password-forget'
-  >('init');
+  const [contenuModal, setContenuModal] = useState<Action>('init');
 
   const { authUser } = useFirebaseAuth();
 

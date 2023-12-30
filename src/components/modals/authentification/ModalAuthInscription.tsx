@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { Checkbox } from '@/components/ui/checkbox';
 import { firebaseCreateUser } from '@/api/authentification';
 import { FirestoreCreateDocument } from '@/api/firestore';
+import { Action } from '@/types/types';
 
 type LoginFormTypeInscription = {
   login: 'string';
@@ -13,11 +14,7 @@ type LoginFormTypeInscription = {
 };
 
 type Props = {
-  setContenuModal: React.Dispatch<
-    React.SetStateAction<
-      'init' | 'connexion' | 'inscription' | 'password-forget'
-    >
-  >;
+  setContenuModal: React.Dispatch<React.SetStateAction<Action>>;
 };
 
 const ModalAuthInscription = ({ setContenuModal }: Props) => {
@@ -93,7 +90,6 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
   };
 
   return (
-    <>
       <div className="flex flex-col items-center w-full px-4 pb-6">
         <h1 className="text-2xl text-center">Inscris-toi avec ton email</h1>
 
@@ -184,7 +180,6 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
           </button>
         </form>
       </div>
-    </>
   );
 };
 
