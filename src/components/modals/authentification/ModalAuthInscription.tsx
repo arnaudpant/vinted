@@ -20,29 +20,34 @@ type Props = {
   >;
 };
 
-
 const ModalAuthInscription = ({ setContenuModal }: Props) => {
+  const { handleSubmit, register, setError, reset } =
+    useForm<LoginFormTypeInscription>();
 
-  const { handleSubmit, register, setError, reset } = useForm<LoginFormTypeInscription>();
-
-
-
-    /**
+  /**
    * 3. Creation d'une collection dans la db Firestore
    * await le retour du Firebase avec les infos users
    * Copie des infos users utilent dans un objet
    * Envoi de l'objet dans la db Firestore
    */
-  const handleCreateUserAuthentification = async (collectionName: string, documentId: string, document: object) => {
-    const { error } = await FirestoreCreateDocument(collectionName, documentId, document)
+  const handleCreateUserAuthentification = async (
+    collectionName: string,
+    documentId: string,
+    document: object,
+  ) => {
+    const { error } = await FirestoreCreateDocument(
+      collectionName,
+      documentId,
+      document,
+    );
     if (error) {
-        console.log("Error handleCreateUserAuthentification")
-        return
+      console.log('Error handleCreateUserAuthentification');
+      return;
     }
-    reset()
-    setContenuModal('init')
-  }
-  
+    reset();
+    setContenuModal('init');
+  };
+
   /**
    * 2. Envoi des data a Firebase
    * await le retour du Firebase avec les infos users
@@ -50,24 +55,24 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
    * Envoi de l'objet dans la db Firestore
    */
 
-  const handleCreateUserAuth = async ({ email, password, login }: LoginFormTypeInscription) => {
-    const { error, data } = await firebaseCreateUser(email, password)
+  const handleCreateUserAuth = async ({
+    email,
+    password,
+    login,
+  }: LoginFormTypeInscription) => {
+    const { error, data } = await firebaseCreateUser(email, password);
     if (error) {
-      console.log('Error ModalAuthInscription')
-        return
+      console.log('Error ModalAuthInscription');
+      return;
     }
     const userDocumentData = {
-        login: login,
-        uid: data.uid,
-        inscription: new Date(),
-        photoURL: "",
-    }
-    handleCreateUserAuthentification("users", data.uid, userDocumentData)
-}
-
-
-
-
+      login: login,
+      uid: data.uid,
+      inscription: new Date(),
+      photoURL: '',
+    };
+    handleCreateUserAuthentification('users', data.uid, userDocumentData);
+  };
 
   /**
    * 1. Submit du Form
@@ -75,16 +80,16 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
    * Appel function Firebase
    */
   const onSubmit = async (data: LoginFormTypeInscription) => {
-    const {password} = data
+    const { password } = data;
 
     if (password.length < 7) {
-      setError("password", {
-          type: "manuel",
-          message: "Le mot de passe doit comporter 7 caractères minimum"
-      })
-      return
-  }
-    handleCreateUserAuth(data)
+      setError('password', {
+        type: 'manuel',
+        message: 'Le mot de passe doit comporter 7 caractères minimum',
+      });
+      return;
+    }
+    handleCreateUserAuth(data);
   };
 
   return (
