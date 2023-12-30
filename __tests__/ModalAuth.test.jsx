@@ -1,12 +1,14 @@
 import React from 'react';
 import { beforeEach, describe, expect, test, vi } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import ModalAuth from '../src/components/modals/authentification/ModalAuth';
-
 
 describe('Initialisation du Modal', () => {
   beforeEach(() => {
     render(<ModalAuth />);
+  });
+  afterEach(() => {
+    cleanup();
   });
 
   test('Initialisation du modal avec btn X en partie superieur', () => {
@@ -33,9 +35,18 @@ describe('Initialisation du Modal', () => {
     ).not.toBeInTheDocument();
   });
 
+  test('Affichage des 3 btn de connexion via facebook, google, apple + btn X', async () => {
+    const btnReseaux = await screen.findAllByRole('button');
+    expect(btnReseaux.length).toEqual(4);
+  });
+
+  test('btn apple disabled', async () => {
+    const btnApple = await screen.findByTestId('button-apple');
+    expect(btnApple).toBeDisabled();
+  });
 });
 
-describe('Inscription', () => {
+describe('Inscription et Connexion', () => {
   test('Clic sur btn Inscription', async () => {
     render(<ModalAuth />);
     const btnInscription = screen.getByText(/e-mail/i);
@@ -47,9 +58,7 @@ describe('Inscription', () => {
       screen.queryByText(/Continuer avec Apple/i),
     ).not.toBeInTheDocument();
   });
-});
 
-describe('Connexion', () => {
   test('Clic sur btn Se Connecter', async () => {
     render(<ModalAuth />);
     const btnConnexion = screen.getByText(/e-mail/i);
@@ -61,5 +70,3 @@ describe('Connexion', () => {
     ).not.toBeInTheDocument();
   });
 });
-
-
