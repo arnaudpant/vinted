@@ -18,3 +18,5 @@ export interface UserDocument {
     login: string,
     // Champs Ajouter un champ ds Firestore
 }
+
+export type Action = 'init' | 'connexion' | 'inscription' | 'password-forget';
