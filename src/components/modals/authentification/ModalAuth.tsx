@@ -18,9 +18,7 @@ const ModalAuth = () => {
     'init' | 'connexion' | 'inscription' | 'password-forget'
   >('init');
 
-  const {authUser} = useFirebaseAuth()
-  console.log(authUser)
-
+  const { authUser } = useFirebaseAuth();
 
   return createPortal(
     <>
@@ -39,28 +37,25 @@ const ModalAuth = () => {
             type="button"
             className="ml-auto h-[46px] w-[44px] px-[10px] "
             aria-label="Fermer la fenêtre"
-            onClick={()=> setContenuModal('init')}
+            onClick={() => setContenuModal('init')}
           >
             <X />
           </button>
         </div>
         {/* Partie Inf */}
-        {
-          contenuModal === 'init' && (<ModalAuthInitView setContenuModal={setContenuModal} />)
-        }
-        {
-          contenuModal === 'connexion' && (<ModalAuthConnexionView setContenuModal={setContenuModal} />)
-        }
-        {
-          contenuModal === 'inscription' && (<ModalAuthInscription setContenuModal={setContenuModal} />)
-        }
-        {
-          contenuModal === 'password-forget' && (<ModalPasswordForget setContenuModal={setContenuModal} />)
-        }
-        {
-          authUser && <ButtonDisconnect />
-        }
-
+        {contenuModal === 'init' && (
+          <ModalAuthInitView setContenuModal={setContenuModal} />
+        )}
+        {contenuModal === 'connexion' && (
+          <ModalAuthConnexionView setContenuModal={setContenuModal} />
+        )}
+        {contenuModal === 'inscription' && (
+          <ModalAuthInscription setContenuModal={setContenuModal} />
+        )}
+        {contenuModal === 'password-forget' && (
+          <ModalPasswordForget setContenuModal={setContenuModal} />
+        )}
+        {authUser && <ButtonDisconnect />}
       </div>
     </>,
     document.body,

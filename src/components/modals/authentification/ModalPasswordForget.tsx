@@ -2,8 +2,8 @@
  * Modal avec formulaire pour reinitialiser son compte
  */
 
-import { sendEmailToResetPassword } from "@/api/authentification";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { sendEmailToResetPassword } from '@/api/authentification';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 type LoginFormTypeForget = {
   email: 'string';
@@ -18,27 +18,22 @@ type Props = {
 };
 
 const ModalPasswordForget = ({ setContenuModal }: Props) => {
-
-  const { handleSubmit, register, reset } =
-    useForm<LoginFormTypeForget>();
-
+  const { handleSubmit, register, reset } = useForm<LoginFormTypeForget>();
 
   const onSubmit: SubmitHandler<LoginFormTypeForget> = async (data) => {
-    handleResetPassword(data)
+    handleResetPassword(data);
   };
 
   const handleResetPassword = async ({ email }: LoginFormTypeForget) => {
-    const { error } = await sendEmailToResetPassword(email)
+    const { error } = await sendEmailToResetPassword(email);
 
     if (error) {
-        console.error(error.message)
-        return
+      console.error(error.message);
+      return;
     }
-    reset()
-    setContenuModal('init')
-}
-
-
+    reset();
+    setContenuModal('init');
+  };
 
   return (
     <>
@@ -61,7 +56,6 @@ const ModalPasswordForget = ({ setContenuModal }: Props) => {
             Continuer
           </button>
         </form>
-
       </div>
     </>
   );
