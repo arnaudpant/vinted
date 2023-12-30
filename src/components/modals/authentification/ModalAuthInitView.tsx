@@ -15,6 +15,7 @@ const ModalAuthInitView = ({ setContenuModal}: Props ) => {
 
         <button
           type="button"
+          role="button"
           className="h-11 w-full flex justify-center items-center border border-solid border-vintedTextGrisClair rounded mt-6 cursor-not-allowed"
           disabled
         >
@@ -42,6 +43,7 @@ const ModalAuthInitView = ({ setContenuModal}: Props ) => {
 
         <button
           type="button"
+          role="button"
           className="flex justify-center items-center h-11 w-full border border-solid border-vintedTextGrisClair rounded mt-2 cursor-not-allowed"
           disabled
         >
@@ -77,6 +79,8 @@ const ModalAuthInitView = ({ setContenuModal}: Props ) => {
 
         <button
           type="button"
+          role="button"
+          data-testid="button-apple"
           className="flex justify-center items-center h-11 w-full border border-solid border-vintedTextGrisClair rounded mt-2 mb-6 cursor-not-allowed"
           disabled
         >
