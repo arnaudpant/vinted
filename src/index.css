@@ -73,4 +73,7 @@
   body {
     @apply bg-background text-foreground;
   }
+  ul {
+    @apply mt-2.5;
+  }
 }
