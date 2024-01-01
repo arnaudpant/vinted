@@ -29,7 +29,6 @@ const ModalAuth = () => {
       <div
         className="absolute w-full top-12 sm:w-[375px] sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2  bg-vintedBackground flex flex-col items-center justify-start rounded"
         aria-modal="true"
-        role="dialog"
       >
         {/* Partie Sup BTN X */}
         <div className="h-[52px] w-full p-1 mb-4 flex justify-end items-center border-b sm:border-none">
