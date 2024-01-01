@@ -1,4 +1,5 @@
 import { Action } from '@/types/types';
+import ButtonReseaux from './ButtonReseaux';
 
 /**
  * Modal vue de base avec boutons google, facebook, apple non actifs
@@ -10,13 +11,9 @@ type Props = {
 const ModalAuthInitView = ({ setContenuModal }: Props) => {
   return (
     <div className="flex flex-col items-center w-full px-4 pb-6">
-      <h1 className="text-2xl text-center">Bienvenue !</h1>
+      <h1 className="text-2xl text-center mb-6">Bienvenue !</h1>
 
-      <button
-        type="button"
-        className="h-11 w-full flex justify-center items-center border border-solid border-vintedTextGrisClair rounded mt-6 cursor-not-allowed"
-        disabled
-      >
+      <ButtonReseaux>
         <span className="pr-[6px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,13 +34,9 @@ const ModalAuthInitView = ({ setContenuModal }: Props) => {
         <span className="text-vintedTextGrisClair">
           Continuer avec Facebook
         </span>
-      </button>
+      </ButtonReseaux>
 
-      <button
-        type="button"
-        className="flex justify-center items-center h-11 w-full border border-solid border-vintedTextGrisClair rounded mt-2 cursor-not-allowed"
-        disabled
-      >
+      <ButtonReseaux>
         <span className="pr-[6px]">
           <svg
             width="24px"
@@ -70,14 +63,9 @@ const ModalAuthInitView = ({ setContenuModal }: Props) => {
           </svg>
         </span>
         <span className="text-vintedTextGrisClair">Continuer avec Google</span>
-      </button>
+      </ButtonReseaux>
 
-      <button
-        type="button"
-        data-testid="button-apple"
-        className="flex justify-center items-center h-11 w-full border border-solid border-vintedTextGrisClair rounded mt-2 mb-6 cursor-not-allowed"
-        disabled
-      >
+      <ButtonReseaux>
         <span className="pr-[6px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +78,9 @@ const ModalAuthInitView = ({ setContenuModal }: Props) => {
           </svg>
         </span>
         <span className="text-vintedTextGrisClair">Continuer avec Apple</span>
-      </button>
-      <p className="text-vintedTextBlack pb-2">
+      </ButtonReseaux>
+
+      <p className="text-vintedTextBlack pb-2 pt-6">
         Ou connecte toi avec{' '}
         <span
           className="text-vintedGreen cursor-pointer"
