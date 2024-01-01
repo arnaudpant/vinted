@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyBemG2dk7iQ6jtmVgTU81sy5-H_HqvMML4',
-  authDomain: 'bootcamp-project-vinted.firebaseapp.com',
-  projectId: 'bootcamp-project-vinted',
-  storageBucket: 'bootcamp-project-vinted.appspot.com',
-  messagingSenderId: '239313519946',
-  appId: '1:239313519946:web:fbcb5d48926508d982adb3',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 
