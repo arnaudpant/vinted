@@ -16,7 +16,7 @@ type LoginFormTypeConnexion = {
 };
 
 const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
-  const { handleSubmit, register, setError, reset } =
+  const { handleSubmit, register, reset } =
     useForm<LoginFormTypeConnexion>();
 
   /**
@@ -36,18 +36,9 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
   };
 
   /**
-   * 1. Test longueur du password
-   * Envoi des data
+   * 1. Envoi des data
    */
   const onSubmit: SubmitHandler<LoginFormTypeConnexion> = async (data) => {
-    const { password } = data;
-    if (password.length < 7) {
-      setError('password', {
-        type: 'manuel',
-        message: 'Le mot de passe doit comporter 7 caractères minimum',
-      });
-      return;
-    }
     handleSignInUser(data);
   };
 
