@@ -1,18 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 
-type Product = {
-  category: string;
-  description: string;
-  id: number;
-  image: string;
-  price: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-  title: string;
-};
-
 const Home = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
