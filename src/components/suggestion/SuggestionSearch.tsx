@@ -12,7 +12,6 @@ const SuggestionSearch = () => {
     //console.log('products', products);
   }, []);
 
-
   return (
     //TODO: Supprimer container a l'integration
     <div className="container mx-auto py-12">
