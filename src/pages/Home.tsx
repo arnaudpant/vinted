@@ -5,10 +5,10 @@ import { Header } from '@/components/ui/header/Header';
 const Home = () => {
   return (
     <div className="overflow-hidden">
-      {/* <Header />
-      <Banner /> */}
+      <Header />
+      <Banner />
 
-      <MobileHomePageBurgerActive />
+      {/* <MobileHomePageBurgerActive /> */}
     </div>
   );
 };

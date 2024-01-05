@@ -16,19 +16,22 @@ export const NavigationBarCategories: () => JSX.Element = () => {
   };
 
   return (
-    <nav className="  flex flex-row flex-nowrap space-x-4 w-full ml-4 mt-4 mb-2 text-vintedTextGrisFonce">
-      {/* Liste des catégories : Femmes Hommes Enfants etc... */}
-      {headerCategories.map((category, idCategory) => {
-        return (
-          <NavigationCategory
-            category={category}
-            key={idCategory}
-            selectedIdCategory={selectedIdCategory}
-            selectCategory={selectCategory}
-          />
-        );
-      })}
-    </nav>
+    <div className="relative z-30">
+      <nav className=" flex flex-nowrap space-x-4 ml-4 mt-4 mb-2 text-vintedTextGrisFonce">
+        {/* Liste des catégories : Femmes Hommes Enfants etc... */}
+
+        {headerCategories.map((category, idCategory) => {
+          return (
+            <NavigationCategory
+              category={category}
+              key={category.id}
+              selectedIdCategory={selectedIdCategory}
+              selectCategory={selectCategory}
+            />
+          );
+        })}
+      </nav>
+    </div>
   );
 };
 
@@ -49,8 +52,7 @@ const NavigationCategory: React.FC<{
   return (
     // Affichage d'une catégorie
     <div className="">
-      <a
-        href=""
+      <button
         key={category.id}
         className={`p-2  hover:bg-vintedBackgrounf ${
           selectedIdCategory === category.id
@@ -63,7 +65,7 @@ const NavigationCategory: React.FC<{
         }}
       >
         {category.title}
-      </a>
+      </button>
       {/* Affichage des sous catégories */}
       {category.subCategories && category.id === selectedIdCategory ? (
         <NavigationSubCategories
@@ -82,7 +84,7 @@ const NavigationSubCategories: React.FC<{
   selectSubCategory: Function;
 }> = ({ subCategories, selectedSubCategory, selectSubCategory }) => {
   return (
-    <div className="flex flex-row  space-x-4 mt-2 py-4 px-8 h-fit shadow-xl ">
+    <div className="flex flex-row  bg-vintedBackgrounf space-x-4  py-4 px-8 h-fit shadow-xl ">
       {/* Liste des sous-catégories */}
       <div className="border-r-2 ">
         {subCategories.map((subCategory) => {
@@ -96,7 +98,7 @@ const NavigationSubCategories: React.FC<{
                 alt="Icone"
                 className="object-contain h-8"
               />
-              <a
+              <button
                 onClick={(event) => {
                   event.preventDefault();
                   selectSubCategory(subCategory.title);
@@ -104,7 +106,7 @@ const NavigationSubCategories: React.FC<{
                 className=" block  whitespace-nowrap "
               >
                 {subCategory.title}
-              </a>
+              </button>
             </div>
           );
         })}
@@ -115,9 +117,12 @@ const NavigationSubCategories: React.FC<{
         {[...subCategories]
           .filter((subCategory) => subCategory.title === selectedSubCategory)[0]
           .subsubCategories.map((subsubCategory) => (
-            <a className="whitespace-nowrap truncate px-4 py-2 hover:bg-vintedBackgroundCard hover:cursor-pointer">
+            <button
+              key={subsubCategory.title}
+              className="whitespace-nowrap truncate px-4 py-2 hover:bg-vintedBackgroundCard hover:cursor-pointer"
+            >
               {subsubCategory.title}
-            </a>
+            </button>
           ))}
       </div>
     </div>

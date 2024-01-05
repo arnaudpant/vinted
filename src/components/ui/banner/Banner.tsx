@@ -26,17 +26,19 @@ const Banner = () => {
   const bannerImage: string = pickBannerImage(widthWindow);
 
   return (
-    <section
-      id="banner"
-      className="flex flex-col items-center justify-center sm:flex sm:flex-row-reverse sm:relative sm:z-10  "
-    >
-      <img
-        src={bannerImage}
-        alt="bannière"
-        className="object-cover w-full max-h-64 sm:min-h-[420px]  sm:object-cover   "
-      />
-      <CallToAction />
-    </section>
+    <div className=" absolute top-28 z-0 w-full">
+      <section
+        id="banner"
+        className="flex flex-col items-center justify-center sm:flex sm:flex-row-reverse sm:relative sm:z-10  "
+      >
+        <img
+          src={bannerImage}
+          alt="bannière"
+          className="object-cover w-full max-h-64 sm:min-h-[420px]  sm:object-cover   "
+        />
+        <CallToAction />
+      </section>
+    </div>
   );
 };
 
