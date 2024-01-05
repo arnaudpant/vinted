@@ -1,4 +1,4 @@
-import { ListSuggestSearchFromVinted } from '@/api/api';
+import { ListSuggestSearchFromVinted } from '../../api/api';
 import { useEffect, useState } from 'react';
 import CardSuggestionSearch from './CardSuggestionSearch';
 
