@@ -1,13 +1,14 @@
 import React from 'react';
 import {
   headerCategories,
-  Category,
+  typeCategory,
   typeSubCategory,
 } from '@/data/categoriesHeader';
 
 import { SubSubCategories } from './SubSubCategories';
-import { SubCategory } from './SubCategory';
-import { buildIconPath } from '@/utils/Utils';
+
+import { SubCategories } from './SubCategories';
+import { Category } from './Category';
 
 export const NavigationBarCategories: () => JSX.Element = () => {
   const NONE_CATEGORY: number = 0;
@@ -39,7 +40,7 @@ export const NavigationBarCategories: () => JSX.Element = () => {
 };
 
 const NavigationCategory: React.FC<{
-  category: Category;
+  category: typeCategory;
   selectedIdCategory: number;
   selectCategory: (id: number) => void;
 }> = ({ category, selectedIdCategory, selectCategory }) => {
@@ -56,20 +57,11 @@ const NavigationCategory: React.FC<{
   return (
     // Affichage d'une catégorie
     <div className="">
-      <button
-        key={category.id}
-        className={`p-1  hover:bg-vintedBackgrounf ${
-          selectedIdCategory === category.id
-            ? 'border-vintedGreen border-solid border-b-4'
-            : ''
-        }`}
-        onClick={(event) => {
-          event.preventDefault();
-          selectCategory(category.id);
-        }}
-      >
-        {category.title}
-      </button>
+      <Category
+        category={category}
+        selectedIdCategory={selectedIdCategory}
+        selectCategory={selectCategory}
+      />
       {/* Affichage des sous catégories si catégorie est sélectionné*/}
       {category.subCategories && category.id === selectedIdCategory ? (
         <NavigationSubCategories
@@ -89,18 +81,10 @@ const NavigationSubCategories: React.FC<{
 }> = ({ subCategories, selectedSubCategory, selectSubCategory }) => {
   return (
     <div className="flex flex-row shadow-xl rounded-sm bg-vintedBackgrounf space-x-4  pr-4  h-fit  ">
-      {/* Liste des sous-catégories */}
-      <div className="border-r-2  mt-2   ">
-        {subCategories.map((subCategory) => {
-          return (
-            <SubCategory
-              key={subCategory.title}
-              subCategory={subCategory}
-              selectSubCategory={selectSubCategory}
-            />
-          );
-        })}
-      </div>
+      <SubCategories
+        subCategories={subCategories}
+        selectSubCategory={selectSubCategory}
+      />
 
       {/* Liste des sous-sous catégories */}
       <SubSubCategories

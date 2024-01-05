@@ -1,4 +1,4 @@
-export type Category = {
+export type typeCategory = {
   id: number;
   title: string;
   subCategories?: typeSubCategory[];
@@ -20,7 +20,7 @@ export type typeSubCategory = {
 
 export type typeSubSubCategory = { title: string; link?: string };
 
-export const headerCategories: Category[] = [
+export const headerCategories: typeCategory[] = [
   {
     id: 1,
     title: 'Femmes',
