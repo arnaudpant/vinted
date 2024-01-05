@@ -25,7 +25,7 @@ export const headerCategories: Category[] = [
     subCategories: [
       {
         title: 'Vêtements',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'skirt',
         subsubCategories: [
           { title: 'Sweats et sweats à capuches' },
           { title: 'Robes' },
@@ -47,7 +47,7 @@ export const headerCategories: Category[] = [
       },
       {
         title: 'Chaussures',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'shoes_woman',
         subsubCategories: [
           { title: 'Mules et sabots' },
           { title: 'Sandales, claquettes et tongs' },
@@ -68,7 +68,7 @@ export const headerCategories: Category[] = [
     subCategories: [
       {
         title: 'Vêtements',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 't-shirt',
         subsubCategories: [
           { title: 'Manteaux et vestes' },
           { title: 'Costumes et blazers' },
@@ -86,7 +86,7 @@ export const headerCategories: Category[] = [
       },
       {
         title: 'Chaussures',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'manshoes',
         subsubCategories: [
           { title: 'Bottes' },
           { title: 'Sandales,claquettes et tongs' },
@@ -107,7 +107,7 @@ export const headerCategories: Category[] = [
     subCategories: [
       {
         title: 'Filles',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'skirt',
         subsubCategories: [
           { title: 'Chaussures' },
           { title: 'Pulls & sweats' },
@@ -132,7 +132,7 @@ export const headerCategories: Category[] = [
       },
       {
         title: 'Garçons',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'boy',
         subsubCategories: [
           { title: 'Chaussures' },
           { title: 'Pulls & sweats' },
@@ -161,7 +161,7 @@ export const headerCategories: Category[] = [
     subCategories: [
       {
         title: 'Textiles',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'tissue',
         subsubCategories: [
           { title: 'Couvertures' },
           { title: 'Coussins décoratifs' },
@@ -175,7 +175,7 @@ export const headerCategories: Category[] = [
       },
       {
         title: 'Décoration',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'vase',
         subsubCategories: [
           { title: 'Horloges' },
           { title: 'Encadrements' },
@@ -194,7 +194,7 @@ export const headerCategories: Category[] = [
     subCategories: [
       {
         title: 'Jeux vidéos et consoles',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'videogamecontroller',
         subsubCategories: [
           { title: 'Xbox One' },
           { title: 'Playstation 5' },
@@ -214,7 +214,7 @@ export const headerCategories: Category[] = [
       },
       {
         title: 'Jeux et puzzles',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'chess',
         subsubCategories: [
           { title: 'Jeux de placement ' },
           { title: 'Puzzles' },
@@ -234,7 +234,7 @@ export const headerCategories: Category[] = [
     subCategories: [
       {
         title: 'Chiens',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'dog',
         subsubCategories: [
           { title: 'Vêtements & accessoires' },
           { title: 'Colliers & laisses' },
@@ -248,7 +248,7 @@ export const headerCategories: Category[] = [
       },
       {
         title: 'Chats',
-        iconName: 'virus_sanitizer_personal_care_products_icon',
+        iconName: 'cat',
         subsubCategories: [
           { title: 'Jouets' },
           { title: 'Paniers' },

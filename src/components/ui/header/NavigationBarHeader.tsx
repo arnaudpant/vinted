@@ -4,7 +4,7 @@ import {
   Category,
   SubCategory,
 } from '@/data/categoriesHeader';
-import logoProduct from '@/assets/virus_sanitizer_personal_care_products_icon.png';
+import { buildIconPath } from '@/utils/Utils';
 
 export const NavigationBarCategories: () => JSX.Element = () => {
   const NONE_CATEGORY: number = 0;
@@ -16,7 +16,7 @@ export const NavigationBarCategories: () => JSX.Element = () => {
   };
 
   return (
-    <div className="relative z-30">
+    <div className="relative z-30 ">
       <nav className=" flex flex-nowrap space-x-4 ml-4 mt-4 mb-2 text-vintedTextGrisFonce">
         {/* Liste des catégories : Femmes Hommes Enfants etc... */}
 
@@ -54,7 +54,7 @@ const NavigationCategory: React.FC<{
     <div className="">
       <button
         key={category.id}
-        className={`p-2  hover:bg-vintedBackgrounf ${
+        className={`p-1  hover:bg-vintedBackgrounf ${
           selectedIdCategory === category.id
             ? 'border-vintedGreen border-solid border-b-4'
             : ''
@@ -84,19 +84,19 @@ const NavigationSubCategories: React.FC<{
   selectSubCategory: Function;
 }> = ({ subCategories, selectedSubCategory, selectSubCategory }) => {
   return (
-    <div className="flex flex-row  bg-vintedBackgrounf space-x-4  py-4 px-8 h-fit shadow-xl ">
+    <div className="flex flex-row shadow-xl bg-vintedBackgrounf space-x-4  py-4 px-8 h-fit  ">
       {/* Liste des sous-catégories */}
       <div className="border-r-2 ">
         {subCategories.map((subCategory) => {
           return (
             <div
-              className="flex items-center  hover:cursor-pointer pr-10 pb-2 my-2 space-x-4 hover:bg-vintedBackgroundCard mr-2"
+              className="flex items-center  hover:cursor-pointer pb-2 my-2 space-x-4 hover:bg-vintedBackgroundCard mr-2"
               key={subCategory.title}
             >
               <img
-                src={logoProduct}
+                src={buildIconPath(subCategory.iconName)}
                 alt="Icone"
-                className="object-contain h-8"
+                className="object-contain h-6"
               />
               <button
                 onClick={(event) => {

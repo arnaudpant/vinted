@@ -1,6 +1,6 @@
 import { Category, headerCategories } from '@/data/categoriesHeader';
 import React from 'react';
-import logoProduct from '@/assets/virus_sanitizer_personal_care_products_icon.png';
+import logoProduct from '@/virus.png';
 
 const MobileHomePageBurgerActive = () => {
   const ID_OUR_PLATEFORME = 8;
