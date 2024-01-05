@@ -10,7 +10,6 @@ import Catalog from './pages/Catalog';
 
 function App() {
   return (
-    <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,7 +24,6 @@ function App() {
           <Route path="/*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
-    </>
   );
 }
 
