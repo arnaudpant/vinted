@@ -1,6 +1,7 @@
 import { Category, headerCategories } from '@/data/categoriesHeader';
 import React from 'react';
 import logoProduct from '@/virus.png';
+import { buildIconPath } from '@/utils/Utils';
 
 const MobileHomePageBurgerActive = () => {
   const ID_OUR_PLATEFORME = 8;
@@ -28,14 +29,14 @@ const MobileHomePageBurgerActive = () => {
           )
           .map((category: Category) => {
             return (
-              <div className="flex flex-col">
+              <div key={category.id} className="flex flex-col">
                 <div className="flex flex-row  items-center space-x-3">
                   <img
-                    src={logoProduct}
+                    src={buildIconPath('boy')}
                     alt="logo catégorie produit"
                     className="h-8"
                   />
-                  <a href="">{category.title}</a>
+                  <button>{category.title}</button>
                 </div>
                 <hr className="my-4" />
               </div>

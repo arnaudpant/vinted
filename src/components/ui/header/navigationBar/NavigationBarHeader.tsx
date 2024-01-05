@@ -2,8 +2,11 @@ import React from 'react';
 import {
   headerCategories,
   Category,
-  SubCategory,
+  typeSubCategory,
 } from '@/data/categoriesHeader';
+
+import { SubSubCategories } from './SubSubCategories';
+import { SubCategory } from './SubCategory';
 import { buildIconPath } from '@/utils/Utils';
 
 export const NavigationBarCategories: () => JSX.Element = () => {
@@ -20,7 +23,7 @@ export const NavigationBarCategories: () => JSX.Element = () => {
       <nav className=" flex flex-nowrap space-x-4 ml-4 mt-4 mb-2 text-vintedTextGrisFonce">
         {/* Liste des catégories : Femmes Hommes Enfants etc... */}
 
-        {headerCategories.map((category, idCategory) => {
+        {headerCategories.map((category) => {
           return (
             <NavigationCategory
               category={category}
@@ -49,6 +52,7 @@ const NavigationCategory: React.FC<{
   const selectSubCategory: (title: string) => void = (title: string) => {
     setSelectedSubCategory(title);
   };
+
   return (
     // Affichage d'une catégorie
     <div className="">
@@ -66,7 +70,7 @@ const NavigationCategory: React.FC<{
       >
         {category.title}
       </button>
-      {/* Affichage des sous catégories */}
+      {/* Affichage des sous catégories si catégorie est sélectionné*/}
       {category.subCategories && category.id === selectedIdCategory ? (
         <NavigationSubCategories
           subCategories={category.subCategories}
@@ -79,52 +83,30 @@ const NavigationCategory: React.FC<{
 };
 
 const NavigationSubCategories: React.FC<{
-  subCategories: SubCategory[];
+  subCategories: typeSubCategory[];
   selectedSubCategory: string;
   selectSubCategory: Function;
 }> = ({ subCategories, selectedSubCategory, selectSubCategory }) => {
   return (
-    <div className="flex flex-row shadow-xl bg-vintedBackgrounf space-x-4  py-4 px-8 h-fit  ">
+    <div className="flex flex-row shadow-xl rounded-sm bg-vintedBackgrounf space-x-4  pr-4  h-fit  ">
       {/* Liste des sous-catégories */}
-      <div className="border-r-2 ">
+      <div className="border-r-2  mt-2   ">
         {subCategories.map((subCategory) => {
           return (
-            <div
-              className="flex items-center  hover:cursor-pointer pb-2 my-2 space-x-4 hover:bg-vintedBackgroundCard mr-2"
+            <SubCategory
               key={subCategory.title}
-            >
-              <img
-                src={buildIconPath(subCategory.iconName)}
-                alt="Icone"
-                className="object-contain h-6"
-              />
-              <button
-                onClick={(event) => {
-                  event.preventDefault();
-                  selectSubCategory(subCategory.title);
-                }}
-                className=" block  whitespace-nowrap "
-              >
-                {subCategory.title}
-              </button>
-            </div>
+              subCategory={subCategory}
+              selectSubCategory={selectSubCategory}
+            />
           );
         })}
       </div>
 
       {/* Liste des sous-sous catégories */}
-      <div className="grid grid-cols-2 gap-y-2 max-w-96 ">
-        {[...subCategories]
-          .filter((subCategory) => subCategory.title === selectedSubCategory)[0]
-          .subsubCategories.map((subsubCategory) => (
-            <button
-              key={subsubCategory.title}
-              className="whitespace-nowrap truncate px-4 py-2 hover:bg-vintedBackgroundCard hover:cursor-pointer"
-            >
-              {subsubCategory.title}
-            </button>
-          ))}
-      </div>
+      <SubSubCategories
+        subCategories={subCategories}
+        handleSelectCategory={selectedSubCategory}
+      />
     </div>
   );
 };

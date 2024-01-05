@@ -4,7 +4,7 @@ import menu from '@/assets/menu.svg';
 import closeButton from '@/assets/cross-close-button.png';
 import { useWindowWidth } from '@/hooks/useWindowSize';
 import { SCREENS_BREAKPOINT } from '@/utils/Utils';
-import { NavigationBarCategories } from './NavigationBarHeader';
+import { NavigationBarCategories } from './navigationBar/NavigationBarHeader';
 import { HeaderBarSearch } from './HeaderBarSearch';
 
 import { useMenuBurger } from '@/hooks/useBurgerMenu';
