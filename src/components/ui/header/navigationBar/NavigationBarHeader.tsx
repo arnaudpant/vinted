@@ -9,15 +9,10 @@ import { SubSubCategories } from './SubSubCategories';
 
 import { SubCategories } from './SubCategories';
 import { Category } from './Category';
+import { useCategories } from '@/hooks/useCategories';
 
 export const NavigationBarCategories: () => JSX.Element = () => {
-  const NONE_CATEGORY: number = 0;
-  const [selectedIdCategory, setSelectedIdCategory] =
-    React.useState(NONE_CATEGORY);
-
-  const selectCategory: (id: number) => void = (id) => {
-    setSelectedIdCategory(id);
-  };
+  const { NONE_CATEGORY, selectedIdCategory, selectCategory } = useCategories();
 
   return (
     <div className="relative z-30 ">
@@ -56,7 +51,7 @@ const NavigationCategory: React.FC<{
 
   return (
     // Affichage d'une catégorie
-    <div className="">
+    <div className="flex flex-col">
       <Category
         category={category}
         selectedIdCategory={selectedIdCategory}
