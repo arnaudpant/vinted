@@ -2,7 +2,7 @@ import logoHelp from '@/assets/icon-help.png';
 
 export const ActionsTopBar: () => JSX.Element = () => {
   return (
-    <div className="space-x-3 bg-gray-400">
+    <div className="space-x-3 ">
       <button
         id="connexion"
         className="border-2 border-vintedGreen rounded p-1 text-sm text-vintedGreen hover:bg-vintedBackgroundCard"

@@ -1,27 +1,25 @@
 export const HeaderBarSearch = () => {
   return (
-    <div>
-      <form
-        action=""
-        className="flex flex-grow-1 h-8 my-2 text-vintedTextGrisFonce bg-green-200 min-w-24  "
+    <form
+      action=""
+      className="flex my-2 flex-grow mx-3 h-8 text-vintedTextGrisFonce xl: flex xl:flex-grow-1 xl:max-w-[800px] "
+    >
+      <select
+        name="searchSelector"
+        id="searchSelector"
+        className="  rounded-l pl-1 bg-vintedBackgroundCard"
       >
-        <select
-          name="searchSelector"
-          id="searchSelector"
-          className="  w-fit rounded-g  pl-1 bg-vintedBackgroundCard"
-        >
-          <option value="articles">Articles</option>
-          <option value="members">Membres</option>
-          <option value="forum">Forum</option>
-          <option value="help">Centre d'aide</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Rechercher des articles"
-          className=" w pl-2  rounded-r  w-full bg-vintedBackgroundCard flex flex-grow-1 md:mr-1 md:flex md:flex-grow  "
-        />
-      </form>
-    </div>
+        <option value="articles">Articles</option>
+        <option value="members">Membres</option>
+        <option value="forum">Forum</option>
+        <option value="help">Centre d'aide</option>
+      </select>
+      <input
+        type="text"
+        placeholder="Rechercher des articles"
+        className=" pl-2 rounded-r w-full bg-vintedBackgroundCard  "
+      />
+    </form>
   );
 };
 

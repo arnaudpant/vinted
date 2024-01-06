@@ -19,9 +19,10 @@ export const TopHeader: () => JSX.Element = () => {
       <BurgerMenuLogo />
     </div>
   ) : (
-    <div className="flex flex-row flex-nowrap justify-around w-full items-center mr-4 bg-red-100">
+    <div className="flex flex-row flex-nowrap justify-around w-full items-center mr-4 ">
       <VintedLogo />
       <HeaderBarSearch />
+
       <ActionsTopBar />
     </div>
   );
