@@ -4,7 +4,7 @@ import menu from '@/assets/menu.svg';
 import closeButton from '@/assets/cross-close-button.png';
 import { useWindowWidth } from '@/hooks/useWindowSize';
 import { SCREENS_BREAKPOINT } from '@/utils/Utils';
-import { NavigationBarCategories } from './navigationBar/NavigationBarHeader';
+import { Categories } from './navigationBar/Categories';
 import { HeaderBarSearch } from './HeaderBarSearch';
 
 import { useMenuBurger } from '@/hooks/useBurgerMenu';
@@ -19,7 +19,7 @@ export const TopHeader: () => JSX.Element = () => {
       <BurgerMenuLogo />
     </div>
   ) : (
-    <div className="flex flex-row flex-nowrap justify-around items-center mr-4">
+    <div className="flex flex-row flex-nowrap justify-around w-full items-center mr-4 bg-red-100">
       <VintedLogo />
       <HeaderBarSearch />
       <ActionsTopBar />

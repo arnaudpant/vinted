@@ -1,7 +1,7 @@
-export type typeCategory = {
+export type TypeCategory = {
   id: number;
   title: string;
-  subCategories?: typeSubCategory[];
+  subCategories?: TypeSubCategory[];
   navigation?: NavigationVintedPages[];
 };
 
@@ -10,17 +10,17 @@ export type NavigationVintedPages = {
   navigationTitles: { description: string; path?: string }[];
 };
 
-export type typeSubCategory = {
+export type TypeSubCategory = {
   title: string;
   iconName?: string;
   // Utile pour le "Voir tout"
   navLink?: string;
-  subsubCategories: typeSubSubCategory[];
+  subsubCategories: TypeSubSubCategory[];
 };
 
-export type typeSubSubCategory = { title: string; link?: string };
+export type TypeSubSubCategory = { title: string; link?: string };
 
-export const headerCategories: typeCategory[] = [
+export const headerCategories: TypeCategory[] = [
   {
     id: 1,
     title: 'Femmes',

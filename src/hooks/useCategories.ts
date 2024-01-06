@@ -9,5 +9,5 @@ export const useCategories = () => {
     setSelectedIdCategory(id);
   };
 
-  return { NONE_CATEGORY, selectedIdCategory, selectCategory };
+  return { selectedIdCategory, selectCategory };
 };

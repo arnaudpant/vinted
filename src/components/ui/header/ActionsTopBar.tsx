@@ -2,7 +2,7 @@ import logoHelp from '@/assets/icon-help.png';
 
 export const ActionsTopBar: () => JSX.Element = () => {
   return (
-    <div className="space-x-3">
+    <div className="space-x-3 bg-gray-400">
       <button
         id="connexion"
         className="border-2 border-vintedGreen rounded p-1 text-sm text-vintedGreen hover:bg-vintedBackgroundCard"
@@ -24,11 +24,10 @@ export const ActionsTopBar: () => JSX.Element = () => {
         name="language"
         id="langage"
         className=" w-12 relative origin-top-left  hover:cursor-pointer"
+        defaultValue={'FR'}
       >
         {/* Modifier les options pour quelles apparaissent comme sur le site vinted */}
-        <option value="fr" selected>
-          FR
-        </option>
+        <option value="fr">FR</option>
         <option value="en">English (English)</option>
         <option value="es">Espagnol (Spanish)</option>
         <option value="ne">Nederlands (Dutch)</option>

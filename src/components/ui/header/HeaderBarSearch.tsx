@@ -1,17 +1,14 @@
-import React from 'react';
-import logoVinted from '../assets/logoVinted.svg';
-
 export const HeaderBarSearch = () => {
   return (
     <div>
       <form
         action=""
-        className="flex w-full mx-4 my-2 text-vintedTextGrisFonce  "
+        className="flex flex-grow-1 h-8 my-2 text-vintedTextGrisFonce bg-green-200 min-w-24  "
       >
         <select
           name="searchSelector"
           id="searchSelector"
-          className=" h-8 w-fit rounded-g  pl-1 bg-vintedBackgroundCard"
+          className="  w-fit rounded-g  pl-1 bg-vintedBackgroundCard"
         >
           <option value="articles">Articles</option>
           <option value="members">Membres</option>
@@ -21,7 +18,7 @@ export const HeaderBarSearch = () => {
         <input
           type="text"
           placeholder="Rechercher des articles"
-          className="h-8 w px-2  rounded-r flex flex-grow mr-6 w-full bg-vintedBackgroundCard  md:mr-1 md:flex flex-grow  "
+          className=" w pl-2  rounded-r  w-full bg-vintedBackgroundCard flex flex-grow-1 md:mr-1 md:flex md:flex-grow  "
         />
       </form>
     </div>

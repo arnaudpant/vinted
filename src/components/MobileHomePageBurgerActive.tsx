@@ -1,4 +1,4 @@
-import { typeCategory, headerCategories } from '@/data/categoriesHeader';
+import { TypeCategory, headerCategories } from '@/data/categoriesHeader';
 import React from 'react';
 import logoProduct from '@/virus.png';
 import { buildIconPath } from '@/utils/Utils';
@@ -27,7 +27,7 @@ const MobileHomePageBurgerActive = () => {
             (category) =>
               category.id !== ID_OUR_PLATEFORME && category.id !== ID_ABOUT,
           )
-          .map((category: typeCategory) => {
+          .map((category: TypeCategory) => {
             return (
               <div key={category.id} className="flex flex-col">
                 <div className="flex flex-row  items-center space-x-3">
@@ -46,7 +46,7 @@ const MobileHomePageBurgerActive = () => {
       <section id="navigation">
         {[...headerCategories]
           .filter((category) => category.id === ID_ABOUT)
-          .map((category: typeCategory) => category.navigation)
+          .map((category: TypeCategory) => category.navigation)
           .flat()
           .map((navigation) => {
             return (

@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { SubCategory } from './SubCategory';
-import { typeSubCategory } from '@/data/categoriesHeader';
+import { TypeCategory, TypeSubCategory } from '@/data/categoriesHeader';
 
 export const SubCategories: React.FC<{
-  subCategories: typeSubCategory[];
-  selectSubCategory: Function;
-}> = ({ subCategories, selectSubCategory }) => {
+  subCategories: TypeSubCategory[];
+  offsetSelectedCategory: number;
+}> = ({ subCategories, offsetSelectedCategory }) => {
+  const DEFAULT_SUB_CATEGORY_SELECTED = subCategories[0].title;
+  const [selectSubCategoryTitle, setSelectSubCategoryTitle] = React.useState(
+    DEFAULT_SUB_CATEGORY_SELECTED,
+  );
+
   return (
-    <div className="border-r-2  mt-2  ">
-      {subCategories.map((subCategory) => {
+    <div
+      className="border-r-2 bg-vintedBackgrounf mt-2  w-fit relative"
+      style={{ left: `${offsetSelectedCategory}px` }}
+    >
+      {subCategories?.map((subCategory) => {
         return (
           <SubCategory
             key={subCategory.title}
             subCategory={subCategory}
-            selectSubCategory={selectSubCategory}
+            selectSubCategoryTitle={selectSubCategoryTitle}
+            setSelectSubCategoryTitle={setSelectSubCategoryTitle}
           />
         );
       })}
