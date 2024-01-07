@@ -1,38 +1,51 @@
 import { ListSuggestSearchFromVinted } from '../../api/api';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardSuggestionSearch from './CardSuggestionSearch';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
-const SuggestionSearch = () => {
+const SuggestionSearch: React.FC = () => {
   const [scrollCards, setScrollCard] = useState<'left' | 'right' | 'both'>('right');
   const [scrollValue, setScrollValue] = useState<number>(0);
   const divToScroll = document.getElementById('showScroll');
+  const divSup = document.getElementById('divSup');
 
-  console.log('render')
+  
+  const [products, setProducts] = useState<
+  typeof ListSuggestSearchFromVinted | []
+  >([]);
+  
+  useEffect(() => {
+    setProducts(ListSuggestSearchFromVinted);
+  }, []);
+  
+  
   divToScroll?.addEventListener('scroll', () => {
     setScrollValue(divToScroll?.scrollLeft);
   });
 
-  const [products, setProducts] = useState<
-    typeof ListSuggestSearchFromVinted | []
-  >([]);
+
 
   useEffect(() => {
-    setProducts(ListSuggestSearchFromVinted);
-  }, []);
+    // Calcul de la taille max du scroll en fonction de la taille de l'ecran
+    const clientWidth = divSup?.clientWidth;
+    let tailleScroll = 1280
+    if (clientWidth) {
+      tailleScroll = 1280 - clientWidth;
+    }
 
-  useEffect(() => {
-    if(scrollValue < 5) {
+    if(scrollValue === 0) {
       setScrollCard('left');
     }
-    if (scrollValue >= 5 && scrollValue < 100) {
-      setScrollCard('both');
-    }
-    if (scrollValue >= 100) {
+    else if (scrollValue === tailleScroll) {
       setScrollCard('right');
+    } 
+    else {
+      setScrollCard('both');
     }
   }, [scrollValue]);
 
+  
+  // LOGIQUE AU CLIC SU BTN
   const handleClicRight = () => {
     divToScroll?.scrollTo({
       left: 1400,
@@ -45,12 +58,13 @@ const SuggestionSearch = () => {
       behavior: 'smooth',
     });
   };
-
+  
+  console.log('render')
   return (
     //TODO: Supprimer container a l'integration
     <div className="container mx-auto py-12 max-w-[1240px]">
       <h2 className="text-2xl pb-4">Suggestions de recherche</h2>
-      <div className="relative h-[75px] overflow-hidden">
+      <div className="relative h-[75px] overflow-hidden" id="divSup">
         <div
           className="flex h-[90px] overflow-x-auto overflow-y-hidden"
           id="showScroll"
