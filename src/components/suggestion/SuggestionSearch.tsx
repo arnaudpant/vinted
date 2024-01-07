@@ -81,7 +81,7 @@ const SuggestionSearch: React.FC = () => {
                 className="absolute top-5 right-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
                 onClick={handleClicRight}
               >
-                <ChevronRight className="text-vintedBackgrounf" />
+                <ChevronRight className="text-vintedBackground" />
               </div>
             ))}
 
@@ -91,7 +91,7 @@ const SuggestionSearch: React.FC = () => {
                 className="absolute top-5 left-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
                 onClick={handleClicLeft}
               >
-                <ChevronLeft className="text-vintedBackgrounf" />
+                <ChevronLeft className="text-vintedBackground" />
               </div>
             ))}
         </div>
