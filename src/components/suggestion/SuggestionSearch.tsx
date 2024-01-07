@@ -4,9 +4,14 @@ import CardSuggestionSearch from './CardSuggestionSearch';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 const SuggestionSearch = () => {
-  const [scrollCards, setScrollCard] = useState<'left' | 'right'>('right');
+  const [scrollCards, setScrollCard] = useState<'left' | 'right' | 'both'>('right');
+  const [scrollValue, setScrollValue] = useState<number>(0);
   const divToScroll = document.getElementById('showScroll');
 
+  console.log('render')
+  divToScroll?.addEventListener('scroll', () => {
+    setScrollValue(divToScroll?.scrollLeft);
+  });
 
   const [products, setProducts] = useState<
     typeof ListSuggestSearchFromVinted | []
@@ -16,20 +21,29 @@ const SuggestionSearch = () => {
     setProducts(ListSuggestSearchFromVinted);
   }, []);
 
+  useEffect(() => {
+    if(scrollValue < 5) {
+      setScrollCard('left');
+    }
+    if (scrollValue >= 5 && scrollValue < 100) {
+      setScrollCard('both');
+    }
+    if (scrollValue >= 100) {
+      setScrollCard('right');
+    }
+  }, [scrollValue]);
 
   const handleClicRight = () => {
     divToScroll?.scrollTo({
       left: 1400,
       behavior: 'smooth',
     });
-    setScrollCard('left');
   };
   const handleClicLeft = () => {
     divToScroll?.scrollTo({
       left: 0,
       behavior: 'smooth',
     });
-    setScrollCard('right');
   };
 
   return (
@@ -46,22 +60,26 @@ const SuggestionSearch = () => {
               <CardSuggestionSearch key={product.marque} product={product} />
             ))}
           </div>
-          {scrollCards === 'right' && (
-            <div
-              className="absolute top-5 right-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
-              onClick={handleClicRight}
-            >
-              <ChevronRight className="text-vintedBackgrounf" />
-            </div>
-          )}
-          {scrollCards === 'left' && (
-            <div
-              className="absolute top-5 left-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
-              onClick={handleClicLeft}
-            >
-              <ChevronLeft className="text-vintedBackgrounf" />
-            </div>
-          )}
+
+          {scrollCards === 'right' ||
+            ('both' && (
+              <div
+                className="absolute top-5 right-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
+                onClick={handleClicRight}
+              >
+                <ChevronRight className="text-vintedBackgrounf" />
+              </div>
+            ))}
+
+          {scrollCards === 'left' ||
+            ('both' && (
+              <div
+                className="absolute top-5 left-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
+                onClick={handleClicLeft}
+              >
+                <ChevronLeft className="text-vintedBackgrounf" />
+              </div>
+            ))}
         </div>
       </div>
     </div>
