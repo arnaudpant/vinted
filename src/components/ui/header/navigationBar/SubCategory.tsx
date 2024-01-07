@@ -9,10 +9,10 @@ export const SubCategory: React.FC<{
   setSelectSubCategoryTitle: Function;
 }> = ({ subCategory, selectSubCategoryTitle, setSelectSubCategoryTitle }) => {
   return (
-    <div className="flex  ">
+    <div className=" ">
       <div
         key={subCategory.title}
-        className="flex items-center pl-6 pr-16 py-2 space-x-4  hover:cursor-pointer    hover:bg-vintedBackgroundCard "
+        className="flex  flex-row items-center pl-6 pr-16 py-2 space-x-4  hover:cursor-pointer    hover:bg-vintedBackgroundCard "
       >
         <img
           src={buildIconPath(subCategory.iconName)}

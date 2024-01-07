@@ -1,6 +1,6 @@
 export const CallToAction = () => {
   return (
-    <div className="flex flex-col w-11/12 bg-white items-center justify-evenly my-2 mx-2 h-32  sm:bg-white  sm:items-start sm:h-64 sm:w-80 sm:absolute sm:inset-0 sm:ml-4 sm:mt-16">
+    <div className="flex flex-col w-11/12 bg-white items-center justify-evenly my-2 mx-2 h-32  sm:bg-white  sm:items-start sm:h-64 sm:w-80 sm:absolute sm:inset-0 sm:ml-24 sm:mt-16">
       <h1 className="text-2xl text-vintedTextBlack sm:flex sm:justify-start sm:w-2/3 sm:pl-3">
         Prêt à faire <br className="hidden sm:block" /> du tri dans vos{' '}
         <br className="hidden sm:block" /> placards ?

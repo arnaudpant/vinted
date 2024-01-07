@@ -5,18 +5,21 @@ import { SubCategories } from './SubCategories';
 import React, { useEffect, useRef } from 'react';
 
 export const Categories: () => JSX.Element = () => {
-  const { selectedIdCategory, selectCategory } = useCategories();
+  const {
+    selectedIdCategory,
+    selectCategory,
+    NONE_CATEGORY,
+    displayOnScreenPopCategories,
+    setDisplayOnScreenPopCategories,
+    offsetSelectedCategory,
+    setOffsetSelectedCategory,
+    activeCategory,
+  } = useCategories();
+  const navBarRef = useRef();
 
   const refCategories = useRef();
-  const [offsetSelectedCategory, setOffsetSelectedCategory] = React.useState(0);
 
-  const activeCategory = headerCategories.find(
-    (category: TypeCategory) =>
-      category.subCategories && category.id === selectedIdCategory,
-  );
-
-  //Permet de connaitre la poisitin left de la div dans Category. Concerne la catégorie sélectionné par l'utilisateur
-  useEffect(() => {
+  const getLeftOffsetCurrentCategorySelected = (): void => {
     const categoryElementDIV: HTMLDivElement | null =
       refCategories?.current?.querySelector(`#category-${selectedIdCategory}`);
     if (categoryElementDIV) {
@@ -25,10 +28,31 @@ export const Categories: () => JSX.Element = () => {
       const leftOffset = divPosition.left;
       setOffsetSelectedCategory(Math.floor(leftOffset));
     }
-  }, [selectedIdCategory]);
+  };
+
+  const isNavBarClicked = (): void => {
+    document.addEventListener('click', (event) => {
+      const elementClicked = event.target;
+      if (!navBarRef?.current?.contains(elementClicked)) {
+        setDisplayOnScreenPopCategories(false);
+      } else {
+        setDisplayOnScreenPopCategories(true);
+      }
+    });
+  };
+
+  //Permet de connaitre la poisitin left de la div dans Category. Concerne la catégorie sélectionné par l'utilisateur
+  useEffect(
+    () => getLeftOffsetCurrentCategorySelected(),
+
+    [selectedIdCategory],
+  );
+
+  // Permet de fermer les sous-catégories losque l'utilisateur clique hors de la navBar
+  useEffect(() => isNavBarClicked(), []);
 
   return (
-    <div className="relative z-30">
+    <div className="relative z-30" ref={navBarRef}>
       <nav
         ref={refCategories}
         className=" flex flex-row space-x-4 ml-32 mt-4 mb-2 text-vintedTextGrisFonce"
@@ -48,7 +72,7 @@ export const Categories: () => JSX.Element = () => {
       </nav>
 
       {/* Affichage des sous-catégories uniquement lorsque la catégorie est cliquée */}
-      {activeCategory?.subCategories ? (
+      {displayOnScreenPopCategories && activeCategory?.subCategories ? (
         <SubCategories
           offsetSelectedCategory={offsetSelectedCategory}
           subCategories={activeCategory.subCategories}

@@ -11,9 +11,12 @@ export const SubCategories: React.FC<{
     DEFAULT_SUB_CATEGORY_SELECTED,
   );
 
+  document.addEventListener('click', (event: MouseEvent) =>
+    console.log('event', event.target),
+  );
   return (
     <div
-      className="border-r-2 bg-vintedBackgrounf mt-2  w-fit relative"
+      className=" flex flex-col bg-vintedBackgrounf mt-2  w-fit relative"
       style={{ left: `${offsetSelectedCategory}px` }}
     >
       {subCategories?.map((subCategory) => {

@@ -1,3 +1,4 @@
+import { TypeCategory, headerCategories } from '@/data/categoriesHeader';
 import React from 'react';
 
 export const useCategories = () => {
@@ -9,5 +10,25 @@ export const useCategories = () => {
     setSelectedIdCategory(id);
   };
 
-  return { selectedIdCategory, selectCategory };
+  const INITIAL_OFFSET_LEFT = 0;
+  const [offsetSelectedCategory, setOffsetSelectedCategory] =
+    React.useState(INITIAL_OFFSET_LEFT);
+
+  const [displayOnScreenPopCategories, setDisplayOnScreenPopCategories] =
+    React.useState(false);
+
+  const activeCategory = headerCategories.find(
+    (category: TypeCategory) =>
+      category.subCategories && category.id === selectedIdCategory,
+  );
+  return {
+    selectedIdCategory,
+    selectCategory,
+    NONE_CATEGORY,
+    displayOnScreenPopCategories,
+    setDisplayOnScreenPopCategories,
+    offsetSelectedCategory,
+    setOffsetSelectedCategory,
+    activeCategory,
+  };
 };

@@ -2,7 +2,7 @@ export const HeaderBarSearch = () => {
   return (
     <form
       action=""
-      className="flex my-2 flex-grow mx-3 h-8 text-vintedTextGrisFonce xl: flex xl:flex-grow-1 xl:max-w-[800px] "
+      className="flex my-2 flex-grow mx-3 h-8  text-vintedTextGrisFonce xl: flex xl:flex-grow-1 xl:max-w-[800px] "
     >
       <select
         name="searchSelector"
