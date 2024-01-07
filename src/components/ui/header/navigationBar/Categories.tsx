@@ -55,13 +55,14 @@ export const Categories: () => JSX.Element = () => {
     <div className="relative z-30" ref={navBarRef}>
       <nav
         ref={refCategories}
-        className=" flex flex-row space-x-4 ml-32 mt-4 mb-2 text-vintedTextGrisFonce"
+        className=" flex flex-row space-x-4  ml-32 mt-2 mb-2 text-vintedTextGrisFonce "
       >
         {/* Liste des catégories : Femmes Hommes Enfants etc... */}
 
         {headerCategories.map((category) => {
           return (
             <Category
+              displayOnScreenPopCategories={displayOnScreenPopCategories}
               category={category}
               key={category.id}
               selectedIdCategory={selectedIdCategory}

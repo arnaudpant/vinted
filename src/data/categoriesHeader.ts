@@ -11,6 +11,7 @@ export type NavigationVintedPages = {
 };
 
 export type TypeSubCategory = {
+  id:number,
   title: string;
   iconName?: string;
   // Utile pour le "Voir tout"
@@ -25,7 +26,7 @@ export const headerCategories: TypeCategory[] = [
     id: 1,
     title: 'Femmes',
     subCategories: [
-      {
+      {id:1,
         title: 'Vêtements',
         iconName: 'skirt',
         subsubCategories: [
@@ -47,7 +48,7 @@ export const headerCategories: TypeCategory[] = [
           { title: 'Costumes et tenues particulières' },
         ],
       },
-      {
+      {id:2,
         title: 'Chaussures',
         iconName: 'shoes_woman',
         subsubCategories: [
@@ -68,7 +69,7 @@ export const headerCategories: TypeCategory[] = [
     title: 'Hommes',
 
     subCategories: [
-      {
+      {id:1,
         title: 'Vêtements',
         iconName: 't-shirt',
         subsubCategories: [
@@ -87,6 +88,7 @@ export const headerCategories: TypeCategory[] = [
         ],
       },
       {
+        id:2,
         title: 'Chaussures',
         iconName: 'manshoes',
         subsubCategories: [
@@ -107,7 +109,7 @@ export const headerCategories: TypeCategory[] = [
     id: 3,
     title: 'Enfants',
     subCategories: [
-      {
+      {id:1,
         title: 'Filles',
         iconName: 'skirt',
         subsubCategories: [
@@ -132,7 +134,7 @@ export const headerCategories: TypeCategory[] = [
           { title: 'Autres' },
         ],
       },
-      {
+      {id:3,
         title: 'Garçons',
         iconName: 'boy',
         subsubCategories: [
@@ -161,7 +163,7 @@ export const headerCategories: TypeCategory[] = [
     id: 4,
     title: 'Maison',
     subCategories: [
-      {
+      {id:1,
         title: 'Textiles',
         iconName: 'tissue',
         subsubCategories: [
@@ -176,6 +178,7 @@ export const headerCategories: TypeCategory[] = [
         ],
       },
       {
+        id:2,
         title: 'Décoration',
         iconName: 'vase',
         subsubCategories: [
@@ -194,7 +197,7 @@ export const headerCategories: TypeCategory[] = [
     id: 5,
     title: 'Divertissement',
     subCategories: [
-      {
+      {id:1,
         title: 'Jeux vidéos et consoles',
         iconName: 'videogamecontroller',
         subsubCategories: [
@@ -214,7 +217,7 @@ export const headerCategories: TypeCategory[] = [
           { title: 'Rétrogaming' },
         ],
       },
-      {
+      {id:2,
         title: 'Jeux et puzzles',
         iconName: 'chess',
         subsubCategories: [
@@ -234,7 +237,7 @@ export const headerCategories: TypeCategory[] = [
     id: 6,
     title: 'Animaux',
     subCategories: [
-      {
+      {id:1,
         title: 'Chiens',
         iconName: 'dog',
         subsubCategories: [
@@ -249,6 +252,7 @@ export const headerCategories: TypeCategory[] = [
         ],
       },
       {
+        id:2,
         title: 'Chats',
         iconName: 'cat',
         subsubCategories: [

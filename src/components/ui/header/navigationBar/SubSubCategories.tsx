@@ -5,7 +5,7 @@ export const SubSubCategories: React.FC<{
   subSubCategories: TypeSubSubCategory[];
 }> = ({ subSubCategories }) => {
   return (
-    <div className=" gap-y-2 max-w-96  ">
+    <div className="grid grid-cols-2  gap-y-2 gap-x-4   ">
       {subSubCategories.map((subsubCategory) => {
         return (
           <SubsubCategory
