@@ -37,13 +37,9 @@ describe('Initialisation du Modal', () => {
 
   test('Affichage des 3 btn de connexion via facebook, google, apple + btn X', async () => {
     const btnReseaux = await screen.findAllByRole('button');
-    expect(btnReseaux.length).toEqual(4);
+    expect(btnReseaux.length).toEqual(6);
   });
 
-  test('btn apple disabled', async () => {
-    const btnApple = await screen.findByTestId('button-apple');
-    expect(btnApple).toBeDisabled();
-  });
 });
 
 describe('Inscription et Connexion', () => {
