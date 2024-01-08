@@ -27,7 +27,7 @@ const ProductCard = ({
   }, [products]);
 
   return (
-    <>
+    <div className=''>
       <div className="flex justify-between w-full">
         <h1 className="h1">{title}</h1>
         <p className="toutVoir">Tout voir</p>
@@ -56,7 +56,7 @@ const ProductCard = ({
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
