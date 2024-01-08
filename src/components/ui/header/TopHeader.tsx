@@ -29,7 +29,7 @@ export const TopHeader: () => JSX.Element = () => {
 };
 
 const VintedLogo: () => JSX.Element = () => {
-  return <img src={logo} alt="logo Vinted" className="ml-4" />;
+  return <img src={logo} alt="logo Vinted" className="ml-4 cursor-pointer" />;
 };
 
 const BurgerMenuLogo: () => JSX.Element = () => {
@@ -39,7 +39,7 @@ const BurgerMenuLogo: () => JSX.Element = () => {
       <img
         src={isMenuBurgerActive ? menu : closeButton}
         alt="menu"
-        className="w-7 mr-4 cursor-pointer md:hidden"
+        className="w-7 mr-4 cursor-pointer  md:hidden"
       />
     </button>
   );

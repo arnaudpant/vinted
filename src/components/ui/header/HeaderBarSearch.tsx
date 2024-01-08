@@ -7,7 +7,7 @@ export const HeaderBarSearch = () => {
       <select
         name="searchSelector"
         id="searchSelector"
-        className="  rounded-l pl-1 bg-vintedBackgroundCard"
+        className="  rounded-l pl-1 bg-vintedBackgroundCard cursor-pointer"
       >
         <option value="articles">Articles</option>
         <option value="members">Membres</option>

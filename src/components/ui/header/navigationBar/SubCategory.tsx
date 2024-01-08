@@ -7,8 +7,17 @@ export const SubCategory: React.FC<{
 
   setSelectedSubCategoryId: Function;
 }> = ({ subCategory, setSelectedSubCategoryId }) => {
+  const SEE_ALL_CATEGORY = 0;
+  const OTHER_CATEGORIES = 99;
   const handleSelectCategory = () => {
-    setSelectedSubCategoryId(subCategory.id);
+    if (
+      subCategory.id === SEE_ALL_CATEGORY ||
+      subCategory.id === OTHER_CATEGORIES
+    ) {
+      setSelectedSubCategoryId(1);
+    } else {
+      setSelectedSubCategoryId(subCategory.id);
+    }
   };
   return (
     <button

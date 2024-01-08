@@ -18,8 +18,7 @@ export const useCategories = () => {
     React.useState(false);
 
   const activeCategory = headerCategories.find(
-    (category: TypeCategory) =>
-      category.subCategories && category.id === selectedIdCategory,
+    (category: TypeCategory) => category.id === selectedIdCategory,
   );
   return {
     selectedIdCategory,

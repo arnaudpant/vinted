@@ -1,8 +1,15 @@
-import { headerCategories, TypeCategory } from '@/data/categoriesHeader';
+import {
+  headerCategories,
+  TypeCategory,
+  TypeSubCategory,
+  NavigationVintedPages,
+} from '@/data/categoriesHeader';
 import { Category } from './Category';
 import { useCategories } from '@/hooks/useCategories';
 import { SubCategories } from './SubCategories';
 import React, { useEffect, useRef } from 'react';
+import { act } from 'react-dom/test-utils';
+import { AboutCategories } from './AboutCategories';
 
 export const Categories: () => JSX.Element = () => {
   const {
@@ -52,10 +59,10 @@ export const Categories: () => JSX.Element = () => {
   useEffect(() => isNavBarClicked(), []);
 
   return (
-    <div className="relative z-30" ref={navBarRef}>
+    <div className="max-h-16" ref={navBarRef}>
       <nav
         ref={refCategories}
-        className=" flex flex-row space-x-4  ml-32 mt-2 mb-2 text-vintedTextGrisFonce "
+        className=" flex flex-row items-center space-x-4  ml-32  py-4 text-vintedTextGrisFonce "
       >
         {/* Liste des catégories : Femmes Hommes Enfants etc... */}
 
@@ -73,11 +80,19 @@ export const Categories: () => JSX.Element = () => {
       </nav>
 
       {/* Affichage des sous-catégories uniquement lorsque la catégorie est cliquée */}
+
       {displayOnScreenPopCategories && activeCategory?.subCategories ? (
         <SubCategories
           offsetSelectedCategory={offsetSelectedCategory}
           subCategories={activeCategory.subCategories}
           key={activeCategory.id}
+        />
+      ) : null}
+
+      {displayOnScreenPopCategories && activeCategory?.navigation ? (
+        <AboutCategories
+          navigation={activeCategory.navigation}
+          offsetSelectedCategory={offsetSelectedCategory}
         />
       ) : null}
     </div>

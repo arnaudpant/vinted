@@ -16,9 +16,9 @@ export const Category: React.FC<{
     <div className="" id={`category-${category.id}`}>
       <button
         key={category.id}
-        className={`p-1 inline hover:bg-vintedBackgrounf ${
+        className={` whitespace-nowrap hover:bg-vintedBackgrounf ${
           selectedIdCategory === category.id && displayOnScreenPopCategories
-            ? 'border-vintedGreen border-solid border-b-4'
+            ? 'border-vintedGreen border-solid border-b-4 '
             : ''
         }`}
         onClick={(event) => {

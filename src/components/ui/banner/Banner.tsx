@@ -26,7 +26,7 @@ const Banner = () => {
   const bannerImage: string = pickBannerImage(widthWindow);
 
   return (
-    <div className=" absolute top-28 z-0 w-full">
+    <div className=" relative z-[-10] w-full mt-28">
       <section
         id="banner"
         className="flex flex-col items-center justify-center sm:flex sm:flex-row-reverse sm:relative sm:z-10  "
