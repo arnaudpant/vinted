@@ -16,7 +16,7 @@ export const SubCategories: React.FC<{
   );
 
   return (
-    <div className="relative z-10 w-fit bg-slate-300">
+    <div className="relative z-10 w-fit ">
       <div
         className=" flex flex-row bg-vintedBackgrounf w-fit max-w-[350] relative rounded-md"
         style={{ left: `${offsetSelectedCategory}px` }}
