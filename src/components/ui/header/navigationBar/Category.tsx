@@ -16,7 +16,7 @@ export const Category: React.FC<{
     <div className="" id={`category-${category.id}`}>
       <button
         key={category.id}
-        className={` whitespace-nowrap hover:bg-vintedBackgrounf ${
+        className={` whitespace-nowrap hover:bg-vintedBackground ${
           selectedIdCategory === category.id && displayOnScreenPopCategories
             ? 'border-vintedGreen border-solid border-b-4 '
             : ''

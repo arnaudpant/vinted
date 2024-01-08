@@ -8,7 +8,7 @@ export const AboutCategories: React.FC<{
 }> = ({ navigation, offsetSelectedCategory }) => {
   return (
     <div
-      className="grid grid-flow-col grid-rows-2 grid-cols-3 space-y-4 bg-vintedBackgrounf w-fit px-4 py-6 rounded-md"
+      className="grid grid-flow-col grid-rows-2 grid-cols-3 space-y-4 bg-vintedBackground w-fit px-4 py-6 rounded-md"
       style={{ position: 'relative', left: offsetSelectedCategory }}
     >
       {navigation.map((navigationVintedPages) => {

@@ -18,7 +18,7 @@ export const SubCategories: React.FC<{
   return (
     <div className="relative z-10 w-fit ">
       <div
-        className=" flex flex-row bg-vintedBackgrounf w-fit max-w-[350] relative rounded-md"
+        className=" flex flex-row bg-vintedBackground w-fit max-w-[350] relative rounded-md"
         style={{ left: `${offsetSelectedCategory}px` }}
       >
         <div className=" flex flex-col border-r-2 w-fit  truncate">
