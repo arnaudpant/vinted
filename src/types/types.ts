@@ -1,3 +1,5 @@
+import { Timestamp } from 'firebase/firestore';
+
 export type ProductFakeApi = {
     category: string,
     description: string,
@@ -12,10 +14,9 @@ export type ProductFakeApi = {
 }
 
 export type SuggestSearchList = {
-    marque: string,
-    vues: number
+    brand: string,
+    views: number
 }
-import { Timestamp } from 'firebase/firestore';
 // Données primaires de Firebase
 export interface UserInterface {
   // Données primaires
