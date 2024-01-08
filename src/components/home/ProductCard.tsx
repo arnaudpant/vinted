@@ -1,25 +1,30 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-const ProductCard = ({title,products}:{title:string,products:Product[]}) => {
+const ProductCard = ({
+  title,
+  products,
+}: {
+  title: string;
+  products: Product[];
+}) => {
+  const productListRef = useRef<HTMLDivElement>(null);
+  const [productListHeight, setProductListHeight] = useState(0);
 
-    const productListRef = useRef<HTMLDivElement>(null);
-    const [productListHeight, setProductListHeight] = useState(0);
-  
-    useEffect(() => {
-      const updateProductListHeight = () => {
-        if (productListRef.current) {
-          setProductListHeight(productListRef.current.clientHeight);
-          console.log(productListRef.current.clientHeight);
-        }
-      };
-  
-      updateProductListHeight();
-      window.addEventListener('resize', updateProductListHeight);
-  
-      return () => {
-        window.removeEventListener('resize', updateProductListHeight);
-      };
-    }, [products]);
+  useEffect(() => {
+    const updateProductListHeight = () => {
+      if (productListRef.current) {
+        setProductListHeight(productListRef.current.clientHeight);
+        console.log(productListRef.current.clientHeight);
+      }
+    };
+
+    updateProductListHeight();
+    window.addEventListener('resize', updateProductListHeight);
+
+    return () => {
+      window.removeEventListener('resize', updateProductListHeight);
+    };
+  }, [products]);
 
   return (
     <>
@@ -27,7 +32,7 @@ const ProductCard = ({title,products}:{title:string,products:Product[]}) => {
         <h1 className="h1">{title}</h1>
         <p className="toutVoir">Tout voir</p>
       </div>
-      <div className="flex space-x-10 mt-16" ref={productListRef}>
+      <div className="flex gap-x-5 mt-16" ref={productListRef}>
         {products.map((product: Product) => (
           <div
             key={product.id}

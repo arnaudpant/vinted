@@ -1,3 +1,4 @@
+import FilActu from '@/components/home/FilActu';
 import ProductCard from '@/components/home/ProductCard';
 
 import { useEffect, useState } from 'react';
@@ -6,42 +7,44 @@ const Home = () => {
   const [productsCreateur, setProductsCreateur] = useState<Product[]>([]);
   const [productsPopulaires, setProductsPopulaires] = useState<Product[]>([]);
 
+  const [productsFildActu, setProductsFildActu] = useState<Product[]>([]);
+  const [usersFilActu, setUsersFilActu] = useState<User[]>([]);
+
   useEffect(() => {
-    async function fetchProductsCreateur(): Promise<void> {
+    async function fetchProducts(): Promise<Product[]> {
       try {
-        const response = await fetch(
-          'https://fakestoreapi.com/products?limit=5',
+        const response = await fetch('https://fakestoreapi.com/products').then(
+          (res) => res.json(),
         );
-        const productsData: Product[] = await response.json();
-        setProductsCreateur(productsData);
+
+        return response;
       } catch (error) {
         console.error('Erreur lors de la récupération des données :', error);
+        return [];
       }
     }
 
-    async function fetchProductsPopulaires(): Promise<void> {
+    async function fetchUsers(): Promise<User[]> {
       try {
-        const response = await fetch(
-          'https://fakestoreapi.com/products',
-        )
-        .then((res)=>{
-          return res.json()
-        })
-        .then((data:Product[])=>{
-          return data.slice(-5)
-        });
-        
-        setProductsPopulaires(response);
+        const response = await fetch('https://fakestoreapi.com/users');
+        const usersData: User[] = await response.json();
+        return usersData;
       } catch (error) {
         console.error('Erreur lors de la récupération des données :', error);
+        return [];
       }
     }
 
-    fetchProductsPopulaires();
-    fetchProductsCreateur();
+    fetchUsers().then((users: User[]) => {
+      setUsersFilActu(users.slice(0, 10));
+    });
+
+    fetchProducts().then((products: Product[]) => {
+      setProductsCreateur(products.slice(0, 5));
+      setProductsPopulaires(products.slice(5, 10));
+      setProductsFildActu(products.slice(10, 20));
+    });
   }, []);
-
-
 
   const marques: string[] = [
     'Tommy Hilfiger',
@@ -71,16 +74,29 @@ const Home = () => {
 
   return (
     <div className="w-7/12 m-auto">
-
-      <div className='mt-20'>
-        <ProductCard title="Explorer les articles de créateur" products={productsCreateur} />
+      <div className="mt-20">
+        <ProductCard
+          title="Explorer les articles de créateur"
+          products={productsCreateur}
+        />
       </div>
 
-      <div className='mt-20'>
-        <ProductCard title="Articles populaires" products={productsPopulaires} />
+      <div className="mt-20">
+        <ProductCard
+          title="Articles populaires"
+          products={productsPopulaires}
+        />
       </div>
 
-      <div className='mt-20 mb-20'>
+      <div className="mt-20">
+        <FilActu
+          title="Fil d'actualité"
+          products={productsFildActu}
+          users={usersFilActu}
+        />
+      </div>
+
+      <div className="mt-20 mb-20">
         <h1 className="h1">Rechercher par marque</h1>
         <div className="flex flex-wrap gap-x-3">
           {marques.map((marque) => (
