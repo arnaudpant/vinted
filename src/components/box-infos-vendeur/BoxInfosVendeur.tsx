@@ -1,9 +1,5 @@
-
 import { useFakeShop } from '@/context/FakeShopContext';
 import { ChevronRight } from 'lucide-react';
-
-
-
 
 
 const BoxInfosVendeur = () => {
