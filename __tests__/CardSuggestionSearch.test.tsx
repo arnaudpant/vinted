@@ -3,20 +3,20 @@ import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CardSuggestionSearch from './../src/components/suggestion/CardSuggestionSearch';
+import {SuggestSearchList} from './../src/types/types'
 
-const fakeSuggestSearchListK = {
-  marque: 'marque du produit',
-  vues: 100,
+const fakeSuggestSearchListK: SuggestSearchList = {
+  brand: 'marque du produit',
+  views: 100,
 };
 
-const fakeSuggestSearchListM = {
-  marque: 'marque du produit',
-  vues: 9,
+const fakeSuggestSearchListM: SuggestSearchList = {
+  brand: 'marque du produit',
+  views: 9,
 };
 
 test('Tests si affichage du bon titre', () => {
   render(<CardSuggestionSearch key={1} product={fakeSuggestSearchListK} />);
-  expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   expect(screen.getByText(/marque du produit/i)).toBeInTheDocument();
 });
 

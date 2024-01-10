@@ -1,47 +1,52 @@
 import { ListSuggestSearchFromVinted } from '../../api/api';
 import React, { useEffect, useState } from 'react';
 import CardSuggestionSearch from './CardSuggestionSearch';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import ChevronPosition from '../ui/ChevronPosition';
 
 const SuggestionSearch: React.FC = () => {
   const [scrollCards, setScrollCards] = useState<'left' | 'right' | 'both'>(
     'right',
   );
-  const [scrollValue, setScrollValue] = useState<number>(0);
-  const divToScroll = document.getElementById('showScroll');
-  const divSup = document.getElementById('divSup');
-  const widthDivScroll = 1280
+  
+  const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
 
+
+  const divParent = document.getElementById('divParent');
+  const divToScroll = document.getElementById('divToScroll');
+  let scrollValue: number = 0
+
+  divToScroll?.addEventListener('scroll', () => {
+    setDivToScrollValue(divToScroll?.scrollLeft);
+  });
+  
+  
   const [products, setProducts] = useState<
-    typeof ListSuggestSearchFromVinted | []
+  typeof ListSuggestSearchFromVinted | []
   >([]);
-
+  
   useEffect(() => {
     setProducts(ListSuggestSearchFromVinted);
   }, []);
-
-  divToScroll?.addEventListener('scroll', () => {
-    setScrollValue(divToScroll?.scrollLeft);
-  });
-
+  
+  
   useEffect(() => {
     // Calcul de la taille max du scroll en fonction de la taille de l'ecran
-    const clientWidth = divSup?.clientWidth;
-    let tailleScroll: number = widthDivScroll; ;
-    if (clientWidth) {
-      tailleScroll = widthDivScroll - clientWidth;
-    }
+    let divParentWidth = divParent?.scrollWidth
+    let divToScrollWidth = divToScroll?.scrollWidth
 
-    if (scrollValue === 0) {
+    if (divToScrollWidth && divParentWidth)
+      scrollValue = divToScrollWidth - divParentWidth;
+
+    if (divToScrollValue === 0) {
       setScrollCards('left');
-    } else if (scrollValue === tailleScroll) {
+    } else if (scrollValue === divToScrollValue) {
       setScrollCards('right');
     } else {
       setScrollCards('both');
     }
-  }, [scrollValue]);
+  }, [divToScrollValue]);
 
-  // LOGIQUE AU CLIC SU BTN
+  // LOGIQUE AU CLIC DU BTN
   const handleClicRight = () => {
     divToScroll?.scrollTo({
       left: 1400,
@@ -58,10 +63,14 @@ const SuggestionSearch: React.FC = () => {
   return (
     <div className="container mx-auto py-12 max-w-[1240px]">
       <h2 className="text-2xl pb-4">Suggestions de recherche</h2>
-      <div className="relative h-[75px] overflow-hidden" id="divSup">
+      <div
+        className="relative h-[75px] overflow-hidden"
+        id="divParent"
+        
+      >
         <div
           className="flex h-[90px] overflow-x-auto overflow-y-hidden"
-          id="showScroll"
+          id="divToScroll" data-testid="scroll-element"
         >
           <div className="flex shrink-0 flex-nowrap">
             {products.map((product) => (
@@ -69,40 +78,11 @@ const SuggestionSearch: React.FC = () => {
             ))}
           </div>
 
-          {scrollCards === 'left' && (
-            <div
-              className="absolute top-5 right-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
-              onClick={handleClicRight}
-            >
-              <ChevronRight className="text-vintedBackground" />
-            </div>
-          )}
-
-          {scrollCards === 'right' && (
-            <div
-              className="absolute top-5 left-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
-              onClick={handleClicLeft}
-            >
-              <ChevronLeft className="text-vintedBackground" />
-            </div>
-          )}
-
-          {scrollCards === 'both' && (
-            <>
-              <div
-                className="absolute top-5 right-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
-                onClick={handleClicRight}
-              >
-                <ChevronRight className="text-vintedBackground" />
-              </div>
-              <div
-                className="absolute top-5 left-2 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer"
-                onClick={handleClicLeft}
-              >
-                <ChevronLeft className="text-vintedBackground" />
-              </div>
-            </>
-          )}
+          <ChevronPosition
+            scrollCards={scrollCards}
+            handleClicRight={handleClicRight}
+            handleClicLeft={handleClicLeft}
+          />
         </div>
       </div>
     </div>

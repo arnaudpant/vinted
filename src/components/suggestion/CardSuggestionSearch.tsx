@@ -8,16 +8,16 @@ const CardSuggestionSearch = ({ product }: Props) => {
   return (
     <div className="pr-3 shrink-0 cursor-pointer h-[75px]">
       <div className="flex flex-col items-center justify-center p-2 border-[0.5px] border-vintedTextGrisClair rounded h-[75px]">
-        <div className="text-base">{product.brand}</div>
+        <div className="text-base" data-testid="cardSuggestion">
+          {product.brand}
+        </div>
         {product.views > 10 ? (
-          <div
-            className="text-sm font-light text-vintedTextGrisFonce"
-          >
+          <div className="text-sm font-light text-vintedTextGrisFonce">
             {product.views}K vues
           </div>
         ) : (
           <div className="text-sm font-light text-vintedTextGrisFonce">
-            {product.views}M vues)
+            {product.views}M vues
           </div>
         )}
       </div>

@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { beforeEach, describe, expect, test, vi } from 'vitest';
+import React from 'react';
+import { beforeEach, describe, expect, test} from 'vitest';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
-  renderHook,
   screen,
 } from '@testing-library/react';
 import ModalAuth from '../src/components/modals/authentification/ModalAuth';
