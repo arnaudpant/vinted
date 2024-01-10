@@ -7,7 +7,7 @@ import Error404 from './pages/Error404';
 import Search from './pages/Search';
 import NewArticle from './pages/NewArticle';
 import Catalog from './pages/Catalog';
-import { Header } from './components/ui/header/Header';
+import Header from './components/ui/header/Header';
 
 function App() {
   return (

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { SubCategory } from './SubCategory';
+import SubCategory from './SubCategory';
 import { TypeCategory, TypeSubCategory } from '@/data/categoriesHeader';
-import { SubSubCategories } from './SubSubCategories';
-import { useSubCategories } from '@/hooks/useSubCategories';
+import SubSubCategories from './SubSubCategories';
+import useSubCategories from '@/hooks/useSubCategories';
 
 export const SubCategories: React.FC<{
   subCategories: TypeSubCategory[];

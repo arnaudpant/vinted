@@ -1,14 +1,15 @@
-import React, { Fragment } from 'react';
 import { HeaderBarSearch } from './HeaderBarSearch';
-import { useWindowWidth } from '@/hooks/useWindowSize';
-import { SCREENS_BREAKPOINT } from '@/utils/Utils';
+import useWindowWidth from '@/hooks/useWindowWidth';
+import { SCREENS_BREAKPOINT } from '@/utils/constants';
 import { Categories } from './navigationBar/Categories';
 
-export const BottomHeader = () => {
+const BottomHeader = () => {
   const width = useWindowWidth();
   return width <= SCREENS_BREAKPOINT.Medium ? (
     <HeaderBarSearch />
   ) : (
-    <Categories></Categories>
+    <Categories />
   );
 };
+
+export default BottomHeader;

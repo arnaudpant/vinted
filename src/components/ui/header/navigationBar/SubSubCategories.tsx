@@ -1,7 +1,7 @@
 import { TypeSubCategory, TypeSubSubCategory } from '@/data/categoriesHeader';
 import { SubsubCategory } from './SubSubCategory';
 
-export const SubSubCategories: React.FC<{
+const SubSubCategories: React.FC<{
   subSubCategories: TypeSubSubCategory[];
 }> = ({ subSubCategories }) => {
   return (
@@ -17,3 +17,5 @@ export const SubSubCategories: React.FC<{
     </div>
   );
 };
+
+export default SubSubCategories;

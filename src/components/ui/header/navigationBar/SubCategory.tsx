@@ -2,7 +2,7 @@ import React from 'react';
 import { buildIconPath } from '@/utils/Utils';
 import { TypeSubCategory } from '@/data/categoriesHeader';
 
-export const SubCategory: React.FC<{
+const SubCategory: React.FC<{
   subCategory: TypeSubCategory;
 
   setSelectedSubCategoryId: Function;
@@ -34,3 +34,5 @@ export const SubCategory: React.FC<{
     </button>
   );
 };
+
+export default SubCategory;

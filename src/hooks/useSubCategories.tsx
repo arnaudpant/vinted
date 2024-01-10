@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const useSubCategories = () => {
+const useSubCategories = () => {
   const DEFAULT_SUB_CATEGORY_ID = 1;
   const [selectedSubCategoryId, setSelectedSubCategoryId] = React.useState(
     DEFAULT_SUB_CATEGORY_ID,
@@ -8,3 +8,5 @@ export const useSubCategories = () => {
 
   return { selectedSubCategoryId, setSelectedSubCategoryId };
 };
+
+export default useSubCategories;

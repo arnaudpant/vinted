@@ -1,10 +1,9 @@
 import { TypeCategory, headerCategories } from '@/data/categoriesHeader';
-import React from 'react';
+import React, { useState } from 'react';
 
 export const useCategories = () => {
   const NONE_CATEGORY: number = 0;
-  const [selectedIdCategory, setSelectedIdCategory] =
-    React.useState(NONE_CATEGORY);
+  const [selectedIdCategory, setSelectedIdCategory] = useState(NONE_CATEGORY);
 
   const selectCategory: (id: number) => void = (id) => {
     setSelectedIdCategory(id);
@@ -12,10 +11,10 @@ export const useCategories = () => {
 
   const INITIAL_OFFSET_LEFT = 0;
   const [offsetSelectedCategory, setOffsetSelectedCategory] =
-    React.useState(INITIAL_OFFSET_LEFT);
+    useState(INITIAL_OFFSET_LEFT);
 
   const [displayOnScreenPopCategories, setDisplayOnScreenPopCategories] =
-    React.useState(false);
+    useState(false);
 
   const activeCategory = headerCategories.find(
     (category: TypeCategory) => category.id === selectedIdCategory,

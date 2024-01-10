@@ -1,6 +1,5 @@
 import { TypeCategory, headerCategories } from '@/data/categoriesHeader';
 import React from 'react';
-import logoProduct from '@/virus.png';
 import { buildIconPath } from '@/utils/Utils';
 
 const MobileHomePageBurgerActive = () => {
@@ -12,7 +11,7 @@ const MobileHomePageBurgerActive = () => {
         <button className="bg-vintedGreen w-10/12 py-2 text-white text-center rounded-md  ">
           Vends tes articles
         </button>
-        <button className="bg-white text-vintedGreen w-10/12 py-2 text-white text-center rounded-md border-vintedGreen border-2">
+        <button className="bg-white text-vintedGreen w-10/12 py-2 text-center rounded-md border-vintedGreen border-2">
           S'inscrire | Se connecter
         </button>
         <a href="" className="block text-vintedGreen">
@@ -51,6 +50,7 @@ const MobileHomePageBurgerActive = () => {
           .map((navigation) => {
             return (
               <NavigationPageModel
+                key={navigation?.title}
                 title={navigation?.title}
                 navigationTitles={navigation?.navigationTitles}
               />
@@ -72,6 +72,7 @@ const NavigationPageModel: React.FC<{
         return (
           <div className="space-y-4 mb-2" key={navigationTitle.description}>
             <a
+              href=""
               className="block text-vintedTextBlack"
               key={navigationTitle.description}
             >

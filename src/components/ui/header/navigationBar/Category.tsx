@@ -1,7 +1,7 @@
 import { TypeCategory } from '@/data/categoriesHeader';
 import React from 'react';
 
-export const Category: React.FC<{
+const Category: React.FC<{
   displayOnScreenPopCategories: boolean;
   category: TypeCategory;
   selectedIdCategory: number;
@@ -21,7 +21,7 @@ export const Category: React.FC<{
             ? 'border-vintedGreen border-solid border-b-4 '
             : ''
         }`}
-        onClick={(event) => {
+        onClick={() => {
           selectCategory(category.id);
         }}
       >
@@ -30,3 +30,5 @@ export const Category: React.FC<{
     </div>
   );
 };
+
+export default Category;

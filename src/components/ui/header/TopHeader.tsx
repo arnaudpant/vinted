@@ -1,14 +1,11 @@
-import { MouseEventHandler, useRef, useState } from 'react';
 import logo from '@/assets/logoVinted.svg';
 import menu from '@/assets/menu.svg';
 import closeButton from '@/assets/cross-close-button.png';
-import { useWindowWidth } from '@/hooks/useWindowSize';
-import { SCREENS_BREAKPOINT } from '@/utils/Utils';
-import { Categories } from './navigationBar/Categories';
+import useWindowWidth from '@/hooks/useWindowWidth';
+import { SCREENS_BREAKPOINT } from '@/utils/constants';
 import { HeaderBarSearch } from './HeaderBarSearch';
-
-import { useMenuBurger } from '@/hooks/useBurgerMenu';
 import { ActionsTopBar } from './ActionsTopBar';
+import { useState } from 'react';
 
 export const TopHeader: () => JSX.Element = () => {
   const width = useWindowWidth();
@@ -33,7 +30,11 @@ const VintedLogo: () => JSX.Element = () => {
 };
 
 const BurgerMenuLogo: () => JSX.Element = () => {
-  const { isMenuBurgerActive, toggleMenuBurger } = useMenuBurger();
+  const [isMenuBurgerActive, setIsMenuBurgerActive] = useState(true);
+
+  const toggleMenuBurger = () => {
+    setIsMenuBurgerActive(!isMenuBurgerActive);
+  };
   return (
     <button onClick={toggleMenuBurger}>
       <img
@@ -44,5 +45,3 @@ const BurgerMenuLogo: () => JSX.Element = () => {
     </button>
   );
 };
-
-export default TopHeader;

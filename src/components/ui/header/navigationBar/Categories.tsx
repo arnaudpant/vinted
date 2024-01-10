@@ -1,46 +1,50 @@
-import {
-  headerCategories,
-  TypeCategory,
-  TypeSubCategory,
-  NavigationVintedPages,
-} from '@/data/categoriesHeader';
-import { Category } from './Category';
+import { headerCategories } from '@/data/categoriesHeader';
+import Category from './Category';
 import { useCategories } from '@/hooks/useCategories';
 import { SubCategories } from './SubCategories';
-import React, { useEffect, useRef } from 'react';
-import { act } from 'react-dom/test-utils';
+import { useEffect, useRef } from 'react';
 import { AboutCategories } from './AboutCategories';
 
 export const Categories: () => JSX.Element = () => {
   const {
     selectedIdCategory,
     selectCategory,
-    NONE_CATEGORY,
     displayOnScreenPopCategories,
     setDisplayOnScreenPopCategories,
     offsetSelectedCategory,
     setOffsetSelectedCategory,
     activeCategory,
   } = useCategories();
-  const navBarRef = useRef();
+  const divCategorieRef = useRef<HTMLDivElement | null>(null);
 
-  const refCategories = useRef();
+  /* refCategories est une reférence de l'élément nav, qui contient plusieurs catégories
+   * Cette ref permet à la fonction
+   * getLeftOffsetCurrentCategorySelected de faire un querySelector
+   * de la catégorie qui doit être pop. La fonction détermine la position horizontale de cette catégorie
+   * Ce décalage est appelée currentCategorySelectedLeftPosition  dans la fonction*/
+
+  const navCategoriesRef = useRef<HTMLElement | null>(null);
 
   const getLeftOffsetCurrentCategorySelected = (): void => {
-    const categoryElementDIV: HTMLDivElement | null =
-      refCategories?.current?.querySelector(`#category-${selectedIdCategory}`);
-    if (categoryElementDIV) {
-      const divPosition = categoryElementDIV.getBoundingClientRect();
+    const currentCategorySelected: HTMLDivElement | null | undefined =
+      navCategoriesRef?.current?.querySelector(
+        `#category-${selectedIdCategory}`,
+      );
+    if (currentCategorySelected) {
+      const currentCategorySelectedPosition =
+        currentCategorySelected.getBoundingClientRect();
 
-      const leftOffset = divPosition.left;
-      setOffsetSelectedCategory(Math.floor(leftOffset));
+      const currentCategorySelectedLeftPosition = Math.floor(
+        currentCategorySelectedPosition.left,
+      );
+      setOffsetSelectedCategory(currentCategorySelectedLeftPosition);
     }
   };
 
   const isNavBarClicked = (): void => {
     document.addEventListener('click', (event) => {
       const elementClicked = event.target;
-      if (!navBarRef?.current?.contains(elementClicked)) {
+      if (!divCategorieRef?.current?.contains(elementClicked)) {
         setDisplayOnScreenPopCategories(false);
       } else {
         setDisplayOnScreenPopCategories(true);
@@ -59,9 +63,9 @@ export const Categories: () => JSX.Element = () => {
   useEffect(() => isNavBarClicked(), []);
 
   return (
-    <div className="max-h-16" ref={navBarRef}>
+    <div className="max-h-16" ref={divCategorieRef}>
       <nav
-        ref={refCategories}
+        ref={navCategoriesRef}
         className=" flex flex-row items-center space-x-4  ml-32  py-4 text-vintedTextGrisFonce "
       >
         {/* Liste des catégories : Femmes Hommes Enfants etc... */}
@@ -85,7 +89,6 @@ export const Categories: () => JSX.Element = () => {
         <SubCategories
           offsetSelectedCategory={offsetSelectedCategory}
           subCategories={activeCategory.subCategories}
-          key={activeCategory.id}
         />
       ) : null}
 

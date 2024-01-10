@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
 import bannerLargeScreen from '@/assets/banner-wide.jpg';
 import bannerSmallScreen from '@/assets/bannerSmallScreen.jpg';
 import bannerMediumScreen from '@/assets/bannerMiddleScreen.jpg';
-import { useWindowWidth } from '@/hooks/useWindowSize';
-import { SCREENS_BREAKPOINT } from '@/utils/Utils';
+import useWindowWidth from '@/hooks/useWindowWidth';
+import { SCREENS_BREAKPOINT } from '@/utils/constants';
 import { CallToAction } from './CallToActions';
 
 const Banner = () => {
