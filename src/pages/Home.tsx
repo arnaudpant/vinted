@@ -73,7 +73,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-7/12 m-auto ">
+    <div className="w-10/12 m-auto ">
       <div className="mt-20">
         <ProductCard
           title="Explorer les articles de créateur"

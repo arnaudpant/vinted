@@ -27,12 +27,15 @@ const ProductCard = ({
   }, [products]);
 
   return (
-    <div className=''>
+    <div className="">
       <div className="flex justify-between w-full">
         <h1 className="h1">{title}</h1>
         <p className="toutVoir">Tout voir</p>
       </div>
-      <div className="flex gap-x-5 mt-16" ref={productListRef}>
+      <div
+        className="flex flex-col gap-y-10 gap-x-10 mt-16 items-center justify-center sm:flex-row flex-wrap "
+        ref={productListRef}
+      >
         {products.map((product: Product) => (
           <div
             key={product.id}
@@ -47,11 +50,8 @@ const ProductCard = ({
             <h2 className="text-center">{product.title}</h2>
           </div>
         ))}
-        <div className="flex-col flex  items-center w-[200px] bg-gray-100">
-          <p
-            className="text-vintedTextGrisFonce text-center"
-            style={{ marginTop: `${productListHeight / 2 - 10}px` }}
-          >
+        <div className="flex-col flex w-[200px] h-[300px] bg-gray-100 justify-center">
+          <p className="text-vintedTextGrisFonce text-center">
             Voir tous les articles
           </p>
         </div>

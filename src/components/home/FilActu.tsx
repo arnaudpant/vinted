@@ -25,7 +25,7 @@ const FilActu = ({
       <div className="flex justify-between w-full">
         <h1 className="h1">{title}</h1>
       </div>
-      <div className="flex flex-wrap mt-16 place-content-between gap-y-10">
+      <div className="flex flex-wrap mt-16 gap-x-10 gap-y-10 justify-center">
         {products.map((product: Product, index) => (
           <div
             key={index}
@@ -38,7 +38,9 @@ const FilActu = ({
                   alt={users[index].name.firstname}
                   className="w-8 h-8 rounded-full"
                 />
-                <p className="text-vintedTextGrisFonce">{users[index].name.firstname}</p>
+                <p className="text-vintedTextGrisFonce">
+                  {users[index].name.firstname}
+                </p>
               </div>
             )}
 
