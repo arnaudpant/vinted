@@ -13,13 +13,11 @@ const Home = () => {
   useEffect(() => {
     async function fetchProducts(): Promise<Product[]> {
       try {
-        const response = await fetch('https://fakestoreapi.com/products').then(
-          (res) => res.json(),
-        );
-
-        return response;
+        const response = await fetch('https://fakestoreapi.com/products');
+        const data = await response.json() as Product[];
+        return data;
       } catch (error) {
-        console.error('Erreur lors de la récupération des données :', error);
+        console.error('Error fetching products:', error);
         return [];
       }
     }
@@ -27,7 +25,7 @@ const Home = () => {
     async function fetchUsers(): Promise<User[]> {
       try {
         const response = await fetch('https://fakestoreapi.com/users');
-        const usersData: User[] = await response.json();
+        const usersData = await response.json() as User[];
         return usersData;
       } catch (error) {
         console.error('Erreur lors de la récupération des données :', error);
@@ -37,12 +35,16 @@ const Home = () => {
 
     fetchUsers().then((users: User[]) => {
       setUsersFilActu(users.slice(0, 10));
+    }).catch((error) => {
+      console.error('Error fetching users:', error);
     });
-
+    
     fetchProducts().then((products: Product[]) => {
       setProductsCreateur(products.slice(0, 5));
       setProductsPopulaires(products.slice(5, 10));
       setProductsFildActu(products.slice(10, 20));
+    }).catch((error) => {
+      console.error('Error fetching products:', error);
     });
   }, []);
 
@@ -73,7 +75,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-10/12 m-auto ">
+    <div className="m-auto w-10/12 ">
       <div className="mt-20">
         <ProductCard
           title="Explorer les articles de créateur"
@@ -96,11 +98,11 @@ const Home = () => {
         />
       </div>
 
-      <div className="mt-20 mb-20">
+      <div className="my-20">
         <h1 className="h1">Rechercher par marque</h1>
         <div className="flex flex-wrap gap-x-3">
           {marques.map((marque) => (
-            <div key={marque} className="border p-2 mt-3">
+            <div key={marque} className="mt-3 border p-2">
               {marque}
             </div>
           ))}

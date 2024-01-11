@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 const ProductCard = ({
   title,
@@ -8,50 +8,34 @@ const ProductCard = ({
   products: Product[];
 }) => {
   const productListRef = useRef<HTMLDivElement>(null);
-  const [productListHeight, setProductListHeight] = useState(0);
 
-  useEffect(() => {
-    const updateProductListHeight = () => {
-      if (productListRef.current) {
-        setProductListHeight(productListRef.current.clientHeight);
-        console.log(productListRef.current.clientHeight);
-      }
-    };
-
-    updateProductListHeight();
-    window.addEventListener('resize', updateProductListHeight);
-
-    return () => {
-      window.removeEventListener('resize', updateProductListHeight);
-    };
-  }, [products]);
 
   return (
     <div className="">
-      <div className="flex justify-between w-full">
+      <div className="flex w-full justify-between">
         <h1 className="h1">{title}</h1>
         <p className="toutVoir">Tout voir</p>
       </div>
       <div
-        className="flex flex-col gap-y-10 gap-x-10 mt-16 items-center justify-center sm:flex-row flex-wrap "
+        className="mt-16 flex flex-col flex-wrap items-center justify-center gap-10 sm:flex-row"
         ref={productListRef}
       >
         {products.map((product: Product) => (
           <div
             key={product.id}
-            className="flex flex-col items-center w-[200px]"
+            className="flex w-[200px] flex-col items-center"
           >
             <img
               src={product.image}
               alt={product.title}
-              className="w-[200px] h-[200px]"
+              className="h-[200px] w-[200px]"
             />
             <p>{product.price} €</p>
             <h2 className="text-center">{product.title}</h2>
           </div>
         ))}
-        <div className="flex-col flex w-[200px] h-[300px] bg-gray-100 justify-center">
-          <p className="text-vintedTextGrisFonce text-center">
+        <div className="flex h-[300px] w-[200px] flex-col justify-center bg-gray-100">
+          <p className="text-center text-vintedTextGrisFonce">
             Voir tous les articles
           </p>
         </div>

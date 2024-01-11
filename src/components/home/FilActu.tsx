@@ -22,21 +22,21 @@ const FilActu = ({
 
   return (
     <div className="text-vintedTextGrisClair">
-      <div className="flex justify-between w-full">
+      <div className="flex w-full justify-between">
         <h1 className="h1">{title}</h1>
       </div>
-      <div className="flex flex-wrap mt-16 gap-x-10 gap-y-10 justify-center">
+      <div className="mt-16 flex flex-wrap justify-center gap-10">
         {products.map((product: Product, index) => (
           <div
             key={index}
-            className="flex flex-col items-center w-[200px] space-y-5"
+            className="flex w-[200px] flex-col items-center space-y-5"
           >
             {users?.[index]?.name?.firstname && (
-              <div className="flex items-center w-full gap-x-2.5">
+              <div className="flex w-full items-center gap-x-2.5">
                 <img
                   src={imageProfile[index]}
                   alt={users[index].name.firstname}
-                  className="w-8 h-8 rounded-full"
+                  className="h-8 w-8 rounded-full"
                 />
                 <p className="text-vintedTextGrisFonce">
                   {users[index].name.firstname}
@@ -47,9 +47,9 @@ const FilActu = ({
             <img
               src={product.image}
               alt={product.title}
-              className="w-[200px] h-[200px]"
+              className="h-[200px] w-[200px]"
             />
-            <div className="flex place-content-between w-10/12">
+            <div className="flex w-10/12 place-content-between">
               <p className="text-black">{product.price} €</p>
               <img
                 src="https://imgs.search.brave.com/gG2KjQOV_-SlWX3JMVWs6JbLuZ1rmki-fNiJbhzxDYE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbi1pY29ucy5j/b20vaWNvbnMyLzQ5/NC9QTkcvNTEyL2hl/YXJ0X2ljb24taWNv/bnMuY29tXzQ4Mjkw/LnBuZw"
