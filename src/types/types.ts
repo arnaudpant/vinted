@@ -50,7 +50,8 @@ export type LinkLabel =
   export type FakeUser = {
       id: number,
       name: string,
-      image: string
+      avatar: string,
+      updatedAt:Date
   }
 
   export type FakeProduct = {

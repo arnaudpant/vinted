@@ -6,11 +6,17 @@ import { useEffect, useState } from 'react';
 const BoxInfosVendeur = () => {
   const { fakeShopUsers } = useFakeShop();
   const [user, setUser] = useState<FakeUser | null>(null);
+  const [seeMore, setSeeMore] = useState<boolean>(false);
+
+  const handleSeeMore = () => {
+    setSeeMore(true);
+  };
+
 
   useEffect(() => {
-    fakeShopUsers.length > 0 && setUser(fakeShopUsers[0]);
+    const randomNumber = Math.floor(Math.random() * 8);
+    fakeShopUsers.length > 0 && setUser(fakeShopUsers[randomNumber]);
   }, [fakeShopUsers]);
-  console.log(fakeShopUsers);
 
   return (
     // Global
@@ -20,7 +26,7 @@ const BoxInfosVendeur = () => {
         <div className="flex">
           {user !== null && (
             <>
-              <img src="/avatar.png" className="h-12 w-12 rounded-full mr-2" />
+              <img src={user.avatar} className="h-12 w-12 rounded-full mr-2" />
               <div>
                 <h2>{user.name}</h2>
                 <div className="flex relative">
@@ -64,26 +70,51 @@ const BoxInfosVendeur = () => {
 
       <div className="p-4">
         <div className="flex items-center gap-2 font-light">
-          <span>
-            <MapPin className="h-4 w-4 text-vintedTextGrisFonce" />
-          </span>
+          <MapPin className="h-4 w-4 text-vintedTextGrisFonce" />
           Paris, France
         </div>
         <div className="flex items-center gap-2 font-light">
-          <span>
-            <Clock className="h-4 w-4 text-vintedTextGrisFonce" />
-          </span>
+          <Clock className="h-4 w-4 text-vintedTextGrisFonce" />
           Vu la dernière fois : il y a <span>1 heure</span>
         </div>
       </div>
 
       {/* Lois */}
-      <div className="p-4 bg-vintedBackgroundCard">
-        <p>
-          Les lois en matière de protection des consommateur·trices ne
-          s’appliquent pas à tes achats effectués auprès d’autres
-          consommateur·trices. Plus précisément ...
-        </p>
+      <div className="flex p-4 bg-vintedBackgroundCard">
+        {seeMore === true ? (
+          <p>
+            le droit de retrait visé à l’article L221-18 et la garantie générale
+            de conformité visée aux articles L217-4 et suivants du Code de la
+            consommation ne s’appliquent pas à ta transaction. Cependant, la
+            garantie des défauts de la chose vendue visée aux articles 1641 et
+            suivants du Code civil français s’applique. Voir également les
+            dispositions applicables du{' '}
+            <span className="text-vintedGreen underline cursor-pointer">
+              droit des obligations
+            </span>{' '}
+            et de
+            <span className="text-vintedGreen underline cursor-pointer">
+              responsabilité civile
+            </span>
+            . Tous les achats que tu effectues au moyen du bouton « Acheter »
+            sont couverts par notre service de{' '}
+            <span className="text-vintedGreen underline cursor-pointer">
+              Protection acheteurs.
+            </span>
+          </p>
+        ) : (
+          <p>
+            Les lois en matière de protection des consommateur·trices ne
+            s’appliquent pas à tes achats effectués auprès d’autres
+            consommateur·trices. Plus précisément,
+            <span
+              className="text-vintedGreen underline cursor-pointer"
+              onClick={handleSeeMore}
+            >
+              ... Voir plus
+            </span>
+          </p>
+        )}
       </div>
     </div>
   );
