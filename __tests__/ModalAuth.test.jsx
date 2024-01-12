@@ -1,5 +1,6 @@
 import React from 'react';
-import { beforeEach, describe, expect, test, vi } from 'vitest';
+import '@testing-library/jest-dom';
+import { beforeEach, describe, expect, test } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import ModalAuth from '../src/components/modals/authentification/ModalAuth';
 
