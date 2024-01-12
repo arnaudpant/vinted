@@ -12,8 +12,7 @@ const useDataFakeShop = () => {
             const response = await fetch('https://api.escuelajs.co/api/v1/categories');
             const dataCategories = await response.json();
 
-            if (response.ok) {
-                //console.log('Promise resolved and HTTP status is successful');
+            if (response.ok) {   
                 setFakeShopCategories(dataCategories) 
 
             } else {
@@ -60,7 +59,6 @@ const useDataFakeShop = () => {
             const dataUser: FakeUser[] = await response.json();
 
             if (response.ok) {
-                //console.log('Promise resolved and HTTP status is successful');
                 setFakeShopUsers(dataUser)
 
             } else {
