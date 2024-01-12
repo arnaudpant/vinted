@@ -8,11 +8,13 @@ import Search from './pages/Search';
 import NewArticle from './pages/NewArticle';
 import Catalog from './pages/Catalog';
 
+import ArticlesAvailables from './components/ArticlesAvailables';
+
 function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ArticlesAvailables />} />
           {/* Page Achat */}
           <Route path="/items/:id" element={<Article />} />
           {/* Page vente si connecté */}
