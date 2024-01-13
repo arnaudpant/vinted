@@ -34,7 +34,6 @@ const SuggestionSearch: React.FC = () => {
     // Calcul de la taille max du scroll en fonction de la taille de l'ecran
     const divParentWidth = divParent?.scrollWidth
     const divToScrollWidth = divToScroll?.scrollWidth
-    console.log(divParentWidth, divToScrollWidth);
 
     if (divToScrollWidth && divParentWidth)
       scrollValue = divToScrollWidth - divParentWidth;
