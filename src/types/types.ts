@@ -39,6 +39,8 @@ export interface UserDocument {
 
 export type Action = 'init' | 'connexion' | 'inscription' | 'password-forget';
 
+export type ScrollAction = 'left' | 'right' | 'both';
+
 export type LinkLabel =
   | 'A propos de Vinted'
   | 'Carrière'

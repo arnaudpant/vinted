@@ -5,15 +5,15 @@ import '@testing-library/jest-dom';
 import SuggestionSearch from './../src/components/suggestion/SuggestionSearch';
 
 
-test('Titre present', async () => {
+test('Titre present', () => {
   render(<SuggestionSearch />);
   const title = screen.getByRole('heading', { level: 2 });
   expect(title).toBeInTheDocument();
 });
 
-test('Affichage des 10 suggestions', async () => {
+test('Affichage des 10 suggestions', () => {
   render(<SuggestionSearch />);
-  const products = await screen.queryAllByTestId('cardSuggestion');
+  const products = screen.queryAllByTestId('cardSuggestion');
   expect(products).toHaveLength(10);
   screen.debug();
 });
@@ -21,6 +21,5 @@ test('Affichage des 10 suggestions', async () => {
 test('Initialisation = 1 bouton fleche', () => {
    render(<SuggestionSearch />);
    const boutonsScrollY = screen.getAllByRole('button')
-   const scrollDiv = screen.getByTestId('scroll-element');
    expect(boutonsScrollY).toHaveLength(1)
 })

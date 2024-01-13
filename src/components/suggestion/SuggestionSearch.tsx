@@ -2,19 +2,19 @@ import { ListSuggestSearchFromVinted } from '../../api/api';
 import React, { useEffect, useState } from 'react';
 import CardSuggestionSearch from './CardSuggestionSearch';
 import ChevronPosition from '../ui/ChevronPosition';
+import { ScrollAction } from '@/types/types';
 
 const SuggestionSearch: React.FC = () => {
-  const [scrollCards, setScrollCards] = useState<'left' | 'right' | 'both'>(
+  const [scrollCards, setScrollCards] = useState<ScrollAction>(
     'right',
   );
   
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
-
-
-  const divParent = document.getElementById('divParent');
-  const divToScroll = document.getElementById('divToScroll');
-  let scrollValue: number = 0
-
+  const idDivParent = 'divParent';
+  const idDivToScroll = 'divToScroll';
+  const divParent = document.getElementById(idDivParent);
+  const divToScroll = document.getElementById(idDivToScroll);
+  
   divToScroll?.addEventListener('scroll', () => {
     setDivToScrollValue(divToScroll?.scrollLeft);
   });
@@ -30,9 +30,10 @@ const SuggestionSearch: React.FC = () => {
   
   
   useEffect(() => {
+    let scrollValue: number = 0
     // Calcul de la taille max du scroll en fonction de la taille de l'ecran
-    let divParentWidth = divParent?.scrollWidth
-    let divToScrollWidth = divToScroll?.scrollWidth
+    const divParentWidth = divParent?.scrollWidth
+    const divToScrollWidth = divToScroll?.scrollWidth
 
     if (divToScrollWidth && divParentWidth)
       scrollValue = divToScrollWidth - divParentWidth;
@@ -49,7 +50,7 @@ const SuggestionSearch: React.FC = () => {
   // LOGIQUE AU CLIC DU BTN
   const handleClicRight = () => {
     divToScroll?.scrollTo({
-      left: 1400,
+      left: 2000,
       behavior: 'smooth',
     });
   };
