@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import ArticleAvailable from './ArticleAvailable';
 import { FakeShopContext } from '@/context/FakeShopContext';
+import CounterArticlesAvailable from './CounterArticlesAvailable';
 
 const ArticlesAvailables = () => {
   const { fakeShopProduct } = useContext(FakeShopContext);
@@ -11,9 +12,9 @@ const ArticlesAvailables = () => {
         className="grid grid-cols-2 mx-4 gap-3 sm:grid-cols-3 lg:grid-cols-4 text-sm text-vintedTextGrisFonce"
         id="articles"
       >
-        <div className="w-full col-span-full bg-vintedBackground py-3 pl-4 flex items-end">
-          ({fakeShopProduct.length}) articles disponibles
-        </div>
+        <CounterArticlesAvailable
+          counterProductsAvailable={fakeShopProduct.length}
+        />
 
         {fakeShopProduct.map((fakeProduct) => (
           <ArticleAvailable key={fakeProduct.id} fakeProduct={fakeProduct} />
