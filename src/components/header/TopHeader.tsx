@@ -3,7 +3,7 @@ import menu from '@/assets/menu.svg';
 import closeButton from '@/assets/cross-close-button.png';
 import useWindowWidth from '@/hooks/useWindowWidth';
 import { SCREENS_BREAKPOINT } from '@/utils/constants';
-import { HeaderBarSearch } from './HeaderBarSearch';
+import HeaderBarSearch from './HeaderBarSearch';
 import { ActionsTopBar } from './ActionsTopBar';
 import { useState } from 'react';
 

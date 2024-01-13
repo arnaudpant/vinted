@@ -1,6 +1,6 @@
-import { TypeSubSubCategory } from '@/data/categoriesHeader';
+import { TypeSubSubCategory } from '@/types/types';
 
-export const SubsubCategory: React.FC<{
+const SubSubCategory: React.FC<{
   subsubCategory: TypeSubSubCategory;
 }> = ({ subsubCategory }) => {
   return (
@@ -9,3 +9,5 @@ export const SubsubCategory: React.FC<{
     </button>
   );
 };
+
+export default SubSubCategory;

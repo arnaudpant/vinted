@@ -1,7 +1,7 @@
-import { HeaderBarSearch } from './HeaderBarSearch';
 import useWindowWidth from '@/hooks/useWindowWidth';
 import { SCREENS_BREAKPOINT } from '@/utils/constants';
-import { Categories } from './navigationBar/Categories';
+import HeaderBarSearch from './HeaderBarSearch';
+import Categories from './navigationBar/Categories';
 
 const BottomHeader = () => {
   const width = useWindowWidth();

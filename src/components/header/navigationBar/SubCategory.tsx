@@ -1,11 +1,11 @@
-import React from 'react';
+import { TypeSubCategory } from '@/types/types';
 import { buildIconPath } from '@/utils/Utils';
-import { TypeSubCategory } from '@/data/categoriesHeader';
+import React from 'react';
 
 const SubCategory: React.FC<{
   subCategory: TypeSubCategory;
 
-  setSelectedSubCategoryId: Function;
+  setSelectedSubCategoryId: React.Dispatch<React.SetStateAction<number>>;
 }> = ({ subCategory, setSelectedSubCategoryId }) => {
   const SEE_ALL_CATEGORY = 0;
   const OTHER_CATEGORIES = 99;

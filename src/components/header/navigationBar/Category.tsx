@@ -1,11 +1,11 @@
-import { TypeCategory } from '@/data/categoriesHeader';
+import { TypeCategory } from '@/types/types';
 import React from 'react';
 
 const Category: React.FC<{
   displayOnScreenPopCategories: boolean;
   category: TypeCategory;
   selectedIdCategory: number;
-  selectCategory: Function;
+  selectCategory: (id: number) => void;
 }> = ({
   category,
   selectedIdCategory,

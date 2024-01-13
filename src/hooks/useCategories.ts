@@ -1,7 +1,19 @@
-import { TypeCategory, headerCategories } from '@/data/categoriesHeader';
-import React, { useState } from 'react';
+import { headerCategories } from '@/data/categoriesHeader';
+import { TypeCategory } from '@/types/types';
+import { useState } from 'react';
 
-export const useCategories = () => {
+const useCategories: () => {
+  selectedIdCategory: number;
+  selectCategory: (id: number) => void;
+  NONE_CATEGORY: number;
+  displayOnScreenPopCategories: boolean;
+  setDisplayOnScreenPopCategories: React.Dispatch<
+    React.SetStateAction<boolean>
+  >;
+  offsetSelectedCategory: number;
+  setOffsetSelectedCategory: React.Dispatch<React.SetStateAction<number>>;
+  activeCategory: TypeCategory | undefined;
+} = () => {
   const NONE_CATEGORY: number = 0;
   const [selectedIdCategory, setSelectedIdCategory] = useState(NONE_CATEGORY);
 
@@ -30,3 +42,4 @@ export const useCategories = () => {
     activeCategory,
   };
 };
+export default useCategories;

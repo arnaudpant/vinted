@@ -1,5 +1,5 @@
-import { TypeSubCategory, TypeSubSubCategory } from '@/data/categoriesHeader';
-import { SubsubCategory } from './SubSubCategory';
+import { TypeSubSubCategory } from '@/types/types';
+import SubSubCategory from './SubSubCategory';
 
 const SubSubCategories: React.FC<{
   subSubCategories: TypeSubSubCategory[];
@@ -8,7 +8,7 @@ const SubSubCategories: React.FC<{
     <div className="grid grid-cols-2 gap-y-2 gap-x-4    ">
       {subSubCategories.map((subsubCategory) => {
         return (
-          <SubsubCategory
+          <SubSubCategory
             key={subsubCategory.title}
             subsubCategory={subsubCategory}
           />

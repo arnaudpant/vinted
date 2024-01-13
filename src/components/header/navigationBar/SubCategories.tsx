@@ -1,15 +1,17 @@
-import React, { useEffect, useRef } from 'react';
-import SubCategory from './SubCategory';
-import { TypeCategory, TypeSubCategory } from '@/data/categoriesHeader';
-import SubSubCategories from './SubSubCategories';
-import useSubCategories from '@/hooks/useSubCategories';
+import React from 'react';
 
-export const SubCategories: React.FC<{
+import { TypeSubCategory } from '@/types/types';
+import SubSubCategories from './SubSubCategories';
+import SubCategory from './SubCategory';
+
+const SubCategories: React.FC<{
   subCategories: TypeSubCategory[];
   offsetSelectedCategory: number;
 }> = ({ subCategories, offsetSelectedCategory }) => {
-  const { selectedSubCategoryId, setSelectedSubCategoryId } =
-    useSubCategories();
+  const DEFAULT_SUB_CATEGORY_ID = 1;
+  const [selectedSubCategoryId, setSelectedSubCategoryId] = React.useState(
+    DEFAULT_SUB_CATEGORY_ID,
+  );
 
   const activeSubCategory = subCategories.find(
     (subCategory) => subCategory.id === selectedSubCategoryId,
@@ -26,7 +28,6 @@ export const SubCategories: React.FC<{
             return (
               <div key={subCategory.id} className="flex flex-col">
                 <SubCategory
-                  key={subCategory.id}
                   subCategory={subCategory}
                   setSelectedSubCategoryId={setSelectedSubCategoryId}
                 />
@@ -35,12 +36,14 @@ export const SubCategories: React.FC<{
           })}
         </div>
 
-        {activeSubCategory ? (
+        {activeSubCategory?.subSubCategories ? (
           <SubSubCategories
-            subSubCategories={activeSubCategory.subsubCategories}
+            subSubCategories={activeSubCategory.subSubCategories}
           />
         ) : null}
       </div>
     </div>
   );
 };
+
+export default SubCategories;

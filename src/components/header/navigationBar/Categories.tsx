@@ -1,11 +1,12 @@
 import { headerCategories } from '@/data/categoriesHeader';
-import Category from './Category';
-import { useCategories } from '@/hooks/useCategories';
-import { SubCategories } from './SubCategories';
-import { useEffect, useRef } from 'react';
-import { AboutCategories } from './AboutCategories';
 
-export const Categories: () => JSX.Element = () => {
+import useCategories from '@/hooks/useCategories';
+import SubCategories from './SubCategories';
+import { useCallback, useEffect, useRef } from 'react';
+import AboutCategories from './AboutCategories';
+import Category from './Category';
+
+const Categories: () => JSX.Element = () => {
   const {
     selectedIdCategory,
     selectCategory,
@@ -25,7 +26,7 @@ export const Categories: () => JSX.Element = () => {
 
   const navCategoriesRef = useRef<HTMLElement | null>(null);
 
-  const getLeftOffsetCurrentCategorySelected = (): void => {
+  const getLeftOffsetCurrentCategorySelected = useCallback((): void => {
     const currentCategorySelected: HTMLDivElement | null | undefined =
       navCategoriesRef?.current?.querySelector(
         `#category-${selectedIdCategory}`,
@@ -39,11 +40,14 @@ export const Categories: () => JSX.Element = () => {
       );
       setOffsetSelectedCategory(currentCategorySelectedLeftPosition);
     }
-  };
+  }, [selectedIdCategory, setOffsetSelectedCategory]);
 
   const isNavBarClicked = (): void => {
     document.addEventListener('click', (event) => {
-      const elementClicked = event.target;
+      const elementClicked = (event.target as Node) || null;
+      if (!elementClicked) {
+        return;
+      }
       if (!divCategorieRef?.current?.contains(elementClicked)) {
         setDisplayOnScreenPopCategories(false);
       } else {
@@ -56,11 +60,11 @@ export const Categories: () => JSX.Element = () => {
   useEffect(
     () => getLeftOffsetCurrentCategorySelected(),
 
-    [selectedIdCategory],
+    [selectedIdCategory, getLeftOffsetCurrentCategorySelected],
   );
 
   // Permet de fermer les sous-catégories losque l'utilisateur clique hors de la navBar
-  useEffect(() => isNavBarClicked(), []);
+  useEffect(() => isNavBarClicked(), [isNavBarClicked]);
 
   return (
     <div className="max-h-16" ref={divCategorieRef}>
@@ -101,3 +105,5 @@ export const Categories: () => JSX.Element = () => {
     </div>
   );
 };
+
+export default Categories;

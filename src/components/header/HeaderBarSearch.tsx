@@ -1,4 +1,4 @@
-export const HeaderBarSearch = () => {
+const HeaderBarSearch = () => {
   return (
     <form
       action=""
@@ -12,7 +12,7 @@ export const HeaderBarSearch = () => {
         <option value="articles">Articles</option>
         <option value="members">Membres</option>
         <option value="forum">Forum</option>
-        <option value="help">Centre d'aide</option>
+        <option value="help">Centre d&apos;aide</option>
       </select>
       <input
         type="text"
@@ -23,4 +23,4 @@ export const HeaderBarSearch = () => {
   );
 };
 
-// Test Omid
+export default HeaderBarSearch;

@@ -1,4 +1,4 @@
-import { NavigationVintedPages } from '@/data/categoriesHeader';
+import { NavigationVintedPages } from '@/types/types';
 
 export const AboutCategory: React.FC<{
   navigationVintedPages: NavigationVintedPages;

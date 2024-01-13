@@ -1,8 +1,8 @@
-import { NavigationVintedPages } from '@/data/categoriesHeader';
+import { NavigationVintedPages } from '@/types/types';
 import React from 'react';
 import { AboutCategory } from './AboutCategory';
 
-export const AboutCategories: React.FC<{
+const AboutCategories: React.FC<{
   navigation: NavigationVintedPages[];
   offsetSelectedCategory: number;
 }> = ({ navigation, offsetSelectedCategory }) => {
@@ -22,3 +22,5 @@ export const AboutCategories: React.FC<{
     </div>
   );
 };
+
+export default AboutCategories;

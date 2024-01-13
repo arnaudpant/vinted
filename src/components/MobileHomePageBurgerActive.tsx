@@ -1,4 +1,5 @@
-import { TypeCategory, headerCategories } from '@/data/categoriesHeader';
+import { headerCategories } from '@/data/categoriesHeader';
+import { TypeCategory } from '@/types/types';
 import React from 'react';
 import { buildIconPath } from '@/utils/Utils';
 
