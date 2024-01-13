@@ -1,20 +1,26 @@
-import FilActu from '@/components/home/FilActu';
+import FilActu from '@/components/home/NewsFeed';
 import ProductCard from '@/components/home/ProductCard';
 
 import { useEffect, useState } from 'react';
 
 const Home = () => {
-  const [productsCreateur, setProductsCreateur] = useState<Product[]>([]);
-  const [productsPopulaires, setProductsPopulaires] = useState<Product[]>([]);
 
-  const [productsFildActu, setProductsFildActu] = useState<Product[]>([]);
-  const [usersFilActu, setUsersFilActu] = useState<User[]>([]);
+  const [productsCreator, setProductsCreator] = useState<Product[]>([]);
+  const [productsPopular, setProductsPopular] = useState<Product[]>([]);
 
+  const [productsNewsFeed, setProductsNewsFeed] = useState<Product[]>([]);
+  const [usersNewsFeed, setUsersNewsFeed] = useState<User[]>([]);
+
+  
   useEffect(() => {
+
+    const urlProduct = import.meta.env.VITE_urlProducts as string;
+    const urlUsers = import.meta.env.VITE_urlUsers as string;
+
     async function fetchProducts(): Promise<Product[]> {
       try {
-        const response = await fetch('https://fakestoreapi.com/products');
-        const data = await response.json() as Product[];
+        const response = await fetch(urlProduct);
+        const data = await response.json() as Promise<Product[]>
         return data;
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -24,31 +30,31 @@ const Home = () => {
 
     async function fetchUsers(): Promise<User[]> {
       try {
-        const response = await fetch('https://fakestoreapi.com/users');
-        const usersData = await response.json() as User[];
+        const response = await fetch(urlUsers);
+        const usersData = await response.json() as Promise<User[]>;
         return usersData;
       } catch (error) {
-        console.error('Erreur lors de la récupération des données :', error);
+        console.error('Errors fetching users', error);
         return [];
       }
     }
 
     fetchUsers().then((users: User[]) => {
-      setUsersFilActu(users.slice(0, 10));
+      setUsersNewsFeed(users.slice(0, 10));
     }).catch((error) => {
       console.error('Error fetching users:', error);
     });
     
     fetchProducts().then((products: Product[]) => {
-      setProductsCreateur(products.slice(0, 5));
-      setProductsPopulaires(products.slice(5, 10));
-      setProductsFildActu(products.slice(10, 20));
+      setProductsCreator(products.slice(0, 5));
+      setProductsPopular(products.slice(5, 10));
+      setProductsNewsFeed(products.slice(10, 20));
     }).catch((error) => {
       console.error('Error fetching products:', error);
     });
   }, []);
 
-  const marques: string[] = [
+  const brands: string[] = [
     'Tommy Hilfiger',
     'Zara',
     'Monoprix',
@@ -79,31 +85,31 @@ const Home = () => {
       <div className="mt-20">
         <ProductCard
           title="Explorer les articles de créateur"
-          products={productsCreateur}
+          products={productsCreator}
         />
       </div>
 
       <div className="mt-20">
         <ProductCard
           title="Articles populaires"
-          products={productsPopulaires}
+          products={productsPopular}
         />
       </div>
 
       <div className="mt-20">
         <FilActu
           title="Fil d'actualité"
-          products={productsFildActu}
-          users={usersFilActu}
+          products={productsNewsFeed}
+          users={usersNewsFeed}
         />
       </div>
 
       <div className="my-20">
         <h1 className="h1">Rechercher par marque</h1>
         <div className="flex flex-wrap gap-x-3">
-          {marques.map((marque) => (
-            <div key={marque} className="mt-3 border p-2">
-              {marque}
+          {brands.map((brand) => (
+            <div key={brand} className="mt-3 border p-2">
+              {brand}
             </div>
           ))}
         </div>

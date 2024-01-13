@@ -90,7 +90,7 @@ const config = {
         fontWeight: "400",
         lineHeight: "32px",
       },
-      '.toutVoir': {
+      '.seeAll': {
         color:"#1C6F53",
         paddingTop: '2.5px',
         paddingLeft: '5px',

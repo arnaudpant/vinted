@@ -14,7 +14,7 @@ const ProductCard = ({
     <div className="">
       <div className="flex w-full justify-between">
         <h1 className="h1">{title}</h1>
-        <p className="toutVoir">Tout voir</p>
+        <p className="seeAll">Tout voir</p>
       </div>
       <div
         className="mt-16 flex flex-col flex-wrap items-center justify-center gap-10 sm:flex-row"

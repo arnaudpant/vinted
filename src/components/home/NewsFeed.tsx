@@ -1,4 +1,4 @@
-const FilActu = ({
+const NewsFeed = ({
   title,
   products,
   users,
@@ -28,10 +28,10 @@ const FilActu = ({
       <div className="mt-16 flex flex-wrap justify-center gap-10">
         {products.map((product: Product, index) => (
           <div
-            key={index}
+            key={product.id}
             className="flex w-[200px] flex-col items-center space-y-5"
           >
-            {users?.[index]?.name?.firstname && (
+            {users?.[product.id]?.name?.firstname && (
               <div className="flex w-full items-center gap-x-2.5">
                 <img
                   src={imageProfile[index]}
@@ -65,4 +65,4 @@ const FilActu = ({
   );
 };
 
-export default FilActu;
+export default NewsFeed;
