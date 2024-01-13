@@ -13,8 +13,7 @@ const SuggestionSearch: React.FC = () => {
 
   const divParent = document.getElementById('divParent');
   const divToScroll = document.getElementById('divToScroll');
-  let scrollValue: number = 0
-
+  
   divToScroll?.addEventListener('scroll', () => {
     setDivToScrollValue(divToScroll?.scrollLeft);
   });
@@ -30,8 +29,9 @@ const SuggestionSearch: React.FC = () => {
   
   
   useEffect(() => {
+    let scrollValue: number = 0
     // Calcul de la taille max du scroll en fonction de la taille de l'ecran
-    let divParentWidth = divParent?.scrollWidth
+    const divParentWidth = divParent?.scrollWidth
     let divToScrollWidth = divToScroll?.scrollWidth
 
     if (divToScrollWidth && divParentWidth)
