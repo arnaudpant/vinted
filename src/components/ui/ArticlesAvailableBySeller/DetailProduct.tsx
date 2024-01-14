@@ -3,7 +3,6 @@ import React from 'react';
 export const DetailProduct: React.FC<{
   isLiked: boolean;
   description: string;
-
   categoryName: string;
   price: number;
 }> = ({ isLiked = false, description, categoryName, price }) => {

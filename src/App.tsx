@@ -9,14 +9,14 @@ import NewArticle from './pages/NewArticle';
 import Catalog from './pages/Catalog';
 
 import { FakeShopProvider } from './context/FakeShopContext';
-import ArticlesAvailables from './components/ui/ArticlesAvailableBySeller/ArticlesAvailables';
+import ArticlesAvailablesBySeller from './components/ui/ArticlesAvailableBySeller/ArticlesAvailablesBySeller';
 
 function App() {
   return (
     <FakeShopProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ArticlesAvailables />} />
+          <Route path="/" element={<ArticlesAvailablesBySeller />} />
           {/* Page Achat */}
           <Route path="/items/:id" element={<Article />} />
           {/* Page vente si connecté */}
