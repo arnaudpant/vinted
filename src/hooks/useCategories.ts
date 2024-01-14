@@ -1,4 +1,4 @@
-import { headerCategories } from '@/data/categoriesHeader';
+import categoriesHeader from '@/data/categoriesHeader';
 import { TypeCategory } from '@/types/types';
 import { useState } from 'react';
 
@@ -28,7 +28,7 @@ const useCategories: () => {
   const [displayOnScreenPopCategories, setDisplayOnScreenPopCategories] =
     useState(false);
 
-  const activeCategory = headerCategories.find(
+  const activeCategory = categoriesHeader.find(
     (category: TypeCategory) => category.id === selectedIdCategory,
   );
   return {

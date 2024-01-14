@@ -1,4 +1,4 @@
-import { TopHeader } from './TopHeader';
+import TopHeader from './TopHeader';
 import BottomHeader from './BottomHeader';
 
 const Header = () => {

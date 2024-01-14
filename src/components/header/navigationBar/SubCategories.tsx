@@ -36,11 +36,11 @@ const SubCategories: React.FC<{
           })}
         </div>
 
-        {activeSubCategory?.subSubCategories ? (
+        {activeSubCategory?.subSubCategories && (
           <SubSubCategories
             subSubCategories={activeSubCategory.subSubCategories}
           />
-        ) : null}
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { SEE_ALL, SEE_OTHERS, TypeCategory } from '@/types/types';
 
-export const headerCategories: TypeCategory[] = [
+const categoriesHeader: TypeCategory[] = [
   {
     id: 1,
     title: 'Femmes',
@@ -339,3 +339,5 @@ export const headerCategories: TypeCategory[] = [
     title: 'Notre plateforme',
   },
 ];
+
+export default categoriesHeader;

@@ -1,4 +1,4 @@
-import { headerCategories } from '@/data/categoriesHeader';
+import categoriesHeader from '@/data/categoriesHeader';
 import { TypeCategory } from '@/types/types';
 import React from 'react';
 import { buildIconPath } from '@/utils/Utils';
@@ -22,7 +22,7 @@ const MobileHomePageBurgerActive = () => {
       <hr className="my-16" />
       <section id="categories" className="space-y-3 ml-4">
         <h1 className="text-vintedTextGrisFonce ">Parcourir</h1>
-        {[...headerCategories]
+        {[...categoriesHeader]
           .filter(
             (category) =>
               category.id !== ID_OUR_PLATEFORME && category.id !== ID_ABOUT,
@@ -44,7 +44,7 @@ const MobileHomePageBurgerActive = () => {
           })}
       </section>
       <section id="navigation">
-        {[...headerCategories]
+        {[...categoriesHeader]
           .filter((category) => category.id === ID_ABOUT)
           .map((category: TypeCategory) => category.navigation)
           .flat()

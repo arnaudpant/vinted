@@ -1,4 +1,4 @@
-import { headerCategories } from '@/data/categoriesHeader';
+import categoriesHeader from '@/data/categoriesHeader';
 
 import useCategories from '@/hooks/useCategories';
 import SubCategories from './SubCategories';
@@ -42,7 +42,7 @@ const Categories: () => JSX.Element = () => {
     }
   }, [selectedIdCategory, setOffsetSelectedCategory]);
 
-  const isNavBarClicked = (): void => {
+  const isNavBarClicked = useCallback((): void => {
     document.addEventListener('click', (event) => {
       const elementClicked = (event.target as Node) || null;
       if (!elementClicked) {
@@ -54,7 +54,7 @@ const Categories: () => JSX.Element = () => {
         setDisplayOnScreenPopCategories(true);
       }
     });
-  };
+  }, [setDisplayOnScreenPopCategories]);
 
   //Permet de connaitre la poisitin left de la div dans Category. Concerne la catégorie sélectionné par l'utilisateur
   useEffect(
@@ -74,7 +74,7 @@ const Categories: () => JSX.Element = () => {
       >
         {/* Liste des catégories : Femmes Hommes Enfants etc... */}
 
-        {headerCategories.map((category) => {
+        {categoriesHeader.map((category) => {
           return (
             <Category
               displayOnScreenPopCategories={displayOnScreenPopCategories}

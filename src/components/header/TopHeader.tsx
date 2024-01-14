@@ -7,7 +7,7 @@ import HeaderBarSearch from './HeaderBarSearch';
 import { ActionsTopBar } from './ActionsTopBar';
 import { useState } from 'react';
 
-export const TopHeader: () => JSX.Element = () => {
+const TopHeader: () => JSX.Element = () => {
   const width = useWindowWidth();
 
   return width < SCREENS_BREAKPOINT.Medium ? (
@@ -45,3 +45,5 @@ const BurgerMenuLogo: () => JSX.Element = () => {
     </button>
   );
 };
+
+export default TopHeader;
