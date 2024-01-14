@@ -41,30 +41,45 @@ const NewArticle = () => {
               </div>
             </div>
           </div>
-
           <div className="bg-vintedBackground mt-6">
+            {/* TITRE */}
             <div className="flex flex-wrap p-6 border-b">
-              <p>Titre</p>
-              <input
-                {...register('titleArticle', { required: true })}
-                className="w-full p-1 rounded"
-              />
-              {errors.titleArticle && <span>Entrez un titre</span>}
+              <div className="w-full md:w-1/2">
+                <label htmlFor="titleArticle">Titre</label>
+              </div>
+              <div className="w-full md:w-1/2">
+                <input
+                  type="text"
+                  {...register('titleArticle', { required: true })}
+                  className="w-full pb-1 border-b"
+                  placeholder="ex: Chemise sésame verte"
+                  id="titleArticle"
+                />
+                {errors.titleArticle && <span>Entrez un titre</span>}
+              </div>
             </div>
-
+            {/* DESCRIPTION */}
             <div className="flex flex-wrap p-6">
-              <p>Décris ton article</p>
-              <input
-                {...register('descriptionArticle', { required: true })}
-                className="w-full p-1 rounded"
-              />
-              {errors.descriptionArticle && <span>Entrez une description</span>}
+              <div className="w-full md:w-1/2">
+                <label htmlFor="description">Décris ton article</label>
+              </div>
+              <div className="w-full md:w-1/2">
+                <textarea
+                  {...register('descriptionArticle', { required: true })}
+                  className="w-full h-28 pb-1"
+                  placeholder="ex: porté quelques fois, taille correctement"
+                  id="description"
+                />
+                {errors.descriptionArticle && (
+                  <span>Entrez une description</span>
+                )}
+              </div>
             </div>
           </div>
 
           <div className="bg-vintedBackground mt-6">
-            <div className="flex flex-wrap p-6 border-b">
-              <p>Catégorie</p>
+            <div className="flex p-6 border-b">
+              <label>Catégorie</label>
               <select
                 {...register('category', { required: true })}
                 className="w-full p-1 rounded"
@@ -82,7 +97,7 @@ const NewArticle = () => {
           </div>
 
           <div className="bg-vintedBackground mt-6">
-            <div className="flex flex-wrap p-6 border-b">
+            <div className="flex p-6 border-b">
               <p>Prix</p>
               <input
                 {...register('price', { required: true })}
@@ -93,7 +108,7 @@ const NewArticle = () => {
           </div>
 
           <div className="bg-vintedBackground my-6">
-            <div className="flex flex-wrap p-6 border-b">
+            <div className="flex p-6 border-b">
               <p>
                 Que penses-tu de notre procédure pour ajouter de nouveaux
                 articles ?
