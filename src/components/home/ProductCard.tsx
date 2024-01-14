@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 
+import { Product } from '@/types/types';
+
 const ProductCard = ({
   title,
   products,

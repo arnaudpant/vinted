@@ -1,5 +1,6 @@
 import FilActu from '@/components/home/NewsFeed';
 import ProductCard from '@/components/home/ProductCard';
+import { Product, User } from '@/types/types';
 
 import { useEffect, useState } from 'react';
 

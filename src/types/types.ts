@@ -1,6 +1,5 @@
 
-
-type Product = {
+export type Product = {
   category: string;
   description: string;
   id: number;
@@ -13,7 +12,7 @@ type Product = {
   title: string;
 };
 
-type User = {
+export type User = {
   address: {
     geolocation: {
       lat: string;
@@ -35,4 +34,8 @@ type User = {
   phone: string;
   __v: number;
 };
+
+
+
+
 

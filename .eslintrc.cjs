@@ -35,5 +35,5 @@ module.exports = {
 		"react/prop-types": "off",
 		"@typescript-eslint/await-thenable": "error"
 	},
-	ignorePatterns: ["tailwind.config.ts" , "types.ts"],
+	ignorePatterns: ["tailwind.config.ts"],
 };

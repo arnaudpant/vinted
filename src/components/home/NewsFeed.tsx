@@ -1,3 +1,6 @@
+
+import { Product, User } from '@/types/types';
+
 const NewsFeed = ({
   title,
   products,
