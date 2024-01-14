@@ -1,20 +1,18 @@
-import { FakeProduct, FakeUser } from '@/types/types';
+import { FakeProductWithUserId } from '@/types/types';
 
-import UserBanner from './UserBanner';
+import { checkURLImageProductFromApi } from '@/utils/Utils';
 import DetailProduct from './DetailProduct';
 import ImageProduct from './ImageProduct';
-import { checkURLImageProductFromApi } from '@/utils/Utils';
-import useDataFakeShop from '@/hooks/useDataFakeShop';
+import UserBanner from './UserBanner';
 
 const CardProductByUser: React.FC<{
-  fakeProduct: FakeProduct;
-  user: FakeUser;
-}> = ({ fakeProduct, user }) => {
+  fakeProduct: FakeProductWithUserId;
+}> = ({ fakeProduct }) => {
   const URL_UMAGE_PATH = checkURLImageProductFromApi(fakeProduct.images[0]);
-  const { fakeShopUsers } = useDataFakeShop();
+
   return (
     <div className="flex flex-col py-2  bg-vintedBackground text-sm  ">
-      <UserBanner user={fakeShopUsers[0]} />
+      <UserBanner userId={fakeProduct.userId} />
       <ImageProduct urlImage={URL_UMAGE_PATH} />
       <DetailProduct
         isLiked={true}

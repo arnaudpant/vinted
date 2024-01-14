@@ -16,3 +16,8 @@ export const checkURLImageProductFromApi: (
   }
   return match ? match[0] : NO_IMAGE_PRODUCT_PATH;
 };
+
+export const getRandomUserIdApi = () => {
+  const MAX_USER_ID_FROM_API = 20;
+  return Math.ceil(Math.random() * MAX_USER_ID_FROM_API);
+};

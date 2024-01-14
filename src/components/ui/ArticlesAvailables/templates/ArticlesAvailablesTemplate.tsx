@@ -1,12 +1,12 @@
 import React from 'react';
 import TitleArticlesAvailables from './TitleArticlesAvailables';
 
-import { FakeProduct, FakeUser } from '@/types/types';
+import { FakeProductWithUserId } from '@/types/types';
 import CardProductByUser from './CardProductByUser';
 
 const ArticlesAvailablesTemplate: React.FC<{
   title: string;
-  productsList: FakeProduct[];
+  productsList: FakeProductWithUserId[];
 }> = ({ title, productsList }) => {
   return (
     <div className="bg-vintedTextGrisClair">
@@ -17,11 +17,7 @@ const ArticlesAvailablesTemplate: React.FC<{
         <TitleArticlesAvailables title={title} />
 
         {productsList.map((fakeProduct) => (
-          <CardProductByUser
-            key={fakeProduct.id}
-            fakeProduct={fakeProduct}
-            user={fakeProduct.userId}
-          />
+          <CardProductByUser key={fakeProduct.id} fakeProduct={fakeProduct} />
         ))}
       </section>
     </div>

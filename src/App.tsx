@@ -9,14 +9,17 @@ import NewArticle from './pages/NewArticle';
 import Catalog from './pages/Catalog';
 
 import { FakeShopProvider } from './context/FakeShopContext';
-import ArticlesAvailablesBySeller from './components/ui/ArticlesAvailableBySeller/ArticlesAvailablesBySeller';
+import ArticlesAvailablesBySeller from './components/ui/ArticlesAvailables/ArticlesAvailablesBySeller';
+import ArticlesSimilars from './components/ui/ArticlesAvailables/ArticlesSimilars';
 
 function App() {
   return (
     <FakeShopProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ArticlesAvailablesBySeller />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/seller" element={<ArticlesAvailablesBySeller />} />
+          <Route path="/similar" element={<ArticlesSimilars />} />
           {/* Page Achat */}
           <Route path="/items/:id" element={<Article />} />
           {/* Page vente si connecté */}

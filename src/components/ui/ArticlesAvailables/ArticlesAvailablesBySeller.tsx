@@ -1,13 +1,16 @@
 import { FakeShopContext } from '@/context/FakeShopContext';
 import { useContext } from 'react';
-import ArticlesAvailablesTemplate from './ArticlesAvailablesTemplate';
-import useDataFakeShop from '@/hooks/useDataFakeShop';
+import ArticlesAvailablesTemplate from './templates/ArticlesAvailablesTemplate';
+import { FakeProductWithUserId } from '@/types/types';
+import { getRandomUserIdApi } from '@/utils/Utils';
 
 const ArticlesAvailablesBySeller = () => {
   const { fakeShopProduct } = useContext(FakeShopContext);
 
-  const { fakeShopUsers } = useDataFakeShop();
-  const user = fakeShopUsers[0];
+  const randomUserId: number = getRandomUserIdApi();
+
+  const fakeShopProductWithUserId: FakeProductWithUserId[] =
+    fakeShopProduct.map((product) => ({ ...product, userId: randomUserId }));
 
   const stockProductsAvailablesTitle = () => {
     switch (fakeShopProduct.length) {
@@ -23,8 +26,7 @@ const ArticlesAvailablesBySeller = () => {
   return (
     <ArticlesAvailablesTemplate
       title={stockProductsAvailablesTitle()}
-      productsList={fakeShopProduct}
-      users={user}
+      productsList={fakeShopProductWithUserId}
     />
   );
 };
