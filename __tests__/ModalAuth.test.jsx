@@ -1,5 +1,5 @@
 import React from 'react';
-import { beforeEach, describe, expect, test, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, test } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import ModalAuth from '../src/components/modals/authentification/ModalAuth';
 
@@ -50,7 +50,7 @@ describe('Inscription et Connexion', () => {
   test('Clic sur btn Inscription', async () => {
     render(<ModalAuth />);
     const btnInscription = screen.getByText(/e-mail/i);
-    expect(btnInscription).toBeInTheDocument().toBeInTheDocument();
+    expect(btnInscription).toBeInTheDocument();
     expect(screen.queryByText(/Continuer avec Apple/i));
     fireEvent.click(btnInscription);
     await expect(btnInscription).not.toBeInTheDocument();

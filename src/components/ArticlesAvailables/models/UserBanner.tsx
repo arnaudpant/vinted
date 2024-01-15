@@ -1,10 +1,9 @@
-import PictureUser from './PictureUser';
 import NoPictureUser from './NoPictureUser';
-
 import { FakeUser } from '@/types/types';
 import useDataFakeShop from '@/hooks/useDataFakeShop';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PictureUser from './PictureUser';
 
 const UserBanner: React.FC<{ userId: number }> = ({ userId }) => {
   const { fakeShopUsers } = useDataFakeShop();
@@ -28,11 +27,7 @@ const UserBanner: React.FC<{ userId: number }> = ({ userId }) => {
       >
         <span className="mr-2">
           {isAvatarUserLoaded ? (
-            <img
-              src={user.avatar}
-              alt="profil utilisateur"
-              className="h-6 w-6 rounded-full"
-            />
+            <PictureUser avatarUser={user.avatar} />
           ) : (
             <NoPictureUser userName={user.name} />
           )}

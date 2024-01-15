@@ -7,10 +7,9 @@ import Error404 from './pages/Error404';
 import Search from './pages/Search';
 import NewArticle from './pages/NewArticle';
 import Catalog from './pages/Catalog';
-
 import { FakeShopProvider } from './context/FakeShopContext';
-import ArticlesAvailablesBySeller from './components/ui/ArticlesAvailables/ArticlesAvailablesBySeller';
-import ArticlesSimilars from './components/ui/ArticlesAvailables/ArticlesSimilars';
+import ArticlesAvailablesBySeller from './components/ArticlesAvailables/ArticlesAvailablesBySeller';
+import ArticlesSimilarsByRandomSellers from './components/ArticlesAvailables/ArticlesSimilarsByRandomSellers';
 
 function App() {
   return (
@@ -19,7 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/seller" element={<ArticlesAvailablesBySeller />} />
-          <Route path="/similar" element={<ArticlesSimilars />} />
+          <Route
+            path="/similars"
+            element={<ArticlesSimilarsByRandomSellers />}
+          />
           {/* Page Achat */}
           <Route path="/items/:id" element={<Article />} />
           {/* Page vente si connecté */}

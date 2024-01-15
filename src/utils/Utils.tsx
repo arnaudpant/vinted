@@ -3,6 +3,8 @@
 // Cette fonction permet de retourner une url valide.
 // Sinon elle retourne "no-product-image.png"
 
+import { FakeProduct, FakeProductWithUserId } from '@/types/types';
+
 export const checkURLImageProductFromApi: (
   urlImageProduct: string,
 ) => string = (urlImageProduct: string) => {
@@ -20,4 +22,17 @@ export const checkURLImageProductFromApi: (
 export const getRandomUserIdApi = () => {
   const MAX_USER_ID_FROM_API = 20;
   return Math.ceil(Math.random() * MAX_USER_ID_FROM_API);
+};
+
+export const stockArticlesTitle: (
+  products: FakeProductWithUserId[] | FakeProduct[],
+) => string = (products) => {
+  switch (products.length) {
+    case 0:
+      return 'Aucun article disponible';
+    case 1:
+      return 'Un article dispible';
+    default:
+      return `${products.length} produits disponibles`;
+  }
 };
