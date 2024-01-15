@@ -17,6 +17,7 @@ export type SuggestSearchList = {
     brand: string,
     views: number
 }
+
 // Données primaires de Firebase
 export interface UserInterface {
   // Données primaires
@@ -65,3 +66,26 @@ export type LinkLabel =
   | 'Notre plateforme'
   | 'Conditions de vente Pro'
   | "Conditions d'utilisation Pro";
+
+export type TypeCategory = {
+  id: number;
+  title: string;
+  subCategories?: TypeSubCategory[];
+  navigation?: NavigationVintedPages[];
+};
+export type NavigationVintedPages = {
+  title: string;
+  navigationTitles: { description: string; path?: string }[];
+};
+export type TypeSubCategory = {
+  id: number;
+
+  title: string;
+  iconName?: string;
+  // Utile pour le "Voir tout"
+  navLink?: string;
+  subSubCategories?: TypeSubSubCategory[];
+};
+export type TypeSubSubCategory = { title: string; link?: string };
+export const SEE_ALL = 'Voir tout' as const;
+export const SEE_OTHERS = 'Autres' as const;
