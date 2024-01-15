@@ -4,7 +4,7 @@ const ButtonReseaux = ({children}: any) => {
       <button
         type="button"
         className="h-11 w-full flex justify-center items-center border border-solid border-vintedTextGrisClair rounded mt-2 cursor-not-allowed"
-        disabled
+        disabled={true}
       >
         {children}
       </button>
