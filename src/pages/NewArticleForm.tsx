@@ -1,34 +1,21 @@
+
 import { ArticleForSale } from '@/types/types';
-import { useForm } from 'react-hook-form';
 import { Plus } from 'lucide-react';
+import { UseFormHandleSubmit } from 'react-hook-form';
 
-const NewArticle = () => {
+type Props = {
+  handleSubmit: UseFormHandleSubmit<ArticleForSale>;
+  onSubmit: (data: ArticleForSale) => void;
+};
 
-
-  const {
-    handleSubmit,
-    formState: { errors },
-    register,
-  } = useForm<ArticleForSale>();
-
-  const onSubmit = (data: ArticleForSale) => {
-    const newArticle: ArticleForSale = {
-      photos: data.photos,
-      titleArticle: data.titleArticle,
-      descriptionArticle: data.descriptionArticle,
-      category: data.category,
-      price: data.price,
-    };
-    console.log(newArticle);
-  };
-
+const NewArticleForm = ({ handleSubmit, onSubmit }: Props) => {
   return (
     <section className="bg-vintedBackgroundCard pt-5">
       <div className="flex flex-col items-center container mx-auto max-w-[960px]">
         <div className="w-full py-4">
           <h1 className="text-2xl text-left">Vends ton article</h1>
         </div>
-        {/* FORMULAIRE */}
+
         <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
           <div className="bg-vintedBackground">
             <p className="text-sm text-vintedTextBlackVar font-light pt-6 px-6 pb-2">
@@ -37,7 +24,7 @@ const NewArticle = () => {
             </p>
             <div className="p-6">
               <div className="flex items-center justify-center border border-dashed min-h-36 rounded">
-                <button className="flex h-[42px] px-[14px] items-center border border-vintedGreen text-vintedGreen rounded cursor-not-allowed">
+                <button className="flex h-[42px] px-[14px] items-center border border-vintedGreen text-vintedGreen rounded">
                   <Plus />
                   Ajoute des photos
                 </button>
@@ -54,15 +41,11 @@ const NewArticle = () => {
                 <input
                   type="text"
                   {...register('titleArticle', { required: true })}
-                  className="w-full pb-1 border-b focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+                  className="w-full pb-1 border-b"
                   placeholder="ex: Chemise sésame verte"
                   id="titleArticle"
                 />
-                {errors.titleArticle && (
-                  <span className="text-vintedGreen text-sm">
-                    Entrez un titre
-                  </span>
-                )}
+                {errors.titleArticle && <span>Entrez un titre</span>}
               </div>
             </div>
             {/* DESCRIPTION */}
@@ -73,14 +56,12 @@ const NewArticle = () => {
               <div className="w-full md:w-1/2">
                 <textarea
                   {...register('descriptionArticle', { required: true })}
-                  className="w-full h-28 border-b focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+                  className="w-full h-28 border-b"
                   placeholder="ex: porté quelques fois, taille correctement"
                   id="description"
                 />
                 {errors.descriptionArticle && (
-                  <span className="text-vintedGreen text-sm">
-                    Entrez une description
-                  </span>
+                  <span>Entrez une description</span>
                 )}
               </div>
             </div>
@@ -90,15 +71,16 @@ const NewArticle = () => {
           <div className="bg-vintedBackground mt-6">
             <div className="flex flex-wrap p-6">
               <div className="w-full md:w-1/2">
-                <label htmlFor="categories">Catégorie</label>
+                <label>Catégorie</label>
               </div>
               <div className="w-full md:w-1/2">
                 <select
                   {...register('category', { required: true })}
-                  className="w-full border-b text-vintedTextGrisFonce focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
-                  id="categories"
+                  className="w-full border-b text-vintedTextGrisFonce"
                 >
-                  <option value="">Sélectionne une catégorie</option>
+                  <option value="" disabled>
+                    Sélectionne une catégorie
+                  </option>
                   <option value="femmes">Femmes</option>
                   <option value="hommes">Hommes</option>
                   <option value="enfants">Enfants</option>
@@ -106,11 +88,7 @@ const NewArticle = () => {
                   <option value="divertissement">Divertissement</option>
                   <option value="animaux">Animaux</option>
                 </select>
-                {errors.category && (
-                  <span className="text-vintedGreen text-sm">
-                    Choississez une catégorie
-                  </span>
-                )}
+                {errors.category && <span>Choississez une catégorie</span>}
               </div>
             </div>
           </div>
@@ -124,15 +102,11 @@ const NewArticle = () => {
               <div className="w-full md:w-1/2">
                 <input
                   {...register('price', { required: true })}
-                  className="w-full border-b focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+                  className="w-full border-b"
                   placeholder="0,00€"
                   id="prix"
                 />
-                {errors.price && (
-                  <span className="text-vintedGreen text-sm">
-                    Ce champ est requis
-                  </span>
-                )}
+                {errors.price && <span>Ce champ est requis</span>}
               </div>
             </div>
           </div>
@@ -173,4 +147,4 @@ const NewArticle = () => {
   );
 };
 
-export default NewArticle;
+export default NewArticleForm;
