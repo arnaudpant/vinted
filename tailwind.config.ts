@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'hero-pattern': "url('@/assets/banner-wide.jpg')"
+      },
       colors: {
         vintedGreen: "#017782",
         vintedBackground: "#ffffff",

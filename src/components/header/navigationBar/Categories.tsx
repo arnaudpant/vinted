@@ -67,10 +67,10 @@ const Categories: () => JSX.Element = () => {
   useEffect(() => isNavBarClicked(), [isNavBarClicked]);
 
   return (
-    <div className="max-h-16" ref={divCategorieRef}>
+    <div className='flex items-center' ref={divCategorieRef}>
       <nav
         ref={navCategoriesRef}
-        className=" flex flex-row items-center space-x-4  ml-32  py-4 text-vintedTextGrisFonce "
+        className=" flex flex-row items-center space-x-4 text-vintedTextGrisFonce "
       >
         {/* Liste des catégories : Femmes Hommes Enfants etc... */}
 

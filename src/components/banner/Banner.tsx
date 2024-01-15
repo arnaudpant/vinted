@@ -1,41 +1,25 @@
-import bannerLargeScreen from '@/assets/banner-wide.jpg';
-import bannerSmallScreen from '@/assets/bannerSmallScreen.jpg';
-import bannerMediumScreen from '@/assets/bannerMiddleScreen.jpg';
-import useWindowWidth from '@/hooks/useWindowWidth';
-import { SCREENS_BREAKPOINT } from '@/utils/constants';
-import { CallToAction } from './CallToActions';
+import { CallToAction } from '../header/navigationBar/CallToActions';
 
 const Banner = () => {
-  /*
-   *Sur le site de Vinted, la bannière utilisé entre sm et md n'est pas la même.
-   *Le custum hook widthWindow permet de connaitre la largeur de la fenêtre
-   */
-  const widthWindow = useWindowWidth();
-
-  const pickBannerImage: (width: number) => string = (widthWindow: number) => {
-    if (widthWindow <= SCREENS_BREAKPOINT.Small) {
-      return bannerSmallScreen;
-    } else if (widthWindow <= SCREENS_BREAKPOINT.Medium) {
-      return bannerMediumScreen;
-    } else {
-      return bannerLargeScreen;
-    }
-  };
-
-  const bannerImage: string = pickBannerImage(widthWindow);
 
   return (
-    <section
-      id="banner"
-      className="flex flex-col items-center justify-center sm:flex sm:flex-row-reverse sm:relative sm:z-[-10]  "
-    >
-      <img
-        src={bannerImage}
-        alt="bannière"
-        className="object-cover w-full max-h-64 sm:min-h-[420px]  sm:object-cover   "
-      />
-      <CallToAction />
-    </section>
+    <>
+      <section
+        id="banner"
+        className="flex items-center pt-28 bg-hero-pattern w-full h-[390px] bg-cover bg-center md:h-[800px]"
+      >
+        <div className="hidden md:block container mx-auto px-5 w-full">
+          <div className="w-96 p-8 bg-white">
+            <CallToAction />
+          </div>
+        </div>
+      </section>
+      <div className="md:hidden p-4 w-full">
+        <div className="w-full p-4 bg-white">
+          <CallToAction />
+        </div>
+      </div>
+    </>
   );
 };
 

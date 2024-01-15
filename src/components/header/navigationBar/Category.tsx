@@ -13,7 +13,7 @@ const Category: React.FC<{
   displayOnScreenPopCategories,
 }) => {
   return (
-    <div className="" id={`category-${category.id}`}>
+    <div className="text-[14px]" id={`category-${category.id}`}>
       <button
         key={category.id}
         className={` whitespace-nowrap hover:bg-vintedBackground ${
