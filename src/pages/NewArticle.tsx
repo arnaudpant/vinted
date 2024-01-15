@@ -1,9 +1,10 @@
 import { ArticleForSale } from '@/types/types';
 import { useForm } from 'react-hook-form';
 import { Plus } from 'lucide-react';
+import useAddArticle from '@/hooks/useAddArticle';
 
 const NewArticle = () => {
-
+  const { addArticleToSell } = useAddArticle();
 
   const {
     handleSubmit,
@@ -13,13 +14,14 @@ const NewArticle = () => {
 
   const onSubmit = (data: ArticleForSale) => {
     const newArticle: ArticleForSale = {
-      photos: data.photos,
+      photos: [],
       titleArticle: data.titleArticle,
       descriptionArticle: data.descriptionArticle,
       category: data.category,
       price: data.price,
     };
     console.log(newArticle);
+    addArticleToSell(newArticle);
   };
 
   return (
@@ -98,7 +100,9 @@ const NewArticle = () => {
                   className="w-full border-b text-vintedTextGrisFonce focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
                   id="categories"
                 >
-                  <option value="">Sélectionne une catégorie</option>
+                  <option hidden defaultValue="">
+                    Sélectionne une catégorie
+                  </option>
                   <option value="femmes">Femmes</option>
                   <option value="hommes">Hommes</option>
                   <option value="enfants">Enfants</option>
@@ -124,6 +128,7 @@ const NewArticle = () => {
               <div className="w-full md:w-1/2">
                 <input
                   {...register('price', { required: true })}
+                  type="number"
                   className="w-full border-b focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
                   placeholder="0,00€"
                   id="prix"
