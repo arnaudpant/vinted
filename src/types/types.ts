@@ -3,6 +3,24 @@
 */
 
 import { Timestamp } from 'firebase/firestore';
+
+export type ProductFakeApi = {
+    category: string,
+    description: string,
+    id: number,
+    image: string
+    price: number,
+    rating: {
+        count: number,
+        rate: number
+    }
+    title: string
+}
+
+export type SuggestSearchList = {
+    brand: string,
+    views: number
+}
 // Données primaires de Firebase
 export type UserInterface = {
   // Données primaires
@@ -66,3 +84,52 @@ export type LinkLabel =
   | 'Notre plateforme'
   | 'Conditions de vente Pro'
   | "Conditions d'utilisation Pro";
+
+
+  export type FakeUser = {
+      id: number,
+      name: string,
+      avatar: string,
+      updatedAt:Date
+  }
+
+  export type FakeProduct = {
+    id: number,
+    title: string,
+    price: number,
+    description: string,
+    category: {
+      id: number,
+      name: string,
+      image: string
+    },
+    images: string[]
+  }
+
+  export type FakeCategory = {
+    id: number,
+    name: string,
+    image: string
+  }
+export type TypeCategory = {
+  id: number;
+  title: string;
+  subCategories?: TypeSubCategory[];
+  navigation?: NavigationVintedPages[];
+};
+export type NavigationVintedPages = {
+  title: string;
+  navigationTitles: { description: string; path?: string }[];
+};
+export type TypeSubCategory = {
+  id: number;
+
+  title: string;
+  iconName?: string;
+  // Utile pour le "Voir tout"
+  navLink?: string;
+  subSubCategories?: TypeSubSubCategory[];
+};
+export type TypeSubSubCategory = { title: string; link?: string };
+export const SEE_ALL = 'Voir tout' as const;
+export const SEE_OTHERS = 'Autres' as const;
