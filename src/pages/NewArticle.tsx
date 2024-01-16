@@ -20,13 +20,13 @@ const NewArticle = () => {
       category: data.category,
       price: data.price,
     };
-    console.log(newArticle);
+    //console.log(newArticle);
     addArticleToSell(newArticle);
   };
 
   return (
     <section className="bg-vintedBackgroundCard pt-5">
-      <div className="flex flex-col items-center container mx-auto max-w-[960px]">
+      <div className="flex flex-col items-center container mx-auto px-2 max-w-[960px]">
         <div className="w-full py-4">
           <h1 className="text-2xl text-left">Vends ton article</h1>
         </div>
@@ -143,12 +143,12 @@ const NewArticle = () => {
           </div>
 
           <div className="bg-vintedBackground mt-6">
-            <div className="flex justify-between p-6">
-              <p>
+            <div className="flex justify-between items-center p-6">
+              <p className='pr-2'>
                 Que penses-tu de notre procédure pour ajouter de nouveaux
                 articles ?
               </p>
-              <button className="flex h-[42px] px-[14px] items-center border border-vintedGreen text-vintedGreen rounded">
+              <button className="h-[42px] min-w-36 px-[14px] border border-vintedGreen text-vintedGreen rounded">
                 Donner un avis
               </button>
             </div>
@@ -161,13 +161,13 @@ const NewArticle = () => {
             </span>{' '}
             du Code de la Consommation.
           </p>
-          <div className="flex justify-end gap-4 mt-11 pb-5 mb-8">
-            <button className="flex h-[42px] px-[14px] items-center border border-vintedGreen text-vintedGreen rounded">
+          <div className="flex flex-col-reverse md:flex-row md:justify-end gap-4 mt-11 pb-5 mb-8">
+            <button className="h-[42px] px-[14px] text-center border border-vintedGreen text-vintedGreen rounded">
               Sauvegarder le brouillon
             </button>
             <button
               type="submit"
-              className="flex h-[42px] px-[14px] items-center bg-vintedGreen text-vintedBackground rounded"
+              className="h-[42px] px-[14px] text-center bg-vintedGreen text-vintedBackground rounded"
             >
               Ajouter
             </button>
