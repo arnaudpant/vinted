@@ -51,7 +51,7 @@ export type Action = 'init' | 'connexion' | 'inscription' | 'password-forget';
  * PAGE VENDRE 
  */
 export type ArticleForSale = {
-  photos:string[],
+  photos?:string[],
   titleArticle: string,
   descriptionArticle: string,
   category: CategoriesArticles,

@@ -2,9 +2,12 @@ import { ArticleForSale } from '@/types/types';
 import { useForm } from 'react-hook-form';
 import { Plus } from 'lucide-react';
 import useAddArticle from '@/hooks/useAddArticle';
+import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import ModalAuth from '@/components/modals/authentification/ModalAuth';
 
 const NewArticle = () => {
   const { addArticleToSell } = useAddArticle();
+  const { authUser } = useFirebaseAuth()
 
   const {
     handleSubmit,
@@ -20,12 +23,15 @@ const NewArticle = () => {
       category: data.category,
       price: data.price,
     };
-    //console.log(newArticle);
+    console.log('newArticle', newArticle);
     addArticleToSell(newArticle);
   };
 
   return (
     <section className="bg-vintedBackgroundCard pt-5">
+      {
+        !authUser && <ModalAuth />
+      }
       <div className="flex flex-col items-center container mx-auto px-2 max-w-[960px]">
         <div className="w-full py-4">
           <h1 className="text-2xl text-left">Vends ton article</h1>
