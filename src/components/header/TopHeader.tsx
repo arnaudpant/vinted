@@ -13,9 +13,7 @@ const TopHeader: () => JSX.Element = () => {
       <div className="hidden lg:flex lg:grow">
         <HeaderBarSearch />
       </div>
-      <div className="hidden lg:flex">
-        <ActionsTopBar />
-      </div>
+      <div className="hidden lg:flex">{/* <ActionsTopBar /> */}</div>
       <div className="lg:hidden pt-2">
         <BurgerMenuLogo
           setIsMenuBurgerActive={setIsMenuBurgerActive}

@@ -1,34 +1,34 @@
 import { TypeCategory } from '@/types/types';
-import React from 'react';
+import React, { useState } from 'react';
+import SubCategories from './SubCategories';
 
 const Category: React.FC<{
-  displayOnScreenPopCategories: boolean;
   category: TypeCategory;
   selectedIdCategory: number;
-  selectCategory: (id: number) => void;
-}> = ({
-  category,
-  selectedIdCategory,
-  selectCategory,
-  displayOnScreenPopCategories,
-}) => {
+  selectCategory: Function;
+}> = ({ category, selectedIdCategory, selectCategory }) => {
+  const handleSelectedCategory = () => {
+    selectCategory(category.id);
+  };
+
+  const isCategorySelected = selectedIdCategory === category.id;
+
   return (
-    <div className="text-[14px]" id={`category-${category.id}`}>
+    <div className="relative">
       <button
-        key={category.id}
-        className={` whitespace-nowrap hover:bg-vintedBackground ${
-          selectedIdCategory === category.id && displayOnScreenPopCategories
-            ? 'border-vintedGreen border-solid border-b-4 '
+        onClick={handleSelectedCategory}
+        className={`${
+          isCategorySelected
+            ? 'border-solid border-b-4 border-vintedGreen border-spacing-6 '
             : ''
         }`}
-        onClick={() => {
-          selectCategory(category.id);
-        }}
       >
         {category.title}
+        {isCategorySelected && (
+          <SubCategories selectedIdCategory={selectedIdCategory} />
+        )}
       </button>
     </div>
   );
 };
-
 export default Category;
