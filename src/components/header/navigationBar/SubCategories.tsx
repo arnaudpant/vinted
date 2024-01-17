@@ -14,14 +14,14 @@ const SubCategories: React.FC<{ selectedIdCategory: number }> = ({
     return null;
   }
   return (
-    <div className="block absolute top-10 p-2 bg-vintedBackground min-w-64">
+    <>
       {activeCategory?.subCategories?.map((subCategory) => (
         <SubCategory
           key={subCategory.id}
           subCategory={subCategory}
         ></SubCategory>
       ))}
-    </div>
+    </>
   );
 };
 

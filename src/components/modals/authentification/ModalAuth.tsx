@@ -15,7 +15,7 @@ import ButtonDisconnect from './ButtonDisconnect';
 import { Action } from '@/types/types';
 
 type Props = {
-  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>
+  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ModalAuth = ({ setModalConnexion }: Props) => {
@@ -25,8 +25,8 @@ const ModalAuth = ({ setModalConnexion }: Props) => {
 
   const handleClick = () => {
     setContenuModal('init');
-    setModalConnexion(false)
-  }
+    setModalConnexion(false);
+  };
 
   return createPortal(
     <>

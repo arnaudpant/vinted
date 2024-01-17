@@ -1,34 +1,31 @@
+import { MenubarMenu } from '@/components/ui/menubar';
 import { TypeCategory } from '@/types/types';
-import React, { useState } from 'react';
+import { MenubarContent, MenubarTrigger } from '@radix-ui/react-menubar';
+import React from 'react';
 import SubCategories from './SubCategories';
+import categoriesHeader from '@/data/categoriesHeader';
 
 const Category: React.FC<{
-  category: TypeCategory;
   selectedIdCategory: number;
-  selectCategory: Function;
-}> = ({ category, selectedIdCategory, selectCategory }) => {
-  const handleSelectedCategory = () => {
-    selectCategory(category.id);
-  };
-
-  const isCategorySelected = selectedIdCategory === category.id;
+}> = ({ selectedIdCategory }) => {
+  const currentCategory = categoriesHeader.find(
+    (category) => category.id === selectedIdCategory,
+  );
 
   return (
-    <div className="relative">
-      <button
-        onClick={handleSelectedCategory}
-        className={`${
-          isCategorySelected
-            ? 'border-solid border-b-4 border-vintedGreen border-spacing-6 '
-            : ''
-        }`}
+    <MenubarMenu>
+      <MenubarTrigger className="text-vintedTextBlackVar hover:bg-vintedBackgroundCard hover:border-b-4 hover:border-vintedGreen  text-lg">
+        {currentCategory?.title}
+      </MenubarTrigger>
+
+      <MenubarContent
+        className="bg-vintedBackground my-2 px-4 py-4"
+        side="bottom"
+        align="center"
       >
-        {category.title}
-        {isCategorySelected && (
-          <SubCategories selectedIdCategory={selectedIdCategory} />
-        )}
-      </button>
-    </div>
+        <SubCategories selectedIdCategory={selectedIdCategory} />
+      </MenubarContent>
+    </MenubarMenu>
   );
 };
 export default Category;

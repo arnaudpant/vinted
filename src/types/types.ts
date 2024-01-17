@@ -1,22 +1,22 @@
 import { Timestamp } from 'firebase/firestore';
 
 export type ProductFakeApi = {
-    category: string,
-    description: string,
-    id: number,
-    image: string
-    price: number,
-    rating: {
-        count: number,
-        rate: number
-    }
-    title: string
-}
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating: {
+    count: number;
+    rate: number;
+  };
+  title: string;
+};
 
 export type SuggestSearchList = {
-    brand: string,
-    views: number
-}
+  brand: string;
+  views: number;
+};
 
 // Données primaires de Firebase
 export interface UserInterface {
@@ -72,6 +72,7 @@ export type TypeCategory = {
   title: string;
   subCategories?: TypeSubCategory[];
   navigation?: NavigationVintedPages[];
+  link?: string;
 };
 export type NavigationVintedPages = {
   title: string;
@@ -79,6 +80,7 @@ export type NavigationVintedPages = {
 };
 export type TypeSubCategory = {
   id: number;
+  link?: string;
 
   title: string;
   iconName?: string;
