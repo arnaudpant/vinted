@@ -8,6 +8,7 @@ import Error404 from './pages/Error404';
 import Search from './pages/Search';
 import NewArticle from './pages/NewArticle';
 import Catalog from './pages/Catalog';
+import PopoverTest from './components/PopoverTest';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
           <Route path="/catalog/:id" element={<Catalog />} />
+
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
