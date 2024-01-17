@@ -1,29 +1,32 @@
 import logoHelp from '@/assets/icon-help.png';
 import { useState } from 'react';
+
+import ButtonTopHeader from './navigationBar/ButtonTopHeader';
 import ModalAuth from '../modals/authentification/ModalAuth';
 
 export const ActionsTopBar: () => JSX.Element = () => {
-  const [modalConnexion, setModalConnexion] = useState<boolean>(false)
+  const [modalConnexion, setModalConnexion] = useState<boolean>(false);
 
   const handleConnexion = () => {
-    setModalConnexion(v => !v)
-  }
+    setModalConnexion((v) => !v);
+  };
   return (
     <>
       <div className="space-x-3 ">
-        <button
-          id="connexion"
-          className="border-2 border-vintedGreen rounded p-1 text-sm text-vintedGreen hover:bg-vintedBackgroundCard"
-          onClick={handleConnexion}
+        <ButtonTopHeader
+          handleFunction={handleConnexion}
+          mainColor=""
+          textColor="text-vintedGreen"
         >
-          S'inscrire | Se connecter
-        </button>
-        <button
-          id="sell"
-          className="bg-vintedGreen text-white text-sm pl-2 pr-2 pt-1 pb-1 rounded"
+          S&apos;inscrire &#124; Se connecter
+        </ButtonTopHeader>
+        <ButtonTopHeader
+          mainColor="bg-vintedGreen"
+          textColor="text-vintedBackground"
         >
           Vends tes articles
-        </button>
+        </ButtonTopHeader>
+
         <img
           src={logoHelp}
           alt="Aide"
@@ -35,14 +38,14 @@ export const ActionsTopBar: () => JSX.Element = () => {
           className=" w-12 relative origin-top-left  hover:cursor-pointer"
           defaultValue={'FR'}
         >
-          {/* Modifier les options pour quelles apparaissent comme sur le site vinted */}
           <option value="fr">FR</option>
           <option value="en">English (English)</option>
           <option value="es">Espagnol (Spanish)</option>
           <option value="ne">Nederlands (Dutch)</option>
         </select>
       </div>
-      {modalConnexion && <ModalAuth setModalConnexion={setModalConnexion} />}
+      {/** Cette ligne de code crash l'application */}
+      {/* {modalConnexion && <ModalAuth setModalConnexion={setModalConnexion} />} */}
     </>
   );
 };
