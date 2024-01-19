@@ -24,15 +24,15 @@ export const getRandomUserIdApi = () => {
   return Math.ceil(Math.random() * MAX_USER_ID_FROM_API);
 };
 
-export const stockArticlesTitle: (
+export const getStockArticlesTitle: (
   products: FakeProductWithUserId[] | FakeProduct[],
 ) => string = (products) => {
   switch (products.length) {
     case 0:
       return 'Aucun article disponible';
     case 1:
-      return 'Un article dispible';
+      return 'Un article disponible';
     default:
-      return `${products.length} produits disponibles`;
+      return `${products.length} articles disponibles`;
   }
 };

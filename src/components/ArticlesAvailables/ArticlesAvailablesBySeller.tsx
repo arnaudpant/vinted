@@ -1,4 +1,4 @@
-import { getRandomUserIdApi, stockArticlesTitle } from '@/utils/Utils';
+import { getRandomUserIdApi, getStockArticlesTitle } from '@/utils/Utils';
 import CardProductByUser from './models/CardProductByUser';
 import TitleArticlesAvailables from './models/TitleArticlesAvailables';
 import { useContext } from 'react';
@@ -15,7 +15,7 @@ const ArticlesAvailablesBySeller: React.FC = () => {
   const fakeShopProductsWithUserId: FakeProductWithUserId[] =
     fakeShopProduct.map((product) => ({ ...product, userId: randomUserId }));
 
-  const title = stockArticlesTitle(fakeShopProductsWithUserId);
+  const title = getStockArticlesTitle(fakeShopProductsWithUserId);
 
   return (
     <ArticlesAvailablesModel
