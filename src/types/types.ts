@@ -142,3 +142,30 @@ export type User = {
   phone: string;
   __v: number;
 };
+
+export type FakeUser = {
+  id: number;
+  name: string;
+  avatar: string;
+  updatedAt: Date;
+};
+
+export type FakeProduct = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  creationAt: string;
+  category: {
+    id: number;
+    name: string;
+    image: string;
+  };
+  images: string[];
+};
+
+export type FakeCategory = {
+  id: number;
+  name: string;
+  image: string;
+};
