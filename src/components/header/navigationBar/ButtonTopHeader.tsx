@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ButtonTopHeader: React.FC<{
   children: string;
   mainColor: string;

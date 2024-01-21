@@ -1,6 +1,5 @@
 import { MenubarItem, MenubarSubContent } from '@/components/ui/menubar';
 import { TypeSubCategory } from '@/types/types';
-import React from 'react';
 
 const SubSubCategories: React.FC<{ subCategory: TypeSubCategory }> = ({
   subCategory,

@@ -1,28 +1,28 @@
 import logoHelp from '@/assets/icon-help.png';
 
+import { useState } from 'react';
+import ModalAuth from '../modals/authentification/ModalAuth';
 import ButtonTopHeader from './navigationBar/ButtonTopHeader';
 
 export const ActionsTopBar: () => JSX.Element = () => {
-  {
-    /*Code lié à ModalAuth qui crash l'app */
-  }
-  // const [modalConnexion, setModalConnexion] = useState<boolean>(false);
+  const [modalConnexion, setModalConnexion] = useState<boolean>(false);
 
-  // const handleConnexion = () => {
-  //   setModalConnexion((v) => !v);
-  // };
+  const handleConnexion = () => {
+    setModalConnexion((v) => !v);
+  };
 
   return (
     <>
       <div className="space-x-3 ">
         <ButtonTopHeader
-          // handleFunction={handleConnexion}
+          handleFunction={handleConnexion}
           mainColor=""
           textColor="text-vintedGreen"
         >
           S&apos;inscrire &#124; Se connecter
         </ButtonTopHeader>
         <ButtonTopHeader
+          handleFunction={handleConnexion}
           mainColor="bg-vintedGreen"
           textColor="text-vintedBackground"
         >
@@ -46,8 +46,7 @@ export const ActionsTopBar: () => JSX.Element = () => {
           <option value="ne">Nederlands (Dutch)</option>
         </select>
       </div>
-      {/** Cette ligne de code crash l'application */}
-      {/* {modalConnexion && <ModalAuth setModalConnexion={setModalConnexion} />} */}
+      {modalConnexion && <ModalAuth setModalConnexion={setModalConnexion} />}
     </>
   );
 };

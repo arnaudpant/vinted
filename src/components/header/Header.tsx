@@ -1,6 +1,5 @@
 import TopHeader from './TopHeader';
 import BottomHeader from './BottomHeader';
-import React from 'react';
 
 const Header = () => {
   return (

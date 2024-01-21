@@ -16,7 +16,7 @@ const Categories: () => JSX.Element = () => {
           }
 
           if (category.link) {
-            return <PlatformCategory category={category} key={category.id} />;
+            return <PlatformCategory key={category.id} category={category} />;
           }
           if (category.subCategories) {
             return (

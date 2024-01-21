@@ -5,7 +5,6 @@ import {
 } from '@/components/ui/menubar';
 import { TypeSubCategory } from '@/types/types';
 import { buildIconPath } from '@/utils/Utils';
-import React from 'react';
 import SubSubCategories from './SubSubCategories';
 import { Link } from 'react-router-dom';
 

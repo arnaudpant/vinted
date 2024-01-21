@@ -1,5 +1,4 @@
 import categoriesHeader from '@/data/categoriesHeader';
-import React from 'react';
 
 import { TypeCategory } from '@/types/types';
 import SubCategory from './SubCategory';

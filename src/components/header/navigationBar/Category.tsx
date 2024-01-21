@@ -1,7 +1,6 @@
 import { MenubarMenu } from '@/components/ui/menubar';
 import categoriesHeader from '@/data/categoriesHeader';
 import { MenubarContent, MenubarTrigger } from '@radix-ui/react-menubar';
-import React from 'react';
 import SubCategories from './SubCategories';
 
 const Category: React.FC<{

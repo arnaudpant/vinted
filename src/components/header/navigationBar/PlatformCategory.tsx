@@ -1,6 +1,5 @@
 import { MenubarMenu, MenubarTrigger } from '@/components/ui/menubar';
 import { TypeCategory } from '@/types/types';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PlatformCategory: React.FC<{ category: TypeCategory }> = ({
