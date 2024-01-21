@@ -3,11 +3,7 @@ import { useState } from 'react';
 import ModalArticlePriceDetails from '../modals/articlePriceDetails/ModalArticlePriceDetails';
 import { getBuyerProtectionFee } from '@/utils/getTimeDifferenceString';
 
-type ArticlePricesProps = {
-  price: number;
-};
-
-const ArticlePrices = ({ price }: ArticlePricesProps) => {
+const ArticlePrices = ({ price }: { price: number }) => {
   const [modalPriceDetails, setModalPriceDetails] = useState<boolean>(false);
 
   return (
@@ -15,7 +11,7 @@ const ArticlePrices = ({ price }: ArticlePricesProps) => {
       <div className="mb-2">
         <h1 className="text-2xl">{price}&nbsp;€</h1>
         <button
-          className="cursor-pointer text-vintedGreen hover:underline flex flex-row"
+          className="flex cursor-pointer flex-row text-vintedGreen hover:underline"
           onClick={() => setModalPriceDetails(true)}
         >
           <span>

@@ -1,20 +1,26 @@
 import { Heart } from 'lucide-react';
+import ArticleButton from './ArticleButton';
 
 const ArticleInfoButtons = () => {
-  const buttonCommonCss = 'rounded py-2 border border-vintedGreen';
   return (
     <div className="flex flex-col gap-2">
-      <button className={`bg-vintedGreen text-white ${buttonCommonCss}`}>
-        Acheter
-      </button>
-      <button className={`bg-white text-vintedGreen ${buttonCommonCss}`}>
-        Faire une offre
-      </button>
-      <button className={`bg-white text-vintedGreen ${buttonCommonCss}`}>
-        Message
-      </button>
+      <ArticleButton
+        backgroundColor="bg-vintedGreen"
+        textColor="text-white"
+        label="Acheter"
+      />
+      <ArticleButton
+        backgroundColor="bg-white"
+        textColor="text-vintedGreen"
+        label="Faire une offre"
+      />
+      <ArticleButton
+        backgroundColor="bg-white"
+        textColor="text-vintedGreen"
+        label="Message"
+      />
       <button
-        className={`bg-white text-vintedGreen ${buttonCommonCss} flex flex-row justify-center gap-1`}
+        className={`flex flex-row justify-center gap-1 rounded border border-vintedGreen bg-white py-2 text-vintedGreen`}
       >
         <Heart />
         <span>Favoris</span>

@@ -5,15 +5,11 @@ import ArticlePrices from './articleInfo/ArticlePrices';
 import ArticleShippingFeeInfo from './articleInfo/ArticleShippingFeeInfo';
 import BuyerProtectionInfo from './articleInfo/BuyerProtectionInfo';
 
-type ArticleInfoProps = {
-  article: FakeProduct;
-};
-
-const ArticleInfo = ({ article }: ArticleInfoProps) => {
+const ArticleInfo = ({ article }: { article: FakeProduct }) => {
   const { price, title, description } = article;
   return (
     <>
-      <div className="pt-5 pl-5 pr-5">
+      <div className="px-5 pt-5">
         <ArticlePrices price={price} />
         <hr />
         <ArticleDetails article={article} />

@@ -28,13 +28,13 @@ const BuyerProtectionInfo = () => {
             clipRule="evenodd"
           />
         </svg>
-        <h2 className="font-medium self-center">
+        <h2 className="self-center font-medium">
           Frais de Protection acheteurs
         </h2>
       </div>
-      <span>
-        Pour tout achat effectué par le biais du bouton "Acheter", nous
-        appliquons des frais couvrant notre{' '}
+      <p>
+        Pour tout achat effectué par le biais du bouton &quot;Acheter&quot;,
+        nous appliquons des frais couvrant notre{' '}
         <a href="/" className="cursor-pointer text-vintedGreen underline">
           protection acheteurs
         </a>
@@ -42,7 +42,7 @@ const BuyerProtectionInfo = () => {
         <a href="/" className="cursor-pointer text-vintedGreen underline">
           Politique de remboursement.
         </a>
-      </span>
+      </p>
     </div>
   );
 };
