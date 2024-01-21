@@ -1,9 +1,8 @@
 import { MenubarMenu } from '@/components/ui/menubar';
-import { TypeCategory } from '@/types/types';
+import categoriesHeader from '@/data/categoriesHeader';
 import { MenubarContent, MenubarTrigger } from '@radix-ui/react-menubar';
 import React from 'react';
 import SubCategories from './SubCategories';
-import categoriesHeader from '@/data/categoriesHeader';
 
 const Category: React.FC<{
   selectedIdCategory: number;

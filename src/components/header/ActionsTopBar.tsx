@@ -1,20 +1,22 @@
 import logoHelp from '@/assets/icon-help.png';
-import { useState } from 'react';
 
 import ButtonTopHeader from './navigationBar/ButtonTopHeader';
 
 export const ActionsTopBar: () => JSX.Element = () => {
-  // Utilisé dans un modal qui crash l'app
-  const [modalConnexion, setModalConnexion] = useState<boolean>(false);
+  {
+    /*Code lié à ModalAuth qui crash l'app */
+  }
+  // const [modalConnexion, setModalConnexion] = useState<boolean>(false);
 
-  const handleConnexion = () => {
-    setModalConnexion((v) => !v);
-  };
+  // const handleConnexion = () => {
+  //   setModalConnexion((v) => !v);
+  // };
+
   return (
     <>
       <div className="space-x-3 ">
         <ButtonTopHeader
-          handleFunction={handleConnexion}
+          // handleFunction={handleConnexion}
           mainColor=""
           textColor="text-vintedGreen"
         >

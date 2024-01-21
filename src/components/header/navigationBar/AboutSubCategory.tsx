@@ -1,6 +1,5 @@
 import { MenubarItem } from '@/components/ui/menubar';
 import { NavigationVintedPages } from '@/types/types';
-import { MenubarArrow } from '@radix-ui/react-menubar';
 import { Link } from 'react-router-dom';
 
 export const AboutSubCategory: React.FC<{

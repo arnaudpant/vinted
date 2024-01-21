@@ -8,7 +8,6 @@ import Error404 from './pages/Error404';
 import Search from './pages/Search';
 import NewArticle from './pages/NewArticle';
 import Catalog from './pages/Catalog';
-import PopoverTest from './components/PopoverTest';
 
 function App() {
   return (

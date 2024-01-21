@@ -1,11 +1,10 @@
 import categoriesHeader from '@/data/categoriesHeader';
 
 import { Menubar } from '@/components/ui/menubar';
-import { MenubarMenu } from '@radix-ui/react-menubar';
+import { TypeCategory } from '@/types/types';
 import AboutCategory from './AboutCategory';
 import Category from './Category';
 import PlatformCategory from './PlatformCategory';
-import { TypeCategory } from '@/types/types';
 
 const Categories: () => JSX.Element = () => {
   return (
