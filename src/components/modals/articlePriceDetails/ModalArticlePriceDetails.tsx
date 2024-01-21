@@ -23,7 +23,7 @@ const ModalArticlePriceDetails = ({
           <span className="self-center">Détails du prix</span>
           <button
             className="h-[46px] px-[10px] "
-            aria-label="Fermer la fenêtre"
+            aria-label="Fermer la fenêtre des détails du prix"
             onClick={() => setModalPriceDetails(false)}
           >
             <X />
