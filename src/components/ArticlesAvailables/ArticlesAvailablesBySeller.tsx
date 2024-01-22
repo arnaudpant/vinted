@@ -1,19 +1,17 @@
-import { getRandomUserIdApi, getStockArticlesTitle } from '@/utils/Utils';
-import CardProductByUser from './models/CardProductByUser';
-import TitleArticlesAvailables from './models/TitleArticlesAvailables';
-import { useContext } from 'react';
 import { FakeShopContext } from '@/context/FakeShopContext';
-import withListArticlesAvailables from './withListArticlesAvailables';
 import { FakeProductWithUserId } from '@/types/types';
+import { getStockArticlesTitle } from '@/utils/Utils';
+import { useContext } from 'react';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
+import withListArticlesAvailables from './withListArticlesAvailables';
 
-const ArticlesAvailablesBySeller: React.FC = () => {
+const ArticlesAvailablesBySeller: React.FC<{ userId: number }> = ({
+  userId,
+}) => {
   const { fakeShopProduct } = useContext(FakeShopContext);
 
-  const randomUserId: number = getRandomUserIdApi();
-
   const fakeShopProductsWithUserId: FakeProductWithUserId[] =
-    fakeShopProduct.map((product) => ({ ...product, userId: randomUserId }));
+    fakeShopProduct.map((product) => ({ ...product, userId }));
 
   const title = getStockArticlesTitle(fakeShopProductsWithUserId);
 

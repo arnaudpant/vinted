@@ -1,15 +1,14 @@
 /** ROOTER */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 /** PAGES */
-import Home from './pages/Home';
-import Article from './pages/Article';
-import Error404 from './pages/Error404';
-import Search from './pages/Search';
-import NewArticle from './pages/NewArticle';
-import Catalog from './pages/Catalog';
-import { FakeShopProvider } from './context/FakeShopContext';
-import ArticlesAvailablesBySeller from './components/ArticlesAvailables/ArticlesAvailablesBySeller';
 import ArticlesSimilarsByRandomSellers from './components/ArticlesAvailables/ArticlesSimilarsByRandomSellers';
+import { FakeShopProvider } from './context/FakeShopContext';
+import Article from './pages/Article';
+import Catalog from './pages/Catalog';
+import Error404 from './pages/Error404';
+import Home from './pages/Home';
+import NewArticle from './pages/NewArticle';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/seller" element={<ArticlesAvailablesBySeller />} />
+
           <Route
             path="/similars"
             element={<ArticlesSimilarsByRandomSellers />}
@@ -28,6 +27,7 @@ function App() {
           <Route path="/new" element={<NewArticle />} />
           {/* Page de recherche global */}
           <Route path="/search" element={<Search />} />
+          <Route path="/catalog/" element={<Catalog />} />
           {/* Page de recherche par categorie via navbar */}
           <Route path="/catalog/:id" element={<Catalog />} />
           <Route path="/*" element={<Error404 />} />
