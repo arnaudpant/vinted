@@ -27,7 +27,7 @@ const Banner = () => {
   return (
     <section
       id="banner"
-      className="flex flex-col items-center justify-center sm:flex sm:flex-row-reverse sm:relative sm:z-[-10]  "
+      className="flex flex-col items-center justify-center sm:flex sm:flex-row-reverse sm:relative   "
     >
       <img
         src={bannerImage}

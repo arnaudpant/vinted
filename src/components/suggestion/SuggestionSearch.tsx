@@ -14,6 +14,7 @@ const SuggestionSearch: React.FC = () => {
   const idDivToScroll = 'divToScroll';
   const divParent = document.getElementById(idDivParent);
   const divToScroll = document.getElementById(idDivToScroll);
+
   
   divToScroll?.addEventListener('scroll', () => {
     setDivToScrollValue(divToScroll?.scrollLeft);

@@ -2,7 +2,7 @@ import React from 'react';
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import SuggestionSearch from './../src/components/suggestion/SuggestionSearch';
+import SuggestionSearch from '../src/components/suggestion/SuggestionSearch';
 
 
 test('Titre present', () => {

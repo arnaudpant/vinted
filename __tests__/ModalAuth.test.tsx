@@ -1,5 +1,6 @@
 import React from 'react';
-import { beforeEach, describe, expect, test} from 'vitest';
+import '@testing-library/jest-dom';
+import { afterEach, beforeEach, describe, expect, test} from 'vitest';
 import {
   cleanup,
   fireEvent,
@@ -47,10 +48,10 @@ describe('Initialisation du Modal', () => {
 });
 
 describe('Inscription et Connexion', () => {
-   afterEach(() => {
-     cleanup();
-   });
-  test('Clic sur btn Inscription', async () => {
+  afterEach(() => {
+    cleanup();
+  });
+  test('Clic sur btn Inscription', () => {
     render(<ModalAuth />);
     const btnInscription = screen.getByText(/e-mail/i);
     expect(btnInscription).toBeInTheDocument();
@@ -60,7 +61,7 @@ describe('Inscription et Connexion', () => {
     expect(screen.queryByText(/Continuer avec Apple/i)).not.toBeInTheDocument();
   });
 
-  test('Clic sur btn Se Connecter', async () => {
+  test('Clic sur btn Se Connecter', () => {
     render(<ModalAuth />);
     const btnConnexion = screen.getByText(/e-mail/i);
     expect(btnConnexion).toBeInTheDocument();

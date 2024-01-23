@@ -69,6 +69,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
       uid: data.uid,
       inscription: new Date(),
       photoURL: '',
+      listArticlesForSale: []
     };
     handleCreateUserAuthentification('users', data.uid, userDocumentData);
   };
