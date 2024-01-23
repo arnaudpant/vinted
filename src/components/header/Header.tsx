@@ -3,10 +3,15 @@ import BottomHeader from './BottomHeader';
 
 const Header = () => {
   return (
-    <div className="fixed w-full bg-vintedBackground">
-      <TopHeader />
-      <hr className="mt-2" />
-      <BottomHeader />
+    <div className="fixed w-full h-[98px] bg-vintedBackground z-10">
+      <div className="border-b">
+        <div className="container mx-auto max-w-[1280px] px-5">
+          <TopHeader />
+        </div>
+      </div>
+      <div className="container mx-auto max-w-[1280px] px-5">
+        <BottomHeader />
+      </div>
     </div>
   );
 };

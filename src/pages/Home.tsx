@@ -1,5 +1,4 @@
 import SuggestionSearch from '@/components/suggestion/SuggestionSearch';
-import Footer from '@/components/Footer';
 import Banner from '@/components/banner/Banner';
 
 const Home = () => {
@@ -7,7 +6,6 @@ const Home = () => {
     <>
       <Banner />
       <SuggestionSearch />
-      <Footer />
     </>
   );
 };

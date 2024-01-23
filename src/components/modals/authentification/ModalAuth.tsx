@@ -14,16 +14,24 @@ import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import ButtonDisconnect from './ButtonDisconnect';
 import { Action } from '@/types/types';
 
+type Props = {
+  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const ModalAuth = () => {
+const ModalAuth = ({ setModalConnexion }: Props) => {
   const [contenuModal, setContenuModal] = useState<Action>('init');
 
   const { authUser } = useFirebaseAuth();
 
+  const handleClick = () => {
+    setContenuModal('init');
+    setModalConnexion(false);
+  };
+
   return createPortal(
     <>
       {/* Fond gris */}
-      <div className="fixed h-screen top-0 left-0 bottom-0 right-0 bg-vintedTextGrisClair opacity-10"></div>
+      <div className="fixed h-screen top-0 left-0 bottom-0 right-0 bg-slate-600 opacity-40 "></div>
 
       {/* Modal */}
       <div
@@ -36,7 +44,7 @@ const ModalAuth = () => {
             type="button"
             className="ml-auto h-[46px] w-[44px] px-[10px] "
             aria-label="Fermer la fenêtre"
-            onClick={() => setContenuModal('init')}
+            onClick={handleClick}
           >
             <X />
           </button>

@@ -1,37 +1,42 @@
+import {
+  MenubarItem,
+  MenubarSub,
+  MenubarSubTrigger,
+} from '@/components/ui/menubar';
 import { TypeSubCategory } from '@/types/types';
 import { buildIconPath } from '@/utils/Utils';
-import React from 'react';
+import SubSubCategories from './SubSubCategories';
+import { Link } from 'react-router-dom';
 
-const SubCategory: React.FC<{
-  subCategory: TypeSubCategory;
-
-  setSelectedSubCategoryId: React.Dispatch<React.SetStateAction<number>>;
-}> = ({ subCategory, setSelectedSubCategoryId }) => {
-  const SEE_ALL_CATEGORY = 0;
-  const OTHER_CATEGORIES = 99;
-  const handleSelectCategory = () => {
-    if (
-      subCategory.id === SEE_ALL_CATEGORY ||
-      subCategory.id === OTHER_CATEGORIES
-    ) {
-      setSelectedSubCategoryId(1);
-    } else {
-      setSelectedSubCategoryId(subCategory.id);
-    }
-  };
+const SubCategory: React.FC<{ subCategory: TypeSubCategory }> = ({
+  subCategory,
+}) => {
+  const imagePath = buildIconPath(subCategory.iconName);
+  if (subCategory.link) {
+    return (
+      <MenubarItem>
+        <Link to="/" className=" text-lg min-w-48 flex">
+          <img src={imagePath} className="h-6 mr-4 " alt={subCategory.title} />
+          {subCategory.title}
+        </Link>
+      </MenubarItem>
+    );
+  }
   return (
-    <button
-      key={subCategory.id}
-      className="flex flex-row  items-center pl-6 pr-16 py-2 space-x-4  hover:cursor-pointer  hover:bg-vintedBackgroundCard "
-      onClick={handleSelectCategory}
-    >
-      <img
-        src={buildIconPath(subCategory.iconName)}
-        alt={'title'}
-        className="object-contain h-6"
-      />
-      <span className=" block whitespace-nowrap ">{subCategory.title}</span>
-    </button>
+    <MenubarSub defaultOpen={true}>
+      <MenubarSubTrigger className="py-3">
+        <div className=" text-lg min-w-48 flex">
+          <img src={imagePath} className="h-6 mr-4 " alt={subCategory.title} />
+          {subCategory.title}
+        </div>
+      </MenubarSubTrigger>
+      {subCategory.link ? (
+        <Link to={subCategory.link ?? '/'} />
+      ) : (
+        <SubSubCategories subCategory={subCategory} />
+      )}
+      {}
+    </MenubarSub>
   );
 };
 

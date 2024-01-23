@@ -1,24 +1,32 @@
-import { NavigationVintedPages } from '@/types/types';
+import { MenubarTrigger } from '@/components/ui/menubar';
+import { TypeCategory } from '@/types/types';
+import { MenubarContent, MenubarMenu } from '@radix-ui/react-menubar';
+import { AboutSubCategory } from './AboutSubCategory';
 
-export const AboutCategory: React.FC<{
-  navigationVintedPages: NavigationVintedPages;
-}> = ({ navigationVintedPages }) => {
+const AboutCategory: React.FC<{
+  category: TypeCategory;
+}> = ({ category }) => {
   return (
-    <div className="flex flex-col space-y-3">
-      <h1 className="text-vintedTextGrisFonce">
-        {navigationVintedPages.title}
-      </h1>
-      {navigationVintedPages.navigationTitles.map((navigation) => {
-        return (
-          <a
-            key={navigation.description}
-            href=""
-            className=" hover:bg-vintedBackgroundCard "
-          >
-            {navigation.description}
-          </a>
-        );
-      })}
-    </div>
+    <MenubarMenu>
+      <MenubarTrigger className="text-nowrap hover:border-b-4 border-b-vintedGreen ">
+        {category.title}
+      </MenubarTrigger>
+      <MenubarContent
+        className="bg-vintedBackground grid grid-cols-2 gap-2 mt-2 p-2 text-xl"
+        side="bottom"
+        align="center"
+      >
+        {category.navigation?.map((navigationVintedPages) => {
+          return (
+            <AboutSubCategory
+              key={navigationVintedPages.title}
+              navigationVintedPages={navigationVintedPages}
+            />
+          );
+        })}
+      </MenubarContent>
+    </MenubarMenu>
   );
 };
+
+export default AboutCategory;

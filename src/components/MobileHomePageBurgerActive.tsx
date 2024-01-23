@@ -1,7 +1,8 @@
 import categoriesHeader from '@/data/categoriesHeader';
 import { TypeCategory } from '@/types/types';
-import React from 'react';
 import { buildIconPath } from '@/utils/Utils';
+
+// Composant non utilisé pour le moment.
 
 const MobileHomePageBurgerActive = () => {
   const ID_OUR_PLATEFORME = 8;
