@@ -1,5 +1,4 @@
-
-import { Product, User } from '@/types/types';
+import { ProductFakeApi, User } from '@/types/types';
 
 const NewsFeed = ({
   title,
@@ -7,7 +6,7 @@ const NewsFeed = ({
   users,
 }: {
   title: string;
-  products: Product[];
+  products: ProductFakeApi[];
   users?: User[];
 }) => {
   const imageProfile: string[] = [
@@ -29,7 +28,7 @@ const NewsFeed = ({
         <h1 className="h1">{title}</h1>
       </div>
       <div className="mt-16 flex flex-wrap justify-center gap-10">
-        {products.map((product: Product, index) => (
+        {products.map((product: ProductFakeApi, index) => (
           <div
             key={product.id}
             className="flex w-[200px] flex-col items-center space-y-5"

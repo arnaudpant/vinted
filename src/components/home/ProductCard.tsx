@@ -1,19 +1,18 @@
 import { useRef } from 'react';
 
-import { Product } from '@/types/types';
+import { ProductFakeApi } from '@/types/types';
 
 const ProductCard = ({
   title,
   products,
 }: {
   title: string;
-  products: Product[];
+  products: ProductFakeApi[];
 }) => {
   const productListRef = useRef<HTMLDivElement>(null);
 
-
   return (
-    <div className="">
+    <div>
       <div className="flex w-full justify-between">
         <h1 className="h1">{title}</h1>
         <p className="seeAll">Tout voir</p>
@@ -22,7 +21,7 @@ const ProductCard = ({
         className="mt-16 flex flex-col flex-wrap items-center justify-center gap-10 sm:flex-row"
         ref={productListRef}
       >
-        {products.map((product: Product) => (
+        {products.map((product: ProductFakeApi) => (
           <div
             key={product.id}
             className="flex w-[200px] flex-col items-center"

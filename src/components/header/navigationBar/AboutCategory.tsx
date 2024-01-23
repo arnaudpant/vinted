@@ -8,11 +8,11 @@ const AboutCategory: React.FC<{
 }> = ({ category }) => {
   return (
     <MenubarMenu>
-      <MenubarTrigger className="text-nowrap hover:border-b-4 border-b-vintedGreen ">
+      <MenubarTrigger className="text-nowrap border-b-vintedGreen hover:border-b-4 ">
         {category.title}
       </MenubarTrigger>
       <MenubarContent
-        className="bg-vintedBackground grid grid-cols-2 gap-2 mt-2 p-2 text-xl"
+        className="mt-2 grid grid-cols-2 gap-2 bg-vintedBackground p-2 text-xl"
         side="bottom"
         align="center"
       >

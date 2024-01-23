@@ -92,19 +92,6 @@ export type TypeSubSubCategory = { title: string; link?: string };
 export const SEE_ALL = 'Voir tout' as const;
 export const SEE_OTHERS = 'Autres' as const;
 
-export type Product = {
-  category: string;
-  description: string;
-  id: number;
-  image: string;
-  price: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-  title: string;
-};
-
 export type User = {
   address: {
     geolocation: {

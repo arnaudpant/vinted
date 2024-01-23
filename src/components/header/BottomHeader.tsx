@@ -2,13 +2,12 @@ import HeaderBarSearch from './HeaderBarSearch';
 import Categories from './navigationBar/Categories';
 
 const BottomHeader = () => {
-
   return (
     <>
-      <div className="lg:hidden h-[46px]">
+      <div className="h-[46px] lg:hidden">
         <HeaderBarSearch />
       </div>
-      <div className="hidden lg:flex h-[46px]">
+      <div className="hidden h-[46px] lg:flex">
         <Categories />
       </div>
     </>

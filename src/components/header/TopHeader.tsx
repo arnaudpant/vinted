@@ -8,7 +8,7 @@ const TopHeader: () => JSX.Element = () => {
   const [isMenuBurgerActive, setIsMenuBurgerActive] = useState(true);
 
   return (
-    <div className="flex h-[52px] py-2 items-center justify-between p-4">
+    <div className="flex h-[52px] items-center justify-between p-4 py-2">
       <VintedLogo />
       <div className="hidden lg:flex lg:grow">
         <HeaderBarSearch />
@@ -16,7 +16,7 @@ const TopHeader: () => JSX.Element = () => {
       <div className=" hidden lg:flex">
         <ActionsTopBar />
       </div>
-      <div className="lg:hidden pt-2">
+      <div className="pt-2 lg:hidden">
         <BurgerMenuLogo
           setIsMenuBurgerActive={setIsMenuBurgerActive}
           isMenuBurgerActive={isMenuBurgerActive}
