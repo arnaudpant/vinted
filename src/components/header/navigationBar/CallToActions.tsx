@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export const CallToAction = () => {
+const CallToAction = () => {
   return (
     <>
       <h1 className="mb-8 hidden text-4xl text-vintedTextBlack md:block">
@@ -23,3 +23,5 @@ export const CallToAction = () => {
     </>
   );
 };
+
+export default CallToAction;

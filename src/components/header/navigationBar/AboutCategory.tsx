@@ -1,7 +1,7 @@
 import { MenubarTrigger } from '@/components/ui/menubar';
 import { TypeCategory } from '@/types/types';
 import { MenubarContent, MenubarMenu } from '@radix-ui/react-menubar';
-import { AboutSubCategory } from './AboutSubCategory';
+import AboutSubCategory from './AboutSubCategory';
 
 const AboutCategory: React.FC<{
   category: TypeCategory;

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ModalAuth from '../modals/authentification/ModalAuth';
 import ButtonTopHeader from './navigationBar/ButtonTopHeader';
 
-export const ActionsTopBar: () => JSX.Element = () => {
+const ActionsTopBar: () => JSX.Element = () => {
   const [modalConnexion, setModalConnexion] = useState<boolean>(false);
 
   const handleConnexion = () => {
@@ -50,3 +50,5 @@ export const ActionsTopBar: () => JSX.Element = () => {
     </>
   );
 };
+
+export default ActionsTopBar;

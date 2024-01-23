@@ -2,7 +2,7 @@ import { MenubarItem } from '@/components/ui/menubar';
 import { NavigationVintedPages } from '@/types/types';
 import { Link } from 'react-router-dom';
 
-export const AboutSubCategory: React.FC<{
+const AboutSubCategory: React.FC<{
   navigationVintedPages: NavigationVintedPages;
 }> = ({ navigationVintedPages }) => {
   return (
@@ -26,3 +26,5 @@ export const AboutSubCategory: React.FC<{
     </div>
   );
 };
+
+export default AboutSubCategory;

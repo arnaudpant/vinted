@@ -1,5 +1,5 @@
 import HeaderBarSearch from './HeaderBarSearch';
-import { ActionsTopBar } from './ActionsTopBar';
+import ActionsTopBar from './ActionsTopBar';
 import { useState } from 'react';
 import VintedLogo from './VintedLogo';
 import BurgerMenuLogo from './BurgerMenuLogo';
