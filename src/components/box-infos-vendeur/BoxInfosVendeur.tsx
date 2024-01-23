@@ -7,13 +7,15 @@ const BoxInfosVendeur = () => {
   const { fakeShopUsers } = useFakeShop();
   const [user, setUser] = useState<FakeUser | null>(null);
   const [seeMore, setSeeMore] = useState<boolean>(false);
+  const fakeStarsUser: number = 5
+  const LAST_USER_ID = 8;
 
   const handleSeeMore = () => {
     setSeeMore(true);
   };
 
   useEffect(() => {
-    const randomNumber = Math.floor(Math.random() * 8);
+    const randomNumber = Math.floor(Math.random() * LAST_USER_ID);
     fakeShopUsers.length > 0 && setUser(fakeShopUsers[randomNumber]);
   }, [fakeShopUsers]);
 
@@ -29,31 +31,14 @@ const BoxInfosVendeur = () => {
               <div>
                 <h2>{user.name}</h2>
                 <div className="flex relative">
-                  <Star
-                    fill="orange"
-                    color="vintedBackground"
-                    className="h-4 w-4"
-                  />
-                  <Star
-                    fill="orange"
-                    color="vintedBackground"
-                    className="h-4 w-4"
-                  />
-                  <Star
-                    fill="orange"
-                    color="vintedBackground"
-                    className="h-4 w-4"
-                  />
-                  <Star
-                    fill="orange"
-                    color="vintedBackground"
-                    className="h-4 w-4"
-                  />
-                  <Star
-                    fill="orange"
-                    color="vintedBackground"
-                    className="h-4 w-4"
-                  />
+                  {Array.from({ length: fakeStarsUser }, (_, index) => (
+                    <Star
+                      fill={'orange'}
+                      color="vintedBackground"
+                      className="h-4 w-4"
+                      key={index}
+                    />
+                  ))}
                   <span className="text-xs text-vintedTextGrisFonce ml-1">
                     130
                   </span>
