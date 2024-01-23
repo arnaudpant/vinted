@@ -7,7 +7,7 @@ const ButtonTopHeader: React.FC<{
   return (
     <button
       onClick={handleFunction}
-      className={`border-2 nd border-vintedGreen rounded p-1 text-sm ${textColor} ${mainColor} hover:shadow-md `}
+      className={`rounded border-2 border-vintedGreen p-1 text-sm ${textColor} ${mainColor} hover:shadow-md `}
     >
       {children}
     </button>

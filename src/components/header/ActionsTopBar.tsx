@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ModalAuth from '../modals/authentification/ModalAuth';
 import ButtonTopHeader from './navigationBar/ButtonTopHeader';
 
-export const ActionsTopBar: () => JSX.Element = () => {
+const ActionsTopBar: () => JSX.Element = () => {
   const [modalConnexion, setModalConnexion] = useState<boolean>(false);
 
   const handleConnexion = () => {
@@ -32,12 +32,12 @@ export const ActionsTopBar: () => JSX.Element = () => {
         <img
           src={logoHelp}
           alt="Aide"
-          className="object-contain h-6 w-6 inline-block hover:cursor-pointer"
+          className="inline-block h-6 w-6 object-contain hover:cursor-pointer"
         />
         <select
           name="language"
           id="langage"
-          className=" w-12 relative origin-top-left  hover:cursor-pointer"
+          className=" relative w-12 origin-top-left  hover:cursor-pointer"
           defaultValue={'FR'}
         >
           <option value="fr">FR</option>
@@ -50,3 +50,5 @@ export const ActionsTopBar: () => JSX.Element = () => {
     </>
   );
 };
+
+export default ActionsTopBar;

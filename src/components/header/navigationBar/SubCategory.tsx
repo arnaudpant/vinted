@@ -15,8 +15,8 @@ const SubCategory: React.FC<{ subCategory: TypeSubCategory }> = ({
   if (subCategory.link) {
     return (
       <MenubarItem>
-        <Link to="/" className=" text-lg min-w-48 flex">
-          <img src={imagePath} className="h-6 mr-4 " alt={subCategory.title} />
+        <Link to="/" className="flex min-w-48 text-lg">
+          <img src={imagePath} className="mr-4 h-6 " alt={subCategory.title} />
           {subCategory.title}
         </Link>
       </MenubarItem>
@@ -25,8 +25,8 @@ const SubCategory: React.FC<{ subCategory: TypeSubCategory }> = ({
   return (
     <MenubarSub defaultOpen={true}>
       <MenubarSubTrigger className="py-3">
-        <div className=" text-lg min-w-48 flex">
-          <img src={imagePath} className="h-6 mr-4 " alt={subCategory.title} />
+        <div className=" flex min-w-48 text-lg">
+          <img src={imagePath} className="mr-4 h-6 " alt={subCategory.title} />
           {subCategory.title}
         </div>
       </MenubarSubTrigger>

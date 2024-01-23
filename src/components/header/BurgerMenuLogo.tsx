@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { Menu } from 'lucide-react';
 
 type Props = {
   setIsMenuBurgerActive: React.Dispatch<React.SetStateAction<boolean>>;
-  isMenuBurgerActive: boolean
+  isMenuBurgerActive: boolean;
 };
 
 const BurgerMenuLogo: ({
@@ -17,7 +17,7 @@ const BurgerMenuLogo: ({
   };
   return (
     <button onClick={toggleMenuBurger}>
-      <Menu className="text-vintedTextGrisClair font-extralight h-7 w-7" />
+      <Menu className="h-7 w-7 font-extralight text-vintedTextGrisClair" />
     </button>
   );
 };

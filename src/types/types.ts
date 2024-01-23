@@ -91,3 +91,26 @@ export type TypeSubCategory = {
 export type TypeSubSubCategory = { title: string; link?: string };
 export const SEE_ALL = 'Voir tout' as const;
 export const SEE_OTHERS = 'Autres' as const;
+
+export type User = {
+  address: {
+    geolocation: {
+      lat: string;
+      long: string;
+    };
+    city: string;
+    street: string;
+    number: number;
+    zipcode: string;
+  };
+  id: number;
+  email: string;
+  username: string;
+  password: string;
+  name: {
+    firstname: string;
+    lastname: string;
+  };
+  phone: string;
+  __v: number;
+};

@@ -3,7 +3,7 @@ import BottomHeader from './BottomHeader';
 
 const Header = () => {
   return (
-    <div className="fixed w-full h-[98px] bg-vintedBackground z-10">
+    <div className="fixed z-10 h-[98px] w-full bg-vintedBackground">
       <div className="border-b">
         <div className="container mx-auto max-w-[1280px] px-5">
           <TopHeader />

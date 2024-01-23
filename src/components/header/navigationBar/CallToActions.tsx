@@ -1,23 +1,27 @@
 import { Link } from 'react-router-dom';
 
-export const CallToAction = () => {
+const CallToAction = () => {
   return (
     <>
-      <h1 className="hidden md:block text-4xl text-vintedTextBlack mb-8">
+      <h1 className="mb-8 hidden text-4xl text-vintedTextBlack md:block">
         Prêt à faire du tri
         <br /> dans vos
         <br /> placards ?
       </h1>
-      <h2 className='md:hidden text-2xl mb-4 md:mb-2 text-center'>Prêt à faire du tri dans vos placards ?</h2>
+      <h2 className="mb-4 text-center text-2xl md:mb-2 md:hidden">
+        Prêt à faire du tri dans vos placards ?
+      </h2>
 
       <Link to="/">
-        <p className="bg-vintedGreen py-2 text-white rounded-sm text-center">
+        <p className="rounded-sm bg-vintedGreen py-2 text-center text-white">
           Vends maintenant
         </p>
       </Link>
-      <p className="pt-3 text-[14px] text-vintedGreen underline text-center md:text-left cursor-pointer">
+      <p className="cursor-pointer pt-3 text-center text-[14px] text-vintedGreen underline md:text-left">
         Découvrir comment ça marche
       </p>
     </>
   );
 };
+
+export default CallToAction;

@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss"
 
 const config = {
   darkMode: ["class"],
+  mode: "jit",
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -85,7 +86,30 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), function ({ addUtilities }) {
+    const newUtilities = {
+      '.h1': {
+        color: "black",
+        fontSize: "23px",
+        fontWeight: "400",
+        lineHeight: "32px",
+      },
+      '.seeAll': {
+        color:"#1C6F53",
+        paddingTop: '2.5px',
+        paddingLeft: '5px',
+        paddingRight: '5px',
+        transition: 'color 0.3s',
+        '&:hover': {
+          backgroundColor: '#F6FBFB',
+          borderRadius: '5px',
+        },
+      },
+    };
+
+    addUtilities(newUtilities, ['responsive', 'hover']);
+    }
+  ],
 } satisfies Config
 
 export default config

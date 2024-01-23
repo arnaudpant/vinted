@@ -12,12 +12,12 @@ const Category: React.FC<{
 
   return (
     <MenubarMenu>
-      <MenubarTrigger className="text-vintedTextBlackVar hover:bg-vintedBackgroundCard hover:border-b-4 hover:border-vintedGreen  text-lg">
+      <MenubarTrigger className="text-lg text-vintedTextBlackVar hover:border-b-4 hover:border-vintedGreen  hover:bg-vintedBackgroundCard">
         {currentCategory?.title}
       </MenubarTrigger>
 
       <MenubarContent
-        className="bg-vintedBackground my-2 px-4 py-4"
+        className="my-2 bg-vintedBackground p-4"
         side="bottom"
         align="center"
       >

@@ -1,21 +1,20 @@
-import { CallToAction } from '../header/navigationBar/CallToActions';
+import CallToAction from '../header/navigationBar/CallToActions';
 
 const Banner = () => {
-
   return (
     <>
       <section
         id="banner"
-        className="flex items-center pt-28 bg-hero-pattern w-full h-[390px] bg-cover bg-center md:h-[800px]"
+        className="flex h-[390px] w-full items-center bg-hero-pattern bg-cover bg-center pt-28 md:h-[800px]"
       >
-        <div className="hidden md:block container mx-auto px-5 w-full">
-          <div className="w-96 p-8 bg-white">
+        <div className="container mx-auto hidden w-full px-5 md:block">
+          <div className="w-96 bg-white p-8">
             <CallToAction />
           </div>
         </div>
       </section>
-      <div className="md:hidden p-4 w-full">
-        <div className="w-full p-4 bg-white">
+      <div className="w-full p-4 md:hidden">
+        <div className="w-full bg-white p-4">
           <CallToAction />
         </div>
       </div>
