@@ -2,12 +2,12 @@ const HeaderBarSearch = () => {
   return (
     <form
       action=""
-      className="flex my-2 flex-grow mx-3 h-8  text-vintedTextGrisFonce xl:flex-grow-1 xl:max-w-[800px] "
+      className="mx-3 my-2 flex h-8 grow text-vintedTextGrisFonce xl:max-w-[800px] xl:grow-[1] "
     >
       <select
         name="searchSelector"
         id="searchSelector"
-        className="  rounded-l pl-1 bg-vintedBackgroundCard cursor-pointer"
+        className="cursor-pointer rounded-l bg-vintedBackgroundCard pl-1"
       >
         <option value="articles">Articles</option>
         <option value="members">Membres</option>
@@ -17,7 +17,7 @@ const HeaderBarSearch = () => {
       <input
         type="text"
         placeholder="Rechercher des articles"
-        className=" pl-2 rounded-r w-full bg-vintedBackgroundCard  "
+        className=" w-full rounded-r bg-vintedBackgroundCard pl-2  "
       />
     </form>
   );

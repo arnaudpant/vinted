@@ -1,14 +1,16 @@
-import useWindowWidth from '@/hooks/useWindowWidth';
-import { SCREENS_BREAKPOINT } from '@/utils/constants';
 import HeaderBarSearch from './HeaderBarSearch';
 import Categories from './navigationBar/Categories';
 
 const BottomHeader = () => {
-  const width = useWindowWidth();
-  return width <= SCREENS_BREAKPOINT.Medium ? (
-    <HeaderBarSearch />
-  ) : (
-    <Categories />
+  return (
+    <>
+      <div className="h-[46px] lg:hidden">
+        <HeaderBarSearch />
+      </div>
+      <div className="hidden h-[46px] lg:flex">
+        <Categories />
+      </div>
+    </>
   );
 };
 
