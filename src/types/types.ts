@@ -66,3 +66,79 @@ export type LinkLabel =
   | 'Notre plateforme'
   | 'Conditions de vente Pro'
   | "Conditions d'utilisation Pro";
+
+export type FakeUser = {
+  id: number;
+  name: string;
+  image: string;
+  avatar: string;
+};
+
+export type FakeProduct = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: {
+    id: number;
+    name: string;
+    image: string;
+  };
+  images: string[];
+};
+
+export type FakeProductWithUserId = FakeProduct & { userId: number };
+
+export type FakeCategory = {
+  id: number;
+  name: string;
+  image: string;
+};
+
+export type TypeCategory = {
+  id: number;
+  title: string;
+  subCategories?: TypeSubCategory[];
+  navigation?: NavigationVintedPages[];
+  link?: string;
+};
+export type NavigationVintedPages = {
+  title: string;
+  navigationTitles: { description: string; path?: string }[];
+};
+export type TypeSubCategory = {
+  id: number;
+  link?: string;
+
+  title: string;
+  iconName?: string;
+  // Utile pour le "Voir tout"
+  navLink?: string;
+  subSubCategories?: TypeSubSubCategory[];
+};
+export type TypeSubSubCategory = { title: string; link?: string };
+export const SEE_ALL = 'Voir tout' as const;
+export const SEE_OTHERS = 'Autres' as const;
+
+export type User = {
+  address: {
+    geolocation: {
+      lat: string;
+      long: string;
+    };
+    city: string;
+    street: string;
+    number: number;
+    zipcode: string;
+  };
+  id: number;
+  email: string;
+  username: string;
+  password: string;
+  name: {
+    firstname: string;
+    lastname: string;
+  };
+  phone: string;
+  __v: number;
+};

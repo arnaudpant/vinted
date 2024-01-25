@@ -2,10 +2,8 @@ import { FakeShopContext } from '@/context/FakeShopContext';
 import { FakeProductWithUserId } from '@/types/types';
 import { getRandomUserIdApi } from '@/utils/Utils';
 import { useContext } from 'react';
-import CardProductByUser from './models/CardProductByUser';
-import TitleArticlesAvailables from './models/TitleArticlesAvailables';
-import withListArticlesAvailables from './withListArticlesAvailables';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
+import withListArticlesAvailables from './withListArticlesAvailables';
 
 const ArticlesSimilarsByRandomSellers: React.FC = () => {
   const title = 'Articles similaires';
