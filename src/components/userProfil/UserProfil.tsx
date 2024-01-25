@@ -1,9 +1,6 @@
-import React from 'react';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
-import UserDressingProfil from './dressingTab/UserDressingProfil';
 import { getRandomNumberReviews, getRandomStarsNote } from '@/utils/Utils';
-import UserEvaluation from './evaluationsTab/UserEvaluation';
-import UserAboutTab from './aboutTab/UserAboutTab';
+import UserTabs from './UserTabs';
+import UserSynopsis from './UserSynopsis';
 
 const UserProfil = () => {
   const fakeUser = {
@@ -27,30 +24,8 @@ const UserProfil = () => {
   }
   return (
     <>
-      <div className="hidden sm:block">
-        <UserAboutTab fakeUser={fakeUser} />
-      </div>
-      <Tabs defaultValue="dressing">
-        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-2 ">
-          <TabsTrigger value="dressing">dressing</TabsTrigger>
-          <TabsTrigger value="evaluations">Evaluations</TabsTrigger>
-          <TabsTrigger value="about" className="sm:hidden">
-            A propos
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="dressing">
-          <UserDressingProfil
-            fakeUser={fakeUser}
-            fakeUserStatistic={fakeUserStatistic}
-          />
-        </TabsContent>
-        <TabsContent value="evaluations">
-          <UserEvaluation fakeUserStatistic={fakeUserStatistic} />
-        </TabsContent>
-        <TabsContent value="about" className="sm:hidden">
-          <UserAboutTab fakeUser={fakeUser} />
-        </TabsContent>
-      </Tabs>
+      <UserSynopsis fakeUser={fakeUser} fakeUserStatistic={fakeUserStatistic} />
+      <UserTabs fakeUser={fakeUser} fakeUserStatistic={fakeUserStatistic} />
     </>
   );
 };

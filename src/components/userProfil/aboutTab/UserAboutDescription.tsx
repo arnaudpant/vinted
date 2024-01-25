@@ -1,14 +1,13 @@
 import React from 'react';
-import UserAboutStatistics from './UserAboutStatistics';
 
-const UserAboutDescription = ({ fakeUser }) => {
+const UserAboutDescription: React.FC<{ fakeUser: object }> = ({ fakeUser }) => {
   if (!fakeUser) return;
   return (
-    <div className="sm:mt-16 sm:grid sm:grid-cols-2">
+    <div className="">
       <img
         src={fakeUser.avatar}
         alt="avatar utilisateur"
-        className="mx-auto max-h-64 w-full object-cover sm:h-48 sm:rounded-full sm:object-contain"
+        className="mx-auto max-h-64 w-full object-cover sm:h-48 "
       />
       <div>
         <h1 className="text-xl font-semibold">{fakeUser.name}</h1>
