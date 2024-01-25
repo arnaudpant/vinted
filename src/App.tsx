@@ -1,5 +1,6 @@
 /** ROOTER */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './components/layout/Layout';
 /** PAGES */
 import Home from './pages/Home';
 import Article from './pages/Article';
@@ -10,9 +11,9 @@ import Catalog from './pages/Catalog';
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           {/* Page Achat */}
           <Route path="/items/:id" element={<Article />} />
@@ -22,10 +23,11 @@ function App() {
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
           <Route path="/catalog/:id" element={<Catalog />} />
+
           <Route path="/*" element={<Error404 />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
