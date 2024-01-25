@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { ArticleForSale } from "@/types/types";
 import useFirebaseAuth from "./useFirebaseAuth";
 import { FirestoreUpdateDocument } from "@/firebase/firestore";

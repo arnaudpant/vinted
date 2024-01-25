@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { FakeCategory, FakeProduct, FakeUser } from "@/types/types";
 import { useEffect, useState } from "react";
 
@@ -13,6 +16,7 @@ const useDataFakeShop = () => {
             const dataCategories = await response.json();
 
             if (response.ok) {   
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                 setFakeShopCategories(dataCategories) 
 
             } else {

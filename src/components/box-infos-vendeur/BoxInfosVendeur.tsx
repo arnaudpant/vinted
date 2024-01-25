@@ -21,16 +21,16 @@ const BoxInfosVendeur = () => {
 
   return (
     // Global
-    <div className="px-[10px] my-4 ">
+    <div className="my-4 px-[10px] ">
       {/* Box */}
-      <div className="flex justify-between h-20 p-4 cursor-pointer hover:bg-slate-50 border-b">
+      <div className="flex h-20 cursor-pointer justify-between border-b p-4 hover:bg-slate-50">
         <div className="flex">
           {user !== null && (
             <>
-              <img src={user.avatar} className="h-12 w-12 rounded-full mr-2" />
+              <img src={user.avatar} className="mr-2 h-12 w-12 rounded-full" />
               <div>
                 <h2>{user.name}</h2>
-                <div className="flex relative">
+                <div className="relative flex">
                   {Array.from({ length: fakeStarsUser }, (_, index) => (
                     <Star
                       fill={'orange'}
@@ -39,7 +39,7 @@ const BoxInfosVendeur = () => {
                       key={index}
                     />
                   ))}
-                  <span className="text-xs text-vintedTextGrisFonce ml-1">
+                  <span className="ml-1 text-xs text-vintedTextGrisFonce">
                     130
                   </span>
                 </div>
@@ -48,7 +48,7 @@ const BoxInfosVendeur = () => {
           )}
         </div>
         <div className="flex  justify-between">
-          <ChevronRight className="h-6 w-6 ml-2" />
+          <ChevronRight className="ml-2 h-6 w-6" />
         </div>
       </div>
 
@@ -64,7 +64,7 @@ const BoxInfosVendeur = () => {
       </div>
 
       {/* Lois */}
-      <div className="flex p-4 bg-vintedBackgroundCard">
+      <div className="flex bg-vintedBackgroundCard p-4">
         {seeMore === true ? (
           <p>
             le droit de retrait visé à l’article L221-18 et la garantie générale
@@ -73,16 +73,16 @@ const BoxInfosVendeur = () => {
             garantie des défauts de la chose vendue visée aux articles 1641 et
             suivants du Code civil français s’applique. Voir également les
             dispositions applicables du{' '}
-            <span className="text-vintedGreen underline cursor-pointer">
+            <span className="cursor-pointer text-vintedGreen underline">
               droit des obligations
             </span>{' '}
             et de{' '}
-            <span className="text-vintedGreen underline cursor-pointer">
+            <span className="cursor-pointer text-vintedGreen underline">
               responsabilité civile
             </span>
             . Tous les achats que tu effectues au moyen du bouton « Acheter »
             sont couverts par notre service de{' '}
-            <span className="text-vintedGreen underline cursor-pointer">
+            <span className="cursor-pointer text-vintedGreen underline">
               Protection acheteurs.
             </span>
           </p>
@@ -92,7 +92,7 @@ const BoxInfosVendeur = () => {
             s’appliquent pas à tes achats effectués auprès d’autres
             consommateur·trices. Plus précisément,
             <span
-              className="text-vintedGreen underline cursor-pointer"
+              className="cursor-pointer text-vintedGreen underline"
               onClick={handleSeeMore}
             >
               ... Voir plus

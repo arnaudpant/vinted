@@ -4,6 +4,7 @@ import { FirebaseError } from "firebase/app";
 
 
 
+// eslint-disable-next-line import/prefer-default-export
 export const FirestoreUpdateDocument = async (collectionName: string, documentId: string, data: object) => {
     try {
         const documentRef = doc(db, collectionName, documentId);
