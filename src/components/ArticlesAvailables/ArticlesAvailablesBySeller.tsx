@@ -1,9 +1,11 @@
 import { FakeShopContext } from '@/context/FakeShopContext';
 import { FakeProductWithUserId } from '@/types/types';
-import { getStockArticlesTitle } from '@/utils/utils';
+import getStockArticlesTitle from '@/utils/getStockArticlesTitle';
 import { useContext } from 'react';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
 import withListArticlesAvailables from './withListArticlesAvailables';
+import { useParams } from 'react-router-dom';
+import checkUserId from '@/utils/checkUserId';
 
 const ArticlesAvailablesBySeller: React.FC<{ userId: number }> = ({
   userId,
