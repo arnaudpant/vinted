@@ -4,14 +4,14 @@ export const withListArticlesAvailables =
   <P extends {}>(WrappedComponent: React.FC<P>) =>
   (props: P) => {
     return (
-      <div className="bg-vintedTextGrisClair">
+      <>
         <section
-          className="grid grid-cols-2 mx-4 gap-3 sm:grid-cols-3 lg:grid-cols-4 text-sm text-vintedTextGrisFonce"
+          className="mx-4 grid grid-cols-2 gap-3 text-sm text-vintedTextGrisFonce sm:grid-cols-3 lg:grid-cols-4"
           id="articles"
         >
           <WrappedComponent {...props} />
         </section>
-      </div>
+      </>
     );
   };
 

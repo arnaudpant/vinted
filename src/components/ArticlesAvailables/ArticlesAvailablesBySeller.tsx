@@ -1,6 +1,6 @@
 import { FakeShopContext } from '@/context/FakeShopContext';
 import { FakeProductWithUserId } from '@/types/types';
-import { getStockArticlesTitle } from '@/utils/Utils';
+import { getStockArticlesTitle } from '@/utils/utils';
 import { useContext } from 'react';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
 import withListArticlesAvailables from './withListArticlesAvailables';

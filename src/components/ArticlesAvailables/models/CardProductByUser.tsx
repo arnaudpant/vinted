@@ -1,6 +1,6 @@
 import { FakeProductWithUserId } from '@/types/types';
 
-import { checkURLImageProductFromApi } from '@/utils/Utils';
+import { checkURLImageProductFromApi } from '@/utils/checkURLImageProductFromApi';
 import DetailProduct from './DetailProduct';
 import ImageProduct from './ImageProduct';
 import UserBanner from './UserBanner';

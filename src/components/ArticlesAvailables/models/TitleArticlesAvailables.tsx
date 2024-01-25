@@ -6,7 +6,7 @@ const TitleArticlesAvailables: React.FC<{
   // Pour la gestion du singulier et pluriel
 
   return (
-    <div className="w-full col-span-full bg-vintedBackground py-3 pl-4 flex items-end">
+    <div className="col-span-full flex w-full items-end  py-3 pl-4">
       {title}
     </div>
   );

@@ -9,8 +9,8 @@ const ArticlesAvailablesModel: React.FC<{
 }> = ({ title, productsList }) => {
   if (!productsList) {
     return (
-      <div className="flex justify-center items-center h-screen w-screen">
-        <div className=" rounded-full h-12 w-12 border-t-blue-500 border-t-4 animate-spin"></div>
+      <div className="flex h-screen w-screen items-center justify-center">
+        <div className=" h-12 w-12 animate-spin rounded-full border-t-4 border-t-blue-500"></div>
       </div>
     );
   }
