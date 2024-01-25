@@ -1,5 +1,6 @@
 /** ROOTER */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './components/layout/Layout';
 /** PAGES */
 import ArticlesSimilarsByRandomSellers from './components/ArticlesAvailables/ArticlesSimilarsByRandomSellers';
 import { FakeShopProvider } from './context/FakeShopContext';
@@ -15,22 +16,25 @@ function App() {
     <FakeShopProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
 
-          <Route
-            path="/similars"
-            element={<ArticlesSimilarsByRandomSellers />}
-          />
-          {/* Page Achat */}
-          <Route path="/items/:id" element={<Article />} />
-          {/* Page vente si connecté */}
-          <Route path="/new" element={<NewArticle />} />
-          {/* Page de recherche global */}
-          <Route path="/search" element={<Search />} />
-          <Route path="/catalog/" element={<Catalog />} />
-          {/* Page de recherche par categorie via navbar */}
-          <Route path="/catalog/:id" element={<Catalog />} />
-          <Route path="/*" element={<Error404 />} />
+            <Route
+              path="/similars"
+              element={<ArticlesSimilarsByRandomSellers />}
+            />
+            {/* Page Achat */}
+            <Route path="/items/:id" element={<Article />} />
+            {/* Page vente si connecté */}
+            <Route path="/new" element={<NewArticle />} />
+            {/* Page de recherche global */}
+            <Route path="/search" element={<Search />} />
+            <Route path="/catalog/" element={<Catalog />} />
+            {/* Page de recherche par categorie via navbar */}
+            <Route path="/catalog/:id" element={<Catalog />} />
+
+            <Route path="/*" element={<Error404 />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </FakeShopProvider>

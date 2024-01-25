@@ -1,4 +1,23 @@
 import { Timestamp } from 'firebase/firestore';
+
+export type ProductFakeApi = {
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating: {
+    count: number;
+    rate: number;
+  };
+  title: string;
+};
+
+export type SuggestSearchList = {
+  brand: string;
+  views: number;
+};
+
 // Données primaires de Firebase
 export interface UserInterface {
   // Données primaires
@@ -20,6 +39,8 @@ export interface UserDocument {
 }
 
 export type Action = 'init' | 'connexion' | 'inscription' | 'password-forget';
+
+export type ScrollAction = 'left' | 'right' | 'both';
 
 export type LinkLabel =
   | 'A propos de Vinted'
@@ -45,31 +66,3 @@ export type LinkLabel =
   | 'Notre plateforme'
   | 'Conditions de vente Pro'
   | "Conditions d'utilisation Pro";
-
-export type FakeUser = {
-  id: number;
-  name: string;
-  image: string;
-  avatar: string;
-};
-
-export type FakeProduct = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: {
-    id: number;
-    name: string;
-    image: string;
-  };
-  images: string[];
-};
-
-export type FakeProductWithUserId = FakeProduct & { userId: number };
-
-export type FakeCategory = {
-  id: number;
-  name: string;
-  image: string;
-};
