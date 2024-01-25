@@ -1,0 +1,27 @@
+const brands: string[] = [
+  'Tommy Hilfiger',
+  'Zara',
+  'Monoprix',
+  'Jordan',
+  'Morgan',
+  'Nike',
+  'Adidas',
+  'Puma',
+  "Levi's",
+  'H&M',
+  'Lacoste',
+  'Mango',
+  'Gucci',
+  'Chanel',
+  'Louis Vuitton',
+  'Dior',
+  'Prada',
+  'Hermès',
+  'Balenciaga',
+  'Fendi',
+  'Versace',
+  'Burberry',
+  'Valentino',
+];
+
+export default brands;

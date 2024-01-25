@@ -1,35 +1,34 @@
-import { ListSuggestSearchFromVinted } from '../../api/api';
+import ListSuggestSearchFromVinted from '../../api/api';
 import React, { useEffect, useState } from 'react';
 import CardSuggestionSearch from './CardSuggestionSearch';
 import ChevronPosition from '../ui/ChevronPosition';
 import { ScrollAction } from '@/types/types';
 
 const SuggestionSearch: React.FC = () => {
-  const [scrollCards, setScrollCards] = useState<ScrollAction>(
-    'right',
-  );
-  
+  const [scrollCards, setScrollCards] = useState<ScrollAction>('right');
+
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
   const idDivParent = 'divParent';
   const idDivToScroll = 'divToScroll';
   const divParent = document.getElementById(idDivParent);
   const divToScroll = document.getElementById(idDivToScroll);
 
+<<<<<<< HEAD
   
+=======
+>>>>>>> d5352d87823372db953b5d931489f1ddf1738dca
   divToScroll?.addEventListener('scroll', () => {
     setDivToScrollValue(divToScroll?.scrollLeft);
   });
-  
-  
+
   const [products, setProducts] = useState<
-  typeof ListSuggestSearchFromVinted | []
+    typeof ListSuggestSearchFromVinted | []
   >([]);
-  
+
   useEffect(() => {
     setProducts(ListSuggestSearchFromVinted);
   }, []);
-  
-  
+
   useEffect(() => {
     let scrollValue: number = 0;
     // Calcul de la taille max du scroll en fonction de la taille de l'ecran
@@ -46,6 +45,7 @@ const SuggestionSearch: React.FC = () => {
     } else {
       setScrollCards('both');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [divToScrollValue]);
 
   // LOGIQUE AU CLIC DU BTN
@@ -63,8 +63,8 @@ const SuggestionSearch: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto py-12 max-w-[1240px]">
-      <h2 className="text-2xl pb-4">Suggestions de recherche</h2>
+    <div className="container mx-auto max-w-[1240px] py-12">
+      <h2 className="pb-4 text-2xl">Suggestions de recherche</h2>
       <div className="relative h-[75px] overflow-hidden" id={idDivParent}>
         <div
           className="flex h-[90px] overflow-x-auto overflow-y-hidden"

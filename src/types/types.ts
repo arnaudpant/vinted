@@ -5,22 +5,23 @@
 import { Timestamp } from 'firebase/firestore';
 
 export type ProductFakeApi = {
-    category: string,
-    description: string,
-    id: number,
-    image: string
-    price: number,
-    rating: {
-        count: number,
-        rate: number
-    }
-    title: string
-}
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating: {
+    count: number;
+    rate: number;
+  };
+  title: string;
+};
 
 export type SuggestSearchList = {
-    brand: string,
-    views: number
-}
+  brand: string;
+  views: number;
+};
+
 // Données primaires de Firebase
 export type UserInterface = {
   // Données primaires
@@ -117,6 +118,7 @@ export type TypeCategory = {
   title: string;
   subCategories?: TypeSubCategory[];
   navigation?: NavigationVintedPages[];
+  link?: string;
 };
 export type NavigationVintedPages = {
   title: string;
@@ -124,6 +126,7 @@ export type NavigationVintedPages = {
 };
 export type TypeSubCategory = {
   id: number;
+  link?: string;
 
   title: string;
   iconName?: string;
@@ -134,3 +137,26 @@ export type TypeSubCategory = {
 export type TypeSubSubCategory = { title: string; link?: string };
 export const SEE_ALL = 'Voir tout' as const;
 export const SEE_OTHERS = 'Autres' as const;
+
+export type User = {
+  address: {
+    geolocation: {
+      lat: string;
+      long: string;
+    };
+    city: string;
+    street: string;
+    number: number;
+    zipcode: string;
+  };
+  id: number;
+  email: string;
+  username: string;
+  password: string;
+  name: {
+    firstname: string;
+    lastname: string;
+  };
+  phone: string;
+  __v: number;
+};
