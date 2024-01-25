@@ -2,7 +2,7 @@ import { AnyPtrRecord } from 'dns';
 import React from 'react';
 
 const ButtonContact: React.FC<{
-  children: any;
+  children: React.ReactNode;
   backgroundColor: string;
   textColor: string;
 }> = ({ children, backgroundColor, textColor }) => {

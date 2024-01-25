@@ -8,17 +8,19 @@ const UserEvaluation: React.FC<{ fakeUserStatistic: object }> = ({
   const { fakeStarsUser, fakeNumberReviews } = fakeUserStatistic;
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="font-semibold text-6xl">{fakeStarsUser}</h1>
+      <h1 className="text-6xl font-semibold">{fakeStarsUser}</h1>
       <div className="flex">
         {Array.from({ length: fakeStarsUser }, (_, index) => {
           return <Star color="orange" fill="orange" key={index} />;
         })}
       </div>
       <p>({fakeNumberReviews})</p>
-      <Link to={'/'} className="underline text-vintedGreen">
+      <a className="text-vintedGreen underline">
         Comment fonctionnent les évaluations ?
-      </Link>
+      </a>
       <hr className="my-4" />
+      <p>Evaluation1</p>
+      <p>Evaluation2</p>
     </div>
   );
 };

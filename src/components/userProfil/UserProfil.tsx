@@ -26,25 +26,32 @@ const UserProfil = () => {
     return;
   }
   return (
-    <Tabs defaultValue="drssing">
-      <TabsList className="grid w-full grid-cols-3 ">
-        <TabsTrigger value="dressing">dressing</TabsTrigger>
-        <TabsTrigger value="evaluations">Evaluations</TabsTrigger>
-        <TabsTrigger value="about">A propos</TabsTrigger>
-      </TabsList>
-      <TabsContent value="dressing">
-        <UserDressingProfil
-          fakeUser={fakeUser}
-          fakeUserStatistic={fakeUserStatistic}
-        />
-      </TabsContent>
-      <TabsContent value="evaluations">
-        <UserEvaluation fakeUserStatistic={fakeUserStatistic} />
-      </TabsContent>
-      <TabsContent value="about">
+    <>
+      <div className="hidden sm:block">
         <UserAboutTab fakeUser={fakeUser} />
-      </TabsContent>
-    </Tabs>
+      </div>
+      <Tabs defaultValue="dressing">
+        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-2 ">
+          <TabsTrigger value="dressing">dressing</TabsTrigger>
+          <TabsTrigger value="evaluations">Evaluations</TabsTrigger>
+          <TabsTrigger value="about" className="sm:hidden">
+            A propos
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="dressing">
+          <UserDressingProfil
+            fakeUser={fakeUser}
+            fakeUserStatistic={fakeUserStatistic}
+          />
+        </TabsContent>
+        <TabsContent value="evaluations">
+          <UserEvaluation fakeUserStatistic={fakeUserStatistic} />
+        </TabsContent>
+        <TabsContent value="about" className="sm:hidden">
+          <UserAboutTab fakeUser={fakeUser} />
+        </TabsContent>
+      </Tabs>
+    </>
   );
 };
 

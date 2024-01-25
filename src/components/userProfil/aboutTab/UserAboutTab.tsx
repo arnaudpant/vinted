@@ -1,8 +1,9 @@
 import React from 'react';
 import UserAboutDescription from './UserAboutDescription';
 import UserAboutStatistics from './UserAboutStatistics';
-import { User } from 'lucide-react';
 import UserAboutInfos from './UserAboutInfos';
+import UserAboutDetails from './UserAboutDetails';
+import UserAboutContactButtons from './UserAboutContactButtons';
 
 const UserAboutTab: React.FC<{ fakeUser: object }> = ({ fakeUser }) => {
   return (
@@ -12,6 +13,11 @@ const UserAboutTab: React.FC<{ fakeUser: object }> = ({ fakeUser }) => {
       <UserAboutStatistics />
       <hr className="my-4" />
       <UserAboutInfos />
+      <hr className="my-4" />
+      <UserAboutDetails />
+      <hr className="my-4" />
+      <UserAboutContactButtons />
+      <hr className="my-4" />
     </div>
   );
 };
