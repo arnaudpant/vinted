@@ -2,7 +2,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 /** PAGES */
-import ArticlesSimilarsByRandomSellers from './components/ArticlesAvailables/ArticlesSimilarsByRandomSellers';
 import { FakeShopProvider } from './context/FakeShopContext';
 import Article from './pages/Article';
 import Catalog from './pages/Catalog';
@@ -10,7 +9,6 @@ import Error404 from './pages/Error404';
 import Home from './pages/Home';
 import NewArticle from './pages/NewArticle';
 import Search from './pages/Search';
-import ArticlesAvailablesBySeller from './components/ArticlesAvailables/ArticlesAvailablesBySeller';
 import User from './pages/User';
 
 function App() {

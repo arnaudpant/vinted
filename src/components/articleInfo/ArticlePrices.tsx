@@ -1,7 +1,7 @@
 import { ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
 import ModalArticlePriceDetails from '../modals/articlePriceDetails/ModalArticlePriceDetails';
-import { getBuyerProtectionFee } from '@/utils/getTimeDifferenceString';
+import getBuyerProtectionFee from '@/utils/getBuyerProtectionFee';
 
 const ArticlePrices = ({ price }: { price: number }) => {
   const [modalPriceDetails, setModalPriceDetails] = useState<boolean>(false);

@@ -79,6 +79,7 @@ export type FakeProduct = {
   title: string;
   price: number;
   description: string;
+  creationAt: string;
   category: {
     id: number;
     name: string;

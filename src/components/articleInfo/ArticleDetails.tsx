@@ -1,5 +1,5 @@
 import { FakeProduct } from '@/types/types';
-import { getTimeDifferenceString } from '@/utils/getTimeDifferenceString';
+import getTimeDifferenceString from '@/utils/getTimeDifferenceString';
 
 type ArticleDetailsProps = {
   article: FakeProduct;
