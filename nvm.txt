@@ -1,0 +1,11 @@
+nvm dans powershell / cmd
+
+nvm -v
+nvm list
+nvm install latest
+nvm use 21.5.0
+
+nvm help
+
+Version fonctionnelle de node avec mike codeur: 16.6.0
+

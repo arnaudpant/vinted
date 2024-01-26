@@ -1,6 +1,6 @@
 import categoriesHeader from '@/data/categoriesHeader';
 import { TypeCategory } from '@/types/types';
-import { buildIconPath } from '@/utils/Utils';
+import buildIconPath from '@/utils/buildIconPath';
 
 // Composant non utilisé pour le moment.
 
@@ -16,7 +16,7 @@ const MobileHomePageBurgerActive = () => {
         <button className="w-10/12 rounded-md border-2 border-vintedGreen bg-white py-2 text-center text-vintedGreen">
           S&apos;inscrire | Se connecter
         </button>
-        <a href="" className="block text-vintedGreen">
+        <a href="/" className="block text-vintedGreen">
           Ton guide Vinted
         </a>
       </section>
