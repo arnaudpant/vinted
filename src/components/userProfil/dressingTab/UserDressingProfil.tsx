@@ -8,7 +8,7 @@ const UserDressingProfil: React.FC<{
   fakeUserStatistic: object;
 }> = ({ fakeUser, fakeUserStatistic }) => {
   return (
-    <div className="mx-4 mt-2 flex flex-col">
+    <div className=" mt-2 flex flex-col">
       <UserReview fakeUser={fakeUser} fakeUserStatistic={fakeUserStatistic} />
       <hr className="my-4" />
       <UserDressingInfos />

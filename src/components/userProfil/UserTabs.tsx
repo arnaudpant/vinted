@@ -11,7 +11,7 @@ const UserTabs: React.FC<{ fakeUser: object; fakeUserStatistic: object }> = ({
   return (
     <div>
       <Tabs defaultValue="dressing">
-        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-2 ">
+        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-2 sm:w-1/2 ">
           <TabsTrigger value="dressing">dressing</TabsTrigger>
           <TabsTrigger value="evaluations">Evaluations</TabsTrigger>
           <TabsTrigger value="about" className="sm:hidden">

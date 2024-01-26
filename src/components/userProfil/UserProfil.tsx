@@ -1,4 +1,5 @@
-import { getRandomNumberReviews, getRandomStarsNote } from '@/utils/Utils';
+import getRandomNumberReviews from '@/utils/getRandomNumberReviews';
+import getRandomStarsNote from '@/utils/getRandomStarsNote';
 import UserTabs from './UserTabs';
 import UserSynopsis from './UserSynopsis';
 
@@ -23,10 +24,10 @@ const UserProfil = () => {
     return;
   }
   return (
-    <>
+    <div className="mx-4 sm:mx-8">
       <UserSynopsis fakeUser={fakeUser} fakeUserStatistic={fakeUserStatistic} />
       <UserTabs fakeUser={fakeUser} fakeUserStatistic={fakeUserStatistic} />
-    </>
+    </div>
   );
 };
 

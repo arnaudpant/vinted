@@ -1,6 +1,6 @@
 import categoriesHeader from '@/data/categoriesHeader';
 import { TypeCategory } from '@/types/types';
-import { buildIconPath } from '@/utils/Utils';
+import buildIconPath from '@/utils/buildIconPath';
 
 // Composant non utilisé pour le moment.
 
