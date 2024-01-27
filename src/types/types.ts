@@ -87,6 +87,8 @@ export type LinkLabel =
   | 'Conditions de vente Pro'
   | "Conditions d'utilisation Pro";
 
+
+
 export type FakeUser = {
   id: number;
   name: string;

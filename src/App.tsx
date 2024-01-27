@@ -8,6 +8,7 @@ import Catalog from './pages/Catalog';
 import Error404 from './pages/Error404';
 import Home from './pages/Home';
 import NewArticle from './pages/NewArticle';
+
 import Search from './pages/Search';
 import User from './pages/User';
 

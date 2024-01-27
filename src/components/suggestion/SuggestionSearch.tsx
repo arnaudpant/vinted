@@ -38,17 +38,19 @@ const SuggestionSearch: React.FC = () => {
     if (divToScrollValue === 0) {
       setScrollCards('left');
     } else if (divToScrollValue === scrollValue) {
+
       setScrollCards('right');
     } else {
       setScrollCards('both');
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [divToScrollValue]);
 
   // LOGIQUE AU CLIC DU BTN
   const handleClicRight = () => {
     divToScroll?.scrollTo({
-      left: 2000,
+      left: 1400,
       behavior: 'smooth',
     });
   };

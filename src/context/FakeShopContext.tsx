@@ -8,6 +8,7 @@ const init = {
   fakeShopCategories: [] as FakeCategory[],
 };
 
+
 export const FakeShopContext = createContext({
   fakeShopUsers: init.fakeShopUsers,
   fakeShopProduct: init.fakeShopProduct,
