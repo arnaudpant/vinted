@@ -6,8 +6,9 @@ type Props = {
 
 const CardSuggestionSearch = ({ product }: Props) => {
   return (
-    <div className="pr-3 shrink-0 cursor-pointer h-[75px]">
-      <div className="flex flex-col items-center justify-center p-2 border-[0.5px] border-vintedTextGrisClair rounded h-[75px]">
+    <div className="h-[75px] shrink-0 cursor-pointer pr-3">
+      <div className="flex h-[75px] flex-col items-center justify-center rounded border-[0.5px] border-vintedTextGrisClair p-2">
+
         <div className="text-base" data-testid="cardSuggestion">
           {product.brand}
         </div>

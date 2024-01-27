@@ -1,4 +1,5 @@
 import { useFakeShop } from '@/context/FakeShopContext';
+
 import { FakeUser } from '@/types/types';
 import { ChevronRight, Star, MapPin, Clock } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -63,6 +64,7 @@ const BoxInfosVendeur = () => {
           )}
         </div>
         <div className="flex  justify-between">
+
           <ChevronRight className="h-6 w-6 ml-2" />
         </div>
       </div>
@@ -114,6 +116,7 @@ const BoxInfosVendeur = () => {
             </span>
           </p>
         )}
+
       </div>
     </div>
   );

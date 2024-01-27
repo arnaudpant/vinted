@@ -1,12 +1,6 @@
 import React from 'react';
-import '@testing-library/jest-dom';
-import { afterEach, beforeEach, describe, expect, test} from 'vitest';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-} from '@testing-library/react';
+import { beforeEach, describe, expect, test } from 'vitest';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import ModalAuth from '../src/components/modals/authentification/ModalAuth';
 
 describe('Initialisation du Modal', () => {
@@ -51,6 +45,7 @@ describe('Inscription et Connexion', () => {
   afterEach(() => {
     cleanup();
   });
+
   test('Clic sur btn Inscription', () => {
     render(<ModalAuth />);
     const btnInscription = screen.getByText(/e-mail/i);

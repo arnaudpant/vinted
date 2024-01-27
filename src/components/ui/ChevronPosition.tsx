@@ -1,7 +1,8 @@
+import { ScrollAction } from '@/types/types';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 type Props = {
-  scrollCards: 'left' | 'right' | 'both';
+  scrollCards: ScrollAction;
   handleClicRight: () => void;
   handleClicLeft: () => void;
 };

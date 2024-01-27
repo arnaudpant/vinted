@@ -1,48 +1,26 @@
-import React from 'react';
+import categoriesHeader from '@/data/categoriesHeader';
 
-import { TypeSubCategory } from '@/types/types';
-import SubSubCategories from './SubSubCategories';
+import { TypeCategory } from '@/types/types';
 import SubCategory from './SubCategory';
 
-const SubCategories: React.FC<{
-  subCategories: TypeSubCategory[];
-  offsetSelectedCategory: number;
-}> = ({ subCategories, offsetSelectedCategory }) => {
-  const DEFAULT_SUB_CATEGORY_ID = 1;
-  const [selectedSubCategoryId, setSelectedSubCategoryId] = React.useState(
-    DEFAULT_SUB_CATEGORY_ID,
+const SubCategories: React.FC<{ selectedIdCategory: number }> = ({
+  selectedIdCategory,
+}) => {
+  const activeCategory: TypeCategory | undefined = categoriesHeader.find(
+    (category) => category.id === selectedIdCategory,
   );
-
-  const activeSubCategory = subCategories.find(
-    (subCategory) => subCategory.id === selectedSubCategoryId,
-  );
-
+  if (!activeCategory?.subCategories) {
+    return null;
+  }
   return (
-    <div className="relative z-10 w-fit ">
-      <div
-        className=" flex flex-row bg-vintedBackground w-fit max-w-[350] relative rounded-md"
-        style={{ left: `${offsetSelectedCategory}px` }}
-      >
-        <div className=" flex flex-col border-r-2 w-fit  truncate">
-          {subCategories?.map((subCategory) => {
-            return (
-              <div key={subCategory.id} className="flex flex-col">
-                <SubCategory
-                  subCategory={subCategory}
-                  setSelectedSubCategoryId={setSelectedSubCategoryId}
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        {activeSubCategory?.subSubCategories && (
-          <SubSubCategories
-            subSubCategories={activeSubCategory.subSubCategories}
-          />
-        )}
-      </div>
-    </div>
+    <>
+      {activeCategory?.subCategories?.map((subCategory) => (
+        <SubCategory
+          key={subCategory.id}
+          subCategory={subCategory}
+        ></SubCategory>
+      ))}
+    </>
   );
 };
 

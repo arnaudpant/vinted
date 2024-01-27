@@ -6,7 +6,7 @@ import FooterSectionItem from './footer/FooterSectionItem';
 const Footer = () => {
   return (
     <footer className="bg-stone-100">
-      <div className="container mt-auto divide-y">
+      <div className="container divide-y">
         <ul className="flex flex-col justify-between sm:flex-row">
           <FooterSectionItem
             label="Vinted"

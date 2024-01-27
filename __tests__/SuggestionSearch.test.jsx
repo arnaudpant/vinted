@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import SuggestionSearch from './../src/components/suggestion/SuggestionSearch';
 
 
-test('Titre present', async () => {
+test('Titre present', () => {
   render(<SuggestionSearch />);
   const title = screen.getByRole('heading', { level: 2 });
   expect(title).toBeInTheDocument();
