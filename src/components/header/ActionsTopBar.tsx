@@ -4,6 +4,7 @@ import { useState } from 'react';
 import ModalAuth from '../modals/authentification/ModalAuth';
 import ButtonTopHeader from './navigationBar/ButtonTopHeader';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { Link } from 'react-router-dom';
 
 const ActionsTopBar: () => JSX.Element = () => {
   const [modalConnexion, setModalConnexion] = useState<boolean>(false);
@@ -25,13 +26,15 @@ const ActionsTopBar: () => JSX.Element = () => {
             >
               S&apos;inscrire &#124; Se connecter
             </ButtonTopHeader>
-            <ButtonTopHeader
-              handleFunction={handleConnexion}
-              mainColor="bg-vintedGreen"
-              textColor="text-vintedBackground"
-            >
-              Vends tes articles
-            </ButtonTopHeader>
+            <Link to="/new-article">
+              <ButtonTopHeader
+                handleFunction={() => {}}
+                mainColor="bg-vintedGreen"
+                textColor="text-vintedBackground"
+              >
+                Vends tes articles
+              </ButtonTopHeader>
+            </Link>
           </>
         ) : null}
 
@@ -52,7 +55,7 @@ const ActionsTopBar: () => JSX.Element = () => {
           <option value="ne">Nederlands (Dutch)</option>
         </select>
       </div>
-      {modalConnexion && <ModalAuth />}
+      {modalConnexion && <ModalAuth setModalConnexion={setModalConnexion} />}
     </>
   );
 };

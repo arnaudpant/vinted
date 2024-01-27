@@ -52,7 +52,10 @@ const NewArticle = () => {
               </p>
               <div className="p-6">
                 <div className="flex min-h-36 items-center justify-center rounded border border-dashed">
-                  <button className="flex h-[42px] cursor-not-allowed items-center rounded border border-vintedGreen px-[14px] text-vintedGreen" disabled>
+                  <button
+                    className="flex h-[42px] cursor-not-allowed items-center rounded border border-vintedGreen px-[14px] text-vintedGreen"
+                    disabled
+                  >
                     <Plus />
                     Ajoute des photos
                   </button>

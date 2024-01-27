@@ -99,9 +99,10 @@ const BoxInfosVendeur = () => {
             </span>
           </p>
         )}
-      </div>
+
+    
     </div>
-  );
-};
+    </div>
+)};
 
 export default BoxInfosVendeur;
