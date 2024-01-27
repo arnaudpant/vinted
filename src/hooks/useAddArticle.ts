@@ -15,14 +15,14 @@ const useAddArticle = () => {
                 listArticlesForSale,
             });
             if (error) {
-                console.error(error.message, { autoClose: 3000 });
+                console.log("Error FirestoreUpdateDocument", error.message);
                 return;
             }
         }
     }
 
     const addArticleToSell = (article: ArticleForSale) => {
-        if (authUser?.userDocument){
+        if (authUser?.userDocument) {
             // 1 Recuperer tous les articles
             const getListAllArticlesToSell: ArticleForSale[] = authUser?.userDocument?.listArticlesForSale
             // 2 Ajouter le nouvel article a la liste
@@ -31,9 +31,7 @@ const useAddArticle = () => {
             addNewArticleInFirestore(newListArticlesToSell)
         }
     };
-    
-    
-    
+
     return { addArticleToSell };
 };
 

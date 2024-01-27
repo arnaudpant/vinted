@@ -6,6 +6,7 @@ import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import ModalAuth from '@/components/modals/authentification/ModalAuth';
 import { nanoid } from 'nanoid';
 
+
 const NewArticle = () => {
   const { addArticleToSell } = useAddArticle();
   const { authUser } = useFirebaseAuth();
@@ -51,7 +52,7 @@ const NewArticle = () => {
               </p>
               <div className="p-6">
                 <div className="flex min-h-36 items-center justify-center rounded border border-dashed">
-                  <button className="flex h-[42px] cursor-not-allowed items-center rounded border border-vintedGreen px-[14px] text-vintedGreen">
+                  <button className="flex h-[42px] cursor-not-allowed items-center rounded border border-vintedGreen px-[14px] text-vintedGreen" disabled>
                     <Plus />
                     Ajoute des photos
                   </button>
@@ -181,6 +182,7 @@ const NewArticle = () => {
               <button
                 type="submit"
                 className="h-[42px] rounded bg-vintedGreen px-[14px] text-center text-vintedBackground"
+                data-testID="ajouter"
               >
                 Ajouter
               </button>

@@ -1,4 +1,3 @@
-import React from 'react';
 import '@testing-library/jest-dom';
 import { afterEach, describe, expect, test } from 'vitest';
 import BoxInfosVendeur from './../src/components/box-infos-vendeur/BoxInfosVendeur';

@@ -1,4 +1,3 @@
-import React from 'react';
 import '@testing-library/jest-dom';
 import { afterEach, beforeEach, describe, expect, test} from 'vitest';
 import {

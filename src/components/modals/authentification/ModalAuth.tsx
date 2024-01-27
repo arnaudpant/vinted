@@ -13,18 +13,13 @@ import ModalPasswordForget from './ModalPasswordForget';
 import { Action } from '@/types/types';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 
-type Props = {
-  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
-};
 
-
-const ModalAuth = ({ setModalConnexion }: Props) => {
+const ModalAuth = () => {
   const { authUser } = useFirebaseAuth()
   const [contenuModal, setContenuModal] = useState<Action>('init');
 
   const handleClick = () => {
     setContenuModal('init');
-    setModalConnexion(false)
   };
 
   if (authUser) {
