@@ -12,6 +12,7 @@ import ModalAuthInscription from './ModalAuthInscription';
 import ModalPasswordForget from './ModalPasswordForget';
 import { Action } from '@/types/types';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   setModalConnexion?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -20,10 +21,15 @@ type Props = {
 const ModalAuth = ({ setModalConnexion }: Props) => {
   const { authUser } = useFirebaseAuth();
   const [contenuModal, setContenuModal] = useState<Action>('init');
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setContenuModal('init');
-    if (setModalConnexion) setModalConnexion(false);
+    if (setModalConnexion){
+      setModalConnexion(false)
+    } else {
+      navigate('/')
+    }
   };
 
   if (authUser) {
