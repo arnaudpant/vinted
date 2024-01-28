@@ -90,4 +90,4 @@ const useFirebaseAuth = () => {
     }
 }
 
-export default useFirebaseAuth
+export default useFirebaseAuth;
