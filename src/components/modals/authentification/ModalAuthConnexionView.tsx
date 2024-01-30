@@ -16,8 +16,7 @@ type LoginFormTypeConnexion = {
 };
 
 const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
-  const { handleSubmit, register, reset } =
-    useForm<LoginFormTypeConnexion>();
+  const { handleSubmit, register, reset } = useForm<LoginFormTypeConnexion>();
 
   /**
    * 2.
@@ -43,8 +42,8 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full px-4 pb-6">
-      <h1 className="text-2xl text-center">Se connecter</h1>
+    <div className="flex w-full flex-col items-center px-4 pb-6">
+      <h1 className="text-center text-2xl">Se connecter</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -55,7 +54,7 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
           {...register('email', {
             required: { value: true, message: 'Ce champ est requis' },
           })}
-          className="w-full border-b pb-1 my-8 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+          className="my-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
 
         <input
@@ -66,21 +65,21 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
           {...register('password', {
             required: { value: true, message: 'Ce champ est requis' },
           })}
-          className="w-full border-b pb-1 mb-8 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+          className="mb-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
-        <button className="w-full h-11 bg-vintedGreen text-vintedBackground rounded mb-6">
+        <button className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground">
           Continuer
         </button>
       </form>
 
       <p
-        className="text-vintedGreen pb-2 cursor-pointer underline"
+        className="cursor-pointer pb-2 text-vintedGreen underline"
         onClick={() => setContenuModal('password-forget')}
         role="button"
       >
         Mot de passe oublié ?
       </p>
-      <p className="text-vintedGreen pb-2 cursor-pointer underline">
+      <p className="cursor-pointer pb-2 text-vintedGreen underline">
         Un problème ?
       </p>
     </div>

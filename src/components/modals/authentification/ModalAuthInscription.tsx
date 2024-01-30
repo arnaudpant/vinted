@@ -2,7 +2,7 @@
  * Modal avec formulaire d'inscription
  */
 import { useForm } from 'react-hook-form';
-import { Checkbox } from '@/components/ui/checkbox';
+import  Checkbox  from '@/components/ui/Checkbox';
 import { firebaseCreateUser } from '@/api/authentification';
 import { FirestoreCreateDocument } from '@/api/firestore';
 import { Action } from '@/types/types';
@@ -92,8 +92,8 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full px-4 pb-6">
-      <h1 className="text-2xl text-center">Inscris-toi avec ton email</h1>
+    <div className="flex w-full flex-col items-center px-4 pb-6">
+      <h1 className="text-center text-2xl">Inscris-toi avec ton email</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -107,9 +107,9 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
               message: "Nom d'utilisateur ne peut pas être vide",
             },
           })}
-          className="w-full border-b pb-1 mt-8 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+          className="mt-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
-        <p className="text-xs text-vintedTextGrisFonce mb-8">
+        <p className="mb-8 text-xs text-vintedTextGrisFonce">
           Crée ton nom d'utilisateur en n'utilisant que des lettres et des
           chiffres. Choisis-en un qui te plaît, tu ne pourras plus le changer.
         </p>
@@ -125,7 +125,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
               message: 'E-mail ne peut pas être vide',
             },
           })}
-          className="w-full border-b pb-1 mb-8 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+          className="mb-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
 
         <input
@@ -139,36 +139,36 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
               message: 'Mot de passe ne peut pas être vide',
             },
           })}
-          className="w-full border-b pb-1 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+          className="w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
-        <p className="text-xs text-vintedTextGrisFonce mb-8">
+        <p className="mb-8 text-xs text-vintedTextGrisFonce">
           Il doit contenir ${testPassword} lettres minimum, dont au moins un
           chiffre.
         </p>
 
-        <div className="flex justify-center items-start gap-1 mb-4">
+        <div className="mb-4 flex items-start justify-center gap-1">
           <Checkbox id="offres" />
           <label
             htmlFor="offres"
-            className=" text-vintedTextBlackVar font-light cursor-pointer"
+            className=" cursor-pointer font-light text-vintedTextBlackVar"
           >
             Je souhaite recevoir par e-mail des offres personnalisées et les
             dernières mises à jour de Vinted.
           </label>
         </div>
 
-        <div className="flex justify-center items-start gap-1 mb-4">
+        <div className="mb-4 flex items-start justify-center gap-1">
           <Checkbox id="MyCheckbox" />
           <label
             htmlFor="MyCheckbox"
-            className=" text-vintedTextBlackVar font-light cursor-pointer"
+            className=" cursor-pointer font-light text-vintedTextBlackVar"
           >
             En t'inscrivant, tu confirmes que tu acceptes les{' '}
-            <span className="text-vintedGreen underline cursor-pointer">
+            <span className="cursor-pointer text-vintedGreen underline">
               Termes & Conditions de Vinted
             </span>
             , avoir lu la{' '}
-            <span className="text-vintedGreen underline cursor-pointer">
+            <span className="cursor-pointer text-vintedGreen underline">
               Politique de confidentialité
             </span>{' '}
             et avoir au moins 18 ans.
@@ -177,7 +177,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
 
         <button
           type="submit"
-          className="w-full h-11 bg-vintedGreen text-vintedBackground rounded mb-6"
+          className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground"
         >
           Continuer
         </button>

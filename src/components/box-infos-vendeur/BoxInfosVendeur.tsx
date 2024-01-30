@@ -1,7 +1,6 @@
 import { useFakeShop } from '@/context/FakeShopContext';
 import { ChevronRight } from 'lucide-react';
 
-
 const BoxInfosVendeur = () => {
   const { fakeShopUsers } = useFakeShop();
 
@@ -11,16 +10,16 @@ const BoxInfosVendeur = () => {
     // Global
     <div className="px-[10px] ">
       {/* Box */}
-      <div className="flex justify-between h-20 p-4 cursor-pointer hover:bg-slate-50">
+      <div className="flex h-20 cursor-pointer justify-between p-4 hover:bg-slate-50">
         <div className="flex">
-          <img src="" className="h-12 w-12 rounded-full mr-2" />
+          <img src="" className="mr-2 h-12 w-12 rounded-full" />
           <div>
             <h2>Name</h2>
             <span>★★★★★</span>
           </div>
         </div>
         <div className="flex items-center">
-          <ChevronRight className="h-6 w-6 ml-2" />
+          <ChevronRight className="ml-2 h-6 w-6" />
         </div>
       </div>
 
