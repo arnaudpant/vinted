@@ -1,9 +1,9 @@
-import Box from '../../src/components/Box';
+import Box from '../components/Box/Box';
 
 const Home = () => {
   return (
     <div>
-      <Box />
+      <Box images={["1","2","3","4","5"]} />
     </div>
   );
 };
