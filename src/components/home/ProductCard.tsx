@@ -12,7 +12,7 @@ const ProductCard = ({
   const productListRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div>
+    <div className="container mx-auto max-w-[1240px] py-12">
       <div className="flex w-full justify-between">
         <h1 className="h1">{title}</h1>
         <p className="seeAll">Tout voir</p>
@@ -24,7 +24,7 @@ const ProductCard = ({
         {products.map((product: ProductFakeApi) => (
           <div
             key={product.id}
-            className="flex w-[200px] flex-col items-center"
+            className="flex w-[200px] cursor-pointer flex-col items-center"
           >
             <img
               src={product.image}
@@ -35,7 +35,7 @@ const ProductCard = ({
             <h2 className="text-center">{product.title}</h2>
           </div>
         ))}
-        <div className="flex h-[300px] w-[200px] flex-col justify-center bg-gray-100">
+        <div className="flex h-[300px] w-[200px] cursor-pointer flex-col justify-center bg-gray-100">
           <p className="text-center text-vintedTextGrisFonce">
             Voir tous les articles
           </p>

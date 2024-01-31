@@ -63,24 +63,18 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <div className="container mx-auto mt-20 max-w-[1280px] items-center px-5">
-        <ProductCard
-          title="Explorer les articles de créateur"
-          products={productsCreator}
-        />
-      </div>
+      <ProductCard
+        title="Explorer les articles de créateur"
+        products={productsCreator}
+      />
 
-      <div className="container mx-auto mt-20 max-w-[1280px] items-center px-5">
-        <ProductCard title="Articles populaires" products={productsPopular} />
-      </div>
+      <ProductCard title="Articles populaires" products={productsPopular} />
 
-      <div className="container mx-auto mt-20 max-w-[1280px] items-center px-5">
-        <NewsFeed
-          title="Fil d'actualité"
-          products={productsNewsFeed}
-          users={usersNewsFeed}
-        />
-      </div>
+      <NewsFeed
+        title="Fil d'actualité"
+        products={productsNewsFeed}
+        users={usersNewsFeed}
+      />
 
       <BrandSearch />
       <SuggestionSearch />

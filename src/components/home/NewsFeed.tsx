@@ -23,7 +23,7 @@ const NewsFeed = ({
   ];
 
   return (
-    <div className="text-vintedTextGrisClair">
+    <div className="container mx-auto max-w-[1240px] py-12 text-vintedTextGrisClair">
       <div className="flex w-full justify-between">
         <h1 className="h1">{title}</h1>
       </div>
