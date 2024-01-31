@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { FakeCategory, FakeProduct, FakeUser } from "@/types/types";
 import { useEffect, useState } from "react";
 
@@ -6,6 +9,7 @@ const useDataFakeShop = () => {
     const [fakeShopUsers, setFakeShopUsers] = useState<FakeUser[] | []>([])
     const [fakeShopProducts, setFakeShopProducts] = useState<FakeProduct[] | []>([])
     const [fakeShopCategories, setFakeShopCategories] = useState<FakeCategory[] | []>([])
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     async function getCategoriesFakeShop() {
         try {
@@ -78,12 +82,15 @@ const useDataFakeShop = () => {
 
     /** 1 */
     useEffect(() => {
+        setIsLoading(true)
         getUserFakeShop()
         getProductsFakeShop()
         getCategoriesFakeShop()
+        setIsLoading(false)
     }, [])
 
     return {
+        isLoading,
         fakeShopUsers,
         fakeShopProducts,
         fakeShopCategories

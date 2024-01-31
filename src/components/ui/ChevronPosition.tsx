@@ -13,7 +13,7 @@ const ChevronPosition = ({
   handleClicLeft,
 }: Props) => {
   const styleDiv =
-    'absolute top-5 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointe';
+    `absolute top-5 flex items-center justify-center h-8 w-8 rounded-full bg-gray-600 opacity-40 cursor-pointer`;
 
   if (scrollCards === 'left') {
     return (
