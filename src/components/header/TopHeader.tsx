@@ -3,13 +3,16 @@ import ActionsTopBar from './ActionsTopBar';
 import { useState } from 'react';
 import VintedLogo from './VintedLogo';
 import BurgerMenuLogo from './BurgerMenuLogo';
+import { Link } from 'react-router-dom';
 
 const TopHeader: () => JSX.Element = () => {
   const [isMenuBurgerActive, setIsMenuBurgerActive] = useState(true);
 
   return (
     <div className="flex h-[52px] items-center justify-between p-4 py-2">
+      <Link to="/">
       <VintedLogo />
+      </Link>
       <div className="hidden lg:flex lg:grow">
         <HeaderBarSearch />
       </div>
