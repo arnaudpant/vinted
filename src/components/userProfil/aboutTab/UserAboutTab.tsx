@@ -4,13 +4,16 @@ import UserAboutStatistics from './UserAboutStatistics';
 import UserAboutInfos from './UserAboutInfos';
 import UserAboutDetails from './UserAboutDetails';
 import UserAboutContactButtons from './UserAboutContactButtons';
+import { FakeUserWithStatistic } from '@/types/types';
 
-const UserAboutTab: React.FC<{ fakeUser: object }> = ({ fakeUser }) => {
+const UserAboutTab: React.FC<{ userWithStatistics: FakeUserWithStatistic }> = ({
+  userWithStatistics,
+}) => {
   return (
     <div className="mx-4">
-      <UserAboutDescription fakeUser={fakeUser} />
+      <UserAboutDescription userWithStatistics={userWithStatistics} />
       <hr className="my-4" />
-      <UserAboutStatistics />
+      <UserAboutStatistics userWithStatistics={userWithStatistics} />
       <hr className="my-4" />
       <UserAboutInfos />
       <hr className="my-4" />

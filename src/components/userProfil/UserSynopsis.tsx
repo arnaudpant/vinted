@@ -4,24 +4,24 @@ import UserNoteStars from '../UserNoteStars';
 import ButtonDisconnect from '../modals/authentification/ButtonDisconnect';
 import ButtonContact from './dressingTab/ButtonContact';
 import UserInfoLine from './models/UserInfoLine';
+import { FakeUserWithStatistic } from '@/types/types';
 
 const UserSynopsis: React.FC<{
-  fakeUser: object;
-  fakeUserStatistic: object;
-}> = ({ fakeUser, fakeUserStatistic }) => {
-  if (!fakeUser) return;
+  userWithStatistics: FakeUserWithStatistic;
+}> = ({ userWithStatistics }) => {
+  if (!userWithStatistics) return;
   return (
-    <div className="mb-16  hidden justify-center space-x-8 sm:flex">
+    <div className="mb-16 hidden justify-center space-x-8 sm:flex">
       <img
-        src={fakeUser.avatar}
+        src={userWithStatistics.avatar}
         alt="avatar"
-        className="h-48 w-auto rounded-full"
+        className="h-48 w-48 rounded-full object-cover"
       />
       <div>
-        <h1 className="font-semibold">{fakeUser.name}</h1>
+        <h1 className="font-semibold">{userWithStatistics.name}</h1>
         <div className="flex space-x-2">
-          <UserNoteStars note={fakeUserStatistic.fakeStarsUser} />
-          <span>{fakeUserStatistic.fakeNumberReviews} évaluations</span>
+          <UserNoteStars note={userWithStatistics.starsRating} />
+          <span>{userWithStatistics.numberOfReviews} évaluations</span>
         </div>
         <div className="my-4 flex space-x-4">
           <ButtonContact

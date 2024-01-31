@@ -1,16 +1,19 @@
+import { FakeUserWithStatistic } from '@/types/types';
 import React from 'react';
 
-const UserAboutDescription: React.FC<{ fakeUser: object }> = ({ fakeUser }) => {
-  if (!fakeUser) return;
+const UserAboutDescription: React.FC<{
+  userWithStatistics: FakeUserWithStatistic;
+}> = ({ userWithStatistics }) => {
+  if (!userWithStatistics) return;
   return (
     <div className="">
       <img
-        src={fakeUser.avatar}
+        src={userWithStatistics.avatar}
         alt="avatar utilisateur"
         className="mx-auto max-h-64 w-full object-cover sm:h-48 "
       />
       <div>
-        <h1 className="text-xl font-semibold">{fakeUser.name}</h1>
+        <h1 className="text-xl font-semibold">{userWithStatistics.name}</h1>
         <ul className="list-inside list-disc ">
           <li>Todo en buen estado</li>
           <li>

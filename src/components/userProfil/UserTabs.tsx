@@ -3,10 +3,10 @@ import React from 'react';
 import UserDressingProfil from './dressingTab/UserDressingProfil';
 import UserEvaluation from './evaluationsTab/UserEvaluation';
 import UserAboutTab from './aboutTab/UserAboutTab';
+import { FakeUserWithStatistic } from '@/types/types';
 
-const UserTabs: React.FC<{ fakeUser: object; fakeUserStatistic: object }> = ({
-  fakeUser,
-  fakeUserStatistic,
+const UserTabs: React.FC<{ userWithStatistics: FakeUserWithStatistic }> = ({
+  userWithStatistics,
 }) => {
   return (
     <div>
@@ -19,16 +19,13 @@ const UserTabs: React.FC<{ fakeUser: object; fakeUserStatistic: object }> = ({
           </TabsTrigger>
         </TabsList>
         <TabsContent value="dressing">
-          <UserDressingProfil
-            fakeUser={fakeUser}
-            fakeUserStatistic={fakeUserStatistic}
-          />
+          <UserDressingProfil userWithStatistics={userWithStatistics} />
         </TabsContent>
         <TabsContent value="evaluations">
-          <UserEvaluation fakeUserStatistic={fakeUserStatistic} />
+          <UserEvaluation userWithStatistics={userWithStatistics} />
         </TabsContent>
         <TabsContent value="about" className="sm:hidden">
-          <UserAboutTab fakeUser={fakeUser} />
+          <UserAboutTab userWithStatistics={userWithStatistics} />
         </TabsContent>
       </Tabs>
     </div>

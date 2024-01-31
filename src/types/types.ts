@@ -67,6 +67,39 @@ export type LinkLabel =
   | 'Conditions de vente Pro'
   | "Conditions d'utilisation Pro";
 
+export type FakeUser = {
+  id: number;
+  name: string;
+  image: string;
+  avatar: string;
+};
+
+export type FakeUserWithStatistic = FakeUser & {
+  starsRating: number;
+  numberOfReviews: number;
+};
+
+export type FakeProduct = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: {
+    id: number;
+    name: string;
+    image: string;
+  };
+  images: string[];
+};
+
+export type FakeProductWithUserId = FakeProduct & { userId: number };
+
+export type FakeCategory = {
+  id: number;
+  name: string;
+  image: string;
+};
+
 export type TypeCategory = {
   id: number;
   title: string;

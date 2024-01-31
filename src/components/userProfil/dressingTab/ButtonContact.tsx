@@ -1,4 +1,3 @@
-import { AnyPtrRecord } from 'dns';
 import React from 'react';
 
 const ButtonContact: React.FC<{
@@ -8,7 +7,7 @@ const ButtonContact: React.FC<{
 }> = ({ children, backgroundColor, textColor }) => {
   return (
     <button
-      className={`w-2/5 ${backgroundColor} ${textColor} border-vintedGreen border-2 rounded-sm py-1`}
+      className={`w-2/5 ${backgroundColor} ${textColor} rounded-sm border-2 border-vintedGreen py-1`}
     >
       {children}
     </button>

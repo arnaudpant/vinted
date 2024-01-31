@@ -1,31 +1,33 @@
-import { CircleUserRound, Star } from 'lucide-react';
+import UserNoteStars from '@/components/UserNoteStars';
+import { FakeUserWithStatistic } from '@/types/types';
+import { CircleUserRound } from 'lucide-react';
 
-const UserReview: React.FC<{ fakeUser: object; fakeUserStatistic: object }> = ({
-  fakeUser,
-  fakeUserStatistic,
+const UserReview: React.FC<{ userWithStatistics: FakeUserWithStatistic }> = ({
+  userWithStatistics,
 }) => {
-  const { fakeStarsUser, fakeNumberReviews } = fakeUserStatistic;
   return (
     <div className="flex items-center space-x-3">
-      {fakeUser.avatar ? (
-        <img src={fakeUser.avatar} className="rounded-full  " width={'48px'} />
+      {userWithStatistics.avatar ? (
+        <img
+          src={userWithStatistics.avatar}
+          alt="avatar utilisateur"
+          className="rounded-full  "
+          width={'48px'}
+        />
       ) : (
         <CircleUserRound size={'48px'} color="green" />
       )}
 
       <div className="w-fit leading-tight">
-        <h1>xavierland</h1>
+        <h1>{userWithStatistics.name}</h1>
         <div className="flex">
-          {fakeStarsUser !== 0 ? (
-            Array.from({ length: fakeStarsUser }, (_, index) => (
-              <Star fill={'orange'} strokeWidth={0} key={index} />
-            ))
-          ) : (
-            <Star color="yellow" />
-          )}
+          <UserNoteStars note={userWithStatistics.starsRating} />
+
           {
             <span className="ml-2">
-              {fakeNumberReviews === 0 ? 'Aucun avis' : fakeNumberReviews}
+              {userWithStatistics.numberOfReviews === 0
+                ? 'Aucun avis'
+                : userWithStatistics.numberOfReviews}
             </span>
           }
         </div>

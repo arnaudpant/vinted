@@ -2,14 +2,15 @@ import React from 'react';
 import ButtonContact from './ButtonContact';
 import UserDressingInfos from './UserDressingInfos';
 import UserReview from './UserReview';
+import { FakeUserWithStatistic } from '@/types/types';
+import ArticlesAvailablesBySeller from '@/components/ArticlesAvailables/ArticlesAvailablesBySeller';
 
 const UserDressingProfil: React.FC<{
-  fakeUser: object;
-  fakeUserStatistic: object;
-}> = ({ fakeUser, fakeUserStatistic }) => {
+  userWithStatistics: FakeUserWithStatistic;
+}> = ({ userWithStatistics }) => {
   return (
     <div className=" mt-2 flex flex-col">
-      <UserReview fakeUser={fakeUser} fakeUserStatistic={fakeUserStatistic} />
+      <UserReview userWithStatistics={userWithStatistics} />
       <hr className="my-4" />
       <UserDressingInfos />
       <hr className="my-4" />
@@ -22,7 +23,7 @@ const UserDressingProfil: React.FC<{
         </ButtonContact>
         <hr className="my-4" />
       </div>
-      <p>Liste des articles à acheter etc...</p>
+      <ArticlesAvailablesBySeller userId={userWithStatistics.id} />
     </div>
   );
 };

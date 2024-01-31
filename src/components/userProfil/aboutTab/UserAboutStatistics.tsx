@@ -1,13 +1,15 @@
 import UserNoteStars from '@/components/UserNoteStars';
-import React from 'react';
+import { FakeUserWithStatistic } from '@/types/types';
 
-const UserAboutStatistics = () => {
-  const numberStars = 4;
-  const numberEvaluations = 543;
+const UserAboutStatistics = ({
+  userWithStatistics,
+}: {
+  userWithStatistics: FakeUserWithStatistic;
+}) => {
   return (
     <div className="flex space-x-2">
-      <UserNoteStars note={numberStars} />
-      <span>{numberEvaluations} évaluations</span>
+      <UserNoteStars note={userWithStatistics.starsRatings} />
+      <span>{userWithStatistics.numberOfReviews} évaluations</span>
     </div>
   );
 };
