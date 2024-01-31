@@ -2,8 +2,12 @@ import getRandomNumberReviews from '@/utils/getRandomNumberReviews';
 import getRandomStarsNote from '@/utils/getRandomStarsNote';
 import UserTabs from './UserTabs';
 import UserSynopsis from './UserSynopsis';
+import { useParams } from 'react-router-dom';
 
 const UserProfil = () => {
+  const { userId } = useParams();
+  console.log({ userId });
+
   const fakeUser = {
     id: 1,
     email: 'john@mail.com',
@@ -25,7 +29,11 @@ const UserProfil = () => {
   }
   return (
     <div className="mx-4 sm:mx-8">
-      <UserSynopsis fakeUser={fakeUser} fakeUserStatistic={fakeUserStatistic} />
+      <UserSynopsis
+        fakeUser={fakeUser}
+        fakeUserStatistic={fakeUserStatistic}
+        userId={userId}
+      />
       <UserTabs fakeUser={fakeUser} fakeUserStatistic={fakeUserStatistic} />
     </div>
   );
