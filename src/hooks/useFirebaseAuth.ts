@@ -1,8 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { auth, db } from "@/firebase/firebase-config"
 import { UserDocument, UserInterface } from "@/types/types"
 import { onAuthStateChanged, User } from "firebase/auth"
 import { doc, onSnapshot } from "firebase/firestore"
 import { useEffect, useState } from "react"
+
+/**
+ * 
+ * @returns  authUser pour récupérer toutes les datas du l'utilisateur connecté,
+        getUserDocument pour recuperer en temps reel les modifs dans db firestore
+ */
 
 const useFirebaseAuth = () => {
     const [authUser, setAuthUser] = useState<UserInterface | null>(null)
@@ -87,4 +96,4 @@ const useFirebaseAuth = () => {
     }
 }
 
-export default useFirebaseAuth
+export default useFirebaseAuth;

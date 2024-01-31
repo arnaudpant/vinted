@@ -6,6 +6,7 @@ import ProductCard from '@/components/home/ProductCard';
 import BrandSearch from '@/components/BrandSearch';
 import { ProductFakeApi, User } from '@/types/types';
 
+
 const Home = () => {
   const [productsCreator, setProductsCreator] = useState<ProductFakeApi[]>([]);
   const [productsPopular, setProductsPopular] = useState<ProductFakeApi[]>([]);
