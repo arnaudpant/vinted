@@ -3,6 +3,11 @@ import { ArticleForSale } from "@/types/types";
 import useFirebaseAuth from "./useFirebaseAuth";
 import { FirestoreUpdateDocument } from "@/firebase/firestore";
 
+/**
+ * HOOK pour envoyer un article dans la base de données firestore
+ * @returns addArticleToSell
+ */
+
 const useAddArticle = () => {
     const { authUser } = useFirebaseAuth()
 

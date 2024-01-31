@@ -42,7 +42,12 @@ export type  UserDocument = {
   uid: string;
   inscription: Timestamp;
   login: string;
-  listArticlesForSale: ArticleForSale[]
+  listArticlesForSale: ArticleForSale[];
+  description: string | null;
+  country: string;
+  city: string;
+  displayCityInProfile: boolean;
+  language: string
 }
 
 export type Action = 'init' | 'connexion' | 'inscription' | 'password-forget';

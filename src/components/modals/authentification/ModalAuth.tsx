@@ -42,7 +42,7 @@ const ModalAuth = ({ setModalConnexion }: Props) => {
 
       {/* Modal */}
       <div
-        className="absolute top-12 flex w-full flex-col items-center justify-start rounded  bg-vintedBackground sm:left-1/2 sm:top-1/2 sm:w-[375px] sm:-translate-x-1/2 sm:-translate-y-1/2"
+        className="absolute top-12 z-50 flex w-full flex-col items-center justify-start  rounded bg-vintedBackground sm:left-1/2 sm:top-1/2 sm:w-[375px] sm:-translate-x-1/2 sm:-translate-y-1/2"
         aria-modal="true"
       >
         {/* Partie Sup BTN X */}
