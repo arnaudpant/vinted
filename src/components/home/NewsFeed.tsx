@@ -30,12 +30,15 @@ const NewsFeed = ({
                 className="flex h-[340px] w-[213px] cursor-pointer flex-col items-center justify-between"
               >
                 <div className="flex h-10 w-full justify-start gap-2 p-2">
-                  {fakeShopUsers[0].avatar ? (
+                  {fakeShopUsers.length > 0 ? (
                     <img className='h-8 w-8 rounded-full' src={fakeShopUsers[getRandomIndex(1, 10)].avatar} />
                   ) : (
                     <img src="" />
                   )}
-                  <p className='text-sm text-vintedTextGrisClair'>{fakeShopUsers[getRandomIndex(1, 10)].name}</p>
+                  {
+                    fakeShopUsers[0].name &&  <p className='text-sm text-vintedTextGrisClair'>{fakeShopUsers[getRandomIndex(1, 10)].name}</p>
+                  }
+                 
                 </div>
                 <img src={product.images[0]} alt={product.title} />
                 <div className="h-[90px] w-full p-2">

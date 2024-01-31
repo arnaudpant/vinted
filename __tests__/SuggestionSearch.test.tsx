@@ -1,9 +1,7 @@
-import React from 'react';
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import SuggestionSearch from './../src/components/suggestion/SuggestionSearch';
-
+import SuggestionSearch from '../src/components/suggestion/SuggestionSearch';
 
 test('Titre present', () => {
   render(<SuggestionSearch />);
@@ -15,11 +13,10 @@ test('Affichage des 10 suggestions', () => {
   render(<SuggestionSearch />);
   const products = screen.queryAllByTestId('cardSuggestion');
   expect(products).toHaveLength(10);
-  screen.debug();
 });
 
 test('Initialisation = 1 bouton fleche', () => {
-   render(<SuggestionSearch />);
-   const boutonsScrollY = screen.getAllByRole('button')
-   expect(boutonsScrollY).toHaveLength(1)
-})
+  render(<SuggestionSearch />);
+  const boutonsScrollY = screen.getAllByRole('button');
+  expect(boutonsScrollY).toHaveLength(1);
+});

@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 /**
  * Modal avec formulaire de connexion quand user deja inscrit
  */
@@ -30,9 +31,11 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
     email,
     password,
   }: LoginFormTypeConnexion) => {
+    setIsLoading(true);
     const { error } = await firebaseSignInUser(email, password);
     if (error) {
       console.log('Error handleSignInUser');
+      setIsLoading(false);
       return;
     }
     reset();
@@ -45,7 +48,6 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
   const onSubmit: SubmitHandler<LoginFormTypeConnexion> = (data) => {
     setIsLoading(true)
     handleSignInUser(data);
-    setIsLoading(false)
   };
 
   return (
@@ -76,7 +78,7 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
         />
         {isLoading ? (
           <button
-            className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground"
+            className="mb-6 flex  h-11 w-full items-center justify-center rounded bg-vintedGreen text-vintedBackground"
             disabled
           >
             <svg
@@ -95,7 +97,9 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
             </svg>
           </button>
         ) : (
-          <button className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground">
+          <button
+            className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground"
+          >
             Continuer
           </button>
         )}
