@@ -14,8 +14,6 @@ const NewsFeed = ({
 }: Props) => {
 
   const { fakeShopUsers, fakeShopProducts } = useDataFakeShop();
-  console.log(fakeShopUsers);
-
 
   return (
     <div className="container mx-auto max-w-[1240px] py-12 text-vintedTextGrisClair">
@@ -32,7 +30,7 @@ const NewsFeed = ({
                 className="flex h-[340px] w-[213px] cursor-pointer flex-col items-center justify-between"
               >
                 <div className="flex h-10 w-full justify-start gap-2 p-2">
-                  {fakeShopUsers[1].avatar ? (
+                  {fakeShopUsers[0].avatar ? (
                     <img className='h-8 w-8 rounded-full' src={fakeShopUsers[getRandomIndex(1, 10)].avatar} />
                   ) : (
                     <img src="" />
