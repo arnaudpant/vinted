@@ -1,10 +1,10 @@
-import React from 'react';
-import UserAboutDescription from './UserAboutDescription';
-import UserAboutStatistics from './UserAboutStatistics';
-import UserAboutInfos from './UserAboutInfos';
-import UserAboutDetails from './UserAboutDetails';
-import UserAboutContactButtons from './UserAboutContactButtons';
 import { FakeUserWithStatistic } from '@/types/types';
+import React from 'react';
+import ButtonsContact from '../dressingTab/ButtonsContact';
+import UserAboutDescription from './UserAboutDescription';
+import UserAboutDetails from './UserAboutDetails';
+import UserAboutInfos from './UserAboutInfos';
+import UserAboutStatistics from './UserAboutStatistics';
 
 const UserAboutTab: React.FC<{ userWithStatistics: FakeUserWithStatistic }> = ({
   userWithStatistics,
@@ -19,7 +19,7 @@ const UserAboutTab: React.FC<{ userWithStatistics: FakeUserWithStatistic }> = ({
       <hr className="my-4" />
       <UserAboutDetails />
       <hr className="my-4" />
-      <UserAboutContactButtons />
+      <ButtonsContact />
       <hr className="my-4" />
     </div>
   );
