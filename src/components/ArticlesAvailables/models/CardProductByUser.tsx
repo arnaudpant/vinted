@@ -11,7 +11,7 @@ const CardProductByUser: React.FC<{
   const URL_UMAGE_PATH = checkURLImageProductFromApi(fakeProduct.images[0]);
 
   return (
-    <div className="flex flex-col py-2  bg-vintedBackground text-sm  ">
+    <div className="flex flex-col bg-vintedBackground  py-2 text-sm  ">
       <UserBanner userId={fakeProduct.userId} />
       <ImageProduct urlImage={URL_UMAGE_PATH} />
       <DetailProduct

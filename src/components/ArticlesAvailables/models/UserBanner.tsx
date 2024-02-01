@@ -1,13 +1,15 @@
-import NoPictureUser from './NoPictureUser';
-import { FakeUser } from '@/types/types';
 import useDataFakeShop from '@/hooks/useDataFakeShop';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import NoPictureUser from './NoPictureUser';
 import PictureUser from './PictureUser';
 
 const UserBanner: React.FC<{ userId: number }> = ({ userId }) => {
-  const { fakeShopUsers } = useDataFakeShop();
-  const user: FakeUser = fakeShopUsers[userId];
+  const { getUserFakeShop, fakeShopUser } = useDataFakeShop();
+
+  useEffect(() => {
+    getUserFakeShop(Number(userId));
+  }, [userId]);
 
   const [isAvatarUserLoaded, setIsAvatarUserLoaded] = useState(true);
 
@@ -15,11 +17,11 @@ const UserBanner: React.FC<{ userId: number }> = ({ userId }) => {
     setIsAvatarUserLoaded(false);
   };
 
-  if (!user) {
+  if (!fakeShopUser) {
     return;
   }
   return (
-    <div className="flex flex-row  justify-start  py-1 ml-2 cursor-pointer">
+    <div className="ml-2 flex  cursor-pointer  flex-row justify-start py-1">
       <Link
         to="/"
         className="flex flex-row flex-nowrap"
@@ -27,12 +29,12 @@ const UserBanner: React.FC<{ userId: number }> = ({ userId }) => {
       >
         <span className="mr-2">
           {isAvatarUserLoaded ? (
-            <PictureUser avatarUser={user.avatar} />
+            <PictureUser avatarUser={fakeShopUser.avatar} />
           ) : (
-            <NoPictureUser userName={user.name} />
+            <NoPictureUser userName={fakeShopUser.name} />
           )}
         </span>
-        <span>{user.name}</span>
+        <span>{fakeShopUser.name}</span>
       </Link>
     </div>
   );
