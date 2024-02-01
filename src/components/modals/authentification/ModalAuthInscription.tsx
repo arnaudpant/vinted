@@ -11,6 +11,7 @@ import Checkbox from '@/components/ui/checkbox';
 import { firebaseCreateUser } from '@/api/authentification';
 import FirestoreCreateDocument from '@/api/firestore';
 import { Action } from '@/types/types';
+import { useState } from 'react';
 
 type LoginFormTypeInscription = {
   login: 'string';
@@ -25,6 +26,7 @@ type Props = {
 const ModalAuthInscription = ({ setContenuModal }: Props) => {
   const { handleSubmit, register, setError, reset } =
     useForm<LoginFormTypeInscription>();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const testPassword = 7;
 
@@ -46,10 +48,11 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     );
     if (error) {
       console.log('Error handleCreateUserAuthentification');
+      setIsLoading(false);
+      setContenuModal('init');
       return;
     }
     reset();
-    setContenuModal('init');
   };
 
   /**
@@ -64,6 +67,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     password,
     login,
   }: LoginFormTypeInscription) => {
+    setIsLoading(true);
     const { error, data } = await firebaseCreateUser(email, password);
     if (error) {
       console.log('Error ModalAuthInscription');
@@ -90,6 +94,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
    * Appel function Firebase
    */
   const onSubmit = async (data: LoginFormTypeInscription) => {
+    setIsLoading(true);
     const { password } = data;
 
     if (password.length < testPassword) {
@@ -187,12 +192,31 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
           </label>
         </div>
 
-        <button
-          type="submit"
-          className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground"
-        >
-          Continuer
-        </button>
+        {isLoading ? (
+          <button
+            className="mb-6 flex  h-11 w-full items-center justify-center rounded bg-vintedGreen text-vintedBackground"
+            disabled
+          >
+            <svg
+              className="animate-spin"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="#fff"
+            >
+              <path
+                d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+                opacity=".25"
+                fill="text-fond"
+              />
+              <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"></path>
+            </svg>
+          </button>
+        ) : (
+          <button className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground">
+            Continuer
+          </button>
+        )}
       </form>
     </div>
   );

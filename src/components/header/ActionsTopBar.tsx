@@ -5,6 +5,7 @@ import ModalAuth from '../modals/authentification/ModalAuth';
 import ButtonTopHeader from './navigationBar/ButtonTopHeader';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { Link } from 'react-router-dom';
+import ButtonDisconnect from '../modals/authentification/ButtonDisconnect';
 
 const ActionsTopBar: () => JSX.Element = () => {
   const [modalConnexion, setModalConnexion] = useState<boolean>(false);
@@ -36,7 +37,7 @@ const ActionsTopBar: () => JSX.Element = () => {
               </ButtonTopHeader>
             </Link>
           </>
-        ) : null}
+        ) : <ButtonDisconnect />}
 
         <img
           src={logoHelp}

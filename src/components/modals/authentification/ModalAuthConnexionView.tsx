@@ -39,7 +39,6 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
       return;
     }
     reset();
-    setContenuModal('init');
   };
 
   /**
