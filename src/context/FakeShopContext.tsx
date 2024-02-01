@@ -8,6 +8,7 @@ const init = {
   fakeShopCategories: [] as FakeCategory[],
 };
 
+
 export const FakeShopContext = createContext({
   fakeShopUsers: init.fakeShopUsers,
   fakeShopProduct: init.fakeShopProduct,
@@ -34,4 +35,5 @@ export function FakeShopProvider({ children }: Props) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useFakeShop = () => useContext(FakeShopContext);

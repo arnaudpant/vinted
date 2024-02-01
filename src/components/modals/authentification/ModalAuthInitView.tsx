@@ -10,8 +10,8 @@ type Props = {
 
 const ModalAuthInitView = ({ setContenuModal }: Props) => {
   return (
-    <div className="flex flex-col items-center w-full px-4 pb-6">
-      <h1 className="text-2xl text-center mb-6">Bienvenue !</h1>
+    <div className="flex w-full flex-col items-center px-4 pb-6">
+      <h1 className="mb-6 text-center text-2xl">Bienvenue !</h1>
 
       <ButtonReseaux>
         <span className="pr-[6px]">
@@ -80,24 +80,24 @@ const ModalAuthInitView = ({ setContenuModal }: Props) => {
         <span className="text-vintedTextGrisClair">Continuer avec Apple</span>
       </ButtonReseaux>
 
-      <p className="text-vintedTextBlack pb-2 pt-6">
+      <p className="pb-2 pt-6 text-vintedTextBlack">
         Ou connecte toi avec{' '}
         <span
-          className="text-vintedGreen cursor-pointer"
+          className="cursor-pointer text-vintedGreen"
           onClick={() => setContenuModal('connexion')}
           role="button"
         >
           e-mail
         </span>
       </p>
-      <p className="text-vintedTextBlack text-center">
-        Tu n'as pas de compte Vinted ?{' '}
+      <p className="text-center text-vintedTextBlack">
+        Tu n&apos;as pas de compte Vinted ?{' '}
         <span
-          className="text-vintedGreen cursor-pointer"
+          className="cursor-pointer text-vintedGreen"
           role="button"
           onClick={() => setContenuModal('inscription')}
         >
-          S'inscrire
+          S&apos;inscrire
         </span>
       </p>
     </div>
