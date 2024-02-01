@@ -3,17 +3,17 @@ import useDataFakeShop from '@/hooks/useDataFakeShop';
 import { useEffect, useState } from 'react';
 import ChevronPosition from '../ui/ChevronPosition';
 import Skeleton from '../ui/skeleton';
+import { Link } from 'react-router-dom';
 
 type Props = {
   title: string;
-  start: number,
-  end: number
+  start: number;
+  end: number;
 };
 
 const ProductCard = ({ title, start, end }: Props) => {
   // CONTEXTE
   const { fakeShopProducts } = useDataFakeShop();
-
 
   const [scrollCards, setScrollCards] = useState<ScrollAction>('right');
 
@@ -80,29 +80,34 @@ const ProductCard = ({ title, start, end }: Props) => {
             <div className="flex shrink-0 flex-nowrap gap-4">
               {fakeShopProducts
                 .map((product: FakeProduct) => (
-                  <div
+                  <Link
+                    to={`/items/${product.id}`}
                     key={product.id}
-                    className="flex h-[300px] w-[213px] cursor-pointer flex-col items-center justify-between"
+                    state={product}
                   >
-                    <img
-                      src={product.images[0]}
-                      alt={product.title}
-                    />
-                    <div className="h-[90px] w-full p-2">
-                      <p className="text-sm">{product.price},00€</p>
-                      <p className="text-xs text-vintedGreen">
-                        {product.price},00€ incl
-                      </p>
-                      <p className="text-xs text-vintedTextGrisClair">Taille</p>
-                      <h2 className="text-xs text-vintedTextGrisClair">
-                        Marque
-                      </h2>
+                    <div
+                      key={product.id}
+                      className="flex h-[300px] w-[213px] cursor-pointer flex-col items-center justify-between"
+                    >
+                      <img src={product.images[0]} alt={product.title} />
+                      <div className="h-[90px] w-full p-2">
+                        <p className="text-sm">{product.price},00€</p>
+                        <p className="text-xs text-vintedGreen">
+                          {product.price},00€ incl
+                        </p>
+                        <p className="text-xs text-vintedTextGrisClair">
+                          Taille
+                        </p>
+                        <h2 className="text-xs text-vintedTextGrisClair">
+                          Marque
+                        </h2>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))
                 .slice(start, end)}
               <div className="flex h-[300px] w-[213px] flex-col justify-center bg-gray-100">
-                <p className="text-center text-vintedTextGrisFonce">
+                <p className="cursor-pointer text-center text-vintedTextGrisFonce">
                   Voir tous les articles
                 </p>
               </div>
