@@ -3,7 +3,7 @@ import { FirebaseError } from "firebase/app";
 import { doc, setDoc } from "firebase/firestore";
 
 
-export const FirestoreCreateDocument = async (collectionName: string, documentId: string, data: object) => {
+const FirestoreCreateDocument = async (collectionName: string, documentId: string, data: object) => {
     try {
         const documentRef = doc(db, collectionName, documentId);
         await setDoc(documentRef, data);
@@ -20,3 +20,5 @@ export const FirestoreCreateDocument = async (collectionName: string, documentId
         }
     }
 }
+
+export default FirestoreCreateDocument

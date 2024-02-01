@@ -12,7 +12,7 @@ const CallToAction = () => {
         Prêt à faire du tri dans vos placards ?
       </h2>
 
-      <Link to="/">
+      <Link to="/new-article">
         <p className="rounded-sm bg-vintedGreen py-2 text-center text-white">
           Vends maintenant
         </p>

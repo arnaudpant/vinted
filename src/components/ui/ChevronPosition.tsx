@@ -42,7 +42,7 @@ const ChevronPosition = ({
     );
   }
 
-  return <></>;
+  return null;
 };
 
 export default ChevronPosition;

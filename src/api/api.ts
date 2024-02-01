@@ -44,3 +44,4 @@ const ListSuggestSearchFromVinted: SuggestSearchList[] = [
 ];
 
 export default ListSuggestSearchFromVinted;
+

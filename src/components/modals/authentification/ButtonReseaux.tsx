@@ -1,14 +1,17 @@
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 const ButtonReseaux = ({children}: any) => {
     return (
       <button
         type="button"
-        className="h-11 w-full flex justify-center items-center border border-solid border-vintedTextGrisClair rounded mt-2 cursor-not-allowed"
+        className="mt-2 flex h-11 w-full cursor-not-allowed items-center justify-center rounded border border-solid border-vintedTextGrisClair"
         disabled={true}
       >
         {children}
       </button>
     );
+
 };
 
 export default ButtonReseaux;
