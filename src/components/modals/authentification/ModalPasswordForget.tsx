@@ -36,9 +36,9 @@ const ModalPasswordForget = ({ setContenuModal }: Props) => {
   };
 
   return (
+
       <div className="flex w-full flex-col items-center px-4 pb-6">
         <h1 className="text-center text-2xl">Mot de passe oublié ?</h1>
-
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
           <input
             type="email"

@@ -1,4 +1,4 @@
-import { MenubarTrigger } from '@/components/ui/menubar';
+import { MenubarTrigger } from '@/components/ui/Menubar';
 import { TypeCategory } from '@/types/types';
 import { MenubarContent, MenubarMenu } from '@radix-ui/react-menubar';
 import AboutSubCategory from './AboutSubCategory';

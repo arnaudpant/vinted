@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 /** PAGES */
-import { FakeShopProvider } from './context/FakeShopContext';
+
 import Article from './pages/Article';
 import Catalog from './pages/Catalog';
 import Error404 from './pages/Error404';
@@ -12,6 +12,7 @@ import NewArticle from './pages/NewArticle';
 import Search from './pages/Search';
 import User from './pages/User';
 import Authentification from './pages/Authentification';
+import { FakeShopProvider } from './context/FakeShopContext';
 
 function App() {
   return (
@@ -32,7 +33,6 @@ function App() {
             <Route path="/search" element={<Search />} />
             {/* Page de recherche par categorie via navbar */}
             <Route path="/catalog/:categoryId" element={<Catalog />} />
-
             <Route path="/*" element={<Error404 />} />
           </Route>
         </Routes>
