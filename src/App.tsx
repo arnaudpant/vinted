@@ -1,5 +1,5 @@
 /** ROOTER */
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 /** PAGES */
 
@@ -12,6 +12,7 @@ import NewArticle from './pages/NewArticle';
 import Search from './pages/Search';
 import User from './pages/User';
 import Authentification from './pages/Authentification';
+import Settings from './pages/Settings';
 
 function App() {
   return (
@@ -31,6 +32,12 @@ function App() {
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
           <Route path="/catalog/" element={<Catalog />} />
+          {/* Page de settings du profil */}
+          <Route path="/settings/:section" element={<Settings />} />
+          <Route
+            path="/settings"
+            element={<Navigate to="/settings/profile" />}
+          />
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
