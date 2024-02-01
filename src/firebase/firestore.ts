@@ -1,18 +1,20 @@
-import { db } from "@/firebase/firebase-config";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "./firebase-config";
 import { FirebaseError } from "firebase/app";
-import { doc, setDoc } from "firebase/firestore";
 
 
-const FirestoreCreateDocument = async (collectionName: string, documentId: string, data: object) => {
+
+// eslint-disable-next-line import/prefer-default-export
+export const FirestoreUpdateDocument = async (collectionName: string, documentId: string, data: object) => {
     try {
         const documentRef = doc(db, collectionName, documentId);
-        await setDoc(documentRef, data);
+        await updateDoc(documentRef, data);
         return {
             data: true
         }
     } catch (error) {
         const firebaseError = error as FirebaseError
-        return {  
+        return {
             error: {
                 code: firebaseError.code,
                 message: firebaseError.message
@@ -20,5 +22,3 @@ const FirestoreCreateDocument = async (collectionName: string, documentId: strin
         }
     }
 }
-
-export default FirestoreCreateDocument

@@ -1,10 +1,17 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /**
  * Modal avec formulaire d'inscription
  */
 import { useForm } from 'react-hook-form';
-import  Checkbox  from '@/components/ui/Checkbox';
+
+import Checkbox from '@/components/ui/checkbox';
+
 import { firebaseCreateUser } from '@/api/authentification';
-import { FirestoreCreateDocument } from '@/api/firestore';
+import FirestoreCreateDocument from '@/api/firestore';
 import { Action } from '@/types/types';
 
 type LoginFormTypeInscription = {
@@ -69,6 +76,12 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
       uid: data.uid,
       inscription: new Date(),
       photoURL: '',
+      listArticlesForSale: [],
+      description: '',
+      country: '',
+      city: '',
+      displayCityInProfile: true,
+      language: '',
     };
     handleCreateUserAuthentification('users', data.uid, userDocumentData);
   };
@@ -110,8 +123,9 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
           className="mt-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
         <p className="mb-8 text-xs text-vintedTextGrisFonce">
-          Crée ton nom d'utilisateur en n'utilisant que des lettres et des
-          chiffres. Choisis-en un qui te plaît, tu ne pourras plus le changer.
+          Crée ton nom d&apos;utilisateur en n&apos;utilisant que des lettres et
+          des chiffres. Choisis-en un qui te plaît, tu ne pourras plus le
+          changer.
         </p>
 
         <input
@@ -163,7 +177,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
             htmlFor="MyCheckbox"
             className=" cursor-pointer font-light text-vintedTextBlackVar"
           >
-            En t'inscrivant, tu confirmes que tu acceptes les{' '}
+            En t&apos;inscrivant, tu confirmes que tu acceptes les{' '}
             <span className="cursor-pointer text-vintedGreen underline">
               Termes & Conditions de Vinted
             </span>

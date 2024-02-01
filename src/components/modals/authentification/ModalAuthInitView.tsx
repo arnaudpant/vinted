@@ -91,7 +91,7 @@ const ModalAuthInitView = ({ setContenuModal }: Props) => {
         </span>
       </p>
       <p className="text-center text-vintedTextBlack">
-        Tu n'as pas de compte Vinted ?{' '}
+        Tu n&apos;as pas de compte Vinted ?{' '}
         <span
           className="cursor-pointer text-vintedGreen"
           role="button"

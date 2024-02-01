@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import SuggestionSearch from '@/components/suggestion/SuggestionSearch';
 import Banner from '@/components/banner/Banner';
 import NewsFeed from '@/components/home/NewsFeed';

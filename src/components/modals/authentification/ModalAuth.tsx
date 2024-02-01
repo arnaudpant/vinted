@@ -10,24 +10,31 @@ import ModalAuthInitView from './ModalAuthInitView';
 import ModalAuthConnexionView from './ModalAuthConnexionView';
 import ModalAuthInscription from './ModalAuthInscription';
 import ModalPasswordForget from './ModalPasswordForget';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
-import ButtonDisconnect from './ButtonDisconnect';
 import { Action } from '@/types/types';
+import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
-  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalConnexion?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ModalAuth = ({ setModalConnexion }: Props) => {
-  const [contenuModal, setContenuModal] = useState<Action>('init');
-
   const { authUser } = useFirebaseAuth();
+  const [contenuModal, setContenuModal] = useState<Action>('init');
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setContenuModal('init');
-    setModalConnexion(false);
+    if (setModalConnexion){
+      setModalConnexion(false)
+    } else {
+      navigate('/')
+    }
   };
 
+  if (authUser) {
+    return null;
+  }
   return createPortal(
     <>
       {/* Fond gris */}
@@ -35,7 +42,9 @@ const ModalAuth = ({ setModalConnexion }: Props) => {
 
       {/* Modal */}
       <div
-        className="absolute top-12 flex w-full flex-col items-center justify-start rounded  bg-vintedBackground sm:left-1/2 sm:top-1/2 sm:w-[375px] sm:-translate-x-1/2 sm:-translate-y-1/2"
+
+        className="absolute top-12 z-50 flex w-full flex-col items-center justify-start  rounded bg-vintedBackground sm:left-1/2 sm:top-1/2 sm:w-[375px] sm:-translate-x-1/2 sm:-translate-y-1/2"
+
         aria-modal="true"
       >
         {/* Partie Sup BTN X */}
@@ -62,7 +71,6 @@ const ModalAuth = ({ setModalConnexion }: Props) => {
         {contenuModal === 'password-forget' && (
           <ModalPasswordForget setContenuModal={setContenuModal} />
         )}
-        {authUser && <ButtonDisconnect />}
       </div>
     </>,
     document.body,
