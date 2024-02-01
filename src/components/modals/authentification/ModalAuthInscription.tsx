@@ -7,7 +7,9 @@
  * Modal avec formulaire d'inscription
  */
 import { useForm } from 'react-hook-form';
+
 import Checkbox from '@/components/ui/checkbox';
+
 import { firebaseCreateUser } from '@/api/authentification';
 import FirestoreCreateDocument from '@/api/firestore';
 import { Action } from '@/types/types';

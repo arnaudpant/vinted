@@ -19,8 +19,7 @@ type LoginFormTypeConnexion = {
 };
 
 const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
-  const { handleSubmit, register, reset } =
-    useForm<LoginFormTypeConnexion>();
+  const { handleSubmit, register, reset } = useForm<LoginFormTypeConnexion>();
 
   /**
    * 2.

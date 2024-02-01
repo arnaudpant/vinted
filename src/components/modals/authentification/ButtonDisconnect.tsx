@@ -15,7 +15,9 @@ const ButtonDisconnect = () => {
     <div>
       <button
         className="mb-6 h-11 w-full rounded bg-vintedGreen px-3 text-vintedBackground"
+
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
+
         onClick={handleDisconnect}
       >
         Déconnexion

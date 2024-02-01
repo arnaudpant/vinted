@@ -1,3 +1,4 @@
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 const ButtonReseaux = ({children}: any) => {
@@ -10,6 +11,7 @@ const ButtonReseaux = ({children}: any) => {
         {children}
       </button>
     );
+
 };
 
 export default ButtonReseaux;

@@ -1,7 +1,9 @@
 import { useFakeShop } from '@/context/FakeShopContext';
+
 import { FakeUser } from '@/types/types';
 import { ChevronRight, Star, MapPin, Clock } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
 
 const BoxInfosVendeur = () => {
   const { fakeShopUsers } = useFakeShop();
@@ -23,6 +25,7 @@ const BoxInfosVendeur = () => {
     // Global
     <div className="my-4 px-[10px] ">
       {/* Box */}
+
       <div className="flex h-20 cursor-pointer justify-between border-b p-4 hover:bg-slate-50">
         <div className="flex">
           {user !== null && (
@@ -48,6 +51,7 @@ const BoxInfosVendeur = () => {
           )}
         </div>
         <div className="flex  justify-between">
+
           <ChevronRight className="ml-2 h-6 w-6" />
         </div>
       </div>

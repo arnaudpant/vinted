@@ -1,5 +1,5 @@
 import { FakeShopContext } from '@/context/FakeShopContext';
-import { FakeProductWithUserId } from '@/types/types';
+import { FakeProduct, FakeProductWithUserId } from '@/types/types';
 import { getRandomUserIdApi } from '@/utils/checkURLImageProductFromApi';
 import { useContext } from 'react';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
@@ -11,10 +11,12 @@ const ArticlesSimilarsByRandomSellers: React.FC = () => {
   const { fakeShopProduct } = useContext(FakeShopContext);
 
   const fakeShopProductsWithUserId: FakeProductWithUserId[] =
-    fakeShopProduct.map((product) => ({
-      ...product,
-      userId: getRandomUserIdApi(),
-    }));
+    fakeShopProduct.map((product: FakeProduct) => {
+      return {
+        ...product,
+        userId: getRandomUserIdApi(),
+      };
+    });
 
   return (
     <ArticlesAvailablesModel
