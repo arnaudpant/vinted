@@ -269,7 +269,6 @@ const categoriesHeader: TypeCategory[] = [
       },
       {
         id: 2,
-
         title: 'Chats',
         iconName: 'cat',
         subSubCategories: [
@@ -289,6 +288,7 @@ const categoriesHeader: TypeCategory[] = [
   },
   {
     id: 7,
+    
     title: 'A propos',
     navigation: [
       {

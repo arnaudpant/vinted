@@ -29,7 +29,7 @@ const NewsFeed = ({ title, start, end }: Props) => {
               >
                 <div className="flex h-[340px] w-[213px] cursor-pointer flex-col items-center justify-between">
                   <div className="flex h-10 w-full justify-start gap-2 p-2">
-                    {fakeShopUsers[1].avatar ? (
+                    {fakeShopUsers[1] ? (
                       <img
                         className="h-6 w-6 rounded-full"
                         src={fakeShopUsers[1].avatar}
@@ -37,7 +37,7 @@ const NewsFeed = ({ title, start, end }: Props) => {
                     ) : (
                       <img className="h-8 w-8 rounded-full" src="./avatar.png" />
                     )}
-                    {fakeShopUsers[0] && (
+                    {fakeShopUsers[1] && (
                       <p className="text-sm text-vintedTextGrisClair">
                         {fakeShopUsers[1].name}
                       </p>

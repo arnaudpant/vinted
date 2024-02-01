@@ -1,4 +1,4 @@
-import CallToAction from '../header/navigationBar/CallToActions';
+import CallToAction from './CallToActions';
 
 const Banner = () => {
   return (

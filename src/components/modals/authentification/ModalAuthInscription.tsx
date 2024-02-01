@@ -12,6 +12,7 @@ import { firebaseCreateUser } from '@/api/authentification';
 import FirestoreCreateDocument from '@/api/firestore';
 import { Action } from '@/types/types';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type LoginFormTypeInscription = {
   login: 'string';
@@ -27,6 +28,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
   const { handleSubmit, register, setError, reset } =
     useForm<LoginFormTypeInscription>();
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const navigate = useNavigate()
 
   const testPassword = 7;
 
@@ -53,6 +55,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
       return;
     }
     reset();
+    navigate('/')
   };
 
   /**

@@ -9,6 +9,7 @@ import { firebaseSignInUser } from '@/api/authentification';
 import { Action } from '@/types/types';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   setContenuModal: React.Dispatch<React.SetStateAction<Action>>;
@@ -23,6 +24,7 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
   const { handleSubmit, register, reset } =
     useForm<LoginFormTypeConnexion>();
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const navigate = useNavigate()
 
   /**
    * 2.
@@ -39,6 +41,7 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
       return;
     }
     reset();
+    navigate('/')
   };
 
   /**
