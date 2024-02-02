@@ -1,4 +1,4 @@
-import { MenubarItem } from '@/components/ui/Menubar';
+import { MenubarItem } from '@/components/ui/menubar';
 import { NavigationVintedPages } from '@/types/types';
 import { Link } from 'react-router-dom';
 

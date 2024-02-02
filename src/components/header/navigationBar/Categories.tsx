@@ -1,6 +1,6 @@
 import categoriesHeader from '@/data/categoriesHeader';
 
-import { Menubar } from '@/components/ui/Menubar';
+import { Menubar } from '@/components/ui/menubar';
 import { TypeCategory } from '@/types/types';
 import AboutCategory from './AboutCategory';
 import Category from './Category';
