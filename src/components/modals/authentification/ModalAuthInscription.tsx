@@ -16,10 +16,12 @@ import { Action } from '@/types/types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 type LoginFormTypeInscription = {
   login: 'string';
   email: 'string';
   password: 'string';
+  checkmail: 'string'
 };
 
 type Props = {
@@ -31,9 +33,17 @@ const ModalAuthInscription = ({
   setContenuModal,
   setModalConnexion,
 }: Props) => {
-  const { handleSubmit, register, setError, reset } =
-    useForm<LoginFormTypeInscription>();
+  const {
+    handleSubmit,
+    register,
+    setError,
+    reset,
+    setFocus,
+    formState: { errors },
+  } = useForm<LoginFormTypeInscription>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<boolean>(false);
+  const [passwordLength, setPasswordLength] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const testPassword = 7;
@@ -77,9 +87,11 @@ const ModalAuthInscription = ({
     password,
     login,
   }: LoginFormTypeInscription) => {
+    setErrorMessage(false);
     setIsLoading(true);
     const { error, data } = await firebaseCreateUser(email, password);
     if (error) {
+      setErrorMessage(true)
       setIsLoading(false);
       console.log('Error ModalAuthInscription');
       return;
@@ -106,8 +118,11 @@ const ModalAuthInscription = ({
    */
   const onSubmit = async (data: LoginFormTypeInscription) => {
     const { password } = data;
+    setPasswordLength(false)
 
     if (password.length < testPassword) {
+      setPasswordLength(true)
+      setFocus('password');
       setError('password', {
         type: 'manuel',
         message: 'Le mot de passe doit comporter 7 caractères minimum',
@@ -116,6 +131,7 @@ const ModalAuthInscription = ({
     }
     handleCreateUserAuth(data);
   };
+
 
   return (
     <div className="flex w-full flex-col items-center px-4 pb-6">
@@ -152,6 +168,7 @@ const ModalAuthInscription = ({
               message: 'E-mail ne peut pas être vide',
             },
           })}
+          aria-invalid={errors.email ? 'true' : 'false'}
           className="mb-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
 
@@ -168,13 +185,34 @@ const ModalAuthInscription = ({
           })}
           className="w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
-        <p className="mb-8 text-xs text-vintedTextGrisFonce">
-          Il doit contenir ${testPassword} lettres minimum, dont au moins un
-          chiffre.
-        </p>
+        {passwordLength ? (
+          <p className="mb-8 text-xs text-red-600">
+            Il doit contenir ${testPassword} lettres minimum, dont au moins un
+            chiffre.
+          </p>
+        ) : (
+          <p className="mb-8 text-xs text-vintedTextGrisFonce">
+            Il doit contenir ${testPassword} lettres minimum, dont au moins un
+            chiffre.
+          </p>
+        )}
+
+        {errorMessage && (
+          <p className="pb-4 text-center text-lg text-red-600">
+            Une erreur est survenue !
+          </p>
+        )}
 
         <div className="mb-4 flex items-start justify-center gap-1">
-          <Checkbox id="offres" />
+          {/* <Checkbox id="offres" /> */}
+          <input
+            type="checkbox"
+            id="inscription"
+            required
+            {...register('checkmail', {} )}
+            className="peer mt-1 h-6 w-6 shrink-0 rounded-sm border border-vintedTextGrisFonce ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-vintedGreen data-[state=checked]:text-primary-foreground"
+          />
+
           <label
             htmlFor="offres"
             className=" cursor-pointer font-light text-vintedTextBlackVar"
