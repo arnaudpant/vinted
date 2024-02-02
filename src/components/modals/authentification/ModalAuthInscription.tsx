@@ -204,15 +204,7 @@ const ModalAuthInscription = ({
         )}
 
         <div className="mb-4 flex items-start justify-center gap-1">
-          {/* <Checkbox id="offres" /> */}
-          <input
-            type="checkbox"
-            id="inscription"
-            required
-            {...register('checkmail', {} )}
-            className="peer mt-1 h-6 w-6 shrink-0 rounded-sm border border-vintedTextGrisFonce ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-vintedGreen data-[state=checked]:text-primary-foreground"
-          />
-
+          <Checkbox id="offres" />
           <label
             htmlFor="offres"
             className=" cursor-pointer font-light text-vintedTextBlackVar"
@@ -223,7 +215,13 @@ const ModalAuthInscription = ({
         </div>
 
         <div className="mb-4 flex items-start justify-center gap-1">
-          <Checkbox id="MyCheckbox" />
+          <input
+            type="checkbox"
+            id="inscription"
+            required
+            {...register('checkmail', {} )}
+            className="peer mt-1 h-6 w-6 shrink-0 rounded-sm border border-vintedTextGrisFonce ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-vintedGreen data-[state=checked]:text-primary-foreground"
+          />
           <label
             htmlFor="MyCheckbox"
             className=" cursor-pointer font-light text-vintedTextBlackVar"
