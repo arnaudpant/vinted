@@ -15,7 +15,7 @@ import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { useNavigate } from 'react-router-dom';
 
 type Props = {
-  setModalConnexion?: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ModalAuth = ({ setModalConnexion }: Props) => {
@@ -24,12 +24,8 @@ const ModalAuth = ({ setModalConnexion }: Props) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setContenuModal('init');
-    if (setModalConnexion){
-      setModalConnexion(false)
-    } else {
-      navigate('/')
-    }
+    setModalConnexion(false);
+    navigate('/');
   };
 
   if (authUser) {
@@ -42,9 +38,7 @@ const ModalAuth = ({ setModalConnexion }: Props) => {
 
       {/* Modal */}
       <div
-
         className="absolute top-12 z-50 flex w-full flex-col items-center justify-start  rounded bg-vintedBackground sm:left-1/2 sm:top-1/2 sm:w-[375px] sm:-translate-x-1/2 sm:-translate-y-1/2"
-
         aria-modal="true"
       >
         {/* Partie Sup BTN X */}
@@ -63,10 +57,16 @@ const ModalAuth = ({ setModalConnexion }: Props) => {
           <ModalAuthInitView setContenuModal={setContenuModal} />
         )}
         {contenuModal === 'connexion' && (
-          <ModalAuthConnexionView setContenuModal={setContenuModal} />
+          <ModalAuthConnexionView
+            setContenuModal={setContenuModal}
+            setModalConnexion={setModalConnexion}
+          />
         )}
         {contenuModal === 'inscription' && (
-          <ModalAuthInscription setContenuModal={setContenuModal} />
+          <ModalAuthInscription
+            setContenuModal={setContenuModal}
+            setModalConnexion={setModalConnexion}
+          />
         )}
         {contenuModal === 'password-forget' && (
           <ModalPasswordForget setContenuModal={setContenuModal} />
