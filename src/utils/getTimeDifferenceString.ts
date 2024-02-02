@@ -9,9 +9,9 @@ const getTimeDifferenceString = (targetDateString: string): string => {
   let timeDifferenceInHours: number = 0;
   let timeDifferenceInDays: number = 0;
 
-  if (timeDifferenceInMinutes > 60) {
+  if (timeDifferenceInMinutes >= 60) {
     timeDifferenceInHours = Math.floor(timeDifferenceInMinutes / 60);
-    if (timeDifferenceInHours > 24) {
+    if (timeDifferenceInHours >= 24) {
       timeDifferenceInDays = Math.floor(timeDifferenceInHours / 24);
       return `IL Y A ${timeDifferenceInDays} ${
         timeDifferenceInDays === 1 ? 'JOUR' : 'JOURS'
