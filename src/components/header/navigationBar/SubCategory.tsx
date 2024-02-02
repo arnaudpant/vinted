@@ -2,7 +2,7 @@ import {
   MenubarItem,
   MenubarSub,
   MenubarSubTrigger,
-} from '@/components/ui/Menubar';
+} from '@/components/ui/menubar';
 import { TypeSubCategory } from '@/types/types';
 import buildIconPath from '@/utils/buildIconPath';
 import SubSubCategories from './SubSubCategories';

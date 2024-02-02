@@ -1,4 +1,4 @@
-import { MenubarMenu, MenubarTrigger } from '@/components/ui/Menubar';
+import { MenubarMenu, MenubarTrigger } from '@/components/ui/menubar';
 import { TypeCategory } from '@/types/types';
 import { Link } from 'react-router-dom';
 
