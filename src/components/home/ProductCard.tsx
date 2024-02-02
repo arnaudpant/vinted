@@ -4,22 +4,32 @@ import { useEffect, useState } from 'react';
 import ChevronPosition from '../ui/ChevronPosition';
 import Skeleton from '../ui/skeleton';
 import { Link } from 'react-router-dom';
+import CardInfosBottom from './CardInfosBottom';
 
 type Props = {
   title: string;
   start: number;
   end: number;
+  idDivParentProductCard: string;
+  idDivToScrollProductCard: string;
 };
 
-const ProductCard = ({ title, start, end }: Props) => {
+const ProductCard = ({
+  title,
+  start,
+  end,
+  idDivParentProductCard,
+  idDivToScrollProductCard,
+}: Props) => {
   // CONTEXTE
   const { fakeShopProducts } = useDataFakeShop();
 
   const [scrollCards, setScrollCards] = useState<ScrollAction>('right');
-
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
-  const idDivParentProductCard = 'divParentProductCard';
-  const idDivToScrollProductCard = 'divToScrollProductCard';
+
+  // const idDivParentProductCard = 'divParentProductCardExplore';
+  // const idDivToScrollProductCard = 'divToScrollProductCard';
+
   const divParent = document.getElementById(idDivParentProductCard);
   const divToScroll = document.getElementById(idDivToScrollProductCard);
 
@@ -89,19 +99,11 @@ const ProductCard = ({ title, start, end }: Props) => {
                       key={product.id}
                       className="flex h-[300px] w-[213px] cursor-pointer flex-col items-center justify-between"
                     >
-                      <img src={product.images[0]} alt={product.title} />
-                      <div className="h-[90px] w-full p-2">
-                        <p className="text-sm">{product.price},00€</p>
-                        <p className="text-xs text-vintedGreen">
-                          {product.price},00€ incl
-                        </p>
-                        <p className="text-xs text-vintedTextGrisClair">
-                          Taille
-                        </p>
-                        <h2 className="text-xs text-vintedTextGrisClair">
-                          Marque
-                        </h2>
-                      </div>
+                      <CardInfosBottom
+                        imageURL={product.images[0]}
+                        titleProduct={product.title}
+                        priceProduct={product.price}
+                      />
                     </div>
                   </Link>
                 ))
@@ -114,11 +116,11 @@ const ProductCard = ({ title, start, end }: Props) => {
             </div>
           ) : (
             <div className="flex shrink-0 flex-nowrap gap-4">
-              <Skeleton className="h-[300px] w-[213px]" />
-              <Skeleton className="h-[300px] w-[213px]" />
-              <Skeleton className="h-[300px] w-[213px]" />
-              <Skeleton className="h-[300px] w-[213px]" />
-              <Skeleton className="h-[300px] w-[213px]" />
+              {Array(5)
+                .fill('')
+                .map((_, index) => (
+                  <Skeleton key={index} className="h-[300px] w-[213px]" />
+                ))}
               <div className="flex h-[300px] w-[213px] cursor-pointer flex-col justify-center bg-gray-100">
                 <p className="text-center text-vintedTextGrisFonce">
                   Voir tous les articles

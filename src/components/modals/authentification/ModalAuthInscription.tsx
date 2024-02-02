@@ -24,13 +24,17 @@ type LoginFormTypeInscription = {
 
 type Props = {
   setContenuModal: React.Dispatch<React.SetStateAction<Action>>;
+  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const ModalAuthInscription = ({ setContenuModal }: Props) => {
+const ModalAuthInscription = ({
+  setContenuModal,
+  setModalConnexion,
+}: Props) => {
   const { handleSubmit, register, setError, reset } =
     useForm<LoginFormTypeInscription>();
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-    const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const testPassword = 7;
 
@@ -57,7 +61,8 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
       return;
     }
     reset();
-    navigate('/')
+    setModalConnexion(false)
+    navigate('/');
   };
 
   /**
@@ -75,6 +80,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     setIsLoading(true);
     const { error, data } = await firebaseCreateUser(email, password);
     if (error) {
+      setIsLoading(false);
       console.log('Error ModalAuthInscription');
       return;
     }
@@ -99,7 +105,6 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
    * Appel function Firebase
    */
   const onSubmit = async (data: LoginFormTypeInscription) => {
-    setIsLoading(true);
     const { password } = data;
 
     if (password.length < testPassword) {

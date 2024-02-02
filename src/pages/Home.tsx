@@ -5,7 +5,6 @@ import ProductCard from '@/components/home/ProductCard';
 import BrandSearch from '@/components/BrandSearch';
 
 const Home = () => {
-
   return (
     <>
       <Banner />
@@ -13,8 +12,16 @@ const Home = () => {
         title="Explorer les articles de créateur"
         start={0}
         end={5}
+        idDivParentProductCard={'divParentProductCardExplore'}
+        idDivToScrollProductCard={'divToScrollProductCardExplore'}
       />
-      <ProductCard title="Articles populaires" start={10} end={15} />
+      <ProductCard
+        title="Articles populaires"
+        start={10}
+        end={15}
+        idDivParentProductCard={'divParentProductCardPopulaire'}
+        idDivToScrollProductCard={'divToScrollProductCardPopulaire'}
+      />
       <BrandSearch />
       <SuggestionSearch />
       <NewsFeed title="Fil d'actu" start={2} end={12} />

@@ -19,7 +19,6 @@ const MenuUserConnected = ({ setIsMenuOpen }: Props) => {
     return <Navigate to="/" replace={true} />;
   };
 
-
   return (
     <div
       className="absolute right-0 top-11 z-50 flex w-48 flex-col gap-4 rounded bg-vintedBackground px-2 py-4 text-sm text-vintedTextBlack shadow-lg"
@@ -41,13 +40,9 @@ const MenuUserConnected = ({ setIsMenuOpen }: Props) => {
         </>
       ) : (
         <Link to="/authentification">
-        <p
-          className="cursor-pointer text-red-600"
-          
-        >
-          Se connecter ou s&apos;inscrire
-        </p>
-
+          <p className="cursor-pointer text-red-600">
+            Se connecter ou s&apos;inscrire
+          </p>
         </Link>
       )}
     </div>

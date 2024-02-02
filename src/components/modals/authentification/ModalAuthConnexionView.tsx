@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 
 type Props = {
   setContenuModal: React.Dispatch<React.SetStateAction<Action>>;
+  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 type LoginFormTypeConnexion = {
@@ -20,11 +21,13 @@ type LoginFormTypeConnexion = {
   password: 'string';
 };
 
-const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
-  const { handleSubmit, register, reset } =
-    useForm<LoginFormTypeConnexion>();
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const navigate = useNavigate()
+const ModalAuthConnexionView = ({
+  setContenuModal,
+  setModalConnexion,
+}: Props) => {
+  const { handleSubmit, register, reset } = useForm<LoginFormTypeConnexion>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   /**
    * 2.
@@ -41,14 +44,14 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
       return;
     }
     reset();
-    navigate('/')
+    setModalConnexion(false);
+    navigate('/');
   };
 
   /**
    * 1. Envoi des data
    */
   const onSubmit: SubmitHandler<LoginFormTypeConnexion> = (data) => {
-    setIsLoading(true)
     handleSignInUser(data);
   };
 
@@ -99,9 +102,7 @@ const ModalAuthConnexionView = ({ setContenuModal }: Props) => {
             </svg>
           </button>
         ) : (
-          <button
-            className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground"
-          >
+          <button className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground">
             Continuer
           </button>
         )}

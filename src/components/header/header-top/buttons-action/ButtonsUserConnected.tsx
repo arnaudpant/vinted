@@ -33,9 +33,7 @@ const ButtonsUserConnected = () => {
         )}
         <ChevronDown className="h-4" />
       </div>
-      {isMenuOpen && (
-          <MenuUserConnected setIsMenuOpen={setIsMenuOpen} />
-      )}
+      {isMenuOpen && <MenuUserConnected setIsMenuOpen={setIsMenuOpen} />}
     </div>
   );
 };

@@ -36,26 +36,25 @@ const ModalPasswordForget = ({ setContenuModal }: Props) => {
   };
 
   return (
+    <div className="flex w-full flex-col items-center px-4 pb-6">
+      <h1 className="text-center text-2xl">Mot de passe oublié ?</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+        <input
+          type="email"
+          id="email"
+          required
+          placeholder="Entre ton adresse email"
+          {...register('email', {
+            required: { value: true, message: 'Ce champ est requis' },
+          })}
+          className="my-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
+        />
 
-      <div className="flex w-full flex-col items-center px-4 pb-6">
-        <h1 className="text-center text-2xl">Mot de passe oublié ?</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-          <input
-            type="email"
-            id="email"
-            required
-            placeholder="Entre ton adresse email"
-            {...register('email', {
-              required: { value: true, message: 'Ce champ est requis' },
-            })}
-            className="my-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
-          />
-
-          <button className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground">
-            Continuer
-          </button>
-        </form>
-      </div>
+        <button className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground">
+          Continuer
+        </button>
+      </form>
+    </div>
   );
 };
 
