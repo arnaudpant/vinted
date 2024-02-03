@@ -1,15 +1,10 @@
 import UserNoteStars from '@/components/UserNoteStars';
-import { FakeUserWithStatistic } from '@/types/types';
 
-const UserAboutStatistics = ({
-  userWithStatistics,
-}: {
-  userWithStatistics: FakeUserWithStatistic;
-}) => {
+const UserAboutStatistics = () => {
   return (
     <div className="flex space-x-2">
-      <UserNoteStars note={userWithStatistics.starsRatings} />
-      <span>{userWithStatistics.numberOfReviews} évaluations</span>
+      <UserNoteStars note={3} />
+      <span>{500} évaluations</span>
     </div>
   );
 };

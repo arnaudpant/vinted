@@ -8,11 +8,14 @@ import UserBanner from './UserBanner';
 const CardProductByUser: React.FC<{
   fakeProduct: FakeProductWithUserId;
 }> = ({ fakeProduct }) => {
-  const URL_UMAGE_PATH = checkURLImageProductFromApi(fakeProduct.images[0]);
+  const URL_UMAGE_PATH = checkURLImageProductFromApi(
+    fakeProduct.category.image,
+  );
 
+  if (!fakeProduct) return;
   return (
     <div className="flex flex-col bg-vintedBackground  py-2 text-sm  ">
-      <UserBanner userId={fakeProduct.userId} />
+      <UserBanner />
       <ImageProduct urlImage={URL_UMAGE_PATH} />
       <DetailProduct
         isLiked={true}

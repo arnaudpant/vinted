@@ -14,6 +14,7 @@ const ArticlesAvailablesModel: React.FC<{
       </div>
     );
   }
+
   return (
     <>
       <TitleArticlesAvailables title={title} />

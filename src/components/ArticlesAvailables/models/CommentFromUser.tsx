@@ -1,11 +1,8 @@
 import UserNoteStars from '@/components/UserNoteStars';
-import { FakeProduct, FakeUser } from '@/types/types';
+import { FakeUser } from '@/types/types';
 import getRandomStarsNote from '@/utils/getRandomStarsNote';
-import React from 'react';
-import PictureUser from './PictureUser';
 
 const CommentFromUser = ({
-  userId,
   starsRate = getRandomStarsNote(),
   comment,
 }: {

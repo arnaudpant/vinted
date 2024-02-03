@@ -1,17 +1,14 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import React from 'react';
+import UserAboutTab from './aboutTab/UserAboutTab';
 import UserDressingProfil from './dressingTab/UserDressingProfil';
 import UserEvaluation from './evaluationsTab/UserEvaluation';
-import UserAboutTab from './aboutTab/UserAboutTab';
-import { FakeUserWithStatistic } from '@/types/types';
 
-const UserTabs: React.FC<{ userWithStatistics: FakeUserWithStatistic }> = ({
-  userWithStatistics,
-}) => {
+const UserTabs: React.FC = () => {
   return (
     <div>
       <Tabs defaultValue="dressing">
-        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-2 sm:w-1/2 ">
+        <TabsList className="grid w-full grid-cols-3 sm:w-1/2 sm:grid-cols-2 ">
           <TabsTrigger value="dressing">dressing</TabsTrigger>
           <TabsTrigger value="evaluations">Evaluations</TabsTrigger>
           <TabsTrigger value="about" className="sm:hidden">
@@ -19,13 +16,13 @@ const UserTabs: React.FC<{ userWithStatistics: FakeUserWithStatistic }> = ({
           </TabsTrigger>
         </TabsList>
         <TabsContent value="dressing">
-          <UserDressingProfil userWithStatistics={userWithStatistics} />
+          <UserDressingProfil />
         </TabsContent>
         <TabsContent value="evaluations">
-          <UserEvaluation userWithStatistics={userWithStatistics} />
+          <UserEvaluation />
         </TabsContent>
         <TabsContent value="about" className="sm:hidden">
-          <UserAboutTab userWithStatistics={userWithStatistics} />
+          <UserAboutTab />
         </TabsContent>
       </Tabs>
     </div>
