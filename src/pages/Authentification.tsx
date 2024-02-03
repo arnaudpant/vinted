@@ -2,9 +2,7 @@ import ModalAuth from "@/components/modals/authentification/ModalAuth";
 
 const Authentification = () => {
 
-    return (
-        <ModalAuth />
-    );
+    return <ModalAuth setModalConnexion={()=>{}} />;
 };
 
 export default Authentification;

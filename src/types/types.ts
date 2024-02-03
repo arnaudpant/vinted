@@ -29,7 +29,7 @@ export type UserInterface = {
   email: string | null;
   displayName: string | null;
   emailVerified: boolean;
-  photoURL: string;
+  photoURL: string | null;
   // Données de la collection de la base de donnée
   userDocument?: UserDocument;
 }
