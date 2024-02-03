@@ -1,25 +1,50 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /**
  * Modal avec formulaire d'inscription
  */
 import { useForm } from 'react-hook-form';
-import { Checkbox } from '@/components/ui/checkbox';
+
+import Checkbox from '@/components/ui/checkbox';
+
 import { firebaseCreateUser } from '@/api/authentification';
-import { FirestoreCreateDocument } from '@/api/firestore';
+import FirestoreCreateDocument from '@/api/firestore';
 import { Action } from '@/types/types';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 type LoginFormTypeInscription = {
   login: 'string';
   email: 'string';
   password: 'string';
+  checkmail: 'string'
 };
 
 type Props = {
   setContenuModal: React.Dispatch<React.SetStateAction<Action>>;
+  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const ModalAuthInscription = ({ setContenuModal }: Props) => {
-  const { handleSubmit, register, setError, reset } =
-    useForm<LoginFormTypeInscription>();
+const ModalAuthInscription = ({
+  setContenuModal,
+  setModalConnexion,
+}: Props) => {
+  const {
+    handleSubmit,
+    register,
+    setError,
+    reset,
+    setFocus,
+    formState: { errors },
+  } = useForm<LoginFormTypeInscription>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<boolean>(false);
+  const [passwordLength, setPasswordLength] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const testPassword = 7;
 
@@ -41,10 +66,13 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     );
     if (error) {
       console.log('Error handleCreateUserAuthentification');
+      setIsLoading(false);
+      setContenuModal('init');
       return;
     }
     reset();
-    setContenuModal('init');
+    setModalConnexion(false)
+    navigate('/');
   };
 
   /**
@@ -59,8 +87,12 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     password,
     login,
   }: LoginFormTypeInscription) => {
+    setErrorMessage(false);
+    setIsLoading(true);
     const { error, data } = await firebaseCreateUser(email, password);
     if (error) {
+      setErrorMessage(true)
+      setIsLoading(false);
       console.log('Error ModalAuthInscription');
       return;
     }
@@ -69,6 +101,12 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
       uid: data.uid,
       inscription: new Date(),
       photoURL: '',
+      listArticlesForSale: [],
+      description: '',
+      country: '',
+      city: '',
+      displayCityInProfile: true,
+      language: '',
     };
     handleCreateUserAuthentification('users', data.uid, userDocumentData);
   };
@@ -80,8 +118,11 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
    */
   const onSubmit = async (data: LoginFormTypeInscription) => {
     const { password } = data;
+    setPasswordLength(false)
 
     if (password.length < testPassword) {
+      setPasswordLength(true)
+      setFocus('password');
       setError('password', {
         type: 'manuel',
         message: 'Le mot de passe doit comporter 7 caractères minimum',
@@ -91,9 +132,10 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     handleCreateUserAuth(data);
   };
 
+
   return (
-    <div className="flex flex-col items-center w-full px-4 pb-6">
-      <h1 className="text-2xl text-center">Inscris-toi avec ton email</h1>
+    <div className="flex w-full flex-col items-center px-4 pb-6">
+      <h1 className="text-center text-2xl">Inscris-toi avec ton email</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -107,11 +149,12 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
               message: "Nom d'utilisateur ne peut pas être vide",
             },
           })}
-          className="w-full border-b pb-1 mt-8 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+          className="mt-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
-        <p className="text-xs text-vintedTextGrisFonce mb-8">
-          Crée ton nom d'utilisateur en n'utilisant que des lettres et des
-          chiffres. Choisis-en un qui te plaît, tu ne pourras plus le changer.
+        <p className="mb-8 text-xs text-vintedTextGrisFonce">
+          Crée ton nom d&apos;utilisateur en n&apos;utilisant que des lettres et
+          des chiffres. Choisis-en un qui te plaît, tu ne pourras plus le
+          changer.
         </p>
 
         <input
@@ -125,7 +168,8 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
               message: 'E-mail ne peut pas être vide',
             },
           })}
-          className="w-full border-b pb-1 mb-8 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+          aria-invalid={errors.email ? 'true' : 'false'}
+          className="mb-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
 
         <input
@@ -139,48 +183,86 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
               message: 'Mot de passe ne peut pas être vide',
             },
           })}
-          className="w-full border-b pb-1 focus-visible:outline-none focus-visible:border-b focus-visible:border-vintedGreen"
+          className="w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
-        <p className="text-xs text-vintedTextGrisFonce mb-8">
-          Il doit contenir ${testPassword} lettres minimum, dont au moins un
-          chiffre.
-        </p>
+        {passwordLength ? (
+          <p className="mb-8 text-xs text-red-600">
+            Il doit contenir ${testPassword} lettres minimum, dont au moins un
+            chiffre.
+          </p>
+        ) : (
+          <p className="mb-8 text-xs text-vintedTextGrisFonce">
+            Il doit contenir ${testPassword} lettres minimum, dont au moins un
+            chiffre.
+          </p>
+        )}
 
-        <div className="flex justify-center items-start gap-1 mb-4">
+        {errorMessage && (
+          <p className="pb-4 text-center text-lg text-red-600">
+            Une erreur est survenue !
+          </p>
+        )}
+
+        <div className="mb-4 flex items-start justify-center gap-1">
           <Checkbox id="offres" />
           <label
             htmlFor="offres"
-            className=" text-vintedTextBlackVar font-light cursor-pointer"
+            className=" cursor-pointer font-light text-vintedTextBlackVar"
           >
             Je souhaite recevoir par e-mail des offres personnalisées et les
             dernières mises à jour de Vinted.
           </label>
         </div>
 
-        <div className="flex justify-center items-start gap-1 mb-4">
-          <Checkbox id="MyCheckbox" />
+        <div className="mb-4 flex items-start justify-center gap-1">
+          <input
+            type="checkbox"
+            id="inscription"
+            required
+            {...register('checkmail', {} )}
+            className="peer mt-1 h-6 w-6 shrink-0 rounded-sm border border-vintedTextGrisFonce ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-vintedGreen data-[state=checked]:text-primary-foreground"
+          />
           <label
             htmlFor="MyCheckbox"
-            className=" text-vintedTextBlackVar font-light cursor-pointer"
+            className=" cursor-pointer font-light text-vintedTextBlackVar"
           >
-            En t'inscrivant, tu confirmes que tu acceptes les{' '}
-            <span className="text-vintedGreen underline cursor-pointer">
+            En t&apos;inscrivant, tu confirmes que tu acceptes les{' '}
+            <span className="cursor-pointer text-vintedGreen underline">
               Termes & Conditions de Vinted
             </span>
             , avoir lu la{' '}
-            <span className="text-vintedGreen underline cursor-pointer">
+            <span className="cursor-pointer text-vintedGreen underline">
               Politique de confidentialité
             </span>{' '}
             et avoir au moins 18 ans.
           </label>
         </div>
 
-        <button
-          type="submit"
-          className="w-full h-11 bg-vintedGreen text-vintedBackground rounded mb-6"
-        >
-          Continuer
-        </button>
+        {isLoading ? (
+          <button
+            className="mb-6 flex  h-11 w-full items-center justify-center rounded bg-vintedGreen text-vintedBackground"
+            disabled
+          >
+            <svg
+              className="animate-spin"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="#fff"
+            >
+              <path
+                d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+                opacity=".25"
+                fill="text-fond"
+              />
+              <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"></path>
+            </svg>
+          </button>
+        ) : (
+          <button className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground">
+            Continuer
+          </button>
+        )}
       </form>
     </div>
   );

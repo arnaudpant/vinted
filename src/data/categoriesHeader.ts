@@ -269,7 +269,6 @@ const categoriesHeader: TypeCategory[] = [
       },
       {
         id: 2,
-
         title: 'Chats',
         iconName: 'cat',
         subSubCategories: [
@@ -289,6 +288,7 @@ const categoriesHeader: TypeCategory[] = [
   },
   {
     id: 7,
+    
     title: 'A propos',
     navigation: [
       {
@@ -304,16 +304,6 @@ const categoriesHeader: TypeCategory[] = [
         ],
       },
       {
-        title: 'Entreprise',
-        navigationTitles: [
-          { description: 'A propos de Vinted' },
-          { description: 'Carrière' },
-          { description: 'Eco-responsabilité' },
-          { description: 'Presse' },
-          { description: 'Publicités' },
-        ],
-      },
-      {
         title: 'Politiques',
         navigationTitles: [
           { description: 'Confiances et sécurité' },
@@ -325,12 +315,19 @@ const categoriesHeader: TypeCategory[] = [
         ],
       },
       {
+        title: 'Entreprise',
+        navigationTitles: [
+          { description: 'A propos de Vinted' },
+          { description: 'Carrière' },
+          { description: 'Eco-responsabilité' },
+          { description: 'Presse' },
+          { description: 'Publicités' },
+        ],
+      },
+
+      {
         title: 'Vie privée',
         navigationTitles: [{ description: 'Paramètre des cookies' }],
-      },
-      {
-        title: 'Communauté',
-        navigationTitles: [{ description: 'Forum' }],
       },
     ],
   },

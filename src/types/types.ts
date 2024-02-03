@@ -1,3 +1,7 @@
+/**
+* FIREBASE
+*/
+
 import { Timestamp } from 'firebase/firestore';
 
 export type ProductFakeApi = {
@@ -19,28 +23,49 @@ export type SuggestSearchList = {
 };
 
 // Données primaires de Firebase
-export interface UserInterface {
+export type UserInterface = {
   // Données primaires
   uid: string;
   email: string | null;
   displayName: string | null;
   emailVerified: boolean;
-  photoURL: string | null;
+  photoURL: string;
   // Données de la collection de la base de donnée
   userDocument?: UserDocument;
 }
 
-export interface UserDocument {
+/**
+ * FIRESTORE
+ */
+export type  UserDocument = {
   photoURL: string;
   uid: string;
   inscription: Timestamp;
   login: string;
-  // Champs Ajouter un champ ds Firestore
+  listArticlesForSale: ArticleForSale[];
+  description: string | null;
+  country: string;
+  city: string;
+  displayCityInProfile: boolean;
+  language: string
 }
 
 export type Action = 'init' | 'connexion' | 'inscription' | 'password-forget';
 
 export type ScrollAction = 'left' | 'right' | 'both';
+/**
+ * PAGE VENDRE 
+ */
+export type ArticleForSale = {
+  uid: string,
+  photos?:string[],
+  titleArticle: string,
+  descriptionArticle: string,
+  category: CategoriesArticles,
+  price: number
+}
+export type CategoriesArticles = 'Femmes' | 'Hommes' | 'Enfants' | 'Maison' | 'Divertissement' | 'Animaux'
+
 
 export type LinkLabel =
   | 'A propos de Vinted'
@@ -66,6 +91,37 @@ export type LinkLabel =
   | 'Notre plateforme'
   | 'Conditions de vente Pro'
   | "Conditions d'utilisation Pro";
+
+
+
+export type FakeUser = {
+  id: number;
+  name: string;
+  image: string;
+  avatar: string;
+};
+
+export type FakeProduct = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  creationAt: string;
+  category: {
+    id: number;
+    name: string;
+    image: string;
+  };
+  images: string[];
+};
+
+export type FakeProductWithUserId = FakeProduct & { userId: number };
+
+export type FakeCategory = {
+  id: number;
+  name: string;
+  image: string;
+};
 
 export type TypeCategory = {
   id: number;

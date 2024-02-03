@@ -1,5 +1,11 @@
+import ArticlesSimilarsByRandomSellers from '@/components/ArticlesAvailables/ArticlesSimilarsByRandomSellers';
+
 const Catalog = () => {
-  return <div></div>;
+  return (
+    <div>
+      <ArticlesSimilarsByRandomSellers />
+    </div>
+  );
 };
 
 export default Catalog;

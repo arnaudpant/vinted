@@ -1,5 +1,7 @@
-import React from 'react';
-import { beforeEach, describe, expect, test} from 'vitest';
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import '@testing-library/jest-dom';
+import { afterEach, beforeEach, describe, expect, test, vi} from 'vitest';
 import {
   cleanup,
   fireEvent,
@@ -8,13 +10,16 @@ import {
 } from '@testing-library/react';
 import ModalAuth from '../src/components/modals/authentification/ModalAuth';
 
+vi.mock('react-router-dom');
+
 describe('Initialisation du Modal', () => {
   beforeEach(() => {
-    render(<ModalAuth />);
+    render(<ModalAuth setModalConnexion={()=>{}} />);
   });
   afterEach(() => {
     cleanup();
   });
+
 
   test('Initialisation du modal avec btn X en partie superieur', () => {
     expect(screen.getByLabelText(/Fermer la fenêtre/i)).toBeInTheDocument();
@@ -47,11 +52,11 @@ describe('Initialisation du Modal', () => {
 });
 
 describe('Inscription et Connexion', () => {
-   afterEach(() => {
-     cleanup();
-   });
-  test('Clic sur btn Inscription', async () => {
-    render(<ModalAuth />);
+  afterEach(() => {
+    cleanup();
+  });
+  test('Clic sur btn Inscription', () => {
+    render(<ModalAuth setModalConnexion={() => {}} />);
     const btnInscription = screen.getByText(/e-mail/i);
     expect(btnInscription).toBeInTheDocument();
     expect(screen.queryByText(/Continuer avec Apple/i));
@@ -60,8 +65,8 @@ describe('Inscription et Connexion', () => {
     expect(screen.queryByText(/Continuer avec Apple/i)).not.toBeInTheDocument();
   });
 
-  test('Clic sur btn Se Connecter', async () => {
-    render(<ModalAuth />);
+  test('Clic sur btn Se Connecter', () => {
+    render(<ModalAuth setModalConnexion={() => {}} />);
     const btnConnexion = screen.getByText(/e-mail/i);
     expect(btnConnexion).toBeInTheDocument();
     fireEvent.click(btnConnexion);
@@ -71,3 +76,5 @@ describe('Inscription et Connexion', () => {
     ).not.toBeInTheDocument();
   });
 });
+
+

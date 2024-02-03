@@ -2,12 +2,16 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 /** PAGES */
-import Home from './pages/Home';
+
 import Article from './pages/Article';
-import Error404 from './pages/Error404';
-import Search from './pages/Search';
-import NewArticle from './pages/NewArticle';
 import Catalog from './pages/Catalog';
+import Error404 from './pages/Error404';
+import Home from './pages/Home';
+import NewArticle from './pages/NewArticle';
+
+import Search from './pages/Search';
+import User from './pages/User';
+import Authentification from './pages/Authentification';
 
 function App() {
   return (
@@ -15,15 +19,18 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          {/* Page avec modal connexion ou inscruption */}
+          <Route path="/authentification" element={<Authentification />} />
+          {/*Page de profil de l'utilisateur*/}
+          <Route path="/member/:userId" element={<User />} />
           {/* Page Achat */}
           <Route path="/items/:id" element={<Article />} />
           {/* Page vente si connecté */}
-          <Route path="/new" element={<NewArticle />} />
+          <Route path="/new-article" element={<NewArticle />} />
           {/* Page de recherche global */}
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
-          <Route path="/catalog/:id" element={<Catalog />} />
-
+          <Route path="/catalog/:categoryId" element={<Catalog />} />
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
