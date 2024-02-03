@@ -1,5 +1,5 @@
-import HeaderBarSearch from './HeaderBarSearch';
-import Categories from './navigationBar/Categories';
+import HeaderBarSearch from '../header-top/search/HeaderBarSearch';
+import Categories from '../navigationBar/Categories';
 
 const BottomHeader = () => {
   return (

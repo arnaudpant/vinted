@@ -10,6 +10,7 @@ const useDataFakeShop = () => {
     const [fakeShopUsers, setFakeShopUsers] = useState<FakeUser[] | []>([])
     const [fakeShopProducts, setFakeShopProducts] = useState<FakeProduct[] | []>([])
     const [fakeShopCategories, setFakeShopCategories] = useState<FakeCategory[] | []>([])
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     // Créer une fonction générique pour récupérer les données de l'API
     async function fetchData<T>(url: string) {
@@ -54,12 +55,15 @@ const useDataFakeShop = () => {
 
     /** 1 */
     useEffect(() => {
+        setIsLoading(true)
         getUserFakeShop()
         getProductsFakeShop()
         getCategoriesFakeShop()
+        setIsLoading(false)
     }, [])
 
     return {
+        isLoading,
         fakeShopUsers,
         fakeShopProducts,
         fakeShopCategories

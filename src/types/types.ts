@@ -29,7 +29,7 @@ export type UserInterface = {
   email: string | null;
   displayName: string | null;
   emailVerified: boolean;
-  photoURL: string | null;
+  photoURL: string;
   // Données de la collection de la base de donnée
   userDocument?: UserDocument;
 }
@@ -106,6 +106,7 @@ export type FakeProduct = {
   title: string;
   price: number;
   description: string;
+  creationAt: string;
   category: {
     id: number;
     name: string;

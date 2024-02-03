@@ -12,8 +12,10 @@ const AboutCategory: React.FC<{
         {category.title}
       </MenubarTrigger>
       <MenubarContent
-        className="mt-2 grid grid-cols-2 gap-2 bg-vintedBackground p-2 text-xl"
+        className="mt-2 grid h-[600px]  grid-cols-2  gap-2 overflow-y-auto bg-vintedBackground px-4 py-2 text-xl"
         side="bottom"
+        onEscapeKeyDown={(event: KeyboardEvent) => event.preventDefault()}
+        avoidCollisions={true}
         align="center"
       >
         {category.navigation?.map((navigationVintedPages) => {
