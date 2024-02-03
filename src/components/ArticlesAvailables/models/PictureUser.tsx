@@ -1,13 +1,17 @@
+import { CircleUserRound } from 'lucide-react';
 import React from 'react';
 
 const PictureUser: React.FC<{
   avatarUser: string;
-}> = ({ avatarUser }) => {
+  pictureSize: number;
+}> = ({ avatarUser, pictureSize }) => {
+  if (!avatarUser) return <CircleUserRound size={pictureSize} color="green" />;
   return (
     <img
       src={avatarUser}
       alt="profil utilisateur"
-      className="h-6 w-6 rounded-full"
+      className={`rounded-full object-cover`}
+      style={{ height: pictureSize, width: pictureSize }}
     />
   );
 };

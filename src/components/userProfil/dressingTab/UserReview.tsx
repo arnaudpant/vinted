@@ -1,35 +1,24 @@
+import PictureUser from '@/components/ArticlesAvailables/models/PictureUser';
 import UserNoteStars from '@/components/UserNoteStars';
-import { FakeUserWithStatistic } from '@/types/types';
-import { CircleUserRound } from 'lucide-react';
+import { UserContext } from '@/pages/User';
+import { UserInterface } from '@/types/types';
+import { useContext } from 'react';
 
-const UserReview: React.FC<{ userWithStatistics: FakeUserWithStatistic }> = ({
-  userWithStatistics,
-}) => {
+const UserReview: React.FC = () => {
+  const user: UserInterface = useContext(UserContext);
   return (
     <div className="flex items-center space-x-3">
-      {userWithStatistics.avatar ? (
-        <img
-          src={userWithStatistics.avatar}
-          alt="avatar utilisateur"
-          className="rounded-full  "
-          width={'48px'}
-        />
-      ) : (
-        <CircleUserRound size={'48px'} color="green" />
-      )}
+      <PictureUser
+        avatarUser={user.userDocument?.photoURL ?? ''}
+        pictureSize={24}
+      />
 
       <div className="w-fit leading-tight">
-        <h1>{userWithStatistics.name}</h1>
+        <h1>{user.displayName}</h1>
         <div className="flex">
-          <UserNoteStars note={userWithStatistics.starsRating} />
+          <UserNoteStars note={3} />
 
-          {
-            <span className="ml-2">
-              {userWithStatistics.numberOfReviews === 0
-                ? 'Aucun avis'
-                : userWithStatistics.numberOfReviews}
-            </span>
-          }
+          {<span className="ml-2">200 avis</span>}
         </div>
       </div>
     </div>

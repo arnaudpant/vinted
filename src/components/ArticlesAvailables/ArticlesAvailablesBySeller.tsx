@@ -5,13 +5,11 @@ import { useContext } from 'react';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
 import withListArticlesAvailables from './withListArticlesAvailables';
 
-const ArticlesAvailablesBySeller: React.FC<{ userId: number }> = ({
-  userId,
-}) => {
+const ArticlesAvailablesBySeller: React.FC = ({}) => {
   const { fakeShopProduct } = useContext(FakeShopContext);
 
   const fakeShopProductsWithUserId: FakeProductWithUserId[] =
-    fakeShopProduct.map((product: FakeProduct) => ({ ...product, userId }));
+    fakeShopProduct.map((product: FakeProduct) => ({ ...product, userId: 1 }));
 
   const title = getStockArticlesTitle(fakeShopProductsWithUserId);
 

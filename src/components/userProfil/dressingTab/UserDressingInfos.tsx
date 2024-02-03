@@ -1,4 +1,3 @@
-import React from 'react';
 import { CheckCircle2, MapPin, Rss } from 'lucide-react';
 import UserInfoLine from '../models/UserInfoLine';
 
@@ -13,8 +12,8 @@ const UserDressingInfos = () => {
       </UserInfoLine>
       <UserInfoLine ComponentPicture={<Rss />}>
         <p>
-          <span className="underline text-vintedGreen">122</span>abonnés ,
-          <span className="underline text-vintedGreen">101</span> abonnements
+          <span className="text-vintedGreen underline">122</span>abonnés ,{' '}
+          <span className="text-vintedGreen underline">101</span> abonnements
         </p>
       </UserInfoLine>
     </div>

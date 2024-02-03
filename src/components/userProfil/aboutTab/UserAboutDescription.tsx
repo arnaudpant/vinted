@@ -1,19 +1,27 @@
-import { FakeUserWithStatistic } from '@/types/types';
-import React from 'react';
+import { UserContext } from '@/pages/User';
+import { UserInterface } from '@/types/types';
+import { UserRound } from 'lucide-react';
+import React, { useContext } from 'react';
 
-const UserAboutDescription: React.FC<{
-  userWithStatistics: FakeUserWithStatistic;
-}> = ({ userWithStatistics }) => {
-  if (!userWithStatistics) return;
+const UserAboutDescription: React.FC = () => {
+  const user: UserInterface = useContext(UserContext);
+  if (!user) return;
   return (
-    <div className="">
-      <img
-        src={userWithStatistics.avatar}
-        alt="avatar utilisateur"
-        className="mx-auto max-h-64 w-full object-cover sm:h-48 "
-      />
+    <div className="flex flex-col">
+      {user.userDocument?.photoURL ? (
+        <img
+          src={user.userDocument?.photoURL}
+          alt="avatar utilisateur"
+          className="mx-auto max-h-64 w-full  object-cover sm:h-4 "
+        />
+      ) : (
+        <UserRound size={64} color="green" className="self-center" />
+      )}
+
       <div>
-        <h1 className="text-xl font-semibold">{userWithStatistics.name}</h1>
+        <h1 className="text-xl font-semibold">
+          {user.displayName ?? 'Vinted'}
+        </h1>
         <ul className="list-inside list-disc ">
           <li>Todo en buen estado</li>
           <li>
