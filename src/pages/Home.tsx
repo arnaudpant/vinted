@@ -4,7 +4,6 @@ import NewsFeed from '@/components/home/NewsFeed';
 import ProductCard from '@/components/home/ProductCard';
 import BrandSearch from '@/components/BrandSearch';
 
-
 const Home = () => {
   return (
     <>
