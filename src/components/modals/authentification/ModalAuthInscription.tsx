@@ -13,20 +13,38 @@ import Checkbox from '@/components/ui/checkbox';
 import { firebaseCreateUser } from '@/api/authentification';
 import FirestoreCreateDocument from '@/api/firestore';
 import { Action } from '@/types/types';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 type LoginFormTypeInscription = {
   login: 'string';
   email: 'string';
   password: 'string';
+  checkmail: 'string'
 };
 
 type Props = {
   setContenuModal: React.Dispatch<React.SetStateAction<Action>>;
+  setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const ModalAuthInscription = ({ setContenuModal }: Props) => {
-  const { handleSubmit, register, setError, reset } =
-    useForm<LoginFormTypeInscription>();
+const ModalAuthInscription = ({
+  setContenuModal,
+  setModalConnexion,
+}: Props) => {
+  const {
+    handleSubmit,
+    register,
+    setError,
+    reset,
+    setFocus,
+    formState: { errors },
+  } = useForm<LoginFormTypeInscription>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<boolean>(false);
+  const [passwordLength, setPasswordLength] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const testPassword = 7;
 
@@ -48,10 +66,13 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     );
     if (error) {
       console.log('Error handleCreateUserAuthentification');
+      setIsLoading(false);
+      setContenuModal('init');
       return;
     }
     reset();
-    setContenuModal('init');
+    setModalConnexion(false)
+    navigate('/');
   };
 
   /**
@@ -66,8 +87,12 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     password,
     login,
   }: LoginFormTypeInscription) => {
+    setErrorMessage(false);
+    setIsLoading(true);
     const { error, data } = await firebaseCreateUser(email, password);
     if (error) {
+      setErrorMessage(true)
+      setIsLoading(false);
       console.log('Error ModalAuthInscription');
       return;
     }
@@ -93,8 +118,11 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
    */
   const onSubmit = async (data: LoginFormTypeInscription) => {
     const { password } = data;
+    setPasswordLength(false)
 
     if (password.length < testPassword) {
+      setPasswordLength(true)
+      setFocus('password');
       setError('password', {
         type: 'manuel',
         message: 'Le mot de passe doit comporter 7 caractères minimum',
@@ -103,6 +131,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
     }
     handleCreateUserAuth(data);
   };
+
 
   return (
     <div className="flex w-full flex-col items-center px-4 pb-6">
@@ -139,6 +168,7 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
               message: 'E-mail ne peut pas être vide',
             },
           })}
+          aria-invalid={errors.email ? 'true' : 'false'}
           className="mb-8 w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
 
@@ -155,10 +185,23 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
           })}
           className="w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
         />
-        <p className="mb-8 text-xs text-vintedTextGrisFonce">
-          Il doit contenir ${testPassword} lettres minimum, dont au moins un
-          chiffre.
-        </p>
+        {passwordLength ? (
+          <p className="mb-8 text-xs text-red-600">
+            Il doit contenir ${testPassword} lettres minimum, dont au moins un
+            chiffre.
+          </p>
+        ) : (
+          <p className="mb-8 text-xs text-vintedTextGrisFonce">
+            Il doit contenir ${testPassword} lettres minimum, dont au moins un
+            chiffre.
+          </p>
+        )}
+
+        {errorMessage && (
+          <p className="pb-4 text-center text-lg text-red-600">
+            Une erreur est survenue !
+          </p>
+        )}
 
         <div className="mb-4 flex items-start justify-center gap-1">
           <Checkbox id="offres" />
@@ -172,7 +215,13 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
         </div>
 
         <div className="mb-4 flex items-start justify-center gap-1">
-          <Checkbox id="MyCheckbox" />
+          <input
+            type="checkbox"
+            id="inscription"
+            required
+            {...register('checkmail', {} )}
+            className="peer mt-1 h-6 w-6 shrink-0 rounded-sm border border-vintedTextGrisFonce ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-vintedGreen data-[state=checked]:text-primary-foreground"
+          />
           <label
             htmlFor="MyCheckbox"
             className=" cursor-pointer font-light text-vintedTextBlackVar"
@@ -189,12 +238,31 @@ const ModalAuthInscription = ({ setContenuModal }: Props) => {
           </label>
         </div>
 
-        <button
-          type="submit"
-          className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground"
-        >
-          Continuer
-        </button>
+        {isLoading ? (
+          <button
+            className="mb-6 flex  h-11 w-full items-center justify-center rounded bg-vintedGreen text-vintedBackground"
+            disabled
+          >
+            <svg
+              className="animate-spin"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="#fff"
+            >
+              <path
+                d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+                opacity=".25"
+                fill="text-fond"
+              />
+              <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"></path>
+            </svg>
+          </button>
+        ) : (
+          <button className="mb-6 h-11 w-full rounded bg-vintedGreen text-vintedBackground">
+            Continuer
+          </button>
+        )}
       </form>
     </div>
   );

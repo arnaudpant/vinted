@@ -2,7 +2,7 @@ import brands from '@/data/brands';
 
 const BrandSearch = () => {
   return (
-    <div className="container mx-auto my-20 max-w-[1280px] items-center px-5">
+    <div className="container mx-auto max-w-[1240px] py-12">
       <h1 className="h1">Rechercher par marque</h1>
       <div className="flex flex-wrap gap-x-3">
         {brands.map((brand) => (

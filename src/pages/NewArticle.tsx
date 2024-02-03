@@ -9,11 +9,7 @@ const NewArticle = () => {
 
   return (
     <section className="bg-vintedBackgroundCard pt-5">
-      {!authUser ? (
-        <ModalAuth />
-      ) : (
-        <FormAddArticle />
-      )}
+      {!authUser ? <ModalAuth setModalConnexion={()=>{}} /> : <FormAddArticle />}
     </section>
   );
                   }
