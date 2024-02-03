@@ -31,7 +31,6 @@ function App() {
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
           <Route path="/catalog/" element={<Catalog />} />
-
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
