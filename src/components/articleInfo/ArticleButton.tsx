@@ -11,7 +11,7 @@ const ArticleButton = ({
 }: ArticleButtonProps) => {
   return (
     <button
-      className={`rounded border border-vintedGreen bg-vintedGreen py-2 ${backgroundColor} ${textColor}`}
+      className={`cursor-not-allowed rounded border border-vintedGreen bg-vintedGreen py-2 ${backgroundColor} ${textColor}`}
     >
       {label}
     </button>

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, expect, test } from 'vitest';
-import ArticleInfo from '../src/components/ArticleInfo';
+import ArticleInfo from '../src/components/page-infos-article/ArticleInfo';
 import { getBuyerProtectionFee } from '../src/utils/Utils';
 import testProduct from '@/data/testProduct';
 
