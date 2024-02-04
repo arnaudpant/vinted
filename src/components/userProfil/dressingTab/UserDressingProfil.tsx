@@ -1,6 +1,6 @@
 import ArticlesAvailablesBySeller from '@/components/ArticlesAvailables/ArticlesAvailablesBySeller';
 import React from 'react';
-import ButtonsContact from './ButtonsContact';
+import ButtonsContact from '../models/ButtonsContact';
 import UserDressingInfos from './UserDressingInfos';
 import UserReview from './UserReview';
 

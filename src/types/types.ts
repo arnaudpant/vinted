@@ -1,6 +1,6 @@
 /**
-* FIREBASE
-*/
+ * FIREBASE
+ */
 
 import { Timestamp } from 'firebase/firestore';
 
@@ -32,12 +32,12 @@ export type UserInterface = {
   photoURL: string | null;
   // Données de la collection de la base de donnée
   userDocument?: UserDocument;
-}
+};
 
 /**
  * FIRESTORE
  */
-export type  UserDocument = {
+export type UserDocument = {
   photoURL: string;
   uid: string;
   inscription: Timestamp;
@@ -47,25 +47,30 @@ export type  UserDocument = {
   country: string;
   city: string;
   displayCityInProfile: boolean;
-  language: string
-}
+  language: string;
+};
 
 export type Action = 'init' | 'connexion' | 'inscription' | 'password-forget';
 
 export type ScrollAction = 'left' | 'right' | 'both';
 /**
- * PAGE VENDRE 
+ * PAGE VENDRE
  */
 export type ArticleForSale = {
-  uid: string,
-  photos?:string[],
-  titleArticle: string,
-  descriptionArticle: string,
-  category: CategoriesArticles,
-  price: number
-}
-export type CategoriesArticles = 'Femmes' | 'Hommes' | 'Enfants' | 'Maison' | 'Divertissement' | 'Animaux'
-
+  uid: string;
+  photos?: string[];
+  titleArticle: string;
+  descriptionArticle: string;
+  category: CategoriesArticles;
+  price: number;
+};
+export type CategoriesArticles =
+  | 'Femmes'
+  | 'Hommes'
+  | 'Enfants'
+  | 'Maison'
+  | 'Divertissement'
+  | 'Animaux';
 
 export type LinkLabel =
   | 'A propos de Vinted'
@@ -92,18 +97,11 @@ export type LinkLabel =
   | 'Conditions de vente Pro'
   | "Conditions d'utilisation Pro";
 
-
-
 export type FakeUser = {
   id: number;
   name: string;
   image: string;
   avatar: string;
-};
-
-export type FakeUserWithStatistic = FakeUser & {
-  starsRating: number;
-  numberOfReviews: number;
 };
 
 export type FakeProduct = {

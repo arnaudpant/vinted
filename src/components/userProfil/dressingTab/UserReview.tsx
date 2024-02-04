@@ -1,6 +1,6 @@
-import PictureUser from '@/components/ArticlesAvailables/models/PictureUser';
+import PictureUser from '@/components/PictureUser';
 import UserNoteStars from '@/components/UserNoteStars';
-import { UserContext } from '@/pages/User';
+import UserContext from '@/context/UserContext';
 import { UserInterface } from '@/types/types';
 import { useContext } from 'react';
 
@@ -18,7 +18,7 @@ const UserReview: React.FC = () => {
         <div className="flex">
           <UserNoteStars note={3} />
 
-          {<span className="ml-2">200 avis</span>}
+          <span className="ml-2">200 avis</span>
         </div>
       </div>
     </div>

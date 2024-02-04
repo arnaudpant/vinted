@@ -1,6 +1,5 @@
-import React from 'react';
-import UserInfoLine from '../models/UserInfoLine';
 import { CheckCircle2 } from 'lucide-react';
+import UserInfoLine from '../models/UserInfoLine';
 
 const UserAboutInfos = () => {
   return (

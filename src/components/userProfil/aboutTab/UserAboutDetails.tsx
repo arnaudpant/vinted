@@ -1,12 +1,15 @@
-import React from 'react';
+import { Clock, MapPin, Rss } from 'lucide-react';
 import UserInfoLine from '../models/UserInfoLine';
-import { MapPin, Clock, Rss } from 'lucide-react';
+import { UserInterface } from '@/types/types';
+import { useContext } from 'react';
+import UserContext from '@/context/UserContext';
 
 const UserAboutDetails = () => {
+  const user: UserInterface = useContext(UserContext);
   return (
     <div>
       <UserInfoLine ComponentPicture={<MapPin />}>
-        <p>Espagne</p>
+        <p>{user.userDocument?.country ?? 'Somewhere'}</p>
       </UserInfoLine>
       <UserInfoLine ComponentPicture={<Clock />}>
         <p>Connecté il y&apos;a 23 minutes </p>

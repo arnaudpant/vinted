@@ -1,12 +1,11 @@
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
-import { UserInterface } from '@/types/types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PictureUser from '../../PictureUser';
 import NoPictureUser from './NoPictureUser';
-import PictureUser from './PictureUser';
 
 const UserBanner: React.FC = () => {
-  const { authUser }: { authUser: UserInterface | null } = useFirebaseAuth();
+  const { authUser } = useFirebaseAuth();
 
   const [isAvatarUserLoaded, setIsAvatarUserLoaded] = useState(true);
 

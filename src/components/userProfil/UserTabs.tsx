@@ -5,25 +5,51 @@ import UserDressingProfil from './dressingTab/UserDressingProfil';
 import UserEvaluation from './evaluationsTab/UserEvaluation';
 
 const UserTabs: React.FC = () => {
+  const tabs = [
+    {
+      value: 'dressing',
+      label: 'dressing',
+      component: <UserDressingProfil />,
+    },
+    {
+      value: 'evaluations',
+      label: 'Evaluations',
+      component: <UserEvaluation />,
+    },
+    {
+      value: 'about',
+      label: 'A propos',
+      component: <UserAboutTab />,
+      className: 'sm:hidden',
+    },
+  ];
   return (
     <div>
-      <Tabs defaultValue="dressing">
+      <Tabs defaultValue={tabs[0].value}>
         <TabsList className="grid w-full grid-cols-3 sm:w-1/2 sm:grid-cols-2 ">
-          <TabsTrigger value="dressing">dressing</TabsTrigger>
-          <TabsTrigger value="evaluations">Evaluations</TabsTrigger>
-          <TabsTrigger value="about" className="sm:hidden">
-            A propos
-          </TabsTrigger>
+          {tabs.map((tab) => {
+            return (
+              <TabsTrigger
+                key={tab.value}
+                value={tab.value}
+                className={tab.className}
+              >
+                {tab.label}
+              </TabsTrigger>
+            );
+          })}
         </TabsList>
-        <TabsContent value="dressing">
-          <UserDressingProfil />
-        </TabsContent>
-        <TabsContent value="evaluations">
-          <UserEvaluation />
-        </TabsContent>
-        <TabsContent value="about" className="sm:hidden">
-          <UserAboutTab />
-        </TabsContent>
+        {tabs.map((tab) => {
+          return (
+            <TabsContent
+              key={tab.value}
+              value={tab.value}
+              className={tab.className}
+            >
+              {tab.component}
+            </TabsContent>
+          );
+        })}
       </Tabs>
     </div>
   );

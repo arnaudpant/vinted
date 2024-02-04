@@ -1,4 +1,4 @@
-import { UserContext } from '@/pages/User';
+import UserContext from '@/context/UserContext';
 import { UserInterface } from '@/types/types';
 import { UserRound } from 'lucide-react';
 import React, { useContext } from 'react';

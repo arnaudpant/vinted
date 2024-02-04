@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonsContact from '../dressingTab/ButtonsContact';
+import ButtonsContact from '../models/ButtonsContact';
 import UserAboutDescription from './UserAboutDescription';
 import UserAboutDetails from './UserAboutDetails';
 import UserAboutInfos from './UserAboutInfos';

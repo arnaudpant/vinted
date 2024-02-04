@@ -1,10 +1,10 @@
-import { UserContext } from '@/pages/User';
+import UserContext from '@/context/UserContext';
 import { UserInterface } from '@/types/types';
 import React, { useContext } from 'react';
 import UserNoteStars from '../UserNoteStars';
-import UserInfos from './UserInfosLine';
-import ButtonsContact from './dressingTab/ButtonsContact';
-import PictureUser from '../ArticlesAvailables/models/PictureUser';
+import UserInfos from './UserInfos';
+import ButtonsContact from './models/ButtonsContact';
+import PictureUser from '../PictureUser';
 
 const UserSynopsis: React.FC = () => {
   const user: UserInterface = useContext(UserContext);

@@ -1,4 +1,4 @@
-import ButtonContact from './ButtonContact';
+import ButtonContact from '../ButtonContact';
 
 const ButtonsContact = () => {
   return (
