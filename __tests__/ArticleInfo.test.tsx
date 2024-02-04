@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, expect, test } from 'vitest';
 import ArticleInfo from '../src/components/page-infos-article/ArticleInfo';
-import { getBuyerProtectionFee } from '../src/utils/Utils';
+import  getBuyerProtectionFee  from '../src/utils/Utils';
 import testProduct from '@/data/testProduct';
 
 beforeEach(() => {
@@ -17,7 +17,7 @@ test('Check article infos', () => {
   expect(screen.getByText(`${price} €`)).toBeInTheDocument();
   expect(
     screen.getByText(
-      `${price + getBuyerProtectionFee(price)} € Protection acheteurs incluse`,
+      `${price + getBuyerProtectionFee(price, price)} € Protection acheteurs incluse`,
     ),
   ).toBeInTheDocument();
   expect(screen.getByText(title)).toBeInTheDocument();
@@ -27,7 +27,7 @@ test('Check article infos', () => {
 
 test('Price details modal', () => {
   const { price } = testProduct;
-  const buyerProtectionFee = getBuyerProtectionFee(price);
+  const buyerProtectionFee = getBuyerProtectionFee(price, price);
 
   const buyerProtectionFeeIncludedPriceBtn = screen.getByText(
     `${price + buyerProtectionFee} € Protection acheteurs incluse`,
