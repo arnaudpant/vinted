@@ -18,7 +18,7 @@ const ArticlesGallery = ({ article }: { article: FakeProduct }) => {
     <div className="w-full md:w-2/3">
       <div className="min-h-40 rounded">
         {article ? (
-          <img src={article.images[0]} />
+          <img src={article.images[0]} alt='photo article a vendre' />
         ) : (
           <Skeleton className="h-[340px] w-full" />
         )}

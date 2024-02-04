@@ -55,6 +55,7 @@ const useFirebaseAuth = () => {
         const formatedUser = formatAuthUser(authState)
         // Insertion des données de Firestore dans le user avec données primaires
         await getUserDocument(formatedUser)
+        setAuthUserIsLoading(false)
     }
 
     /** 4

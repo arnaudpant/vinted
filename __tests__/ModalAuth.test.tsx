@@ -9,6 +9,7 @@ import {
   screen,
 } from '@testing-library/react';
 import ModalAuth from '../src/components/modals/authentification/ModalAuth';
+
 vi.mock('react-router-dom');
 
 describe('Initialisation du Modal', () => {
@@ -20,12 +21,15 @@ describe('Initialisation du Modal', () => {
   });
 
 
-  test('Initialisation du modal avec btn X en partie superieur', () => {
-    expect(screen.getByLabelText(/Fermer la fenêtre/i)).toBeInTheDocument();
+  test('Initialisation du modal avec btn X en partie superieur', async () => {
+    const label = await screen.findByLabelText(/Fermer la fenêtre/i);
+    expect(label).toBeInTheDocument();
+    screen.debug()
   });
 
-  test('Affichage du modal avec ModalAuthInitView en partie inferieure', () => {
-    expect(screen.getByText(/Bienvenue !/i)).toBeInTheDocument();
+  test('Affichage du modal avec ModalAuthInitView en partie inferieure', async () => {
+    const bienvenue = await screen.findByText(/Bienvenue !/i);
+    expect(bienvenue).toBeInTheDocument();
   });
 
   test('Affichage du modal sans ModalAuthConnexionView en partie inferieure', () => {
@@ -42,13 +46,14 @@ describe('Initialisation du Modal', () => {
     expect(
       screen.queryByText(/Mot de passe oublié ?/i),
     ).not.toBeInTheDocument();
+    screen.debug();
   });
 
   test('Affichage des 3 btn de connexion via facebook, google, apple + btn X', async () => {
     const btnReseaux = await screen.findAllByRole('button');
     expect(btnReseaux.length).toEqual(6);
   });
-});
+ });
 
 describe('Inscription et Connexion', () => {
   afterEach(() => {
