@@ -4,7 +4,7 @@
  */
 
 import { createPortal } from 'react-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import ModalAuthInitView from './ModalAuthInitView';
 import ModalAuthConnexionView from './ModalAuthConnexionView';
@@ -27,6 +27,12 @@ const ModalAuth = ({ setModalConnexion }: Props) => {
     setModalConnexion(false);
     navigate('/');
   };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
 
   if (authUser) {
     return null;

@@ -9,7 +9,6 @@ import {
   screen,
 } from '@testing-library/react';
 import ModalAuth from '../src/components/modals/authentification/ModalAuth';
-
 vi.mock('react-router-dom');
 
 describe('Initialisation du Modal', () => {

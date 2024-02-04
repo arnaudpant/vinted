@@ -4,7 +4,7 @@ import ArticleInfoButtons from '../articleInfo/ArticleInfoButtons';
 import ArticlePrices from '../articleInfo/ArticlePrices';
 import ArticleShippingFeeInfo from '../articleInfo/ArticleShippingFeeInfo';
 import BoxInfosVendeur from '../box-infos-vendeur/BoxInfosVendeur';
-//import BuyerProtectionInfo from '../articleInfo/BuyerProtectionInfo';
+import BuyerProtectionInfo from '../articleInfo/BuyerProtectionInfo';
 
 const ArticleInfo = ({ article }: { article: FakeProduct }) => {
   const { price, title, description } = article;
@@ -22,7 +22,7 @@ const ArticleInfo = ({ article }: { article: FakeProduct }) => {
         <div className="border-b border-vintedTextGrisFonce py-1"></div>
         <ArticleShippingFeeInfo price={price} />
         <ArticleInfoButtons />
-        {/* <BuyerProtectionInfo /> */}
+        <BuyerProtectionInfo />
       </div>
       <BoxInfosVendeur />
     </div>

@@ -1,17 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import ArticleInfo from '@/components/page-infos-article/ArticleInfo';
 import ArticlesGallery from '@/components/page-infos-article/ArticlesGallery';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Article = () => {
-  const { id } = useParams();
   const location = useLocation();
   const { state }  = location;
-  // URL param id format is idNumber-item-name
-  const idFirstPart = id?.split('-')[0];
-  if (!idFirstPart || isNaN(parseInt(idFirstPart))) {
-    throw Error('The URL param needs to be like idNumber-item-name');
-  }
+
 
   return (
     <div className="bg-vintedBackgroundCard">

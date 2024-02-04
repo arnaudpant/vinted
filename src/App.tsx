@@ -12,6 +12,7 @@ import NewArticle from './pages/NewArticle';
 import Search from './pages/Search';
 import User from './pages/User';
 import Authentification from './pages/Authentification';
+import Error from './pages/Error';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
           <Route path="/catalog/:categoryId" element={<Catalog />} />
+          <Route path="/error" element={<Error />} />
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
