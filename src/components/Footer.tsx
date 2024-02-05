@@ -5,7 +5,7 @@ import FooterSectionItem from './footer/FooterSectionItem';
 
 const Footer = () => {
   return (
-    <footer className="bg-stone-100">
+    <footer className="bg-stone-100 px-5 py-4">
       <div className="container divide-y">
         <ul className="flex flex-col justify-between sm:flex-row">
           <FooterSectionItem

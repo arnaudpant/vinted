@@ -70,6 +70,7 @@ const ProductCard = ({
     });
   };
 
+
   return (
     <div className="container mx-auto max-w-[1240px] py-12">
       <div className="flex w-full justify-between pb-4">

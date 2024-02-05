@@ -8,7 +8,7 @@ type ArticleDetailsProps = {
 const ArticleDetails = ({ article }: ArticleDetailsProps) => {
   const { creationAt } = article;
   return (
-    <div className="grid grid-cols-2 text-vintedTextGrisFonce">
+    <div className="grid grid-cols-2 pb-4 pt-2 text-xs text-vintedTextGrisFonce">
       <span>MARQUE</span>
       <span>TOMMY HILFIGER</span>
       <span>TAILLE</span>
