@@ -23,10 +23,9 @@ const BoxInfosVendeur = () => {
 
   return (
     // Global
-    <div className="my-4 px-[10px] ">
+    <div className="py-4">
       {/* Box */}
-
-      <div className="flex h-20 cursor-pointer justify-between border-b p-4 hover:bg-slate-50">
+      <div className="flex h-20 cursor-pointer justify-between border-b bg-vintedBackground p-4 hover:bg-slate-50">
         <div className="flex">
           {user !== null && (
             <>
@@ -51,24 +50,23 @@ const BoxInfosVendeur = () => {
           )}
         </div>
         <div className="flex  justify-between">
-
           <ChevronRight className="ml-2 h-6 w-6" />
         </div>
       </div>
 
-      <div className="p-4">
-        <div className="flex items-center gap-2 font-light">
+      <div className="bg-vintedBackground p-4">
+        <div className="flex items-center gap-2 text-[14px]  font-light">
           <MapPin className="h-4 w-4 text-vintedTextGrisFonce" />
           Paris, France
         </div>
-        <div className="flex items-center gap-2 font-light">
+        <div className="flex items-center gap-2 pt-2 text-xs font-light">
           <Clock className="h-4 w-4 text-vintedTextGrisFonce" />
           Vu la dernière fois : il y a <span>1 heure</span>
         </div>
       </div>
 
       {/* Lois */}
-      <div className="flex bg-vintedBackgroundCard p-4">
+      <div className="flex bg-vintedBackgroundCard p-4 text-[14px] text-vintedTextGrisFonce">
         {seeMore === true ? (
           <p>
             le droit de retrait visé à l’article L221-18 et la garantie générale
@@ -103,10 +101,8 @@ const BoxInfosVendeur = () => {
             </span>
           </p>
         )}
-
-    
+      </div>
     </div>
-    </div>
-)};
+  );};
 
 export default BoxInfosVendeur;
