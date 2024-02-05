@@ -1,12 +1,10 @@
 import ModalAuth from '@/components/modals/authentification/ModalAuth';
 import UserProfil from '@/components/userProfil/UserProfil';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
-import { UserInterface } from '@/types/types';
 import UserContext from '../context/UserContext';
 
 const User = () => {
-  const { authUser: user }: { authUser: UserInterface | null } =
-    useFirebaseAuth();
+  const { authUser: user } = useFirebaseAuth();
 
   if (!user) return <ModalAuth setModalConnexion={() => {}} />;
 

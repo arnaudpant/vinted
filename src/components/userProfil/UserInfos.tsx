@@ -12,6 +12,7 @@ const UserInfos = () => {
         <h2 className="mt-6 text-sm">A propos</h2>
         <UserInfoLine ComponentPicture={<MapPin />}>
           {user.userDocument?.city ?? 'Somewhere'} ,{' '}
+          {user.userDocument?.country}
         </UserInfoLine>
         <UserInfoLine ComponentPicture={<Clock />}>
           Connecté il y&apos;a 10minutes
@@ -21,7 +22,7 @@ const UserInfos = () => {
         </UserInfoLine>
       </div>
       <div className="col-start-2">
-        <h2 className="text-sm">Informations vérifiées</h2>
+        <h2 className="mt-6 text-sm">Informations vérifiées</h2>
         <UserInfoLine ComponentPicture={<CheckCircle />}>Email</UserInfoLine>
       </div>
     </div>
