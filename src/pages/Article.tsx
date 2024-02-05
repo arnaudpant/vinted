@@ -2,12 +2,18 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import ArticleInfo from '@/components/page-infos-article/ArticleInfo';
 import ArticlesGallery from '@/components/page-infos-article/ArticlesGallery';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const Article = () => {
   const location = useLocation();
   const { state }  = location;
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, [state]);
 
   return (
     <div className="bg-vintedBackgroundCard">
