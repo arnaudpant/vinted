@@ -9,9 +9,10 @@ import Error404 from './pages/Error404';
 import Home from './pages/Home';
 import NewArticle from './pages/NewArticle';
 
+import Authentification from './pages/Authentification';
+import ErrorTest from './pages/ErrorTest';
 import Search from './pages/Search';
 import User from './pages/User';
-import Authentification from './pages/Authentification';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
           <Route path="/catalog/:categoryId" element={<Catalog />} />
+          <Route path="/error" element={<ErrorTest />} />
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
