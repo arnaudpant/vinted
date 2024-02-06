@@ -2,6 +2,7 @@
 import { ArticleForSale } from "@/types/types";
 import useFirebaseAuth from "./useFirebaseAuth";
 import { FirestoreUpdateDocument } from "@/firebase/firestore";
+import { useState } from "react";
 
 /**
  * HOOK pour envoyer un article dans la base de données firestore
@@ -11,6 +12,7 @@ import { FirestoreUpdateDocument } from "@/firebase/firestore";
 const useAddArticle = () => {
     const { authUser } = useFirebaseAuth()
 
+    const [isLoadingAddArticle, setIsLoadingAddArticle] = useState<boolean>(false)
 
     const addNewArticleInFirestore = async (listArticlesForSale: ArticleForSale[]) => {
 
@@ -21,12 +23,15 @@ const useAddArticle = () => {
             });
             if (error) {
                 console.log("Error FirestoreUpdateDocument", error.message);
+                setIsLoadingAddArticle(false)
                 return;
             }
         }
+        setIsLoadingAddArticle(false)
     }
 
     const addArticleToSell = (article: ArticleForSale) => {
+        setIsLoadingAddArticle(true)
         if (authUser?.userDocument) {
             // 1 Recuperer tous les articles
             const getListAllArticlesToSell: ArticleForSale[] = authUser?.userDocument?.listArticlesForSale
@@ -37,7 +42,7 @@ const useAddArticle = () => {
         }
     };
 
-    return { addArticleToSell };
+    return { addArticleToSell, isLoadingAddArticle };
 };
 
 export default useAddArticle;
