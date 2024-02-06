@@ -15,7 +15,7 @@ const UserDressingInfos = () => {
       </UserInfoLine>
       <UserInfoLine ComponentPicture={<Rss />}>
         <p>
-          <span className="text-vintedGreen underline">122</span>abonnés ,{' '}
+          <span className="text-vintedGreen underline">122</span> abonnés,{' '}
           <span className="text-vintedGreen underline">101</span> abonnements
         </p>
       </UserInfoLine>
