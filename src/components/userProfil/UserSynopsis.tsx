@@ -3,8 +3,8 @@ import { UserInterface } from '@/types/types';
 import React, { useContext } from 'react';
 import UserNoteStars from '../UserNoteStars';
 import UserInfos from './UserInfos';
-import ButtonsContact from './models/ButtonsContact';
 import PictureUser from '../PictureUser';
+import ButtonModifyProfile from './ButtonModifyProfile';
 
 const UserSynopsis: React.FC = () => {
   const user: UserInterface = useContext(UserContext);
@@ -20,11 +20,11 @@ const UserSynopsis: React.FC = () => {
         </div>
         <UserInfos />
         <div className=" hidden md:block lg:hidden ">
-          <ButtonsContact />
+          <ButtonModifyProfile />
         </div>
       </div>
       <div className=" hidden lg:block">
-        <ButtonsContact />
+        <ButtonModifyProfile />
       </div>
     </div>
   );
