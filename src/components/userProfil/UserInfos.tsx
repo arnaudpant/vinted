@@ -15,10 +15,10 @@ const UserInfos = () => {
           {user.userDocument?.country}
         </UserInfoLine>
         <UserInfoLine ComponentPicture={<Clock />}>
-          Connecté il y&apos;a 10minutes
+          Connecté il y a 10 minutes
         </UserInfoLine>
         <UserInfoLine ComponentPicture={<Rss />}>
-          6 abonnés , 3 abonnements
+          6 abonnés, 3 abonnements
         </UserInfoLine>
       </div>
       <div className="col-start-2">
