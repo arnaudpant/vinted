@@ -1,14 +1,17 @@
-import ArticlesAvailablesBySeller from '@/components/ArticlesAvailables/ArticlesAvailablesBySeller';
-import checkUserId from '@/utils/checkUserId';
-import { useParams } from 'react-router-dom';
+import ModalAuth from '@/components/modals/authentification/ModalAuth';
+import UserProfil from '@/components/userProfil/UserProfil';
+import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import UserContext from '../context/UserContext';
 
 const User = () => {
-  const { userId } = useParams();
-  checkUserId(userId);
+  const { authUser: user } = useFirebaseAuth();
+
+  if (!user) return <ModalAuth setModalConnexion={() => {}} />;
+
   return (
-    <div>
-      <ArticlesAvailablesBySeller userId={Number(userId)} />
-    </div>
+    <UserContext.Provider value={user}>
+      <UserProfil />;
+    </UserContext.Provider>
   );
 };
 

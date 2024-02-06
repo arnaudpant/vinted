@@ -22,7 +22,7 @@ function App() {
           {/* Page avec modal connexion ou inscruption */}
           <Route path="/authentification" element={<Authentification />} />
           {/*Page de profil de l'utilisateur*/}
-          <Route path="/member/:userId" element={<User />} />
+          <Route path="/member/" element={<User />} />
           {/* Page Achat */}
           <Route path="/items/:id" element={<Article />} />
           {/* Page vente si connecté */}
@@ -30,7 +30,7 @@ function App() {
           {/* Page de recherche global */}
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
-          <Route path="/catalog/:categoryId" element={<Catalog />} />
+          <Route path="/catalog/" element={<Catalog />} />
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
