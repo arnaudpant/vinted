@@ -1,4 +1,4 @@
-import { FakeProductWithUserId } from '@/types/types';
+import { FakeProduct } from '@/types/types';
 
 import { checkURLImageProductFromApi } from '@/utils/checkURLImageProductFromApi';
 import DetailProduct from './DetailProduct';
@@ -6,13 +6,16 @@ import ImageProduct from './ImageProduct';
 import UserBanner from './UserBanner';
 
 const CardProductByUser: React.FC<{
-  fakeProduct: FakeProductWithUserId;
+  fakeProduct: FakeProduct;
 }> = ({ fakeProduct }) => {
-  const URL_UMAGE_PATH = checkURLImageProductFromApi(fakeProduct.images[0]);
+  const URL_UMAGE_PATH = checkURLImageProductFromApi(
+    fakeProduct.category.image,
+  );
 
+  if (!fakeProduct) return;
   return (
-    <div className="flex flex-col py-2  bg-vintedBackground text-sm  ">
-      <UserBanner userId={fakeProduct.userId} />
+    <div className="flex flex-col bg-vintedBackground  py-2 text-sm  ">
+      <UserBanner />
       <ImageProduct urlImage={URL_UMAGE_PATH} />
       <DetailProduct
         isLiked={true}

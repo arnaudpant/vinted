@@ -26,7 +26,7 @@ const MenuUserConnected = ({ setIsMenuOpen }: Props) => {
     >
       {authUser ? (
         <>
-          <Link to="/">Mon profil</Link>
+          <Link to="/member">Mon profil</Link>
           <Link to="/">Mes paramètres</Link>
           <Link to="/">Personnalisation</Link>
           <Link to="/">
