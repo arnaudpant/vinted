@@ -1,4 +1,4 @@
-import { FakeProductWithUserId } from '@/types/types';
+import { FakeProduct } from '@/types/types';
 
 import { checkURLImageProductFromApi } from '@/utils/checkURLImageProductFromApi';
 import DetailProduct from './DetailProduct';
@@ -6,7 +6,7 @@ import ImageProduct from './ImageProduct';
 import UserBanner from './UserBanner';
 
 const CardProductByUser: React.FC<{
-  fakeProduct: FakeProductWithUserId;
+  fakeProduct: FakeProduct;
 }> = ({ fakeProduct }) => {
   const URL_UMAGE_PATH = checkURLImageProductFromApi(
     fakeProduct.category.image,

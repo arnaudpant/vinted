@@ -1,11 +1,10 @@
-import { CheckCircle2, MapPin, Rss } from 'lucide-react';
-import UserInfoLine from '../models/UserInfoLine';
-import { UserInterface } from '@/types/types';
-import { useContext } from 'react';
 import UserContext from '@/context/UserContext';
+import { CheckCircle2, MapPin, Rss } from 'lucide-react';
+import { useContext } from 'react';
+import UserInfoLine from '../models/UserInfoLine';
 
 const UserDressingInfos = () => {
-  const user: UserInterface = useContext(UserContext);
+  const user = useContext(UserContext);
   return (
     <div>
       <UserInfoLine ComponentPicture={<CheckCircle2 />}>

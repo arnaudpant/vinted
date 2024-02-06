@@ -118,8 +118,6 @@ export type FakeProduct = {
   images: string[];
 };
 
-export type FakeProductWithUserId = FakeProduct & { userId: number };
-
 export type FakeCategory = {
   id: number;
   name: string;

@@ -6,7 +6,12 @@ const PictureUser: React.FC<{
 }> = ({ avatarUser, pictureSize }) => {
   if (!avatarUser)
     return (
-      <img src="./avatar.png" alt="profil" className="h-8 w-8 rounded-full" />
+      <img
+        src="./avatar.png"
+        alt="profil"
+        className="rounded-full"
+        style={{ height: pictureSize, width: pictureSize }}
+      />
     );
   return (
     <img

@@ -1,11 +1,11 @@
 import React from 'react';
 import TitleArticlesAvailables from './TitleArticlesAvailables';
 import CardProductByUser from './CardProductByUser';
-import { FakeProductWithUserId } from '@/types/types';
+import { FakeProduct } from '@/types/types';
 
 const ArticlesAvailablesModel: React.FC<{
   title: string;
-  productsList: FakeProductWithUserId[];
+  productsList: FakeProduct[];
 }> = ({ title, productsList }) => {
   if (!productsList) {
     return (
