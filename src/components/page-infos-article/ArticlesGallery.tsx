@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 
 const ArticlesGallery = ({ article }: { article: FakeProduct }) => {
 
-
-
   return (
     <div className="w-full md:w-2/3">
       <div className="min-h-40 rounded">
