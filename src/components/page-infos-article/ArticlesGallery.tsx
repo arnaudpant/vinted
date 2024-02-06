@@ -3,15 +3,9 @@ import { FakeProduct } from '@/types/types';
 import Skeleton from '../ui/skeleton';
 import FeedArticles from './FeedArticles';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 
 const ArticlesGallery = ({ article }: { article: FakeProduct }) => {
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-    });
-  }, []);
 
 
   return (
