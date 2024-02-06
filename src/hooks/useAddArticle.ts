@@ -11,9 +11,7 @@ import { FirestoreUpdateDocument } from "@/firebase/firestore";
 const useAddArticle = () => {
     const { authUser } = useFirebaseAuth()
 
-
     const addNewArticleInFirestore = async (listArticlesForSale: ArticleForSale[]) => {
-
         if (authUser) {
             const { error } = await FirestoreUpdateDocument("users", authUser.uid, {
                 ...authUser.userDocument,
@@ -26,6 +24,7 @@ const useAddArticle = () => {
         }
     }
 
+    
     const addArticleToSell = (article: ArticleForSale) => {
         if (authUser?.userDocument) {
             // 1 Recuperer tous les articles
