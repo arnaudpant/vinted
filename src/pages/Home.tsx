@@ -6,13 +6,14 @@ import BrandSearch from '@/components/BrandSearch';
 import { useEffect } from 'react';
 
 const Home = () => {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, []);
 
+   useEffect(() => {
+     window.scrollTo({
+       top: 0,
+       behavior: 'smooth',
+     });
+   }, []);
+   
   return (
     <>
       <Banner />
