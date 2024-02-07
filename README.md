@@ -10,6 +10,7 @@ Vite - eslint - Prettier
 
 ### Back:
 Firebase - Firestore
+
 Fake API Store: https://fakeapi.platzi.com
 
 ### Tests:
