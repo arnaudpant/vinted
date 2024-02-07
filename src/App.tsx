@@ -4,11 +4,11 @@ import Layout from './components/layout/Layout';
 /** PAGES */
 
 import Article from './pages/Article';
+import Authentification from './pages/Authentification';
 import Catalog from './pages/Catalog';
 import Error404 from './pages/Error404';
 import Home from './pages/Home';
 import NewArticle from './pages/NewArticle';
-import Authentification from './pages/Authentification';
 import Search from './pages/Search';
 import User from './pages/User';
 
@@ -30,6 +30,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           {/* Page de recherche par categorie via navbar */}
           <Route path="/catalog/:categoryId" element={<Catalog />} />
+
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
