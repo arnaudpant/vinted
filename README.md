@@ -9,23 +9,24 @@ React & TypeScript
 Vite - eslint - Prettier
 
 ### Back:
-Firebase - Firestore
-
-Fake API Store: https://fakeapi.platzi.com
+- Firebase & Firestore
+- Fake API Store: https://fakeapi.platzi.com
 
 ### Tests:
-vitest
-React testing library
-Cypress (V2)
+- vitest
+- React testing library
+- Cypress (V2)
 
 ## API
-TailwindCSS
-shadcn
-React rooter dom
-React hook form
-React Query
-Lucides
-clsx
+- TailwindCSS
+- shadcn
+- clsx
+
+- React rooter dom
+- React hook form
+- React Query (V2)
+- Lucides (Icones)
+- nanoid (id)
 
 ## Fonctionnalités:
 ### Header:
