@@ -3,9 +3,9 @@ const UserInfoLine: React.FC<{
   ComponentPicture: React.ReactNode;
 }> = ({ ComponentPicture, children }) => {
   return (
-    <div className="flex items-center space-x-3 space-y-1">
-      {ComponentPicture}
-      {children}
+    <div className="flex items-center space-x-2 ">
+      <div>{ComponentPicture}</div>
+      <div>{children}</div>
     </div>
   );
 };
