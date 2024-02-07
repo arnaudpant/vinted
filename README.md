@@ -1,11 +1,12 @@
 # Clone de Vinted - Projet en équipe de 4 développeurs
 Version actuelle: V1
 
-## Déploiment
+## Déploiement
 Netlify: https://bootcamp-vinted.netlify.app
 
 ## Tech
 React & TypeScript
+
 Vite - eslint - Prettier
 
 ### Back:
@@ -28,12 +29,21 @@ Vite - eslint - Prettier
 - Lucides (Icones)
 - nanoid (id)
 
+## Commandes de base
+Démarrer le site en local:
+```bash
+npm run dev
+```
+
 ## Fonctionnalités:
 ### Header:
 - Recherche: NON FONCTIONNEL
+
 Si non connecté:
-- Bouton création d'un nouveau compte ou Connexion a son compte
+- Bouton création d'un nouveau compte ou Connexion à son compte
+
 Si connecté:
+
 Avatar de l'utilisateur et accès au menu déroulant:
 - Informations utilisateur et déconnexion
 - Autres liens: LIENS NON FONCTIONNEL
@@ -48,8 +58,8 @@ Avatar de l'utilisateur et accès au menu déroulant:
 
 ### Page Accueil:
 - Visualiser les articles à vendre sous forme de card. (Fake API Store)
-- Click sur une card: Visualiser les informations du produit (Fake API Store)
-- Click sur "Vendre un article": Ajouter un nouvel article (Firestore)
+- Clic sur une card: Visualiser les informations du produit (Fake API Store)
+- Clic sur "Vendre un article": Ajouter un nouvel article (Firestore)
 - Recherche par marques et Suggestion: LIENS NON FONCTIONNEL (V2)
 
 ### Page Infos Article:
