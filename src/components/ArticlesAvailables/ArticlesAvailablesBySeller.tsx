@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
 import withListArticlesAvailables from './withListArticlesAvailables';
 
-const ArticlesAvailablesBySeller: React.FC = () => {
+const ArticlesAvailablesBySeller: React.FC = withListArticlesAvailables(() => {
   const { fakeShopProduct } = useContext(FakeShopContext);
 
   return (
@@ -13,6 +13,6 @@ const ArticlesAvailablesBySeller: React.FC = () => {
       productsList={fakeShopProduct}
     />
   );
-};
+});
 
-export default withListArticlesAvailables(ArticlesAvailablesBySeller);
+export default ArticlesAvailablesBySeller;

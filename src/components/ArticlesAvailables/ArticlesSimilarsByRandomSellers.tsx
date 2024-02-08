@@ -3,14 +3,16 @@ import { useContext } from 'react';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
 import withListArticlesAvailables from './withListArticlesAvailables';
 
-const ArticlesSimilarsByRandomSellers: React.FC = () => {
-  const title = 'Articles similaires';
+const ArticlesSimilarsByRandomSellers: React.FC = withListArticlesAvailables(
+  () => {
+    const title = 'Articles similaires';
 
-  const { fakeShopProduct } = useContext(FakeShopContext);
+    const { fakeShopProduct } = useContext(FakeShopContext);
 
-  return (
-    <ArticlesAvailablesModel title={title} productsList={fakeShopProduct} />
-  );
-};
+    return (
+      <ArticlesAvailablesModel title={title} productsList={fakeShopProduct} />
+    );
+  },
+);
 
-export default withListArticlesAvailables(ArticlesSimilarsByRandomSellers);
+export default ArticlesSimilarsByRandomSellers;

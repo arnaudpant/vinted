@@ -30,8 +30,9 @@ function App() {
           <Route path="/new-article" element={<NewArticle />} />
           {/* Page de recherche global */}
           <Route path="/search" element={<Search />} />
-          {/* Page de recherche par categorie via navbar */}
+          {/* Page de recherche générale via navbar */}
           <Route path="/catalog/" element={<Catalog />} />
+          <Route path="catalog/:categoryId" element={<Catalog />} />
           {/* Page de settings du profil */}
           <Route path="/settings/:section" element={<Settings />} />
           <Route

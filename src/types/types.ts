@@ -143,6 +143,7 @@ export type TypeSubCategory = {
   iconName?: string;
   // Utile pour le "Voir tout"
   navLink?: string;
+  categoryId: number;
   subSubCategories?: TypeSubSubCategory[];
 };
 export type TypeSubSubCategory = { title: string; link?: string };

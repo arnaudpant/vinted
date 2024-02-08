@@ -1,16 +1,25 @@
 import { SEE_ALL, SEE_OTHERS, TypeCategory } from '@/types/types';
 
+const CATEGORY_ID_SHOE = 4;
+const CATEGORY_ID_DRESS = 1;
+
 const categoriesHeader: TypeCategory[] = [
   {
     id: 1,
     title: 'Femmes',
 
     subCategories: [
-      { id: 0, title: SEE_ALL, iconName: 'see-all', link: '/' },
+      {
+        id: 0,
+        title: SEE_ALL,
+        iconName: 'see-all',
+        categoryId: CATEGORY_ID_DRESS,
+      },
       {
         id: 1,
         title: 'Vêtements',
         iconName: 'skirt',
+        categoryId: CATEGORY_ID_DRESS,
 
         subSubCategories: [
           { title: SEE_ALL },
@@ -36,6 +45,7 @@ const categoriesHeader: TypeCategory[] = [
         id: 2,
         title: 'Chaussures',
         iconName: 'shoes_woman',
+        categoryId: CATEGORY_ID_DRESS,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Mules et sabots' },
@@ -48,7 +58,12 @@ const categoriesHeader: TypeCategory[] = [
           { title: 'Chaussures de sport' },
         ],
       },
-      { id: 99, title: SEE_OTHERS, iconName: 'dot-others', link: '/' },
+      {
+        id: 99,
+        title: SEE_OTHERS,
+        iconName: 'dot-others',
+        categoryId: CATEGORY_ID_DRESS,
+      },
     ],
   },
   {
@@ -56,11 +71,18 @@ const categoriesHeader: TypeCategory[] = [
     title: 'Hommes',
 
     subCategories: [
-      { id: 0, title: SEE_ALL, iconName: 'see-all', link: '/' },
+      {
+        id: 0,
+        title: SEE_ALL,
+        iconName: 'see-all',
+        link: '/',
+        categoryId: CATEGORY_ID_SHOE,
+      },
       {
         id: 1,
         title: 'Vêtements',
         iconName: 't-shirt',
+        categoryId: CATEGORY_ID_SHOE,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Manteaux et vestes' },
@@ -81,6 +103,7 @@ const categoriesHeader: TypeCategory[] = [
         id: 2,
         title: 'Chaussures',
         iconName: 'manshoes',
+        categoryId: CATEGORY_ID_SHOE,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Bottes' },
@@ -93,7 +116,13 @@ const categoriesHeader: TypeCategory[] = [
           { title: 'Chaussures de sport' },
         ],
       },
-      { id: 99, title: SEE_OTHERS, iconName: 'dot-others', link: '/' },
+      {
+        id: 99,
+        title: SEE_OTHERS,
+        iconName: 'dot-others',
+        link: '/',
+        categoryId: CATEGORY_ID_SHOE,
+      },
     ],
   },
 
@@ -102,11 +131,18 @@ const categoriesHeader: TypeCategory[] = [
 
     title: 'Enfants',
     subCategories: [
-      { id: 0, title: SEE_ALL, iconName: 'see-all', link: '/' },
+      {
+        id: 0,
+        title: SEE_ALL,
+        iconName: 'see-all',
+        link: '/',
+        categoryId: CATEGORY_ID_SHOE,
+      },
       {
         id: 1,
         title: 'Filles',
         iconName: 'skirt',
+        categoryId: CATEGORY_ID_SHOE,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Chaussures' },
@@ -134,6 +170,7 @@ const categoriesHeader: TypeCategory[] = [
         id: 3,
         title: 'Garçons',
         iconName: 'boy',
+        categoryId: CATEGORY_ID_SHOE,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Chaussures' },
@@ -155,7 +192,13 @@ const categoriesHeader: TypeCategory[] = [
           { title: 'Autres' },
         ],
       },
-      { id: 99, title: SEE_OTHERS, iconName: 'dot-others', link: '/' },
+      {
+        id: 99,
+        title: SEE_OTHERS,
+        iconName: 'dot-others',
+        link: '/',
+        categoryId: CATEGORY_ID_SHOE,
+      },
     ],
   },
   {
@@ -163,11 +206,18 @@ const categoriesHeader: TypeCategory[] = [
 
     title: 'Maison',
     subCategories: [
-      { id: 0, title: SEE_ALL, iconName: 'see-all', link: '/' },
+      {
+        id: 0,
+        title: SEE_ALL,
+        iconName: 'see-all',
+        link: '/',
+        categoryId: CATEGORY_ID_DRESS,
+      },
       {
         id: 1,
         title: 'Textiles',
         iconName: 'tissue',
+        categoryId: CATEGORY_ID_DRESS,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Couvertures' },
@@ -184,6 +234,8 @@ const categoriesHeader: TypeCategory[] = [
         id: 2,
         title: 'Décoration',
         iconName: 'vase',
+        categoryId: CATEGORY_ID_DRESS,
+
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Horloges' },
@@ -195,7 +247,12 @@ const categoriesHeader: TypeCategory[] = [
           { title: 'Vases' },
         ],
       },
-      { id: 99, title: SEE_OTHERS, iconName: 'dot-others', link: '/' },
+      {
+        id: 99,
+        title: SEE_OTHERS,
+        iconName: 'dot-others',
+        categoryId: CATEGORY_ID_DRESS,
+      },
     ],
   },
   {
@@ -203,11 +260,17 @@ const categoriesHeader: TypeCategory[] = [
 
     title: 'Divertissement',
     subCategories: [
-      { id: 0, title: SEE_ALL, iconName: 'see-all', link: '/' },
+      {
+        id: 0,
+        title: SEE_ALL,
+        iconName: 'see-all',
+        categoryId: CATEGORY_ID_DRESS,
+      },
       {
         id: 1,
         title: 'Jeux vidéos et consoles',
         iconName: 'videogamecontroller',
+        categoryId: CATEGORY_ID_DRESS,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Xbox One' },
@@ -230,6 +293,7 @@ const categoriesHeader: TypeCategory[] = [
         id: 2,
         title: 'Jeux et puzzles',
         iconName: 'chess',
+        categoryId: CATEGORY_ID_DRESS,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Jeux de placement ' },
@@ -242,7 +306,12 @@ const categoriesHeader: TypeCategory[] = [
           { title: 'Jeux au sol' },
         ],
       },
-      { id: 99, title: SEE_OTHERS, iconName: 'dot-others', link: '/' },
+      {
+        id: 99,
+        title: SEE_OTHERS,
+        iconName: 'dot-others',
+        categoryId: CATEGORY_ID_DRESS,
+      },
     ],
   },
   {
@@ -250,11 +319,18 @@ const categoriesHeader: TypeCategory[] = [
 
     title: 'Animaux',
     subCategories: [
-      { id: 0, title: SEE_ALL, iconName: 'see-all', link: '/' },
+      {
+        id: 0,
+        title: SEE_ALL,
+        iconName: 'see-all',
+        link: '/',
+        categoryId: CATEGORY_ID_DRESS,
+      },
       {
         id: 1,
         title: 'Chiens',
         iconName: 'dog',
+        categoryId: CATEGORY_ID_DRESS,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Vêtements & accessoires' },
@@ -271,6 +347,7 @@ const categoriesHeader: TypeCategory[] = [
         id: 2,
         title: 'Chats',
         iconName: 'cat',
+        categoryId: CATEGORY_ID_DRESS,
         subSubCategories: [
           { title: SEE_ALL },
           { title: 'Jouets' },
@@ -283,12 +360,18 @@ const categoriesHeader: TypeCategory[] = [
           { title: 'Bacs à litière' },
         ],
       },
-      { id: 99, title: SEE_OTHERS, iconName: 'dot-others', link: '/' },
+      {
+        id: 99,
+        title: SEE_OTHERS,
+        iconName: 'dot-others',
+        link: '/',
+        categoryId: CATEGORY_ID_DRESS,
+      },
     ],
   },
   {
     id: 7,
-    
+
     title: 'A propos',
     navigation: [
       {
