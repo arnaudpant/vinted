@@ -1,23 +1,30 @@
+// Pour Error Boundary
+'use client';
 /** ROOTER */
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 /** PAGES */
 
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorBoundaryComponent from './error-boundary/ErrorBoundaryComponent';
 import Article from './pages/Article';
+import Authentification from './pages/Authentification';
 import Catalog from './pages/Catalog';
 import Error404 from './pages/Error404';
 import Home from './pages/Home';
 import NewArticle from './pages/NewArticle';
-
 import Search from './pages/Search';
 import User from './pages/User';
-import Authentification from './pages/Authentification';
 import Settings from './pages/Settings';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <ErrorBoundary
+        FallbackComponent={ErrorBoundaryComponent}
+        onReset={() => {}}
+      >
+        <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           {/* Page avec modal connexion ou inscruption */}
@@ -41,6 +48,8 @@ function App() {
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
+      </ErrorBoundary>
+
     </BrowserRouter>
   );
 }
