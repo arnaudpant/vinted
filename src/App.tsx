@@ -23,7 +23,7 @@ function App() {
           {/* Page avec modal connexion ou inscruption */}
           <Route path="/authentification" element={<Authentification />} />
           {/*Page de profil de l'utilisateur*/}
-          <Route path="/member/" element={<User />} />
+          <Route path="/member/:userId" element={<User />} />
           {/* Page Achat */}
           <Route path="/items/:id" element={<Article />} />
           {/* Page vente si connecté */}
