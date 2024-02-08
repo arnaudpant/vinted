@@ -3,7 +3,7 @@ const ImageProduct: React.FC<{ urlImage: string }> = ({ urlImage }) => {
     <img
       src={urlImage}
       alt="article"
-      className="cursor-pointer object-cover w-full h-[400]"
+      className="h-[400] w-full cursor-pointer object-cover"
     />
   );
 };

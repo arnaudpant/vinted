@@ -11,7 +11,7 @@ const ArticlePrices = ({ price }: { price: number }) => {
       <div className="mb-2">
         <h1 className="text-2xl">{price}&nbsp;€</h1>
         <button
-          className="flex cursor-pointer flex-row text-vintedGreen hover:underline"
+          className="flex cursor-pointer flex-row text-left text-xs text-vintedGreen hover:underline"
           onClick={() => setModalPriceDetails(true)}
         >
           <span>

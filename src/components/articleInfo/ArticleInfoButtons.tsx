@@ -20,7 +20,7 @@ const ArticleInfoButtons = () => {
         label="Message"
       />
       <button
-        className={`flex flex-row justify-center gap-1 rounded border border-vintedGreen bg-white py-2 text-vintedGreen`}
+        className={`flex cursor-not-allowed flex-row justify-center gap-1 rounded border border-vintedGreen bg-white py-2 text-vintedGreen`}
       >
         <Heart />
         <span>Favoris</span>

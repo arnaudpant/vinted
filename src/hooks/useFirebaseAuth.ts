@@ -15,7 +15,7 @@ import { useEffect, useState } from "react"
 
 const useFirebaseAuth = () => {
     const [authUser, setAuthUser] = useState<UserInterface | null>(null)
-
+    const [authUserIsLoading, setAuthUserIsLoading] = useState<boolean>(true)
 
     /** 
        * Ecouteur de Firebase pour user connecté ou non connecté
@@ -42,6 +42,7 @@ const useFirebaseAuth = () => {
          */
         if (!authState) {
             setAuthUser(null)
+            setAuthUserIsLoading(false)
             return
         }
 
@@ -49,10 +50,12 @@ const useFirebaseAuth = () => {
          * USER IS CONNECT:
          * user = true ==> user non connecté
          */
+        setAuthUserIsLoading(true)
         // Formatage des données primaires récupérées:
         const formatedUser = formatAuthUser(authState)
         // Insertion des données de Firestore dans le user avec données primaires
         await getUserDocument(formatedUser)
+        setAuthUserIsLoading(false)
     }
 
     /** 4
@@ -92,6 +95,7 @@ const useFirebaseAuth = () => {
 
     return {
         authUser,
+        authUserIsLoading,
         getUserDocument
     }
 }
