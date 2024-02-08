@@ -7,7 +7,7 @@ const ButtonContact: React.FC<{
 }> = ({ children, backgroundColor, textColor }) => {
   return (
     <button
-      className={`w-2/5 ${backgroundColor} ${textColor} rounded-sm border-2 border-vintedGreen py-1 sm:h-8 md:w-32`}
+      className={`w-2/5 ${backgroundColor} ${textColor} cursor-not-allowed rounded-sm border-2 border-vintedGreen py-1 sm:h-8 md:w-32`}
     >
       {children}
     </button>

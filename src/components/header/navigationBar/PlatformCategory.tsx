@@ -7,7 +7,7 @@ const PlatformCategory: React.FC<{ category: TypeCategory }> = ({
 }) => {
   return (
     <MenubarMenu>
-      <MenubarTrigger>
+      <MenubarTrigger className="text-base text-vintedTextBlackVar hover:border-b-4 hover:border-vintedGreen  hover:bg-vintedBackgroundCard">
         <Link to={category.link ?? '/'}>{category.title}</Link>
       </MenubarTrigger>
     </MenubarMenu>

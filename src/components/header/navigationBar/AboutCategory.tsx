@@ -1,6 +1,10 @@
-import { MenubarTrigger } from '@/components/ui/menubar';
+import {
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarContent,
+} from '@/components/ui/menubar';
 import { TypeCategory } from '@/types/types';
-import { MenubarContent, MenubarMenu } from '@radix-ui/react-menubar';
+
 import AboutSubCategory from './AboutSubCategory';
 
 const AboutCategory: React.FC<{
@@ -8,7 +12,7 @@ const AboutCategory: React.FC<{
 }> = ({ category }) => {
   return (
     <MenubarMenu>
-      <MenubarTrigger className="text-nowrap border-b-vintedGreen hover:border-b-4 ">
+      <MenubarTrigger className="text-base text-vintedTextBlackVar hover:border-b-4 hover:border-vintedGreen  hover:bg-vintedBackgroundCard">
         {category.title}
       </MenubarTrigger>
       <MenubarContent

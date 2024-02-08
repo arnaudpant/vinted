@@ -25,30 +25,31 @@ function App() {
         onReset={() => {}}
       >
         <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            {/* Page avec modal connexion ou inscruption */}
-            <Route path="/authentification" element={<Authentification />} />
-            {/*Page de profil de l'utilisateur*/}
-            <Route path="/member/" element={<User />} />
-            {/* Page Achat */}
-            <Route path="/items/:id" element={<Article />} />
-            {/* Page vente si connecté */}
-            <Route path="/new-article" element={<NewArticle />} />
-            {/* Page de recherche global */}
-            <Route path="/search" element={<Search />} />
-            {/* Page de recherche par categorie via navbar */}
-            <Route path="/catalog/" element={<Catalog />} />
-            {/* Page de settings du profil */}
-            <Route path="/settings/:section" element={<Settings />} />
-            <Route
-              path="/settings"
-              element={<Navigate to="/settings/profile" />}
-            />
-            <Route path="/*" element={<Error404 />} />
-          </Route>
-        </Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          {/* Page avec modal connexion ou inscruption */}
+          <Route path="/authentification" element={<Authentification />} />
+          {/*Page de profil de l'utilisateur*/}
+          <Route path="/member/:userId" element={<User />} />
+          {/* Page Achat */}
+          <Route path="/items/:id" element={<Article />} />
+          {/* Page vente si connecté */}
+          <Route path="/new-article" element={<NewArticle />} />
+          {/* Page de recherche global */}
+          <Route path="/search" element={<Search />} />
+          {/* Page de recherche par categorie via navbar */}
+          <Route path="/catalog/" element={<Catalog />} />
+          {/* Page de settings du profil */}
+          <Route path="/settings/:section" element={<Settings />} />
+          <Route
+            path="/settings"
+            element={<Navigate to="/settings/profile" />}
+          />
+          <Route path="/*" element={<Error404 />} />
+        </Route>
+      </Routes>
       </ErrorBoundary>
+
     </BrowserRouter>
   );
 }
