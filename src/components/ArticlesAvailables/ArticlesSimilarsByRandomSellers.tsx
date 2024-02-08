@@ -16,3 +16,4 @@ const ArticlesSimilarsByRandomSellers: React.FC = withListArticlesAvailables(
 );
 
 export default ArticlesSimilarsByRandomSellers;
+
