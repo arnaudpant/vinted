@@ -1,25 +1,84 @@
-# Clone de Vinted - Projet en équipe
+# Clone de Vinted - Projet en équipe de 4 développeurs
+Version actuelle: V1
+
+## Déploiement
+Netlify: https://bootcamp-vinted.netlify.app
 
 ## Tech
-
 React & TypeScript
-Vite
-eslint - Prettier
+
+Vite - eslint - Prettier
+
+### Back:
+- Firebase & Firestore
+- Fake API Store: https://fakeapi.platzi.com
 
 ### Tests:
-
-vitest
-React testing library
+- vitest
+- React testing library
+- Cypress (V2)
 
 ## API
+- TailwindCSS
+- shadcn
+- clsx
 
-TailwindCSS
-shadcn
-React rooter dom
-React hook form
-React Query
-Lucides
-clsx
+- React rooter dom
+- React hook form
+- React Query (V2)
+- Lucides (Icones)
+- nanoid (id)
+
+## Commandes de base
+Démarrer le site en local:
+```bash
+npm run dev
+```
+
+## Fonctionnalités:
+### Header:
+- Recherche: NON FONCTIONNEL
+
+Si non connecté:
+- Bouton création d'un nouveau compte ou Connexion à son compte
+
+Si connecté:
+
+Avatar de l'utilisateur et accès au menu déroulant:
+- Informations utilisateur et déconnexion
+- Autres liens: LIENS NON FONCTIONNEL
+
+- "Vendre un article": Ajouter un nouvel article
+- Menu Catégories: LIENS NON FONCTIONNEL (V2)
+- Autres liens: LIENS NON FONCTIONNEL
+
+#### Modal connexion / inscription
+- Inscription, récupération mot de passe perdu et connexion via e-mail (Firebase)
+- Autres moyens de connexion: NON FONCTIONNEL (V2)
+
+### Page Accueil:
+- Visualiser les articles à vendre sous forme de card. (Fake API Store)
+- Clic sur une card: Visualiser les informations du produit (Fake API Store)
+- Clic sur "Vendre un article": Ajouter un nouvel article (Firestore)
+- Recherche par marques et Suggestion: LIENS NON FONCTIONNEL (V2)
+
+### Page Infos Article:
+- Visualiser les informations de l'article et du vendeur
+- Présentation de nouveaux articles dans la même catégorie que celui visionné
+
+### Page Ajouter un article à vendre
+- Formulaire d'ajout d'article (React-Hook-Form)
+- Ajouter des photos de l'article à vendre: NON FONCTIONNEL (V2)
+- Envoyer un article à vendre dans la "penderie" de l'utilisateur connecté (Firestore)
+- Autres liens: LIENS NON FONCTIONNEL
+
+### Page informations compte utilisateur
+- Informations de l'utilisateur connecté
+- Affichage de sa penderie et des articles qu'il vend: Pour la V1: Fake API Store. V2: Firestore
+- Autres liens: LIENS NON FONCTIONNEL
+
+### Footer
+LIENS NON FONCTIONNEL (V2)
 
 ## Commandes Git
 

@@ -15,7 +15,6 @@ const useAddArticle = () => {
     const [isLoadingAddArticle, setIsLoadingAddArticle] = useState<boolean>(false)
 
     const addNewArticleInFirestore = async (listArticlesForSale: ArticleForSale[]) => {
-
         if (authUser) {
             const { error } = await FirestoreUpdateDocument("users", authUser.uid, {
                 ...authUser.userDocument,
@@ -30,6 +29,7 @@ const useAddArticle = () => {
         setIsLoadingAddArticle(false)
     }
 
+    
     const addArticleToSell = (article: ArticleForSale) => {
         setIsLoadingAddArticle(true)
         if (authUser?.userDocument) {

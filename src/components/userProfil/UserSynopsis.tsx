@@ -1,13 +1,12 @@
 import UserContext from '@/context/UserContext';
-import { UserInterface } from '@/types/types';
 import React, { useContext } from 'react';
 import UserNoteStars from '../UserNoteStars';
 import UserInfos from './UserInfos';
-import ButtonsContact from './models/ButtonsContact';
 import PictureUser from '../PictureUser';
+import ButtonModifyProfile from './ButtonModifyProfile';
 
 const UserSynopsis: React.FC = () => {
-  const user: UserInterface = useContext(UserContext);
+  const user = useContext(UserContext);
 
   return (
     <div className="mb-16 hidden justify-center space-x-8 sm:flex md:flex md:justify-around">
@@ -20,11 +19,11 @@ const UserSynopsis: React.FC = () => {
         </div>
         <UserInfos />
         <div className=" hidden md:block lg:hidden ">
-          <ButtonsContact />
+          <ButtonModifyProfile />
         </div>
       </div>
       <div className=" hidden lg:block">
-        <ButtonsContact />
+        <ButtonModifyProfile />
       </div>
     </div>
   );
