@@ -11,7 +11,7 @@ const User = () => {
 
   const isUserIdFromConnectedUser = userId === user?.uid;
 
-  if (!user && authUserIsLoading) return <LoadingCircularProgress />;
+  if (authUserIsLoading) return <LoadingCircularProgress />;
 
   if (!user && !authUserIsLoading && !isUserIdFromConnectedUser)
     return (

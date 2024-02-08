@@ -16,14 +16,11 @@ const Categories: () => JSX.Element = () => {
               <Category key={category.id} selectedIdCategory={category.id} />
             );
           }
-          if (category.link) {
-            return <PlatformCategory key={category.id} category={category} />;
-          }
-          if (category.navigation) {
-            return <AboutCategory key={category.id} category={category} />;
-          }
-
-          return null;
+          return category.link ? (
+            <PlatformCategory key={category.id} category={category} />
+          ) : (
+            <AboutCategory key={category.id} category={category} />
+          );
         })}
       </Menubar>
     </div>
