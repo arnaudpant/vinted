@@ -6,15 +6,10 @@ import App from './App.tsx';
 import { FakeShopProvider } from './context/FakeShopContext.tsx';
 import './index.css';
 
-import { ErrorBoundary } from 'react-error-boundary';
-import ErrorPage from './pages/ErrorPage.tsx';
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <FakeShopProvider>
-      <ErrorBoundary fallback={<ErrorPage />}>
-        <App />
-      </ErrorBoundary>
+      <App />
     </FakeShopProvider>
   </React.StrictMode>,
 );
