@@ -1,37 +1,34 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import useDataFakeShop from '@/hooks/useDataFakeShop';
 import { FakeProduct } from '@/types/types';
-import { useEffect, useState } from 'react';
+import Skeleton from '../../ui/skeleton';
 import { Link } from 'react-router-dom';
-import CardInfosBottom from '../page-home/ProductCard/CardInfosBottom';
-import Skeleton from '../ui/skeleton';
+import CardInfosBottom from '../ProductCard/CardInfosBottom';
 
-const FeedArticles = ({ category }: { category: number }) => {
-  const { fakeShopProducts, fakeShopUsers } = useDataFakeShop();
-  const [listArticlesByCategory, setListArticlesByCategory] = useState<
-    FakeProduct[]
-  >([]);
+type Props = {
+  title: string;
+  start: number;
+  end: number;
+};
 
-  useEffect(() => {
-    const arrayListFilter = fakeShopProducts.filter(
-      (elt) => elt.category.id === category,
-    );
-    setListArticlesByCategory(arrayListFilter);
-  }, [category, fakeShopProducts]);
+const NewsFeed = ({ title, start, end }: Props) => {
+  const { fakeShopUsers, fakeShopProducts } = useDataFakeShop();
 
   return (
-    // eslint-disable-next-line tailwindcss/no-custom-classname
-    <div className="py-12">
-      {listArticlesByCategory.length > 0 || fakeShopUsers.length > 0 ? (
-        <div className="flex w-full flex-wrap justify-between gap-2">
-          {listArticlesByCategory
+    <div className="container mx-auto max-w-[1240px] py-12 text-vintedTextGrisClair">
+      <div className="pb-4">
+        <h1 className="text-2xl text-vintedTextBlack">{title}</h1>
+      </div>
+
+      {fakeShopProducts.length > 0 || fakeShopUsers.length > 0 ? (
+        <div className="flex w-full flex-wrap justify-center gap-4">
+          {fakeShopProducts
             .map((product: FakeProduct) => (
               <Link
                 to={`/items/${product.id}`}
                 key={product.id}
                 state={product}
               >
-                <div className="flex h-[380px] w-[235px] cursor-pointer flex-col items-center justify-between bg-vintedBackground">
+                <div className="flex h-[340px] w-[213px] cursor-pointer flex-col items-center justify-between">
                   <div className="flex h-10 w-full justify-start gap-2 p-2">
                     {fakeShopUsers[1] ? (
                       <img
@@ -60,13 +57,13 @@ const FeedArticles = ({ category }: { category: number }) => {
                 </div>
               </Link>
             ))
-            .slice(0, 12)}
+            .slice(start, end)}
         </div>
       ) : (
-        <Skeleton className="h-[340px] w-full" />
+        <Skeleton className="h-[340px] w-[213px]" />
       )}
     </div>
   );
 };
 
-export default FeedArticles;
+export default NewsFeed;

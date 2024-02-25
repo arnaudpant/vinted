@@ -62,7 +62,10 @@ export type ArticleForSale = {
   titleArticle: string;
   descriptionArticle: string;
   category: CategoriesArticles;
+  subCategory: SubCategoriesArticles;
+  brandArticle?: "string"
   price: number;
+  userId: string
 };
 export type CategoriesArticles =
   | 'Femmes'
@@ -71,6 +74,8 @@ export type CategoriesArticles =
   | 'Maison'
   | 'Divertissement'
   | 'Animaux';
+
+export type SubCategoriesArticles = "vetements" | "chaussures" | "fille" | "garcon" | "textile" | "decoration" | "console" | "puzzle" | "chien" | "chat" | "other";
 
 export type LinkLabel =
   | 'A propos de Vinted'
@@ -115,6 +120,7 @@ export type FakeProduct = {
     name: string;
     image: string;
   };
+  subCategory: string
   images: string[];
 };
 

@@ -1,6 +1,5 @@
 import { FakeProduct } from '@/types/types';
 
-// TODO: to remove when test is finished
 const testProduct: FakeProduct = {
   id: 40,
   title: 'Futuristic Silver and Gold High-Top Sneaker',

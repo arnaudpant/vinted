@@ -1,6 +1,6 @@
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import ModalAuth from '@/components/modals/authentification/ModalAuth';
-import FormModifyProfile from '@/components/form-modify-profile/FormModifyProfile';
+import FormModifyProfile from '@/components/page-modify-profile/FormModifyProfile';
 import { useParams } from 'react-router-dom';
 
 const PROFILE_SECTION = 'profile';

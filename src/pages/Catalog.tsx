@@ -1,4 +1,4 @@
-import ArticlesSimilarsByRandomSellers from '@/components/ArticlesAvailables/ArticlesSimilarsByRandomSellers';
+import ArticlesSimilarsByRandomSellers from '@/components/page-catalog/ArticlesSimilarsByRandomSellers';
 
 const Catalog = () => {
   return (

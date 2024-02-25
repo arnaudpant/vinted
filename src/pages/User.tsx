@@ -1,5 +1,5 @@
 import ModalAuth from '@/components/modals/authentification/ModalAuth';
-import UserProfil from '@/components/userProfil/UserProfil';
+import UserProfil from '@/components/page-user-profil/UserProfil';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import UserContext from '../context/UserContext';
 

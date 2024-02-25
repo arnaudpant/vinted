@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 const Article = () => {
   const location = useLocation();
-  const { state }  = location;
+  const { state } = location;
 
   useEffect(() => {
     window.scrollTo({

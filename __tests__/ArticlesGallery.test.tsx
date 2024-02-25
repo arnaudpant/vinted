@@ -7,7 +7,7 @@ import { FakeProduct } from '@/types/types';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 
-vi.mock('../src//context/FakeShopContext');
+vi.mock('../src/context/FakeShopContext');
 
 const FakeArticle: FakeProduct = {
   id: 10,
@@ -23,21 +23,22 @@ const FakeArticle: FakeProduct = {
   images: ['https://www.fakearticle.jpg'],
 };
 
-
 describe('Initialisation du Modal', () => {
   beforeEach(() => {
-    act(()=>{
-      render(<BrowserRouter><ArticlesGallery article={FakeArticle} /></BrowserRouter>);
-    })
+    act(() => {
+      render(
+        <BrowserRouter>
+          <ArticlesGallery article={FakeArticle} />
+        </BrowserRouter>,
+      );
+    });
   });
 
   afterEach(() => {
     cleanup();
   });
 
-  test('Affichage photo article avec bonne description', ()=> {
+  test('Affichage photo article avec bonne description', () => {
     expect(screen.getByAltText(/Faux article pour tests/i)).toBeInTheDocument();
-  })
-  
-
+  });
 });

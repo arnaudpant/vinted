@@ -1,8 +1,8 @@
-import SuggestionSearch from '@/components/suggestion/SuggestionSearch';
-import Banner from '@/components/banner/Banner';
-import NewsFeed from '@/components/home/NewsFeed';
-import ProductCard from '@/components/home/ProductCard';
-import BrandSearch from '@/components/BrandSearch';
+import SuggestionSearch from '@/components/page-home/suggestion/SuggestionSearch';
+import Banner from '@/components/page-home/banner/Banner';
+import NewsFeed from '@/components/page-home/new-feed/NewsFeed';
+import ProductCard from '@/components/page-home/ProductCard/ProductCard';
+import BrandSearch from '@/components/page-home/brand-search/BrandSearch';
 import { useEffect } from 'react';
 
 const Home = () => {

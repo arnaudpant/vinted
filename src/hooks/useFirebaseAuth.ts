@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { auth, db } from "@/firebase/firebase-config"
-import { UserDocument, UserInterface } from "@/types/types"
+import { ArticleForSale, UserDocument, UserInterface } from "@/types/types"
 import { onAuthStateChanged, User } from "firebase/auth"
 import { doc, onSnapshot } from "firebase/firestore"
 import { useEffect, useState } from "react"
@@ -15,6 +15,7 @@ import { useEffect, useState } from "react"
 
 const useFirebaseAuth = () => {
     const [authUser, setAuthUser] = useState<UserInterface | null>(null)
+    const [listArticles, setListArticles] = useState<ArticleForSale[] | []>([])
     const [authUserIsLoading, setAuthUserIsLoading] = useState<boolean>(true)
 
     /** 
@@ -93,10 +94,12 @@ const useFirebaseAuth = () => {
         }
     }
 
+
     return {
         authUser,
         authUserIsLoading,
-        getUserDocument
+        getUserDocument,
+        listArticles
     }
 }
 

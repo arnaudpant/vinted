@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import CardSuggestionSearch from './../src/components/suggestion/CardSuggestionSearch';
-import {SuggestSearchList} from './../src/types/types'
+import CardSuggestionSearch from '../src/components/page-home/suggestion/CardSuggestionSearch';
+import { SuggestSearchList } from './../src/types/types';
 
 const fakeSuggestSearchListK: SuggestSearchList = {
   brand: 'marque du produit',
@@ -18,7 +18,6 @@ test('Le titre de CardSuggestionSearch doit être Marque du produit', () => {
   render(<CardSuggestionSearch key={1} product={fakeSuggestSearchListK} />);
   expect(screen.getByText(/marque du produit/i)).toBeInTheDocument();
 });
-
 
 describe('Doit afficher M ou K pour le nombre de vues', () => {
   test('Tests si affichage du K pour le nombre de vues de CardSuggestionSearc', () => {

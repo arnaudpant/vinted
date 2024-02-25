@@ -7,8 +7,7 @@ import Article from './pages/Article';
 import Catalog from './pages/Catalog';
 import Error404 from './pages/Error404';
 import Home from './pages/Home';
-import NewArticle from './pages/NewArticle';
-
+import NewArticle from './components/page-add-article/NewArticle';
 import Search from './pages/Search';
 import User from './pages/User';
 import Authentification from './pages/Authentification';
@@ -20,7 +19,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          {/* Page avec modal connexion ou inscruption */}
+          {/* Page avec modal connexion ou inscription */}
           <Route path="/authentification" element={<Authentification />} />
           {/*Page de profil de l'utilisateur*/}
           <Route path="/member/" element={<User />} />

@@ -9,10 +9,12 @@ import { useState } from "react";
  * @returns addArticleToSell
  */
 
+
 const useAddArticle = () => {
     const { authUser } = useFirebaseAuth()
-
     const [isLoadingAddArticle, setIsLoadingAddArticle] = useState<boolean>(false)
+
+
 
     const addNewArticleInFirestore = async (listArticlesForSale: ArticleForSale[]) => {
         if (authUser) {
@@ -28,6 +30,9 @@ const useAddArticle = () => {
         }
         setIsLoadingAddArticle(false)
     }
+
+    
+
 
     
     const addArticleToSell = (article: ArticleForSale) => {

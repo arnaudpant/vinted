@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import SuggestionSearch from '../src/components/suggestion/SuggestionSearch';
+import SuggestionSearch from '../src/components/page-home/suggestion/SuggestionSearch';
 
 test('Titre present', () => {
   render(<SuggestionSearch />);
