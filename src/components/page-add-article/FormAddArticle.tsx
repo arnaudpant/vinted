@@ -260,7 +260,7 @@ const FormAddArticle = ({userId}: Props) => {
             <button
               type="submit"
               className="h-[42px] w-24 rounded bg-vintedGreen px-[14px] text-center text-vintedBackground"
-              data-testID="ajouter"
+              data-testid="ajouter"
             >
               Ajouter
             </button>

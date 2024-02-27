@@ -11,12 +11,14 @@ import { useState } from "react";
 
 
 const useAddArticle = () => {
-    const { authUser } = useFirebaseAuth()
+    const { authUser, listArticles } = useFirebaseAuth()
     const [isLoadingAddArticle, setIsLoadingAddArticle] = useState<boolean>(false)
 
 
 
+
     const addNewArticleInFirestore = async (listArticlesForSale: ArticleForSale[]) => {
+        // Ajout dans la liste des articles du user
         if (authUser) {
             const { error } = await FirestoreUpdateDocument("users", authUser.uid, {
                 ...authUser.userDocument,
@@ -28,13 +30,26 @@ const useAddArticle = () => {
                 return;
             }
         }
+        // Ajout dans liste des articles complete
+        if (listArticles) {
+            const { error } = await FirestoreUpdateDocument("articles", "list-articles", {
+                ...listArticles,
+                listArticlesForSale,
+            });
+            if (error) {
+                console.log("Error FirestoreUpdateDocument list articles", error.message);
+                setIsLoadingAddArticle(false)
+                return;
+            }
+        }
+
         setIsLoadingAddArticle(false)
     }
 
-    
 
 
-    
+
+
     const addArticleToSell = (article: ArticleForSale) => {
         setIsLoadingAddArticle(true)
         if (authUser?.userDocument) {
