@@ -1,5 +1,4 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import React from 'react';
 import UserAboutTab from './aboutTab/UserAboutTab';
 import UserDressingProfil from './dressingTab/UserDressingProfil';
 import UserEvaluation from './evaluationsTab/UserEvaluation';

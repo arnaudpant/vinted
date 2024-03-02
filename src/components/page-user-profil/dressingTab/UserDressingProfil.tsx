@@ -1,8 +1,7 @@
-import ArticlesAvailablesBySeller from '@/components/page-catalog/ArticlesAvailablesBySeller';
-import React from 'react';
-import ButtonsContact from '../models/ButtonsContact';
-import UserDressingInfos from './UserDressingInfos';
 import UserReview from './UserReview';
+import UserAboutDetails from '../aboutTab/UserAboutDetails';
+import ButtonsContact from '../models/ButtonsContact';
+import CardsProductWithAvatar from '@/components/ui/CardsProductWithAvatar';
 
 const UserDressingProfil: React.FC = () => {
   return (
@@ -10,12 +9,12 @@ const UserDressingProfil: React.FC = () => {
       <div className="sm:hidden">
         <UserReview />
         <hr className="my-4" />
-        <UserDressingInfos />
+        <UserAboutDetails google={true} />
         <hr className="my-4" />
         <ButtonsContact />
         <hr className="my-4" />
       </div>
-      <ArticlesAvailablesBySeller />
+      <CardsProductWithAvatar />
     </div>
   );
 };

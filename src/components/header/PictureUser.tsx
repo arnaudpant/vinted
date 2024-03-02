@@ -1,26 +1,27 @@
-import React from 'react';
-
-const PictureUser: React.FC<{
-  avatarUser?: string;
+type Props = {
+  photoUrl: string | undefined;
   pictureSize: number;
-}> = ({ avatarUser, pictureSize }) => {
-  if (!avatarUser)
-    return (
+}
+
+const PictureUser = ({ photoUrl = "", pictureSize }: Props) => {
+
+  return (
+    photoUrl === '' ? (
       <img
         src="./avatar.png"
         alt="profil"
         className="rounded-full"
         style={{ height: pictureSize, width: pictureSize }}
       />
-    );
-  return (
-    <img
-      src={avatarUser}
-      alt="profil utilisateur"
-      className={`rounded-full object-cover`}
-      style={{ height: pictureSize, width: pictureSize }}
-    />
-  );
+    ) : (
+      <img
+        src={photoUrl}
+        alt="profil utilisateur"
+        className={`rounded-full object-cover`}
+        style={{ height: pictureSize, width: pictureSize }}
+      />
+    )
+  )
 };
 
 export default PictureUser;

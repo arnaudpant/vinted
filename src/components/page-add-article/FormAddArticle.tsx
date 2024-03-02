@@ -7,12 +7,14 @@ import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 
 type Props = {
-  userId: string
+  userId: string;
+  userPhoto: string;
+  userLogin: string;
 };
 
-const FormAddArticle = ({userId}: Props) => {
+const FormAddArticle = ({ userId, userPhoto, userLogin }: Props) => {
   const { addArticleToSell, isLoadingAddArticle } = useAddArticle();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     handleSubmit,
@@ -31,7 +33,11 @@ const FormAddArticle = ({userId}: Props) => {
       subCategory: data.subCategory,
       brandArticle: data.brandArticle,
       price: data.price,
-      userId: userId,
+      userInfos: {
+        userId: userId,
+        photoURL: userPhoto,
+        login: userLogin,
+      },
     };
     addArticleToSell(newArticle);
     reset();

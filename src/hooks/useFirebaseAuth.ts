@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { auth, db } from "@/firebase/firebase-config"
-import { ArticleForSale, UserDocument, UserInterface } from "@/types/types"
+import { UserDocument, UserInterface } from "@/types/types"
 import { onAuthStateChanged, User } from "firebase/auth"
 import { doc, onSnapshot } from "firebase/firestore"
 import { useEffect, useState } from "react"
@@ -16,13 +16,12 @@ import { useEffect, useState } from "react"
 const useFirebaseAuth = () => {
     const [authUser, setAuthUser] = useState<UserInterface | null>(null)
     const [authUserIsLoading, setAuthUserIsLoading] = useState<boolean>(true)
-    const [listArticles, setListArticles] = useState<ArticleForSale[] | []>([])
 
     /** 
        * Ecouteur de Firebase pour user connecté ou non connecté
        * De base ne return que les données primaires => formatage
        */
-    useEffect(() => {
+    useEffect( () => {
         const unsubscribe = onAuthStateChanged(auth, authSateChanged)
         // authSateChanged remplace la function de base qui return les données primaires du user connecté
         // du type: (auth, (user)=> {...})
@@ -35,9 +34,8 @@ const useFirebaseAuth = () => {
         * Si connecté return infos primaires de user
         */
     const authSateChanged = async (authState: UserInterface | User | null) => {
-        await getListArticle()
         // authState = user dans function de base de Firebase (auth, (user)=> {...})
-        /**
+        /*
          * USER IS NOT CONNECT:
          * => user = null + Arret du loading ==> user non connecté
          */
@@ -94,30 +92,12 @@ const useFirebaseAuth = () => {
         }
     }
 
-    /** 6
-       * Insertion des données de la base de donnée Firestore dans le user
-       */
-    const getListArticle = async () => {
-
-            // Recuperation des données de Firestore
-            const documentRef = doc(db, "articles", "list-articles")
-            let compactUser: ArticleForSale[] | [] = []
-            // Ecouteur onSnapshot pour recuperer en temps reel les modifs dans db firestore
-            onSnapshot(documentRef, async (doc) => {
-                if (doc.exists()) {
-                    compactUser = doc.data() as ArticleForSale[]
-                }
-                setListArticles(compactUser)
-            })
-        }
-    
 
 
     return {
         authUser,
         authUserIsLoading,
         getUserDocument,
-        listArticles
     }
 }
 

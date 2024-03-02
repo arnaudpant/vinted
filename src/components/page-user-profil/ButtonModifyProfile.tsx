@@ -5,7 +5,7 @@ const ButtonModifyProfile = () => {
   const navigate = useNavigate();
   return (
     <button
-      className="flex h-9 cursor-pointer items-center gap-2 rounded border border-vintedGreen px-[14px] text-vintedGreen"
+      className="flex h-9 w-52 cursor-pointer items-center gap-2 rounded border border-vintedGreen px-[14px] text-vintedGreen"
       onClick={() => navigate('/settings/profile')}
     >
       <Pen />

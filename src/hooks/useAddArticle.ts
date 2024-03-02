@@ -3,6 +3,7 @@ import { ArticleForSale } from "@/types/types";
 import useFirebaseAuth from "./useFirebaseAuth";
 import { FirestoreUpdateDocument } from "@/firebase/firestore";
 import { useState } from "react";
+import useFirestoreData from "./useFirestoreData";
 
 /**
  * HOOK pour envoyer un article dans la base de données firestore
@@ -11,13 +12,12 @@ import { useState } from "react";
 
 
 const useAddArticle = () => {
-    const { authUser, listArticles } = useFirebaseAuth()
+    const { authUser } = useFirebaseAuth()
+    const {listArticles} = useFirestoreData()
     const [isLoadingAddArticle, setIsLoadingAddArticle] = useState<boolean>(false)
 
 
-
-
-    const addNewArticleInFirestore = async (listArticlesForSale: ArticleForSale[]) => {
+    const addNewArticleInFirestore = async (listArticlesForSale: ArticleForSale[], fullListArticlesForSale: ArticleForSale[]) => {
         // Ajout dans la liste des articles du user
         if (authUser) {
             const { error } = await FirestoreUpdateDocument("users", authUser.uid, {
@@ -32,9 +32,8 @@ const useAddArticle = () => {
         }
         // Ajout dans liste des articles complete
         if (listArticles) {
-            const { error } = await FirestoreUpdateDocument("articles", "list-articles", {
-                ...listArticles,
-                listArticlesForSale,
+            const { error } = await FirestoreUpdateDocument("collection-articles", "documents-articles", {
+                fullListArticlesForSale
             });
             if (error) {
                 console.log("Error FirestoreUpdateDocument list articles", error.message);
@@ -42,7 +41,6 @@ const useAddArticle = () => {
                 return;
             }
         }
-
         setIsLoadingAddArticle(false)
     }
 
@@ -50,17 +48,24 @@ const useAddArticle = () => {
 
 
 
-    const addArticleToSell = (article: ArticleForSale) => {
+    const addArticleToSell =  (article: ArticleForSale) => {
         setIsLoadingAddArticle(true)
         if (authUser?.userDocument) {
-            // 1 Recuperer tous les articles
-            const getListAllArticlesToSell: ArticleForSale[] = authUser?.userDocument?.listArticlesForSale
-            // 2 Ajouter le nouvel article a la liste
-            const newListArticlesToSell: ArticleForSale[] = [...getListAllArticlesToSell, article]
-            // 3 Envoyer le nouveau array d'articles dans firestore
-            addNewArticleInFirestore(newListArticlesToSell)
+            // 1 Recuperer tous les articles (user)
+            const getListAllArticlesToSellFromUser: ArticleForSale[] = authUser?.userDocument?.listArticlesForSale
+            // 2 Ajouter le nouvel article a la liste (user)
+            const newListArticlesToSellFromUser: ArticleForSale[] = [...getListAllArticlesToSellFromUser, article]
+            
+            if (listArticles?.fullListArticlesForSale) {
+                const getListFulLArticlesToSell: ArticleForSale[] = listArticles.fullListArticlesForSale
+                const newListFullArticlesFromAllUsers: ArticleForSale[] = [...getListFulLArticlesToSell, article]
+                // 5 Envoyer le nouveau array d'articles dans firestore
+                addNewArticleInFirestore(newListArticlesToSellFromUser, newListFullArticlesFromAllUsers)
+            }
+            
         }
     };
+    console.log("listArticles from addArticle", listArticles)
 
     return { addArticleToSell, isLoadingAddArticle };
 };

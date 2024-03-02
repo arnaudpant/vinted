@@ -1,18 +1,21 @@
-import { FakeShopContext } from '@/context/FakeShopContext';
-import getStockArticlesTitle from '@/utils/getStockArticlesTitle';
-import { useContext } from 'react';
+/* eslint-disable react-refresh/only-export-components */
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
-import withListArticlesAvailables from './withListArticlesAvailables';
+import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 
-const ArticlesAvailablesBySeller: React.FC = () => {
-  const { fakeShopProduct } = useContext(FakeShopContext);
+const ArticlesAvailablesBySeller = () => {
+  const { authUser } = useFirebaseAuth();
 
   return (
-    <ArticlesAvailablesModel
-      title={`${getStockArticlesTitle(fakeShopProduct)} articles disponibles`}
-      productsList={fakeShopProduct}
-    />
+    <>
+      {authUser?.userDocument &&
+        authUser.userDocument.listArticlesForSale.length > 0 && (
+            <ArticlesAvailablesModel
+              title={`${authUser?.userDocument?.listArticlesForSale.length} articles disponibles`}
+              productsList={authUser.userDocument.listArticlesForSale}
+            />
+        )}
+    </>
   );
 };
 
-export default withListArticlesAvailables(ArticlesAvailablesBySeller);
+export default ArticlesAvailablesBySeller;

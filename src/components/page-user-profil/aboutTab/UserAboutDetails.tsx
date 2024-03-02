@@ -1,23 +1,32 @@
-import { Clock, MapPin, Rss } from 'lucide-react';
+import { CheckCircle2, Clock, MapPin, Rss } from 'lucide-react';
 import UserInfoLine from '../models/UserInfoLine';
-import { UserInterface } from '@/types/types';
-import { useContext } from 'react';
-import UserContext from '@/context/UserContext';
+import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import getRandomIndex from '@/utils/Utils';
 
-const UserAboutDetails = () => {
-  const user: UserInterface = useContext(UserContext);
+type Props = {
+  google?: boolean
+}
+
+const UserAboutDetails = ({google}: Props) => {
+  const {authUser} = useFirebaseAuth()
+  
   return (
     <div>
+      {google && (
+        <UserInfoLine ComponentPicture={<CheckCircle2 />}>
+          <p>Google, Email</p>
+        </UserInfoLine>
+      )}
       <UserInfoLine ComponentPicture={<MapPin />}>
-        <p>{user.userDocument?.country ?? 'Somewhere'}</p>
+        <p>{authUser?.userDocument?.city ?? 'France'}</p>
       </UserInfoLine>
       <UserInfoLine ComponentPicture={<Clock />}>
-        <p>Connecté il y&apos;a 23 minutes </p>
+        Connecté il y a {getRandomIndex(2, 40)} minutes
       </UserInfoLine>
       <UserInfoLine ComponentPicture={<Rss />}>
-        <p>
-          <span className="text-vintedGreen underline">79</span> abonnés
-        </p>
+        {authUser?.userDocument?.abonnements && authUser.userDocument.abonnes
+          ? `${authUser.userDocument.abonnes} abonnés, ${authUser.userDocument.abonnements} abonnements`
+          : `${getRandomIndex(1, 30)} abonnés, ${getRandomIndex(2, 30)} abonnements`}
       </UserInfoLine>
     </div>
   );

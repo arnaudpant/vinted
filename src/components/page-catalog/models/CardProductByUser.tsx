@@ -1,27 +1,32 @@
-import { FakeProduct } from '@/types/types';
-
-import { checkURLImageProductFromApi } from '@/utils/checkURLImageProductFromApi';
+import { ArticleForSale } from '@/types/types';
 import DetailProduct from './DetailProduct';
-import ImageProduct from './ImageProduct';
 import UserBanner from './UserBanner';
 
-const CardProductByUser: React.FC<{
-  fakeProduct: FakeProduct;
-}> = ({ fakeProduct }) => {
-  const URL_UMAGE_PATH = checkURLImageProductFromApi(
-    fakeProduct.category.image,
-  );
+type Props = { product: ArticleForSale };
 
-  if (!fakeProduct) return;
+const CardProductByUser = ({ product }: Props) => {
+  if (!product) return;
   return (
-    <div className="flex flex-col bg-vintedBackground  py-2 text-sm  ">
+    <div className="flex w-72 flex-col gap-4 bg-vintedTextGrisFonce py-2 text-sm">
       <UserBanner />
-      <ImageProduct urlImage={URL_UMAGE_PATH} />
+      {product.photos ? (
+        <img
+          src={product.photos[0]}
+          alt={product.titleArticle}
+          className="h-[400] w-full cursor-pointer object-cover"
+        />
+      ) : (
+        <img
+          src=""
+          alt="article"
+          className="h-[400] w-full cursor-pointer object-cover"
+        />
+      )}
       <DetailProduct
         isLiked={true}
-        description={fakeProduct.description}
-        categoryName={fakeProduct.category.name}
-        price={fakeProduct.price}
+        description={product.descriptionArticle}
+        categoryName={product.category}
+        price={product.price}
       />
     </div>
   );

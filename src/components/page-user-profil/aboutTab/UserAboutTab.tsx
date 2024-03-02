@@ -1,9 +1,8 @@
-import React from 'react';
-import ButtonsContact from '../models/ButtonsContact';
 import UserAboutDescription from './UserAboutDescription';
-import UserAboutDetails from './UserAboutDetails';
-import UserAboutInfos from './UserAboutInfos';
 import UserAboutStatistics from './UserAboutStatistics';
+import UserAboutInfos from './UserAboutInfos';
+import UserAboutDetails from './UserAboutDetails';
+import ButtonsContact from '../models/ButtonsContact';
 
 const UserAboutTab: React.FC = () => {
   return (

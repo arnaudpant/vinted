@@ -48,7 +48,15 @@ export type UserDocument = {
   city: string;
   displayCityInProfile: boolean;
   language: string;
+  abonnements: number,
+  abonnes: number,
+  stars: number,
+  evaluations: number
 };
+
+export type ArticlesInterface = {
+  fullListArticlesForSale: ArticleForSale[] | []
+}
 
 export type Action = 'init' | 'connexion' | 'inscription' | 'password-forget';
 
@@ -63,9 +71,13 @@ export type ArticleForSale = {
   descriptionArticle: string;
   category: CategoriesArticles;
   subCategory: SubCategoriesArticles;
-  brandArticle?: "string"
+  brandArticle?: "string";
   price: number;
-  userId: string
+  userInfos: {
+    userId: string
+    photoURL: string;
+    login: string;
+  }
 };
 export type CategoriesArticles =
   | 'Femmes'
@@ -107,6 +119,7 @@ export type FakeUser = {
   name: string;
   image: string;
   avatar: string;
+  comment?: string
 };
 
 export type FakeProduct = {

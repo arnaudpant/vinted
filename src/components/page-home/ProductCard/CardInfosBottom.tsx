@@ -1,5 +1,5 @@
 type Props = {
-  imageURL: string;
+  imageURL: string | undefined;
   titleProduct: string;
   priceProduct: number;
 };
@@ -7,7 +7,11 @@ type Props = {
 const CardInfosBottom = ({ imageURL, titleProduct, priceProduct }: Props) => {
   return (
     <>
-      <img src={imageURL} alt={titleProduct} />
+      {imageURL ? (
+        <img src={imageURL} alt={titleProduct} />
+      ) : (
+        <img src="/coming-soon.jpeg" alt="Photo non disponible" />
+      )}
       <div className="h-[90px] w-full p-2">
         <p className="text-sm">{priceProduct},00€</p>
         <p className="text-xs text-vintedGreen">{priceProduct},00€ incl</p>

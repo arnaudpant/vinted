@@ -1,3 +1,4 @@
+import getRandomIndex, { getTaxeIncl } from '@/utils/Utils';
 import React from 'react';
 
 export const DetailProduct: React.FC<{
@@ -6,19 +7,16 @@ export const DetailProduct: React.FC<{
   categoryName: string;
   price: number;
 }> = ({ isLiked = false, description, categoryName, price }) => {
-  const numberLike = 18;
+  
 
   return (
     <div className="mx-2 grid grid-cols-2  grid-rows-4 ">
       <p className="col-start-1 row-start-1 text-base font-bold text-black ">
-        {price.toFixed(2)}€
+        {price}€
       </p>
-      <a
-        href="http://"
-        className="col-start-1 row-start-2 cursor-pointer text-nowrap text-base text-vintedGreen hover:underline "
-      >
-        {Number(price + 1).toFixed(2)}€ incl.
-      </a>
+      <p className="col-start-1 row-start-2 cursor-pointer text-nowrap text-base text-vintedGreen hover:underline ">
+        {getTaxeIncl(price).toFixed(2)}€ incl.
+      </p>
       <p className="col-start-1 row-start-3 truncate text-nowrap">
         {description ?? ''}
       </p>
@@ -36,7 +34,7 @@ export const DetailProduct: React.FC<{
           alt="favorite"
           className="h-4"
         />
-        {numberLike}
+        {getRandomIndex(3, 50)}
       </p>
     </div>
   );

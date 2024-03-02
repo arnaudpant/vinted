@@ -1,24 +1,22 @@
 import PictureUser from '@/components/header/PictureUser';
 import UserNoteStars from '@/components/ui/UserNoteStars';
-import UserContext from '@/context/UserContext';
-import { UserInterface } from '@/types/types';
-import { useContext } from 'react';
+import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import getRandomIndex from '@/utils/Utils';
 
 const UserReview: React.FC = () => {
-  const user: UserInterface = useContext(UserContext);
+  const { authUser } = useFirebaseAuth();
   return (
     <div className="flex items-center space-x-3">
       <PictureUser
-        avatarUser={user.userDocument?.photoURL ?? ''}
-        pictureSize={24}
+        photoUrl={authUser?.userDocument?.photoURL}
+        pictureSize={48}
       />
 
       <div className="w-fit leading-tight">
-        <h1>{user.displayName}</h1>
+        <h1>{authUser?.userDocument?.login}</h1>
         <div className="flex">
-          <UserNoteStars note={3} />
-
-          <span className="ml-2">200 avis</span>
+          <UserNoteStars note={4} />
+          <span className="ml-2">{getRandomIndex(1, 20)}avis</span>
         </div>
       </div>
     </div>

@@ -1,17 +1,18 @@
 import ModalAuth from '@/components/modals/authentification/ModalAuth';
-import UserProfil from '@/components/page-user-profil/UserProfil';
+import UserSynopsis from '@/components/page-user-profil/UserSynopsis';
+import UserTabs from '@/components/page-user-profil/UserTabs';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
-import UserContext from '../context/UserContext';
 
 const User = () => {
-  const { authUser: user } = useFirebaseAuth();
+  const { authUser} = useFirebaseAuth();
 
-  if (!user) return <ModalAuth setModalConnexion={() => {}} />;
+  if (!authUser) return <ModalAuth setModalConnexion={() => {}} />;
 
   return (
-    <UserContext.Provider value={user}>
-      <UserProfil />;
-    </UserContext.Provider>
+    <div className="mx-4 sm:mx-8">
+      <UserSynopsis photoUrl={authUser.userDocument?.photoURL} login={authUser.userDocument?.login} />
+      <UserTabs />
+    </div>
   );
 };
 
