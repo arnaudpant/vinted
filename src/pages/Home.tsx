@@ -17,7 +17,7 @@ const Home = () => {
     <>
       <Banner />
       <ProductCard
-        title="Explorer les articles de créateur"
+        title="Explorer les derniers articles"
         start={0}
         end={5}
         idDivParentProductCard={'divParentProductCardExplore'}
@@ -25,8 +25,8 @@ const Home = () => {
       />
       <ProductCard
         title="Articles populaires"
-        start={10}
-        end={15}
+        start={0}
+        end={5}
         idDivParentProductCard={'divParentProductCardPopulaire'}
         idDivToScrollProductCard={'divToScrollProductCardPopulaire'}
       />

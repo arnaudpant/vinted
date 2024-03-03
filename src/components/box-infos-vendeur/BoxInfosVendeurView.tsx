@@ -1,31 +1,36 @@
-import { FakeUser } from '@/types/types';
 import { ChevronRight, Clock, MapPin, Star } from 'lucide-react';
 
 type Props = {
   seeMore: boolean;
   handleSeeMore: () => void;
-  user: FakeUser | null
+  vendeur: {
+    photoURL: string;
+    login: string;
+    city: string;
+    stars: number;
+    evaluations: number;
+  };
 };
 
-const BoxInfosVendeurView = ({ seeMore, handleSeeMore, user }: Props) => {
 
-   const fakeStarsUser: number = 5;
+const BoxInfosVendeurView = ({ seeMore, handleSeeMore, vendeur }: Props) => {
+  
   return (
     <>
       {/* Box */}
       <div className="flex h-20 cursor-pointer justify-between border-b bg-vintedBackground p-4 hover:bg-slate-50">
         <div className="flex">
-          {user !== null && (
+          {vendeur !== null && (
             <>
               <img
-                src={user.avatar}
+                src={vendeur.photoURL}
                 className="mr-2 h-12 w-12 rounded-full"
                 data-testid="img-user-avatar"
               />
               <div>
-                <h2>{user.name}</h2>
+                <h2>{vendeur.login}</h2>
                 <div className="relative flex">
-                  {Array.from({ length: fakeStarsUser }, (_, index) => (
+                  {Array.from({ length: vendeur.stars }, (_, index) => (
                     <Star
                       fill={'orange'}
                       color="vintedBackground"
@@ -34,7 +39,7 @@ const BoxInfosVendeurView = ({ seeMore, handleSeeMore, user }: Props) => {
                     />
                   ))}
                   <span className="ml-1 text-xs text-vintedTextGrisFonce">
-                    130
+                    {vendeur.evaluations}
                   </span>
                 </div>
               </div>
@@ -49,7 +54,7 @@ const BoxInfosVendeurView = ({ seeMore, handleSeeMore, user }: Props) => {
       <div className="bg-vintedBackground p-4">
         <div className="flex items-center gap-2 text-[14px]  font-light">
           <MapPin className="h-4 w-4 text-vintedTextGrisFonce" />
-          Paris, France
+          {vendeur.city}
         </div>
         <div className="flex items-center gap-2 pt-2 text-xs font-light">
           <Clock className="h-4 w-4 text-vintedTextGrisFonce" />

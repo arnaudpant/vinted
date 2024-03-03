@@ -3,9 +3,12 @@ import { ArticleForSale } from '@/types/types';
 import { Link } from 'react-router-dom';
 import CardInfosBottom from '../page-home/ProductCard/CardInfosBottom';
 import Skeleton from './skeleton';
+import { getTaxeIncl } from '@/utils/Utils';
 
 const CardsProductWithAvatar = () => {
   const { authUser } = useFirebaseAuth();
+
+
   return (
     <div className="container mx-auto max-w-[1240px] py-12">
       <p>
@@ -47,6 +50,9 @@ const CardsProductWithAvatar = () => {
                     imageURL={product.photos && product.photos[0]}
                     titleProduct={product.titleArticle}
                     priceProduct={product.price}
+                    brandProduct={product.brandArticle ?? ''}
+                    priceWithTaxe={getTaxeIncl(product.price)}
+                    likes={product.like}
                   />
                 </div>
               </Link>

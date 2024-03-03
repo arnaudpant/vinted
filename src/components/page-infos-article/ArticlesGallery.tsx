@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FakeProduct } from '@/types/types';
+import { ArticleForSale } from '@/types/types';
 import Skeleton from '../ui/skeleton';
 import FeedArticles from './FeedArticles';
 import { Link } from 'react-router-dom';
 
-const ArticlesGallery = ({ article }: { article: FakeProduct }) => {
+const ArticlesGallery = ({ article }: { article: ArticleForSale }) => {
   return (
     <div className="w-full md:w-2/3">
       <div className="min-h-40 rounded">
         {article ? (
-          <img src={article.images[0]} alt={article.description} />
+          <img src={article.photos[0]} alt={article.descriptionArticle} />
         ) : (
           <Skeleton className="h-[340px] w-full" />
         )}
@@ -19,12 +19,12 @@ const ArticlesGallery = ({ article }: { article: FakeProduct }) => {
           Accueil
         </Link>
         <p>/</p>
-        <p className="cursor-not-allowed underline">{article.category.name}</p>
+        <p className="cursor-not-allowed underline">{article.category}</p>
         <p>/</p>
-        <p className="cursor-not-allowed underline">{article.title}</p>
+        <p className="cursor-not-allowed underline">{article.subCategory}</p>
       </div>
       <div className="hidden md:block">
-        <FeedArticles category={article.category.id} />
+        <FeedArticles category={article.category} subCategory={article.subCategory} userID={article.userInfos.userId} />
       </div>
     </div>
   );

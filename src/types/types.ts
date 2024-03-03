@@ -66,17 +66,23 @@ export type ScrollAction = 'left' | 'right' | 'both';
  */
 export type ArticleForSale = {
   uid: string;
-  photos?: string[];
+  photos: string[];
   titleArticle: string;
   descriptionArticle: string;
   category: CategoriesArticles;
   subCategory: SubCategoriesArticles;
   brandArticle?: "string";
+  etat: EtatForSale;
+  color: string,
   price: number;
+  like: number;
   userInfos: {
     userId: string
     photoURL: string;
     login: string;
+    city: string;
+    stars: number,
+    evaluations: number
   }
 };
 export type CategoriesArticles =
@@ -88,6 +94,8 @@ export type CategoriesArticles =
   | 'Animaux';
 
 export type SubCategoriesArticles = "vetements" | "chaussures" | "fille" | "garcon" | "textile" | "decoration" | "console" | "puzzle" | "chien" | "chat" | "other";
+
+export type EtatForSale = "Neuf" | "Très bon état" | "Bon état" | "Etat correct" | "Mauvais état" | "Très mauvais état"
 
 export type LinkLabel =
   | 'A propos de Vinted'

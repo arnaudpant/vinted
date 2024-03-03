@@ -4,12 +4,17 @@ import ButtonsContact from '../models/ButtonsContact';
 import CardsProductWithAvatar from '@/components/ui/CardsProductWithAvatar';
 
 const UserDressingProfil: React.FC = () => {
+ 
   return (
+    
     <div className=" mt-2 flex flex-col">
       <div className="sm:hidden">
         <UserReview />
         <hr className="my-4" />
-        <UserAboutDetails google={true} />
+          <UserAboutDetails
+            google={true}
+          />
+        
         <hr className="my-4" />
         <ButtonsContact />
         <hr className="my-4" />

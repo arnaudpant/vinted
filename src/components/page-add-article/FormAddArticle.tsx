@@ -10,9 +10,19 @@ type Props = {
   userId: string;
   userPhoto: string;
   userLogin: string;
+  userStars: number;
+  userEvaluations: number;
+  userCity: string
 };
 
-const FormAddArticle = ({ userId, userPhoto, userLogin }: Props) => {
+const FormAddArticle = ({
+  userId,
+  userPhoto,
+  userLogin,
+  userStars,
+  userEvaluations,
+  userCity,
+}: Props) => {
   const { addArticleToSell, isLoadingAddArticle } = useAddArticle();
   const navigate = useNavigate();
 
@@ -29,14 +39,20 @@ const FormAddArticle = ({ userId, userPhoto, userLogin }: Props) => {
       photos: [],
       titleArticle: data.titleArticle,
       descriptionArticle: data.descriptionArticle,
+      color: data.color,
       category: data.category,
       subCategory: data.subCategory,
       brandArticle: data.brandArticle,
       price: data.price,
+      like: 0,
+      etat: data.etat,
       userInfos: {
         userId: userId,
         photoURL: userPhoto,
         login: userLogin,
+        city: userCity,
+        stars: userStars,
+        evaluations: userEvaluations,
       },
     };
     addArticleToSell(newArticle);
@@ -111,6 +127,27 @@ const FormAddArticle = ({ userId, userPhoto, userLogin }: Props) => {
           </div>
         </div>
 
+        {/* COULEUR */}
+        <div className="mt-6 flex flex-wrap bg-vintedBackground p-6">
+          <div className="w-full md:w-1/2">
+            <label htmlFor="color">Couleur</label>
+          </div>
+          <div className="w-full md:w-1/2">
+            <input
+              type="text"
+              {...register('color', { required: true })}
+              className="w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
+              placeholder="ex: Rouge à petit pois"
+              id="color"
+            />
+            {errors.titleArticle && (
+              <span className="text-sm text-vintedGreen">
+                Entrez une couleur
+              </span>
+            )}
+          </div>
+        </div>
+
         {/* CATEGORIES */}
         <div className="mt-6 bg-vintedBackground">
           <div className="flex flex-wrap p-6">
@@ -177,8 +214,39 @@ const FormAddArticle = ({ userId, userPhoto, userLogin }: Props) => {
           </div>
         </div>
 
+        {/* ETAT */}
+        <div className="mt-6 bg-vintedBackground">
+          <div className="flex flex-wrap p-6">
+            <div className="w-full md:w-1/2">
+              <label htmlFor="etat">Etat</label>
+            </div>
+            <div className="w-full md:w-1/2">
+              <select
+                {...register('etat', { required: true })}
+                className="w-full border-b text-vintedTextGrisFonce focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
+                id="etat"
+              >
+                <option hidden defaultValue="">
+                  Sélectionne un état
+                </option>
+                <option value="neuf">Neuf</option>
+                <option value="Très bon état">Très bon état</option>
+                <option value="Bon état">Bon état</option>
+                <option value="Etat correct">Etat correct</option>
+                <option value="Mauvais état">Mauvais état</option>
+                <option value="Très mauvais état">Très mauvais état</option>
+              </select>
+              {errors.category && (
+                <span className="text-sm text-vintedGreen">
+                  Choississez un état
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
         {/* MARQUE */}
-        <div className="flex flex-wrap border-b p-6">
+        <div className="mt-6 flex flex-wrap bg-vintedBackground p-6">
           <div className="w-full md:w-1/2">
             <label htmlFor="brandArticle">Marque</label>
           </div>
@@ -187,11 +255,13 @@ const FormAddArticle = ({ userId, userPhoto, userLogin }: Props) => {
               type="text"
               {...register('brandArticle', { required: true })}
               className="w-full border-b pb-1 focus-visible:border-b focus-visible:border-vintedGreen focus-visible:outline-none"
-              placeholder="ex: Chemise sésame verte"
+              placeholder="ex: Nike"
               id="titleArticle"
             />
             {errors.brandArticle && (
-              <span className="text-sm text-vintedGreen">Entrez un titre</span>
+              <span className="text-sm text-vintedGreen">
+                Entrez une marque
+              </span>
             )}
           </div>
         </div>
@@ -225,7 +295,10 @@ const FormAddArticle = ({ userId, userPhoto, userLogin }: Props) => {
               Que penses-tu de notre procédure pour ajouter de nouveaux articles
               ?
             </p>
-            <button className="h-[42px] min-w-36 rounded border border-vintedGreen px-[14px] text-vintedGreen">
+            <button
+              className="h-[42px] min-w-36 cursor-not-allowed rounded border border-vintedGreen px-[14px] text-vintedGreen"
+              disabled={true}
+            >
               Donner un avis
             </button>
           </div>
@@ -239,7 +312,10 @@ const FormAddArticle = ({ userId, userPhoto, userLogin }: Props) => {
           du Code de la Consommation.
         </p>
         <div className="mb-8 mt-11 flex flex-col-reverse gap-4 pb-5 md:flex-row md:justify-end">
-          <button className="h-[42px] rounded border border-vintedGreen px-[14px] text-center text-vintedGreen">
+          <button
+            className="h-[42px] cursor-not-allowed rounded border border-vintedGreen px-[14px] text-center text-vintedGreen"
+            disabled={true}
+          >
             Sauvegarder le brouillon
           </button>
           {isLoadingAddArticle ? (

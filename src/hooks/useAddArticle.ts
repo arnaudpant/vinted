@@ -65,7 +65,6 @@ const useAddArticle = () => {
             
         }
     };
-    console.log("listArticles from addArticle", listArticles)
 
     return { addArticleToSell, isLoadingAddArticle };
 };

@@ -1,7 +1,7 @@
 import { ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
 import ModalArticlePriceDetails from '../modals/articlePriceDetails/ModalArticlePriceDetails';
-import getBuyerProtectionFee from '@/utils/getBuyerProtectionFee';
+import { getTaxeIncl } from '@/utils/Utils';
 
 const ArticlePrices = ({ price }: { price: number }) => {
   const [modalPriceDetails, setModalPriceDetails] = useState<boolean>(false);
@@ -9,15 +9,12 @@ const ArticlePrices = ({ price }: { price: number }) => {
   return (
     <>
       <div className="mb-2">
-        <h1 className="text-2xl">{price}&nbsp;€</h1>
+        <h2 className="text-2xl">{Number(price).toFixed(2)}&nbsp;€</h2>
         <button
           className="flex cursor-pointer flex-row text-left text-xs text-vintedGreen hover:underline"
           onClick={() => setModalPriceDetails(true)}
         >
-          <span>
-            {price + getBuyerProtectionFee(price)}&nbsp;€ Protection acheteurs
-            incluse
-          </span>
+          <span>{getTaxeIncl(price)}&nbsp;€ Protection acheteurs incluse</span>
           <ShieldCheck />
         </button>
       </div>

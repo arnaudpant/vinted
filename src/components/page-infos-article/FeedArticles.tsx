@@ -1,42 +1,53 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import useDataFakeShop from '@/hooks/useDataFakeShop';
-import { FakeProduct } from '@/types/types';
+import { ArticleForSale } from '@/types/types';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CardInfosBottom from '../page-home/ProductCard/CardInfosBottom';
 import Skeleton from '../ui/skeleton';
+import useFirestoreData from '@/hooks/useFirestoreData';
+import { getTaxeIncl } from '@/utils/Utils';
 
-const FeedArticles = ({ category }: { category: number }) => {
-  const { fakeShopProducts, fakeShopUsers } = useDataFakeShop();
-  const [listArticlesByCategory, setListArticlesByCategory] = useState<
-    FakeProduct[]
-  >([]);
+type Props = {
+  category: string;
+  subCategory: string;
+  userID: string
+};
+
+const FeedArticles = ({ category, subCategory, userID }: Props) => {
+  const { listArticles } = useFirestoreData();
+  const [listArticlesByCategory, setListArticlesByCategory] =
+    useState<ArticleForSale[]>();
 
   useEffect(() => {
-    const arrayListFilter = fakeShopProducts.filter(
-      (elt) => elt.category.id === category,
+    const arrayListFilter = listArticles?.fullListArticlesForSale.filter(
+      (elt) =>
+        elt.category === category &&
+        elt.subCategory === subCategory &&
+        elt.userInfos.userId !== userID,
     );
-    setListArticlesByCategory(arrayListFilter);
-  }, [category, fakeShopProducts]);
+    if (arrayListFilter && arrayListFilter.length > 0) {
+      setListArticlesByCategory(arrayListFilter);
+    }
+  }, [category, listArticles]);
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
     <div className="py-12">
-      {listArticlesByCategory.length > 0 || fakeShopUsers.length > 0 ? (
-        <div className="flex w-full flex-wrap justify-between gap-2">
+      {listArticlesByCategory && listArticlesByCategory.length > 0 ? (
+        <div className="flex w-full flex-wrap gap-2">
           {listArticlesByCategory
-            .map((product: FakeProduct) => (
+            .map((product: ArticleForSale) => (
               <Link
-                to={`/items/${product.id}`}
-                key={product.id}
+                to={`/items/${product.uid}`}
+                key={product.uid}
                 state={product}
               >
                 <div className="flex h-[380px] w-[235px] cursor-pointer flex-col items-center justify-between bg-vintedBackground">
                   <div className="flex h-10 w-full justify-start gap-2 p-2">
-                    {fakeShopUsers[1] ? (
+                    {product.userInfos.photoURL !== '' ? (
                       <img
                         className="h-6 w-6 rounded-full"
-                        src={fakeShopUsers[1].avatar}
+                        src={product.userInfos.photoURL}
                         alt="photo de profil"
                       />
                     ) : (
@@ -46,16 +57,19 @@ const FeedArticles = ({ category }: { category: number }) => {
                         alt="photo de profil générique"
                       />
                     )}
-                    {fakeShopUsers[1] && (
+                    {product.userInfos.login && (
                       <p className="text-sm text-vintedTextGrisClair">
-                        {fakeShopUsers[1].name}
+                        {product.userInfos.login}
                       </p>
                     )}
                   </div>
                   <CardInfosBottom
-                    imageURL={product.images[0]}
-                    titleProduct={product.title}
+                    imageURL={product.photos[0]}
+                    titleProduct={product.titleArticle}
                     priceProduct={product.price}
+                    priceWithTaxe={getTaxeIncl(product.price)}
+                    brandProduct={product.brandArticle ?? ''}
+                    likes={product.like}
                   />
                 </div>
               </Link>

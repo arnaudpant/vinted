@@ -5,7 +5,7 @@ export default function getRandomIndex(min: number, max: number): number {
 }
 
 export function getTaxeIncl(prix: number): number {
-    const priceWithTaxe = Number(prix) + (Number(prix) * 0.2)
+    const priceWithTaxe = Number(prix) + (Number(prix) * 0.06)
     return priceWithTaxe
 }
 

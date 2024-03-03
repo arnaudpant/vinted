@@ -1,15 +1,15 @@
 import { CheckCircle2, Clock, MapPin, Rss } from 'lucide-react';
 import UserInfoLine from '../models/UserInfoLine';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import getRandomIndex from '@/utils/Utils';
+import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 
 type Props = {
-  google?: boolean
-}
+  google?: boolean;
+};
 
-const UserAboutDetails = ({google}: Props) => {
+const UserAboutDetails = ({ google}: Props) => {
   const {authUser} = useFirebaseAuth()
-  
+
   return (
     <div>
       {google && (
@@ -18,15 +18,13 @@ const UserAboutDetails = ({google}: Props) => {
         </UserInfoLine>
       )}
       <UserInfoLine ComponentPicture={<MapPin />}>
-        <p>{authUser?.userDocument?.city ?? 'France'}</p>
+        <p>{authUser?.userDocument?.city}</p>
       </UserInfoLine>
       <UserInfoLine ComponentPicture={<Clock />}>
         Connecté il y a {getRandomIndex(2, 40)} minutes
       </UserInfoLine>
       <UserInfoLine ComponentPicture={<Rss />}>
-        {authUser?.userDocument?.abonnements && authUser.userDocument.abonnes
-          ? `${authUser.userDocument.abonnes} abonnés, ${authUser.userDocument.abonnements} abonnements`
-          : `${getRandomIndex(1, 30)} abonnés, ${getRandomIndex(2, 30)} abonnements`}
+        {authUser?.userDocument?.abonnes} abonnés, {authUser?.userDocument?.abonnements} abonnements
       </UserInfoLine>
     </div>
   );
