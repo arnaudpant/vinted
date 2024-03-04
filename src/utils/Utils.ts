@@ -1,3 +1,5 @@
+import { ArticleForSale } from "@/types/types"
+
 export default function getRandomIndex(min: number, max: number): number {
     min = Math.ceil(min)
     max = Math.ceil(max)
@@ -9,3 +11,10 @@ export function getTaxeIncl(prix: number): number {
     return priceWithTaxe
 }
 
+export function shuffle(arr: ArticleForSale[]) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}

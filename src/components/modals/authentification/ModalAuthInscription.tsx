@@ -110,7 +110,8 @@ const ModalAuthInscription = ({
       abonnements: 0,
       abonnes: 0,
       stars: 0,
-      evaluations: 0
+      evaluations: 0,
+      argent: 0
     };
     handleCreateUserAuthentification('users', data.uid, userDocumentData);
   };

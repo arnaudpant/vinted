@@ -9,13 +9,13 @@ const categoriesHeader: TypeCategory[] = [
       {
         id: 1,
         title: 'Vêtements',
-        iconName: './iconsSubCategories/skirt.png',
+        iconName: '/iconsSubCategories/skirt.png',
 
       },
       {
         id: 2,
         title: 'Chaussures',
-        iconName: './iconsSubCategories/shoes_woman.png',
+        iconName: '/iconsSubCategories/shoes_woman.png',
       },
       { id: 99, title: SEE_OTHERS, iconName: './iconsSubCategories/dot-others.png', link: '/' },
     ],
@@ -28,12 +28,12 @@ const categoriesHeader: TypeCategory[] = [
       {
         id: 1,
         title: 'Vêtements',
-        iconName: './iconsSubCategories/t-shirt.png',
+        iconName: '/iconsSubCategories/t-shirt.png',
       },
       {
         id: 2,
         title: 'Chaussures',
-        iconName: './iconsSubCategories/manshoes.png',
+        iconName: '/iconsSubCategories/manshoes.png',
       },
       { id: 99, title: SEE_OTHERS, iconName: './iconsSubCategories/dot-others.png', link: '/' },
     ],
@@ -47,12 +47,12 @@ const categoriesHeader: TypeCategory[] = [
       {
         id: 1,
         title: 'Filles',
-        iconName: './iconsSubCategories/skirt.png',
+        iconName: '/iconsSubCategories/skirt.png',
       },
       {
         id: 3,
         title: 'Garçons',
-        iconName: './iconsSubCategories/boy.png',
+        iconName: '/iconsSubCategories/boy.png',
       },
       { id: 99, title: SEE_OTHERS, iconName: './iconsSubCategories/dot-others.png', link: '/' },
     ],
@@ -65,12 +65,12 @@ const categoriesHeader: TypeCategory[] = [
       {
         id: 1,
         title: 'Textiles',
-        iconName: './iconsSubCategories/tissue.png',
+        iconName: '/iconsSubCategories/tissue.png',
       },
       {
         id: 2,
         title: 'Décoration',
-        iconName: './iconsSubCategories/vase.png',
+        iconName: '/iconsSubCategories/vase.png',
       },
       { id: 99, title: SEE_OTHERS, iconName: './iconsSubCategories/dot-others.png', link: '/' },
     ],
@@ -83,14 +83,14 @@ const categoriesHeader: TypeCategory[] = [
       {
         id: 1,
         title: 'Jeux vidéos et consoles',
-        iconName: './iconsSubCategories/videogamecontroller.png',
+        iconName: '/iconsSubCategories/videogamecontroller.png',
       },
       {
         id: 2,
         title: 'Jeux et puzzles',
         iconName: './iconsSubCategories/chess.png',
       },
-      { id: 99, title: SEE_OTHERS, iconName: './iconsSubCategories/dot-others.png', link: '/' },
+      { id: 99, title: SEE_OTHERS, iconName: '/iconsSubCategories/dot-others.png', link: '/' },
     ],
   },
   {
@@ -102,12 +102,12 @@ const categoriesHeader: TypeCategory[] = [
       {
         id: 1,
         title: 'Chiens',
-        iconName: './iconsSubCategories/dog.png',
+        iconName: '/iconsSubCategories/dog.png',
       },
       {
         id: 2,
         title: 'Chats',
-        iconName: './iconsSubCategories/cat.png',
+        iconName: '/iconsSubCategories/cat.png',
       },
       { id: 99, title: SEE_OTHERS, iconName: './iconsSubCategories/dot-others.png', link: '/' },
     ],

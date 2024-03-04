@@ -12,8 +12,6 @@ type Props = {
 }
 
 const ArticleInfo = ({ article }: Props) => {
-
-  console.log(article.userInfos);
   
   return (
     <div className="w-full md:w-1/3">

@@ -51,7 +51,8 @@ export type UserDocument = {
   abonnements: number,
   abonnes: number,
   stars: number,
-  evaluations: number
+  evaluations: number,
+  argent: number
 };
 
 export type ArticlesInterface = {

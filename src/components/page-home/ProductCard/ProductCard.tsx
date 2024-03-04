@@ -1,10 +1,10 @@
-import { FakeProduct, ScrollAction } from '@/types/types';
-import useDataFakeShop from '@/hooks/useDataFakeShop';
+import { ArticleForSale, ScrollAction } from '@/types/types';
 import { useEffect, useState } from 'react';
 import ChevronPosition from '../../ui/ChevronPosition';
 import Skeleton from '../../ui/skeleton';
 import { Link } from 'react-router-dom';
 import CardInfosBottom from './CardInfosBottom';
+import useFirestoreData from '@/hooks/useFirestoreData';
 
 type Props = {
   title: string;
@@ -12,6 +12,7 @@ type Props = {
   end: number;
   idDivParentProductCard: string;
   idDivToScrollProductCard: string;
+  typeSort: 'recent' | 'populaire'
 };
 
 const ProductCard = ({
@@ -20,12 +21,14 @@ const ProductCard = ({
   end,
   idDivParentProductCard,
   idDivToScrollProductCard,
+  typeSort,
 }: Props) => {
   // CONTEXTE
-  const { fakeShopProducts } = useDataFakeShop();
+  const { listArticles } = useFirestoreData();
 
   const [scrollCards, setScrollCards] = useState<ScrollAction>('right');
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
+  const [listArticlesSort, setListArticlesSort] = useState<ArticleForSale[]>();
 
   // const idDivParentProductCard = 'divParentProductCardExplore';
   // const idDivToScrollProductCard = 'divToScrollProductCard';
@@ -55,6 +58,16 @@ const ProductCard = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [divToScrollValue]);
+
+  useEffect(() => {
+    if (listArticles) {
+      typeSort === 'recent' &&
+        setListArticlesSort(listArticles.fullListArticlesForSale.reverse());
+        typeSort === 'populaire' &&
+          setListArticlesSort(listArticles.fullListArticlesForSale.sort((a, b) => (a.like < b.like ? 1 : -1)));
+    }
+
+  }, [listArticles, typeSort]);
 
   // LOGIQUE AU CLIC DU BTN
   const handleClicRight = () => {
@@ -86,23 +99,26 @@ const ProductCard = ({
           id={idDivToScrollProductCard}
           data-testid="scroll-element"
         >
-          {fakeShopProducts.length > 0 ? (
+          {listArticlesSort && listArticlesSort.length > 0 ? (
             <div className="flex shrink-0 flex-nowrap gap-4">
-              {fakeShopProducts
-                .map((product: FakeProduct) => (
+              {listArticlesSort
+                .map((product: ArticleForSale) => (
                   <Link
-                    to={`/items/${product.id}`}
-                    key={product.id}
+                    to={`/items/${product.uid}`}
+                    key={product.uid}
                     state={product}
                   >
                     <div
-                      key={product.id}
+                      key={product.uid}
                       className="flex h-[300px] w-[213px] cursor-pointer flex-col items-center justify-between"
                     >
                       <CardInfosBottom
-                        imageURL={product.images[0]}
-                        titleProduct={product.title}
+                        imageURL={product.photos[0]}
+                        titleProduct={product.titleArticle}
                         priceProduct={product.price}
+                        brandProduct={product.brandArticle ?? ''}
+                        priceWithTaxe={product.price}
+                        likes={product.like}
                       />
                     </div>
                   </Link>

@@ -27,13 +27,10 @@ const MenuUserConnected = ({ setIsMenuOpen }: Props) => {
       {authUser ? (
         <>
           <Link to="/member">Mon profil</Link>
-          <Link to="/">Mes paramètres</Link>
-          <Link to="/">Personnalisation</Link>
           <Link to="/">
             Mon porte-monnaie{' '}
-            <span className="text-xs text-vintedTextGrisClair">0,00€</span>
+            <span className="text-xs text-vintedTextGrisClair">{Number(authUser.userDocument?.argent).toFixed(2)}€</span>
           </Link>
-          <Link to="/">Don</Link>
           <p onClick={handleDisconnect} className="cursor-pointer text-red-600">
             Se déconnecter
           </p>

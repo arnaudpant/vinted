@@ -20,7 +20,7 @@ const ButtonsUserConnected = () => {
       >
         {authUser && authUser.userDocument?.photoURL === '' ? (
           <img
-            src="./avatar.png"
+            src="/avatar.png"
             alt=" profil"
             className="h-8 w-8 rounded-full"
           />

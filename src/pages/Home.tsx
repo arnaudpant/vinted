@@ -22,6 +22,7 @@ const Home = () => {
         end={5}
         idDivParentProductCard={'divParentProductCardExplore'}
         idDivToScrollProductCard={'divToScrollProductCardExplore'}
+        typeSort={'recent'}
       />
       <ProductCard
         title="Articles populaires"
@@ -29,6 +30,7 @@ const Home = () => {
         end={5}
         idDivParentProductCard={'divParentProductCardPopulaire'}
         idDivToScrollProductCard={'divToScrollProductCardPopulaire'}
+        typeSort={'populaire'}
       />
       <BrandSearch />
       <SuggestionSearch />
