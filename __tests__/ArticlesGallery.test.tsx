@@ -3,24 +3,32 @@ import '@testing-library/jest-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 import ArticlesGallery from '@/components/page-infos-article/ArticlesGallery';
-import { FakeProduct } from '@/types/types';
+import { ArticleForSale } from '@/types/types';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 
 vi.mock('../src/context/FakeShopContext');
 
-const FakeArticle: FakeProduct = {
-  id: 10,
-  title: 'Fake Article',
+const FakeArticle: ArticleForSale = {
+  uid: 'testid',
+  titleArticle: 'Fake Article',
   price: 99,
-  description: 'Faux article pour tests',
-  creationAt: 'test',
-  category: {
-    id: 1,
-    name: 'Fake category',
-    image: 'https://www.fakearticle.jpg',
-  },
-  images: ['https://www.fakearticle.jpg'],
+  descriptionArticle: 'Faux article pour tests',
+  category: 'femmes',
+  subCategory: 'other',
+  photos: ['https://www.fakearticle.jpg'],
+  brandArticle: 'test',
+  etat: 'Neuf',
+  color: 'bleu',
+  like: 10,
+  userInfos: {
+    userId: "userid",
+    photoURL:"matronche.jpeg",
+    login:"mon-nom",
+    city:"Paris",
+    stars:5,
+    evaluations:10
+  }
 };
 
 describe('Initialisation du Modal', () => {

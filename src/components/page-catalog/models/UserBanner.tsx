@@ -8,15 +8,12 @@ const UserBanner: React.FC = () => {
 
   return (
     <div className="ml-2 flex  cursor-pointer  flex-row justify-start py-1">
-      <Link
-        to="/"
-        className="flex flex-row flex-nowrap"
-      >
+      <Link to="/" className="flex flex-row flex-nowrap">
         <span className="mr-2">
-            <PictureUser
-              avatarUser={authUser?.userDocument?.photoURL ?? ''}
-              pictureSize={24}
-            />
+          <PictureUser
+            photoUrl={authUser?.userDocument?.photoURL ?? ''}
+            pictureSize={24}
+          />
         </span>
         <span>{authUser?.userDocument?.login}</span>
       </Link>

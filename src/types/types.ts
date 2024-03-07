@@ -73,7 +73,7 @@ export type ArticleForSale = {
   descriptionArticle: string;
   category: CategoriesArticles;
   subCategory: SubCategoriesArticles;
-  brandArticle?: "string";
+  brandArticle?: string;
   etat: EtatForSale;
   color: string,
   price: number;

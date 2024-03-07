@@ -3,24 +3,25 @@ import { afterEach, describe, expect, test, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import BoxInfosVendeurView from '@/components/box-infos-vendeur/BoxInfosVendeurView';
 
-const FakeUserForTest = {
-  id: 314,
-  name: 'John',
-  image: 'https://fake-image.jpg',
-  avatar: 'https://fake-avatar.jpg',
-};
-
 describe('Test du component BoxInfosVendeurView', () => {
   afterEach(() => {
     cleanup();
   });
+
+  const vendeur = {
+    photoURL: 'ma-tronche.jpeg',
+    login: 'moi',
+    city: 'Paris',
+    stars: 3,
+    evaluations: 77,
+  };
 
   test('Affichageruser null pas image avatar et pas de texte déroulé', () => {
     render(
       <BoxInfosVendeurView
         seeMore={false}
         handleSeeMore={() => {}}
-        user={null}
+        vendeur={vendeur}
       />,
     );
     const imageAvatar = screen.queryByTestId(/img-user-avatar/i);
@@ -38,7 +39,7 @@ describe('Test du component BoxInfosVendeurView', () => {
       <BoxInfosVendeurView
         seeMore={false}
         handleSeeMore={() => {}}
-        user={FakeUserForTest}
+        vendeur={vendeur}
       />,
     );
     const imageAvatar = screen.queryByTestId(/img-user-avatar/i);
@@ -50,7 +51,7 @@ describe('Test du component BoxInfosVendeurView', () => {
       <BoxInfosVendeurView
         seeMore={true}
         handleSeeMore={() => {}}
-        user={FakeUserForTest}
+        vendeur={vendeur}
       />,
     );
     const textDeroule = screen.getByText(/responsabilité civile/i);
@@ -65,7 +66,7 @@ describe('Test du component BoxInfosVendeurView', () => {
       <BoxInfosVendeurView
         seeMore={false}
         handleSeeMore={handleSeeMore}
-        user={FakeUserForTest}
+        vendeur={vendeur}
       />,
     );
     const textDeroule = screen.queryByText(/responsabilité civile/i);
@@ -76,5 +77,4 @@ describe('Test du component BoxInfosVendeurView', () => {
     fireEvent.click(textVoirPlus);
     expect(handleSeeMore).toHaveBeenCalledTimes(1);
   });
-
 });

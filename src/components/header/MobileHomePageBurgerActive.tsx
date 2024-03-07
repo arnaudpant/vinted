@@ -44,48 +44,9 @@ const MobileHomePageBurgerActive = () => {
             );
           })}
       </section>
-      <section id="navigation">
-        {[...categoriesHeader]
-          .filter((category) => category.id === ID_ABOUT)
-          .map((category: TypeCategory) => category.navigation)
-          .flat()
-          .map((navigation) => {
-            return (
-              <NavigationPageModel
-                key={navigation?.title}
-                title={navigation?.title}
-                navigationTitles={navigation?.navigationTitles}
-              />
-            );
-          })}
-      </section>
     </div>
   );
 };
 
-const NavigationPageModel: React.FC<{
-  title: string | undefined;
-  navigationTitles: { description: string; path?: string }[] | undefined;
-}> = ({ title, navigationTitles }) => {
-  return (
-    <div key={title} className="ml-4 mt-6 flex flex-col">
-      <h1 className="mb-2 text-sm text-vintedTextGrisFonce">{title}</h1>
-      {navigationTitles?.map((navigationTitle) => {
-        return (
-          <div className="mb-2 space-y-4" key={navigationTitle.description}>
-            <a
-              href=""
-              className="block text-vintedTextBlack"
-              key={navigationTitle.description}
-            >
-              {navigationTitle.description}
-            </a>
-            <hr className="" />
-          </div>
-        );
-      })}
-    </div>
-  );
-};
 
 export default MobileHomePageBurgerActive;
