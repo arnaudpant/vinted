@@ -12,7 +12,6 @@ const UserSynopsis = () => {
   return (
     <div className="mb-16 hidden justify-center space-x-8 sm:flex sm:justify-around">
       <PictureUser photoUrl={authUser?.userDocument?.photoURL} pictureSize={200} />
-
       <div className="flex grow flex-col justify-between lg:flex-row">
         <div className="">
           <h1 className="font-semibold">{authUser?.userDocument?.login}</h1>

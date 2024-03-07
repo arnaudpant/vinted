@@ -6,11 +6,11 @@ const ListSuggestSearchFromVinted: SuggestSearchList[] = [
     views: 573,
   },
   {
-    brand: 'C.P. Company',
+    brand: 'LG',
     views: 341,
   },
   {
-    brand: 'Carhartt',
+    brand: 'VB',
     views: 1.31,
   },
   {
@@ -18,7 +18,7 @@ const ListSuggestSearchFromVinted: SuggestSearchList[] = [
     views: 424,
   },
   {
-    brand: 'UGG chaussures',
+    brand: 'Converse',
     views: 935,
   },
   {
@@ -26,7 +26,7 @@ const ListSuggestSearchFromVinted: SuggestSearchList[] = [
     views: 2.77,
   },
   {
-    brand: 'Vêtements',
+    brand: 'Apple',
     views: 92.9,
   },
   {
@@ -38,7 +38,7 @@ const ListSuggestSearchFromVinted: SuggestSearchList[] = [
     views: 1.35,
   },
   {
-    brand: 'Polo Ralph Lauren Vêtements',
+    brand: 'Nike',
     views: 44.9,
   },
 ];

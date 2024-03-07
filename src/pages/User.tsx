@@ -9,8 +9,8 @@ const User = () => {
   if (!authUser) return <ModalAuth setModalConnexion={() => {}} />;
 
   return (
-    <div className="mx-4 sm:mx-8">
-      <UserSynopsis photoUrl={authUser.userDocument?.photoURL} login={authUser.userDocument?.login} />
+    <div className="container mx-auto max-w-[1240px] py-12">
+      <UserSynopsis />
       <UserTabs />
     </div>
   );

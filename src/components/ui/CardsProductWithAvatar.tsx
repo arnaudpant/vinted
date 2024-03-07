@@ -10,7 +10,7 @@ const CardsProductWithAvatar = () => {
 
 
   return (
-    <div className="container mx-auto max-w-[1240px] py-12">
+    <div className="py-12">
       <p>
         {authUser?.userDocument?.listArticlesForSale.length} articles
         disponibles

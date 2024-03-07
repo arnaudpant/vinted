@@ -102,6 +102,7 @@ const ModalAuthInscription = ({
       inscription: new Date(),
       photoURL: '',
       listArticlesForSale: [],
+      listArticlesFavoris: [],
       description: '',
       country: '',
       city: '',

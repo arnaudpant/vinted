@@ -43,6 +43,7 @@ export type UserDocument = {
   inscription: Timestamp;
   login: string;
   listArticlesForSale: ArticleForSale[];
+  listArticlesFavoris: string[];
   description: string | null;
   country: string;
   city: string;
@@ -87,19 +88,19 @@ export type ArticleForSale = {
   }
 };
 export type CategoriesArticles =
-  | 'Femmes'
-  | 'Hommes'
-  | 'Enfants'
-  | 'Maison'
-  | 'Divertissement'
-  | 'Animaux';
+  | 'femmes'
+  | 'hommes'
+  | 'enfants'
+  | 'maison'
+  | 'divertissement'
+  | 'animaux';
 
-export type SubCategoriesArticles = "vetements" | "chaussures" | "fille" | "garcon" | "textile" | "decoration" | "console" | "puzzle" | "chien" | "chat" | "other";
+export type SubCategoriesArticles = "vetements" | "chaussures" | "fille" | "garcon" | "textile" | "decoration" | "console" | "jeux" | "chiens" | "chats" | "other";
 
 export type EtatForSale = "Neuf" | "Très bon état" | "Bon état" | "Etat correct" | "Mauvais état" | "Très mauvais état"
 
 export type LinkLabel =
-  | 'A propos de Vinted'
+  | 'A propos de VendLe'
   | 'Carrière'
   | 'Le développement durable'
   | 'Presse'
@@ -108,8 +109,8 @@ export type LinkLabel =
   | "Vérification de l'article"
   | 'Applications mobiles'
   | 'Tableau de bord'
-  | 'Vinted Pro'
-  | 'Guide Vinted Pro'
+  | 'VendLe Pro'
+  | 'Guide VendLe Pro'
   | "Centre d'aide"
   | 'Vendre'
   | 'Acheter'
@@ -155,9 +156,7 @@ export type FakeCategory = {
 export type TypeCategory = {
   id: number;
   title: string;
-  subCategories?: TypeSubCategory[];
-  navigation?: NavigationVintedPages[];
-  link?: string;
+  subCategories: TypeSubCategory[];
 };
 export type NavigationVintedPages = {
   title: string;
@@ -165,17 +164,14 @@ export type NavigationVintedPages = {
 };
 export type TypeSubCategory = {
   id: number;
-  link?: string;
-
+  link: string;
   title: string;
   iconName?: string;
-  // Utile pour le "Voir tout"
-  navLink?: string;
-  subSubCategories?: TypeSubSubCategory[];
+  linkId: string
 };
-export type TypeSubSubCategory = { title: string; link?: string };
-export const SEE_ALL = 'Voir tout' as const;
-export const SEE_OTHERS = 'Autres' as const;
+
+export const SEE_ALL = 'Voir tout'
+export const SEE_OTHERS = 'Autres'
 
 export type User = {
   address: {

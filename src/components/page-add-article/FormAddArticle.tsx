@@ -199,10 +199,11 @@ const FormAddArticle = ({
                 <option value="fille">Fille</option>
                 <option value="garcon">Garcon</option>
                 <option value="textile">Textile</option>
+                <option value="decoration">Décoration</option>
                 <option value="console">Jeux vidéos et consoles</option>
-                <option value="puzzle">Jeux et Puzzles</option>
-                <option value="chien">Chien</option>
-                <option value="chat">Chat</option>
+                <option value="jeux">Jeux et Puzzles</option>
+                <option value="chiens">Chien</option>
+                <option value="chats">Chat</option>
                 <option value="other">Other</option>
               </select>
               {errors.category && (

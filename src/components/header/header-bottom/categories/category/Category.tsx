@@ -1,29 +1,35 @@
-import { MenubarMenu } from '@/components/ui/menubar';
-import categoriesHeader from '@/data/categoriesHeader';
-import { MenubarContent, MenubarTrigger } from '@radix-ui/react-menubar';
-import SubCategories from '../menus/category/SubCategories';
 
-const Category: React.FC<{
-  selectedIdCategory: number;
-}> = ({ selectedIdCategory }) => {
-  const currentCategory = categoriesHeader.find(
-    (category) => category.id === selectedIdCategory,
-  );
+import { MenubarContent, MenubarItem, MenubarShortcut } from '@/components/ui/menubar';
+import { TypeSubCategory } from '@/types/types';
+import { Link } from 'react-router-dom';
 
+
+type Props = {
+  subCategory: TypeSubCategory[];
+};
+
+const Category = ({ subCategory }: Props) => {
   return (
-    <MenubarMenu>
-      <MenubarTrigger className="text-lg text-vintedTextBlackVar hover:border-b-4 hover:border-vintedGreen  hover:bg-vintedBackgroundCard">
-        {currentCategory?.title}
-      </MenubarTrigger>
-
-      <MenubarContent
-        className="my-2 bg-vintedBackground p-4"
-        side="bottom"
-        align="center"
-      >
-        <SubCategories selectedIdCategory={selectedIdCategory} />
-      </MenubarContent>
-    </MenubarMenu>
+    <MenubarContent>
+      {subCategory.map((subCategory) => (
+        <Link
+          to={`catalog/${subCategory.link}`}
+          state={[subCategory.linkId, subCategory.link]}
+          key={subCategory.id}
+        >
+          <MenubarItem>
+            {subCategory.title}{' '}
+            <MenubarShortcut>
+              <img
+                src={subCategory.iconName}
+                className="ml-4 h-6 "
+                alt={subCategory.title}
+              />
+            </MenubarShortcut>
+          </MenubarItem>
+        </Link>
+      ))}
+    </MenubarContent>
   );
 };
 export default Category;

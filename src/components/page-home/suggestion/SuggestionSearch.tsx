@@ -1,5 +1,5 @@
 import ListSuggestSearchFromVinted from '../../../api/api';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardSuggestionSearch from './CardSuggestionSearch';
 import ChevronPosition from '../../../components/ui/ChevronPosition';
 import { ScrollAction } from '@/types/types';
@@ -41,7 +41,6 @@ const SuggestionSearch: React.FC = () => {
     } else {
       setScrollCards('both');
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [divToScrollValue]);
 

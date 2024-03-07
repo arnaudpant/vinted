@@ -29,8 +29,8 @@ function App() {
           <Route path="/new-article" element={<NewArticle />} />
           {/* Page de recherche global */}
           <Route path="/search" element={<Search />} />
-          {/* Page de recherche par categorie via navbar */}
-          <Route path="/catalog/" element={<Catalog />} />
+          {/* Page articles par categorie via navbar */}
+          <Route path="/catalog/:id" element={<Catalog />} />
           {/* Page de settings du profil */}
           <Route path="/settings/:section" element={<Settings />} />
           <Route

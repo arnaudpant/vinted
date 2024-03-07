@@ -34,7 +34,7 @@ const Home = () => {
       />
       <BrandSearch />
       <SuggestionSearch />
-      <NewsFeed title="Fil d'actu" start={2} end={12} />
+      <NewsFeed />
     </>
   );
 };
