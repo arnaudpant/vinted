@@ -4,6 +4,7 @@ import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { Mail, Bell, Heart, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import MenuUserConnected from './MenuUserConnected';
+import { Link } from 'react-router-dom';
 
 const ButtonsUserConnected = () => {
   const { authUser } = useFirebaseAuth();
@@ -13,7 +14,9 @@ const ButtonsUserConnected = () => {
     <div className="relative flex items-center gap-2 text-vintedTextGrisClair">
       <Mail className="h-5 cursor-pointer" />
       <Bell className="h-5 cursor-pointer" />
-      <Heart className="h-5 cursor-pointer" />
+      <Link to="/favoris" state={authUser?.userDocument?.listArticlesFavoris}>
+        <Heart className="h-5 cursor-pointer" />
+      </Link>
       <div
         className="flex cursor-pointer items-center"
         onClick={() => setIsMenuOpen((v) => !v)}

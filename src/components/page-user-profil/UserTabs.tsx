@@ -1,14 +1,14 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import UserAboutTab from './aboutTab/UserAboutTab';
-import UserDressingProfil from './dressingTab/UserDressingProfil';
 import UserEvaluation from './evaluationsTab/UserEvaluation';
+import UserAboutTab from './aboutTab/UserAboutTab';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import CardsProductWithAvatar from '../ui/CardsProductWithAvatar';
 
 const UserTabs: React.FC = () => {
   const tabs = [
     {
       value: 'dressing',
       label: 'dressing',
-      component: <UserDressingProfil />,
+      component: <CardsProductWithAvatar />,
     },
     {
       value: 'evaluations',
@@ -23,9 +23,8 @@ const UserTabs: React.FC = () => {
     },
   ];
   return (
-    <div>
       <Tabs defaultValue={tabs[0].value}>
-        <TabsList className="grid w-full grid-cols-3 sm:w-1/2 sm:grid-cols-2 ">
+        <TabsList className="grid w-full grid-cols-3 sm:w-1/2 sm:grid-cols-2">
           {tabs.map((tab) => {
             return (
               <TabsTrigger
@@ -50,7 +49,6 @@ const UserTabs: React.FC = () => {
           );
         })}
       </Tabs>
-    </div>
   );
 };
 

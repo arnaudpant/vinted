@@ -4,18 +4,6 @@
 
 import { Timestamp } from 'firebase/firestore';
 
-export type ProductFakeApi = {
-  category: string;
-  description: string;
-  id: number;
-  image: string;
-  price: number;
-  rating: {
-    count: number;
-    rate: number;
-  };
-  title: string;
-};
 
 export type SuggestSearchList = {
   brand: string;
@@ -78,15 +66,17 @@ export type ArticleForSale = {
   color: string,
   price: number;
   like: number;
-  userInfos: {
-    userId: string
-    photoURL: string;
-    login: string;
-    city: string;
-    stars: number,
-    evaluations: number
-  }
+  userInfos: UserInfos
 };
+
+export type UserInfos = {
+  userId: string
+  photoURL: string;
+  login: string;
+  city: string;
+  stars: number,
+  evaluations: number
+}
 export type CategoriesArticles =
   | 'femmes'
   | 'hommes'

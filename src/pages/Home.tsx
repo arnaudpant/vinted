@@ -19,7 +19,7 @@ const Home = () => {
       <ProductCard
         title="Explorer les derniers articles"
         start={0}
-        end={5}
+        end={6}
         idDivParentProductCard={'divParentProductCardExplore'}
         idDivToScrollProductCard={'divToScrollProductCardExplore'}
         typeSort={'recent'}

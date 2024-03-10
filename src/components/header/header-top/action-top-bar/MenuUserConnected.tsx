@@ -26,7 +26,7 @@ const MenuUserConnected = ({ setIsMenuOpen }: Props) => {
     >
       {authUser ? (
         <>
-          <Link to="/member">Mon profil</Link>
+          <Link to={`/member`} state={[authUser.uid, {}]}>Mon profil</Link>
           <Link to="/">
             Mon porte-monnaie{' '}
             <span className="text-xs text-vintedTextGrisClair">{Number(authUser.userDocument?.argent).toFixed(2)}€</span>

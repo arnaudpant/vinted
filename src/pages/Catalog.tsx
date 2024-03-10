@@ -16,23 +16,39 @@ const Catalog = () => {
   const [listArticlesByCategory, setListArticlesByCategory] =
     useState<ArticleForSale[]>();
 
-    console.log(listArticles?.fullListArticlesForSale[0]);
-    
-    useEffect(() => {
+  useEffect(() => {
     if (listArticles?.fullListArticlesForSale !== undefined) {
-      if (state[0] === "") {
+      if (state[0] === '') {
         const articlesFilter = listArticles.fullListArticlesForSale.filter(
           (article) => article.category === state[1],
         );
         setListArticlesByCategory(articlesFilter);
+      } else if (state[0] === 'home') {
+        if (state[1] === 'recent') {
+          const articlesFilter = listArticles.fullListArticlesForSale.reverse();
+          setListArticlesByCategory(articlesFilter);
+        }
+        if (state[1] === 'populaire') {
+          const articlesFilter = listArticles.fullListArticlesForSale.sort(
+            (a, b) => (a.like < b.like ? 1 : -1),
+          );
+          setListArticlesByCategory(articlesFilter);
+        }
       } else {
         const articlesFilter = listArticles.fullListArticlesForSale.filter(
-          (article) => article.subCategory === state[0] && article.category === state[1],
+          (article) =>
+            article.subCategory === state[0] && article.category === state[1],
         );
         setListArticlesByCategory(articlesFilter);
       }
     }
   }, [listArticles, state, location.pathname]);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
 
   return (
     <div className="container mx-auto max-w-[1240px] py-12">

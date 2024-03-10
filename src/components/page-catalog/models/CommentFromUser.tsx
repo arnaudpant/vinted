@@ -22,6 +22,27 @@ const CommentFromUser = ({ userId }: Props) => {
       avatar: '/avatar.png',
       comment: 'Merci super vendeur',
     },
+    {
+      id: 3,
+      image: '',
+      name: 'Michel',
+      avatar: '/avatar.png',
+      comment: 'Merci super vendeur',
+    },
+    {
+      id: 4,
+      image: '',
+      name: 'Michel',
+      avatar: '/avatar.png',
+      comment: 'Merci super vendeur',
+    },
+    {
+      id: 5,
+      image: '',
+      name: 'Michel',
+      avatar: '/avatar.png',
+      comment: 'Merci super vendeur',
+    },
   ];
 
   const userToSee = users.filter((user) => user.id === userId);

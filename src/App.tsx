@@ -2,7 +2,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 /** PAGES */
-
 import Article from './pages/Article';
 import Catalog from './pages/Catalog';
 import Error404 from './pages/Error404';
@@ -14,6 +13,8 @@ import Authentification from './pages/Authentification';
 import Settings from './pages/Settings';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorBoundaryComponent from './error-boundary/ErrorBoundaryComponent';
+import Vendeur from './pages/Vendeur';
+import Favoris from './pages/Favoris';
 
 function App() {
   return (
@@ -28,7 +29,11 @@ function App() {
             {/* Page avec modal connexion ou inscription */}
             <Route path="/authentification" element={<Authentification />} />
             {/*Page de profil de l'utilisateur*/}
-            <Route path="/member/" element={<User />} />
+            <Route path="/member" element={<User />} />
+            {/*Page de profil du vendeur*/}
+            <Route path="/vendeur" element={<Vendeur />} />
+            {/* Page Favoris */}
+            <Route path="/favoris" element={<Favoris />} />
             {/* Page Achat */}
             <Route path="/items/:id" element={<Article />} />
             {/* Page vente si connecté */}

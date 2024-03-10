@@ -1,6 +1,5 @@
 import UserReview from './UserReview';
 import UserAboutDetails from '../aboutTab/UserAboutDetails';
-import ButtonsContact from '../models/ButtonsContact';
 import CardsProductWithAvatar from '@/components/ui/CardsProductWithAvatar';
 
 const UserDressingProfil: React.FC = () => {
@@ -14,10 +13,6 @@ const UserDressingProfil: React.FC = () => {
           <UserAboutDetails
             google={true}
           />
-        
-        <hr className="my-4" />
-        <ButtonsContact />
-        <hr className="my-4" />
       </div>
       <CardsProductWithAvatar />
     </div>

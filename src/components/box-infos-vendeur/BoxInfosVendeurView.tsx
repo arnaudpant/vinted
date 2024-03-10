@@ -1,27 +1,21 @@
+import { UserInfos } from '@/types/types';
 import { ChevronRight, Clock, MapPin, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 type Props = {
   seeMore: boolean;
   handleSeeMore: () => void;
-  vendeur: {
-    photoURL: string;
-    login: string;
-    city: string;
-    stars: number;
-    evaluations: number;
-  };
+  vendeur: UserInfos;
 };
 
-
 const BoxInfosVendeurView = ({ seeMore, handleSeeMore, vendeur }: Props) => {
-  
   return (
     <>
       {/* Box */}
       <div className="flex h-20 cursor-pointer justify-between border-b bg-vintedBackground p-4 hover:bg-slate-50">
-        <div className="flex">
-          {vendeur !== null && (
-            <>
+        {vendeur !== null && (
+          <>
+            <Link to="/vendeur" state={[vendeur]} className="flex flex-row">
               <img
                 src={vendeur.photoURL}
                 className="mr-2 h-12 w-12 rounded-full"
@@ -43,12 +37,12 @@ const BoxInfosVendeurView = ({ seeMore, handleSeeMore, vendeur }: Props) => {
                   </span>
                 </div>
               </div>
-            </>
-          )}
-        </div>
-        <div className="flex  justify-between">
-          <ChevronRight className="ml-2 h-6 w-6" />
-        </div>
+            </Link>
+            <div className="flex  justify-between">
+              <ChevronRight className="ml-2 h-6 w-6" />
+            </div>
+          </>
+        )}
       </div>
 
       <div className="bg-vintedBackground p-4">

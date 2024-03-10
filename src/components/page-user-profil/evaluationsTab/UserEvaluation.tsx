@@ -9,9 +9,9 @@ const UserEvaluation: React.FC = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-6xl font-semibold">
+        <h2 className="text-6xl font-semibold">
           {authUser?.userDocument?.stars ?? 0}
-        </h1>
+        </h2>
         <div className="flex">
           <UserNoteStars note={authUser?.userDocument?.stars ?? 0} />
         </div>

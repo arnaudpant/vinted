@@ -47,7 +47,7 @@ const ActionsTopBar: () => JSX.Element = () => {
           <img
             src={logoHelp}
             alt="Aide"
-            className="mr-1 inline-block h-6 w-6 cursor-pointer object-contain"
+            className="mr-1 inline-block h-6 w-6 cursor-not-allowed object-contain"
           />
           <select
             name="language"

@@ -1,16 +1,23 @@
-import ModalAuth from '@/components/modals/authentification/ModalAuth';
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import UserSynopsis from '@/components/page-user-profil/UserSynopsis';
 import UserTabs from '@/components/page-user-profil/UserTabs';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 
 const User = () => {
-  const { authUser} = useFirebaseAuth();
-
-  if (!authUser) return <ModalAuth setModalConnexion={() => {}} />;
+  const { authUser } = useFirebaseAuth();
 
   return (
     <div className="container mx-auto max-w-[1240px] py-12">
-      <UserSynopsis />
+      <UserSynopsis
+        vendeur={false}
+        photoUrl={authUser?.userDocument?.photoURL ?? ''}
+        login={authUser?.userDocument?.login ?? ''}
+        evaluations={authUser?.userDocument?.evaluations ?? 0}
+        stars={authUser?.userDocument?.stars ?? 0}
+      />
       <UserTabs />
     </div>
   );

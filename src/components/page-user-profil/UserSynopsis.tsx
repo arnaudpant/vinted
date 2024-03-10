@@ -1,32 +1,42 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import UserNoteStars from '../ui/UserNoteStars';
 import PictureUser from '../header/PictureUser';
 import ButtonModifyProfile from './ButtonModifyProfile';
-import UserInfoLine from './models/UserInfoLine';
-import { CheckCircle} from 'lucide-react';
 import UserAboutDetails from './aboutTab/UserAboutDetails';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 
+type Props = {
+  vendeur: boolean;
+  photoUrl: string;
+  login: string;
+  evaluations: number;
+  stars: number;
+};
 
-const UserSynopsis = () => {
-  const { authUser } = useFirebaseAuth()
+const UserSynopsis = ({
+  vendeur,
+  photoUrl,
+  login,
+  evaluations,
+  stars,
+}: Props) => {
   return (
-    <div className="mb-16 hidden justify-center space-x-8 sm:flex sm:justify-around">
-      <PictureUser photoUrl={authUser?.userDocument?.photoURL} pictureSize={200} />
-      <div className="flex grow flex-col justify-between lg:flex-row">
+    <div className="mb-16 flex flex-col justify-center gap-4 md:flex-row md:justify-around">
+      <div className="mx-auto h-24 w-24 md:h-48 md:w-48">
+        <PictureUser photoUrl={photoUrl} />
+      </div>
+      <div className="flex grow flex-col justify-start gap-4 md:flex-row">
         <div className="">
-          <h1 className="font-semibold">{authUser?.userDocument?.login}</h1>
+          <h1 className="font-semibold">{login}</h1>
           <div className="flex space-x-2">
-            <UserNoteStars note={authUser?.userDocument?.stars ?? 0} />
-            <span>{authUser?.userDocument?.evaluations} évaluations</span>
+            <UserNoteStars note={stars} />
+            <span>{evaluations} évaluations</span>
           </div>
           <h2 className="mt-6 text-sm">A propos</h2>
           <UserAboutDetails google={false} />
         </div>
-        <div className="my-6 lg:my-0">
-          <h2 className="text-sm">Informations vérifiées</h2>
-          <UserInfoLine ComponentPicture={<CheckCircle />}>Email</UserInfoLine>
+        <div className='mx-auto'>
+        {!vendeur && <ButtonModifyProfile />}
         </div>
-        <ButtonModifyProfile />
       </div>
     </div>
   );

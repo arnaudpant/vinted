@@ -87,7 +87,13 @@ const ProductCard = ({
     <div className="container mx-auto max-w-[1240px] py-12">
       <div className="flex w-full justify-between pb-4">
         <h1 className="text-2xl">{title}</h1>
-        <p className="cursor-pointer text-vintedGreen">Tout voir</p>
+        <Link
+          to={`catalog/${typeSort}`}
+          className="cursor-pointer text-vintedGreen"
+          state={['home', typeSort]}
+        >
+          Tout voir
+        </Link>
       </div>
 
       <div
@@ -125,9 +131,13 @@ const ProductCard = ({
                 ))
                 .slice(start, end)}
               <div className="flex h-[300px] w-[213px] flex-col justify-center bg-gray-100">
-                <p className="cursor-pointer text-center text-vintedTextGrisFonce">
+                <Link
+                  to={`catalog/${typeSort}`}
+                  state={['home', typeSort]}
+                  className="cursor-pointer text-center text-vintedTextGrisFonce"
+                >
                   Voir tous les articles
-                </p>
+                </Link>
               </div>
             </div>
           ) : (
