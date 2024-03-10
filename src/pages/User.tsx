@@ -5,12 +5,19 @@
 import UserSynopsis from '@/components/page-user-profil/UserSynopsis';
 import UserTabs from '@/components/page-user-profil/UserTabs';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useEffect } from 'react';
 
 const User = () => {
   const { authUser } = useFirebaseAuth();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
+
   return (
-    <div className="container mx-auto max-w-[1240px] py-12">
+    <div className="container mx-auto max-w-[1240px] py-4 sm:py-8">
       <UserSynopsis
         vendeur={false}
         photoUrl={authUser?.userDocument?.photoURL ?? ''}

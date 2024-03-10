@@ -16,7 +16,7 @@ const NewsFeedView = ({ listArticlesShuffle, title }: Props) => {
       </div>
 
       {listArticlesShuffle && listArticlesShuffle.length > 0 ? (
-        <div className="flex w-full flex-wrap justify-start gap-4">
+        <div className="flex w-full flex-wrap justify-center gap-4 md:justify-start">
           {listArticlesShuffle.map((product: ArticleForSale) => (
             <Link
               to={`/items/${product.uid}`}
