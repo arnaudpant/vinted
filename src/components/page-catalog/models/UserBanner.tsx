@@ -10,10 +10,11 @@ const UserBanner: React.FC = () => {
     <div className="ml-2 flex  cursor-pointer  flex-row justify-start py-1">
       <Link to="/" className="flex flex-row flex-nowrap">
         <span className="mr-2">
+          <div className='h-6 w-6'>
           <PictureUser
             photoUrl={authUser?.userDocument?.photoURL ?? ''}
-            pictureSize={24}
           />
+          </div>
         </span>
         <span>{authUser?.userDocument?.login}</span>
       </Link>

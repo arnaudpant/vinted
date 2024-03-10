@@ -9,6 +9,7 @@ describe('Test du component BoxInfosVendeurView', () => {
   });
 
   const vendeur = {
+    userId: "userDeTest",
     photoURL: 'ma-tronche.jpeg',
     login: 'moi',
     city: 'Paris',

@@ -6,10 +6,11 @@ const UserReview: React.FC = () => {
   const { authUser } = useFirebaseAuth();
   return (
     <div className="flex items-center space-x-3">
+      <div className='h-12 w-12'>
       <PictureUser
         photoUrl={authUser?.userDocument?.photoURL}
-        pictureSize={48}
       />
+      </div>
 
       <div className="w-fit leading-tight">
         <h1>{authUser?.userDocument?.login}</h1>
