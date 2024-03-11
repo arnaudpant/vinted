@@ -51,7 +51,7 @@ const UserEvaluation: React.FC = () => {
         </p>
         <hr className="my-4" />
       </div>
-      {data.data && (
+      {data && (
         <>
           <CommentFromUser user={data.data[numberRandom]} />
           <CommentFromUser user={data.data[numberRandom + 1]} />
