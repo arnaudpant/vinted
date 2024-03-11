@@ -25,7 +25,6 @@ const ProductCard = ({
 }: Props) => {
   // CONTEXTE
   const { listArticles } = useFirestoreData();
-
   const [scrollCards, setScrollCards] = useState<ScrollAction>('right');
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
   const [listArticlesSort, setListArticlesSort] = useState<ArticleForSale[]>();
