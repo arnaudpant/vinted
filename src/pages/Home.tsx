@@ -27,7 +27,7 @@ const Home = () => {
       <ProductCard
         title="Articles populaires"
         start={0}
-        end={5}
+        end={6}
         idDivParentProductCard={'divParentProductCardPopulaire'}
         idDivToScrollProductCard={'divToScrollProductCardPopulaire'}
         typeSort={'populaire'}

@@ -29,8 +29,6 @@ const ProductCard = ({
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
   const [listArticlesSort, setListArticlesSort] = useState<ArticleForSale[]>();
 
-  // const idDivParentProductCard = 'divParentProductCardExplore';
-  // const idDivToScrollProductCard = 'divToScrollProductCard';
 
   const divParent = document.getElementById(idDivParentProductCard);
   const divToScroll = document.getElementById(idDivToScrollProductCard);

@@ -7,19 +7,11 @@ import { ArticlesInterface} from "@/types/types"
 import { doc, onSnapshot } from "firebase/firestore"
 import { useEffect, useState } from "react"
 
-/**
- * 
- * @returns  authUser pour récupérer toutes les datas du l'utilisateur connecté,
-        getUserDocument pour recuperer en temps reel les modifs dans db firestore
- */
 
 const useFirestoreData = () => {
     const [listArticles, setListArticles] = useState<ArticlesInterface>()
+    
 
-    /** 
-       * Ecouteur de Firebase pour user connecté ou non connecté
-       * De base ne return que les données primaires => formatage
-       */
     useEffect(() => {
         getListArticle()
     }, [])

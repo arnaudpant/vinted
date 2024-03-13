@@ -16,6 +16,7 @@ import ErrorBoundaryComponent from './error-boundary/ErrorBoundaryComponent';
 import Vendeur from './pages/Vendeur';
 import Favoris from './pages/Favoris';
 
+
 function App() {
   return (
     <BrowserRouter>

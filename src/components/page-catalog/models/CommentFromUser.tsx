@@ -12,11 +12,19 @@ const CommentFromUser = ({ user }: Props) => {
       <div>
         {user && (
           <>
-            <img
-              src={user.avatar}
-              alt="avatar"
-              className="h-16 w-16 rounded-full object-contain"
-            />
+            {user.avatar ? (
+              <img
+                src={user.avatar}
+                alt="avatar"
+                className="h-16 w-16 rounded-full object-contain"
+              />
+            ) : (
+              <img
+                src="/avatar.png"
+                alt="avatar"
+                className="h-16 w-16 rounded-full object-contain"
+              />
+            )}
             <div className="flex flex-col ">
               <span>{user.first_name}</span>
               <UserNoteStars note={getRandomIndex(3, 5)} />
