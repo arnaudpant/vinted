@@ -9,9 +9,9 @@ const Footer = () => {
       <div className="container divide-y">
         <ul className="flex flex-col justify-between sm:flex-row">
           <FooterSectionItem
-            label="VendLe"
+            label="VendsLe"
             linkLabels={[
-              'A propos de VendLe',
+              'A propos de VendsLe',
               'Carrière',
               'Le développement durable',
               'Presse',
@@ -25,8 +25,8 @@ const Footer = () => {
               "Vérification de l'article",
               'Applications mobiles',
               'Tableau de bord',
-              'VendLe Pro',
-              'Guide VendLe Pro',
+              'VendsLe Pro',
+              'Guide VendsLe Pro',
             ]}
           />
           <FooterSectionItem

@@ -1,6 +1,6 @@
 import HeaderBarSearch from './input-search/HeaderBarSearch';
 import ActionsTopBar from './action-top-bar/ActionsTopBar';
-import logo from '@/assets/logoVendLe.png';
+import logo from '@/assets/logoVendsLe.png';
 import { Link } from 'react-router-dom';
 
 const TopHeader: () => JSX.Element = () => {

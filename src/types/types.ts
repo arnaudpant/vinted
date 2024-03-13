@@ -90,7 +90,7 @@ export type SubCategoriesArticles = "vetements" | "chaussures" | "fille" | "garc
 export type EtatForSale = "Neuf" | "Très bon état" | "Bon état" | "Etat correct" | "Mauvais état" | "Très mauvais état"
 
 export type LinkLabel =
-  | 'A propos de VendLe'
+  | 'A propos de VendsLe'
   | 'Carrière'
   | 'Le développement durable'
   | 'Presse'
@@ -99,8 +99,8 @@ export type LinkLabel =
   | "Vérification de l'article"
   | 'Applications mobiles'
   | 'Tableau de bord'
-  | 'VendLe Pro'
-  | 'Guide VendLe Pro'
+  | 'VendsLe Pro'
+  | 'Guide VendsLe Pro'
   | "Centre d'aide"
   | 'Vendre'
   | 'Acheter'

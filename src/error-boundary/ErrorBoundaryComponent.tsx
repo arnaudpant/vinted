@@ -18,7 +18,7 @@ const ErrorBoundaryComponent: React.ComponentType<FallbackProps> = ({
             className="px-4 py-2"
             onClick={resetErrorBoundary}
           >
-            Accueil VendLe
+            Accueil VendsLe
           </button>
         </div>
       </div>
