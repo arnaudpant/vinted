@@ -1,9 +1,9 @@
 import PictureUser from '@/components/header/PictureUser';
 import UserNoteStars from '@/components/ui/UserNoteStars';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useAuth } from '@/context/AuthUserContext';
 
 const UserReview: React.FC = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
   return (
     <div className="flex items-center space-x-3">
       <div className='h-12 w-12'>

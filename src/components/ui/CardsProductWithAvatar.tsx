@@ -1,12 +1,12 @@
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { ArticleForSale } from '@/types/types';
 import { Link } from 'react-router-dom';
 import CardInfosBottom from '../page-home/ProductCard/CardInfosBottom';
 import Skeleton from './skeleton';
 import { getTaxeIncl } from '@/utils/Utils';
+import { useAuth } from '@/context/AuthUserContext';
 
 const CardsProductWithAvatar = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
 
 
   return (

@@ -1,10 +1,10 @@
 import { CheckCircle2, MapPin, Rss } from 'lucide-react';
 import UserInfoLine from '../models/UserInfoLine';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import getRandomIndex from '@/utils/Utils';
+import { useAuth } from '@/context/AuthUserContext';
 
 const UserDressingInfos = () => {
-  const {authUser} = useFirebaseAuth()
+  const { authUser } = useAuth();
   return (
     <div>
       <UserInfoLine ComponentPicture={<CheckCircle2 />}>

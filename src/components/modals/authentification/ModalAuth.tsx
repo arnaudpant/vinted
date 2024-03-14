@@ -1,20 +1,15 @@
-/**
- * MODAL inscription / connexion
- */
-
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { useNavigate } from 'react-router-dom';
 import ModalAuthView from './ModalAuthView';
+import { useAuth } from '@/context/AuthUserContext';
 
 type Props = {
   setModalConnexion: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ModalAuth = ({ setModalConnexion }: Props) => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
 
   const navigate = useNavigate();
 

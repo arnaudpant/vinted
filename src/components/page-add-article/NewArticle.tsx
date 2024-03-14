@@ -1,9 +1,9 @@
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import ModalAuth from '@/components/modals/authentification/ModalAuth';
 import FormAddArticle from '@/components/page-add-article/FormAddArticle';
+import { useAuth } from '@/context/AuthUserContext';
 
 const NewArticle = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
 
   return (
     <section className="bg-vintedBackgroundCard pt-5">

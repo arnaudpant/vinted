@@ -1,9 +1,9 @@
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { Link } from 'react-router-dom';
 import PictureUser from '../../header/PictureUser';
+import { useAuth } from '@/context/AuthUserContext';
 
 const UserBanner: React.FC = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
 
 
   return (

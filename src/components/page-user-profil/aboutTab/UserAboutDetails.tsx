@@ -1,14 +1,14 @@
 import { CheckCircle2, Clock, MapPin, Rss } from 'lucide-react';
 import UserInfoLine from '../models/UserInfoLine';
 import getRandomIndex from '@/utils/Utils';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useAuth } from '@/context/AuthUserContext';
 
 type Props = {
   google?: boolean;
 };
 
 const UserAboutDetails = ({ google}: Props) => {
-  const {authUser} = useFirebaseAuth()
+  const { authUser } = useAuth();
 
   return (
     <div>

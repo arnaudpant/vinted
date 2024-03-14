@@ -1,15 +1,15 @@
 import { UserDocument } from '@/types/types';
 import { useForm } from 'react-hook-form';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import languages from '@/data/languages';
 import FormDescription from './FormDescription';
 import FormSelect from './FormSelect';
 import FormDisplayCityInProfile from './FormDisplayCityInProfile';
 import FormProfileInput from './FormProfileInput';
 import FormModifyProfilePicture from './FormModifyProfilePicture';
+import { useAuth } from '@/context/AuthUserContext';
 
 const FormModifyProfile = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
   const userDocument = authUser?.userDocument;
   const {
     handleSubmit,

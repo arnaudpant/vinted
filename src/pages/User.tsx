@@ -4,11 +4,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import UserSynopsis from '@/components/page-user-profil/UserSynopsis';
 import UserTabs from '@/components/page-user-profil/UserTabs';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useAuth } from '@/context/AuthUserContext';
 import { useEffect } from 'react';
 
 const User = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
 
   useEffect(() => {
     window.scrollTo({

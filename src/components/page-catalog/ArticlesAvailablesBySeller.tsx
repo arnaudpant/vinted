@@ -1,9 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
+import { useAuth } from '@/context/AuthUserContext';
 import ArticlesAvailablesModel from './models/ArticlesAvailablesModel';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 
 const ArticlesAvailablesBySeller = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
 
   return (
     <>

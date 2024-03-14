@@ -1,13 +1,13 @@
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import ModalAuth from '@/components/modals/authentification/ModalAuth';
 import FormModifyProfile from '@/components/page-modify-profile/FormModifyProfile';
 import { useParams } from 'react-router-dom';
+import { useAuth } from '@/context/AuthUserContext';
 
 const PROFILE_SECTION = 'profile';
 
 const Settings = () => {
   const { section } = useParams();
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
   let eltToDisplay;
   if (!authUser) {
     eltToDisplay = <ModalAuth setModalConnexion={() => {}} />;

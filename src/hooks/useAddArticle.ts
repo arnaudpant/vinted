@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import { ArticleForSale } from "@/types/types";
-import useFirebaseAuth from "./useFirebaseAuth";
 import { FirestoreUpdateDocument } from "@/firebase/firestore";
 import { useState } from "react";
 import useFirestoreData from "./useFirestoreData";
+import { useAuth } from "@/context/AuthUserContext";
 
 /**
  * HOOK pour envoyer un article dans la base de données firestore
@@ -12,7 +12,7 @@ import useFirestoreData from "./useFirestoreData";
 
 
 const useAddArticle = () => {
-    const { authUser } = useFirebaseAuth()
+    const { authUser } = useAuth()
     const {listArticles} = useFirestoreData()
     const [isLoadingAddArticle, setIsLoadingAddArticle] = useState<boolean>(false)
 

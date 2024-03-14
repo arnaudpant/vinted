@@ -2,14 +2,14 @@ import logoHelp from '@/assets/icon-help.png';
 import { useState } from 'react';
 import ModalAuth from '../../../modals/authentification/ModalAuth';
 import ButtonTopHeader from './ButtonTopHeader';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { Link } from 'react-router-dom';
 import ButtonsUserConnected from './ButtonsUserConnected';
 import BurgerMenuLogo from './BurgerMenuLogo';
+import { useAuth } from '@/context/AuthUserContext';
 
 const ActionsTopBar: () => JSX.Element = () => {
   const [modalConnexion, setModalConnexion] = useState<boolean>(false);
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
 
   const handleConnexion = () => {
     setModalConnexion((v) => !v);

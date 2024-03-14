@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { Mail, Bell, Heart, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import MenuUserConnected from './MenuUserConnected';
 import { Link } from 'react-router-dom';
+import { useAuth } from '@/context/AuthUserContext';
 
 const ButtonsUserConnected = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (

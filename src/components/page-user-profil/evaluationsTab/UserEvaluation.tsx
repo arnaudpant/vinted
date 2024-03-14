@@ -4,13 +4,13 @@
 import CommentFromUser from '@/components/page-catalog/models/CommentFromUser';
 import LoadingCircularProgress from '@/components/ui/LoadingCircularProgress';
 import UserNoteStars from '@/components/ui/UserNoteStars';
+import { useAuth } from '@/context/AuthUserContext';
 import useFakeUsers from '@/hooks/useFakeUsers';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import getRandomIndex from '@/utils/Utils';
 import { useQuery } from 'react-query';
 
 const UserEvaluation: React.FC = () => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
   const { fetchUsers } = useFakeUsers();
   const { isLoading, data, isError } = useQuery('fakeUsers', fetchUsers);
 

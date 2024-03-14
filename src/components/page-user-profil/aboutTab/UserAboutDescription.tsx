@@ -1,7 +1,7 @@
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useAuth } from '@/context/AuthUserContext';
 
 const UserAboutDescription: React.FC = () => {
-  const {authUser} = useFirebaseAuth()
+  const { authUser } = useAuth();
   return (
     <div className="flex flex-col">
       {authUser?.userDocument?.photoURL ? (

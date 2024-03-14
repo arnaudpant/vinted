@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { firebaseSignOutUser } from '@/api/authentification';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useAuth } from '@/context/AuthUserContext';
 import { Link, Navigate } from 'react-router-dom';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const MenuUserConnected = ({ setIsMenuOpen }: Props) => {
-  const { authUser } = useFirebaseAuth();
+  const { authUser } = useAuth();
 
   const handleDisconnect = async () => {
     const { error } = await firebaseSignOutUser();
