@@ -14,7 +14,7 @@ const CallToAction = () => {
 
       <Link to="/new-article">
         <p className="rounded-sm bg-vintedGreen py-2 text-center text-white">
-          Vends maintenant
+          Vends Le maintenant
         </p>
       </Link>
       <p className="cursor-pointer pt-3 text-center text-[14px] text-vintedGreen underline md:text-left">

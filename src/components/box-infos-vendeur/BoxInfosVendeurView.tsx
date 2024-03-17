@@ -38,7 +38,7 @@ const BoxInfosVendeurView = ({ seeMore, handleSeeMore, vendeur }: Props) => {
                 </div>
               </div>
             </Link>
-            <div className="flex  justify-between">
+            <div className="flex justify-between">
               <ChevronRight className="ml-2 h-6 w-6" />
             </div>
           </>

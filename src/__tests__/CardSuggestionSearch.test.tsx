@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import CardSuggestionSearch from '../src/components/page-home/suggestion/CardSuggestionSearch';
-import { SuggestSearchList } from './../src/types/types';
+import CardSuggestionSearch from '../components/page-home/suggestion/CardSuggestionSearch';
+import { SuggestSearchList } from '../types/types';
 
 const fakeSuggestSearchListK: SuggestSearchList = {
   brand: 'marque du produit',

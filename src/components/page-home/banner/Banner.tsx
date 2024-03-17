@@ -2,21 +2,16 @@ import CallToAction from './CallToActions';
 
 const Banner = () => {
   return (
-      <section
-        id="banner"
-        className="flex h-[390px] w-full items-center bg-hero-pattern bg-cover bg-center md:h-[500px]"
-      >
-        <div className="container mx-auto hidden w-full px-5 sm:block">
-          <div className="w-96 bg-white p-8">
-            <CallToAction />
-          </div>
+    <section
+      id="banner"
+      className="flex h-[390px] w-full items-center bg-hero-pattern bg-cover bg-center md:h-[500px]"
+    >
+      <div className="w-full p-4 sm:container sm:mx-auto sm:w-full sm:px-5">
+        <div className="w-full bg-white p-4 sm:w-96 sm:p-8">
+          <CallToAction />
         </div>
-        <div className="w-full p-4 sm:hidden">
-          <div className="w-full bg-white p-4">
-            <CallToAction />
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
   );
 };
 

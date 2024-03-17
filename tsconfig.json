@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
     },
 
     /* Bundler mode */
@@ -23,8 +23,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["@testing-library/jest-dom", "node"]
+    "types": ["@testing-library/jest-dom", "node"],
   },
-  "include": ["src", "__tests__"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "src/__tests__"],
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

@@ -1,21 +1,21 @@
 import { ArticleForSale, ScrollAction } from '@/types/types';
 import { useEffect, useState } from 'react';
 import ChevronPosition from '../../ui/ChevronPosition';
-import Skeleton from '../../ui/skeleton';
 import { Link } from 'react-router-dom';
 import CardInfosBottom from './CardInfosBottom';
-import useFirestoreData from '@/hooks/useFirestoreData';
 
 type Props = {
+  listArticles: ArticleForSale[]
   title: string;
   start: number;
   end: number;
   idDivParentProductCard: string;
   idDivToScrollProductCard: string;
-  typeSort: 'recent' | 'populaire'
+  typeSort: 'recent' | 'populaire';
 };
 
 const ProductCard = ({
+  listArticles,
   title,
   start,
   end,
@@ -23,12 +23,10 @@ const ProductCard = ({
   idDivToScrollProductCard,
   typeSort,
 }: Props) => {
-  // CONTEXTE
-  const { listArticles } = useFirestoreData();
+
   const [scrollCards, setScrollCards] = useState<ScrollAction>('right');
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
   const [listArticlesSort, setListArticlesSort] = useState<ArticleForSale[]>();
-
 
   const divParent = document.getElementById(idDivParentProductCard);
   const divToScroll = document.getElementById(idDivToScrollProductCard);
@@ -59,9 +57,9 @@ const ProductCard = ({
   useEffect(() => {
     if (listArticles) {
       typeSort === 'recent' &&
-        setListArticlesSort(listArticles.fullListArticlesForSale.reverse());
+        setListArticlesSort(listArticles.reverse());
         typeSort === 'populaire' &&
-          setListArticlesSort(listArticles.fullListArticlesForSale.sort((a, b) => (a.like < b.like ? 1 : -1)));
+          setListArticlesSort(listArticles.sort((a, b) => (a.like < b.like ? 1 : -1)));
     }
 
   }, [listArticles, typeSort]);
@@ -102,7 +100,7 @@ const ProductCard = ({
           id={idDivToScrollProductCard}
           data-testid="scroll-element"
         >
-          {listArticlesSort && listArticlesSort.length > 0 ? (
+          {listArticlesSort && listArticlesSort.length > 0 && (
             <div className="flex shrink-0 flex-nowrap gap-4">
               {listArticlesSort
                 .map((product: ArticleForSale) => (
@@ -135,19 +133,6 @@ const ProductCard = ({
                 >
                   Voir tous les articles
                 </Link>
-              </div>
-            </div>
-          ) : (
-            <div className="flex shrink-0 flex-nowrap gap-4">
-              {Array(5)
-                .fill('')
-                .map((_, index) => (
-                  <Skeleton key={index} className="h-[300px] w-[213px]" />
-                ))}
-              <div className="flex h-[300px] w-[213px] cursor-pointer flex-col justify-center bg-gray-100">
-                <p className="text-center text-vintedTextGrisFonce">
-                  Voir tous les articles
-                </p>
               </div>
             </div>
           )}

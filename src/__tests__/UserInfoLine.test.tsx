@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import { Star } from 'lucide-react';
 import { afterEach, beforeEach, describe, expect, test } from 'vitest';
-import UserInfoLine from '../src/components/page-user-profil/models/UserInfoLine';
+import UserInfoLine from '../components/page-user-profil/models/UserInfoLine';
 
 describe('Composant UserInfoLine comportement', () => {
   beforeEach(() => {
