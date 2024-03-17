@@ -5,10 +5,10 @@ import ProductCard from '@/components/page-home/ProductCard/ProductCard';
 import BrandSearch from '@/components/page-home/brand-search/BrandSearch';
 import { useEffect } from 'react';
 import useFirestoreData from '@/hooks/useFirestoreData';
-import Skeleton from '@/components/ui/skeleton';
+import ProductCardSkeleton from '@/components/page-home/ProductCard/ProductCardSkeleton';
 
 const Home = () => {
-    const { listArticles } = useFirestoreData();
+  const { listArticles } = useFirestoreData();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -41,18 +41,13 @@ const Home = () => {
           />
         </>
       ) : (
-        <div className="flex shrink-0 flex-nowrap gap-4">
-          {Array(5)
-            .fill('')
-            .map((_, index) => (
-              <Skeleton key={index} className="h-[300px] w-[213px]" />
-            ))}
-          <div className="flex h-[300px] w-[213px] cursor-pointer flex-col justify-center bg-gray-100">
-            <p className="text-center text-vintedTextGrisFonce">
-              Voir tous les articles
-            </p>
-          </div>
-        </div>
+        <>
+          <ProductCardSkeleton
+            title="Explorer les derniers articles"
+            nbrCards={5}
+          />
+          <ProductCardSkeleton title="Articles populaires" nbrCards={5} />
+        </>
       )}
       <BrandSearch />
       <SuggestionSearch />
