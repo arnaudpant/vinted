@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import useFirestoreData from '@/hooks/useFirestoreData';
 import { ArticleForSale } from '@/types/types';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import CatalogView from './CatalogView';
 import Skeleton from '@/components/ui/skeleton';
+import useQueryFirestore from '@/hooks/useQueryFirestore';
 
 const Catalog = () => {
-  const { listArticles } = useFirestoreData();
+  const { listArticlesQuery } = useQueryFirestore();
   const location = useLocation();
   const { state } = location;
 
@@ -17,32 +17,32 @@ const Catalog = () => {
     useState<ArticleForSale[]>();
 
   useEffect(() => {
-    if (listArticles?.fullListArticlesForSale !== undefined) {
+    if (listArticlesQuery !== undefined) {
       if (state[0] === '') {
-        const articlesFilter = listArticles.fullListArticlesForSale.filter(
+        const articlesFilter = listArticlesQuery.filter(
           (article) => article.category === state[1],
         );
         setListArticlesByCategory(articlesFilter);
       } else if (state[0] === 'home') {
         if (state[1] === 'recent') {
-          const articlesFilter = listArticles.fullListArticlesForSale.reverse();
+          const articlesFilter = listArticlesQuery.reverse();
           setListArticlesByCategory(articlesFilter);
         }
         if (state[1] === 'populaire') {
-          const articlesFilter = listArticles.fullListArticlesForSale.sort(
-            (a, b) => (a.like < b.like ? 1 : -1),
+          const articlesFilter = listArticlesQuery.sort((a, b) =>
+            a.like < b.like ? 1 : -1,
           );
           setListArticlesByCategory(articlesFilter);
         }
       } else {
-        const articlesFilter = listArticles.fullListArticlesForSale.filter(
+        const articlesFilter = listArticlesQuery.filter(
           (article) =>
             article.subCategory === state[0] && article.category === state[1],
         );
         setListArticlesByCategory(articlesFilter);
       }
     }
-  }, [listArticles, state, location.pathname]);
+  }, [listArticlesQuery, state, location.pathname]);
 
   useEffect(() => {
     window.scrollTo({

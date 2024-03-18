@@ -4,11 +4,12 @@ import NewsFeed from '@/components/page-home/new-feed/NewsFeed';
 import ProductCard from '@/components/page-home/ProductCard/ProductCard';
 import BrandSearch from '@/components/page-home/brand-search/BrandSearch';
 import { useEffect } from 'react';
-import useFirestoreData from '@/hooks/useFirestoreData';
 import ProductCardSkeleton from '@/components/page-home/ProductCard/ProductCardSkeleton';
+import useQueryFirestore from '@/hooks/useQueryFirestore';
 
 const Home = () => {
-  const { listArticles } = useFirestoreData();
+  const { listArticlesQuery } = useQueryFirestore();
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -19,10 +20,10 @@ const Home = () => {
   return (
     <>
       <Banner />
-      {listArticles ? (
+      {listArticlesQuery ? (
         <>
           <ProductCard
-            listArticles={listArticles.fullListArticlesForSale}
+            listArticles={listArticlesQuery}
             title="Explorer les derniers articles"
             start={0}
             end={6}
@@ -31,7 +32,7 @@ const Home = () => {
             typeSort={'recent'}
           />
           <ProductCard
-            listArticles={listArticles.fullListArticlesForSale}
+            listArticles={listArticlesQuery}
             title="Articles populaires"
             start={0}
             end={6}

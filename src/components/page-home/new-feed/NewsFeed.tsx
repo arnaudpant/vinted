@@ -1,20 +1,20 @@
 import { ArticleForSale } from '@/types/types';
-import useFirestoreData from '@/hooks/useFirestoreData';
 import { useEffect, useState } from 'react';
 import { shuffle } from '@/utils/Utils';
 import NewsFeedView from './NewsFeedView';
+import useQueryFirestore from '@/hooks/useQueryFirestore';
 
 
 const NewsFeed = () => {
-  const {listArticles} = useFirestoreData()
+  const { listArticlesQuery } = useQueryFirestore();
   const [listArticlesShuffle, setListArticlesShuffle] = useState<ArticleForSale[] | []>([])
 
   useEffect(() => {
-    if (listArticles) {
-      const arrayTemp = listArticles.fullListArticlesForSale
+    if (listArticlesQuery) {
+      const arrayTemp = listArticlesQuery;
       setListArticlesShuffle(shuffle(arrayTemp.slice(0, 12)));
     }
-  }, [listArticles]);
+  }, [listArticlesQuery]);
 
   return (
     <NewsFeedView
