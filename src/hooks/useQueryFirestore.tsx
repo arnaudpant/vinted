@@ -14,13 +14,10 @@ const useQueryFirestore = () => {
   const product = useFirestoreDocumentData(
     ['collection-articles', 'documents-articles'],
     ref,
-    {
-      subscribe: true,
-    },
   );
 
-  if (product.isLoading) {
-    console.log('isLoading');
+  if (product.isError) {
+    console.log('Erreur avec la base de donnée');
   }
 
   const listArticlesQuery: ArticleForSale[] =

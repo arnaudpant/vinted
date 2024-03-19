@@ -17,28 +17,28 @@ const Home = () => {
     });
   }, []);
 
+  
+
   return (
     <>
       <Banner />
       {listArticlesQuery ? (
         <>
           <ProductCard
-            listArticles={listArticlesQuery}
             title="Explorer les derniers articles"
             start={0}
             end={6}
             idDivParentProductCard={'divParentProductCardExplore'}
             idDivToScrollProductCard={'divToScrollProductCardExplore'}
-            typeSort={'recent'}
+            typeSort="recent"
           />
           <ProductCard
-            listArticles={listArticlesQuery}
             title="Articles populaires"
             start={0}
             end={6}
             idDivParentProductCard={'divParentProductCardPopulaire'}
             idDivToScrollProductCard={'divToScrollProductCardPopulaire'}
-            typeSort={'populaire'}
+            typeSort="populaire"
           />
         </>
       ) : (

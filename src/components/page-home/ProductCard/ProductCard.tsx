@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import ChevronPosition from '../../ui/ChevronPosition';
 import { Link } from 'react-router-dom';
 import CardInfosBottom from './CardInfosBottom';
+import useQueryFirestore from '@/hooks/useQueryFirestore';
 
 type Props = {
-  listArticles: ArticleForSale[]
   title: string;
   start: number;
   end: number;
@@ -15,7 +15,6 @@ type Props = {
 };
 
 const ProductCard = ({
-  listArticles,
   title,
   start,
   end,
@@ -24,6 +23,7 @@ const ProductCard = ({
   typeSort,
 }: Props) => {
 
+  const { listArticlesQuery } = useQueryFirestore();
   const [scrollCards, setScrollCards] = useState<ScrollAction>('right');
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
   const [listArticlesSort, setListArticlesSort] = useState<ArticleForSale[]>();
@@ -55,14 +55,19 @@ const ProductCard = ({
   }, [divToScrollValue]);
 
   useEffect(() => {
-    if (listArticles) {
-      typeSort === 'recent' &&
-        setListArticlesSort(listArticles.reverse());
-        typeSort === 'populaire' &&
-          setListArticlesSort(listArticles.sort((a, b) => (a.like < b.like ? 1 : -1)));
+    if (typeSort === 'recent') {
+      const arrayTemp: ArticleForSale[] = [...listArticlesQuery];
+      setListArticlesSort(arrayTemp.reverse());
+      
+    } 
+    if (typeSort === 'populaire') {
+      setListArticlesSort(
+        listArticlesQuery.sort((a, b) => (a.like < b.like ? 1 : -1)),
+      );
     }
+  
+  }, [listArticlesQuery, typeSort]);
 
-  }, [listArticles, typeSort]);
 
   // LOGIQUE AU CLIC DU BTN
   const handleClicRight = () => {
