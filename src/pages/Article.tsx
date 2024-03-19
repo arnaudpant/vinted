@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import ArticleInfo from '@/components/page-infos-article/ArticleInfo';
-import ArticlesGallery from '@/components/page-infos-article/ArticlesGallery';
+import ArticleInfo from '../components/page-infos-article/ArticleInfo';
+import ArticlesGallery from '../components/page-infos-article/ArticlesGallery';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 

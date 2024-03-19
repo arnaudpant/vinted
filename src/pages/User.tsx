@@ -2,9 +2,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import UserSynopsis from '@/components/page-user-profil/UserSynopsis';
-import UserTabs from '@/components/page-user-profil/UserTabs';
-import { useAuth } from '@/context/AuthUserContext';
+import UserSynopsis from '../components/page-user-profil/UserSynopsis';
+import UserTabs from '../components/page-user-profil/UserTabs';
+import { useAuth } from '../context/AuthUserContext';
 import { useEffect } from 'react';
 
 const User = () => {

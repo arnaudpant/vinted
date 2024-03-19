@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import { ArticleForSale } from "@/types/types";
-import { FirestoreUpdateDocument } from "@/firebase/firestore";
+import { ArticleForSale } from "../types/types";
+import { FirestoreUpdateDocument } from "../firebase/firestore";
 import { useState } from "react";
 import useFirestoreData from "./useFirestoreData";
-import { useAuth } from "@/context/AuthUserContext";
+import { useAuth } from "../context/AuthUserContext";
 
 /**
  * HOOK pour envoyer un article dans la base de données firestore

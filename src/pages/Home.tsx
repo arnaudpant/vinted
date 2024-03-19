@@ -1,11 +1,11 @@
-import SuggestionSearch from '@/components/page-home/suggestion/SuggestionSearch';
-import Banner from '@/components/page-home/banner/Banner';
-import NewsFeed from '@/components/page-home/new-feed/NewsFeed';
-import ProductCard from '@/components/page-home/ProductCard/ProductCard';
-import BrandSearch from '@/components/page-home/brand-search/BrandSearch';
+import SuggestionSearch from '../components/page-home/suggestion/SuggestionSearch';
+import Banner from '../components/page-home/banner/Banner';
+import NewsFeed from '../components/page-home/new-feed/NewsFeed';
+import ProductCard from '../components/page-home/ProductCard/ProductCard';
+import BrandSearch from '../components/page-home/brand-search/BrandSearch';
 import { useEffect } from 'react';
-import useFirestoreData from '@/hooks/useFirestoreData';
-import ProductCardSkeleton from '@/components/page-home/ProductCard/ProductCardSkeleton';
+import useFirestoreData from '../hooks/useFirestoreData';
+import ProductCardSkeleton from '../components/page-home/ProductCard/ProductCardSkeleton';
 
 const Home = () => {
   const { listArticles } = useFirestoreData();

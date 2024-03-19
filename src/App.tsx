@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /** ROOTER */
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
@@ -15,6 +16,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import ErrorBoundaryComponent from './error-boundary/ErrorBoundaryComponent';
 import Vendeur from './pages/Vendeur';
 import Favoris from './pages/Favoris';
+import React from 'react';
 
 
 function App() {

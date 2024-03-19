@@ -1,7 +1,7 @@
-import ModalAuth from '@/components/modals/authentification/ModalAuth';
-import FormModifyProfile from '@/components/page-modify-profile/FormModifyProfile';
+import ModalAuth from '../components/modals/authentification/ModalAuth';
+import FormModifyProfile from '../components/page-modify-profile/FormModifyProfile';
 import { useParams } from 'react-router-dom';
-import { useAuth } from '@/context/AuthUserContext';
+import { useAuth } from '../context/AuthUserContext';
 
 const PROFILE_SECTION = 'profile';
 
