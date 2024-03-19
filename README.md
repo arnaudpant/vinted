@@ -1,5 +1,5 @@
 # Clone de Vinted - Projet en équipe de 4 développeurs
-Version actuelle: V2 (10 mars 2024)
+Version actuelle: V2.5 (19 mars 2024)
 
 ## Déploiement
 Netlify: https://bootcamp-vinted.netlify.app
@@ -17,16 +17,20 @@ Vite - eslint - Prettier
 - React testing library
 - Cypress (V3)
 
-## API
+## Librairies
 - TailwindCSS
 - shadcn
 - clsx
 
 - React rooter dom
 - React hook form
-- React Query (V3)
+- React Query
+- React-query-firebase
 - Lucides (Icones)
 - nanoid (id)
+
+## API
+https://reqres.in/api/users
 
 ## Commandes de base
 Démarrer le site en local:
@@ -81,7 +85,7 @@ Avatar de l'utilisateur et accès au menu déroulant:
 - Autres liens: LIENS NON FONCTIONNEL
 
 ### Footer
-LIENS NON FONCTIONNEL (V2)
+LIENS NON FONCTIONNEL
 
 ## V3 a venir
 - Ajout des articles dans ses favoris

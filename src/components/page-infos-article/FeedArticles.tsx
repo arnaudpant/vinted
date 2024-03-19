@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CardInfosBottom from '../page-home/ProductCard/CardInfosBottom';
 import Skeleton from '../ui/skeleton';
-import useFirestoreData from '@/hooks/useFirestoreData';
 import { getTaxeIncl } from '@/utils/Utils';
+import useQueryFirestore from '@/hooks/useQueryFirestore';
 
 type Props = {
   category: string;
@@ -14,12 +14,12 @@ type Props = {
 };
 
 const FeedArticles = ({ category, subCategory, userID }: Props) => {
-  const { listArticles } = useFirestoreData();
+   const { listArticlesQuery } = useQueryFirestore();
   const [listArticlesByCategory, setListArticlesByCategory] =
     useState<ArticleForSale[]>();
 
   useEffect(() => {
-    const arrayListFilter = listArticles?.fullListArticlesForSale.filter(
+    const arrayListFilter = listArticlesQuery.filter(
       (elt) =>
         elt.category === category &&
         elt.subCategory === subCategory &&
@@ -28,7 +28,7 @@ const FeedArticles = ({ category, subCategory, userID }: Props) => {
     if (arrayListFilter && arrayListFilter.length > 0) {
       setListArticlesByCategory(arrayListFilter);
     }
-  }, [category, listArticles]);
+  }, [category, listArticlesQuery]);
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname

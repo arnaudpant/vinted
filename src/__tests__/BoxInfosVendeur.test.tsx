@@ -2,11 +2,10 @@
 import '@testing-library/jest-dom';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import BoxInfosVendeurView from '@/components/box-infos-vendeur/BoxInfosVendeurView';
-
+import BoxInfosVendeurView from '@/components/page-infos-article/box-infos-vendeur/BoxInfosVendeurView';
 
 const vendeur = {
-  userId: "userDeTest",
+  userId: 'userDeTest',
   photoURL: 'ma-tronche.jpeg',
   login: 'moi',
   city: 'Paris',
@@ -20,7 +19,6 @@ describe('Test du component BoxInfosVendeurView', () => {
   });
 
   vi.mock('react-router-dom');
-
 
   test('Affichageruser null pas image avatar et pas de texte déroulé', () => {
     render(
@@ -60,7 +58,7 @@ describe('Test du component BoxInfosVendeurView', () => {
         vendeur={vendeur}
       />,
     );
-    console.log(vendeur.photoURL)
+    console.log(vendeur.photoURL);
     const textDeroule = screen.getByText(/responsabilité civile/i);
     const textVoirPlus = screen.queryByText(/... Voir plus/i);
     expect(textDeroule).toBeInTheDocument();

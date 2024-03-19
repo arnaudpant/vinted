@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
-import useFirestoreData from '@/hooks/useFirestoreData';
 import { ArticleForSale } from '@/types/types';
 import { useEffect, useState } from 'react';
 import NewsFeedView from '../page-home/new-feed/NewsFeedView';
+import useQueryFirestore from '@/hooks/useQueryFirestore';
 
 type Props = {
   vendeur: string;
@@ -11,18 +11,16 @@ type Props = {
 
 const VendeurDressing = ({ vendeur }: Props) => {
   const [articlesVendeur, setArticlesVendeur] = useState<ArticleForSale[]>();
-  const { listArticles } = useFirestoreData();
- 
+  const { listArticlesQuery } = useQueryFirestore();
 
   useEffect(() => {
-    if (listArticles) {
-      const listArticlesFilter = listArticles.fullListArticlesForSale.filter(
+    if (listArticlesQuery) {
+      const listArticlesFilter = listArticlesQuery.filter(
         (article) => article.userInfos.userId === vendeur,
       );
       setArticlesVendeur(listArticlesFilter);
     }
-  }, [listArticles]);
-
+  }, [listArticlesQuery]);
 
   return (
     <div className="py-4">
