@@ -1,5 +1,5 @@
 # Clone de Vinted - Projet en équipe de 4 développeurs
-Version actuelle: V2.5 (19 mars 2024)
+Version actuelle: V2.5 (19 mars 2024 - Ajout react query + react-query-firebase)
 
 ## Déploiement
 Netlify: https://bootcamp-vinted.netlify.app
@@ -29,7 +29,7 @@ Vite - eslint - Prettier
 - Lucides (Icones)
 - nanoid (id)
 
-## API
+## API (pour fausses évaluations vendeur)
 https://reqres.in/api/users
 
 ## Commandes de base
