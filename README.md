@@ -24,7 +24,7 @@ Vite - eslint - Prettier
 
 - React rooter dom
 - React hook form
-- React Query (V3)
+- React Query
 - Lucides (Icones)
 - nanoid (id)
 
