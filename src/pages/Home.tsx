@@ -5,10 +5,10 @@ import ProductCard from '../components/page-home/ProductCard/ProductCard';
 import BrandSearch from '../components/page-home/brand-search/BrandSearch';
 import { useEffect } from 'react';
 import ProductCardSkeleton from '@/components/page-home/ProductCard/ProductCardSkeleton';
-import useQueryFirestore from '@/hooks/useQueryFirestore';
+import useFirestoreData from '@/hooks/useFirestoreData';
 
 const Home = () => {
-  const { listArticlesQuery } = useQueryFirestore();
+  const { listArticles } = useFirestoreData();
 
   useEffect(() => {
     window.scrollTo({
@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <>
       <Banner />
-      {listArticlesQuery ? (
+      {listArticles ? (
         <>
           <ProductCard
             title="Explorer les derniers articles"

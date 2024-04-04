@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable no-unsafe-optional-chaining */
 import { ArticleForSale, ScrollAction } from '@/types/types';
 import { useEffect, useState } from 'react';
 import ChevronPosition from '../../ui/ChevronPosition';
 import { Link } from 'react-router-dom';
 import CardInfosBottom from './CardInfosBottom';
-import useQueryFirestore from '@/hooks/useQueryFirestore';
+import useFirestoreData from '@/hooks/useFirestoreData';
 
 type Props = {
   title: string;
@@ -23,7 +25,7 @@ const ProductCard = ({
   typeSort,
 }: Props) => {
 
-  const { listArticlesQuery } = useQueryFirestore();
+  const { listArticles } = useFirestoreData();
   const [scrollCards, setScrollCards] = useState<ScrollAction>('right');
   const [divToScrollValue, setDivToScrollValue] = useState<number>(0);
   const [listArticlesSort, setListArticlesSort] = useState<ArticleForSale[]>();
@@ -55,18 +57,19 @@ const ProductCard = ({
   }, [divToScrollValue]);
 
   useEffect(() => {
-    if (typeSort === 'recent') {
-      const arrayTemp: ArticleForSale[] = [...listArticlesQuery];
+    if (typeSort === 'recent' && listArticles) {
+      const arrayTemp: ArticleForSale[] = [
+        ...listArticles.fullListArticlesForSale,
+      ];
       setListArticlesSort(arrayTemp.reverse());
-      
     } 
-    if (typeSort === 'populaire') {
+    if (typeSort === 'populaire' && listArticles) {
       setListArticlesSort(
-        listArticlesQuery.sort((a, b) => (a.like < b.like ? 1 : -1)),
+        listArticles.fullListArticlesForSale.sort((a, b) => (a.like < b.like ? 1 : -1)),
       );
     }
   
-  }, [listArticlesQuery, typeSort]);
+  }, [listArticles, typeSort]);
 
 
   // LOGIQUE AU CLIC DU BTN

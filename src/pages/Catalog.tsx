@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import CatalogView from './CatalogView';
 import Skeleton from '@/components/ui/skeleton';
-import useQueryFirestore from '@/hooks/useQueryFirestore';
+import useFirestoreData from '@/hooks/useFirestoreData';
 
 const Catalog = () => {
-  const { listArticlesQuery } = useQueryFirestore();
+  const { listArticles } = useFirestoreData();
   const location = useLocation();
   const { state } = location;
 
@@ -17,32 +17,32 @@ const Catalog = () => {
     useState<ArticleForSale[]>();
 
   useEffect(() => {
-    if (listArticlesQuery !== undefined) {
+    if (listArticles !== undefined) {
       if (state[0] === '') {
-        const articlesFilter = listArticlesQuery.filter(
+        const articlesFilter = listArticles.fullListArticlesForSale.filter(
           (article) => article.category === state[1],
         );
         setListArticlesByCategory(articlesFilter);
       } else if (state[0] === 'home') {
         if (state[1] === 'recent') {
-          const articlesFilter = listArticlesQuery.reverse();
+          const articlesFilter = listArticles.fullListArticlesForSale.reverse();
           setListArticlesByCategory(articlesFilter);
         }
         if (state[1] === 'populaire') {
-          const articlesFilter = listArticlesQuery.sort((a, b) =>
-            a.like < b.like ? 1 : -1,
+          const articlesFilter = listArticles.fullListArticlesForSale.sort(
+            (a, b) => (a.like < b.like ? 1 : -1),
           );
           setListArticlesByCategory(articlesFilter);
         }
       } else {
-        const articlesFilter = listArticlesQuery.filter(
+        const articlesFilter = listArticles.fullListArticlesForSale.filter(
           (article) =>
             article.subCategory === state[0] && article.category === state[1],
         );
         setListArticlesByCategory(articlesFilter);
       }
     }
-  }, [listArticlesQuery, state, location.pathname]);
+  }, [listArticles, state, location.pathname]);
 
   useEffect(() => {
     window.scrollTo({

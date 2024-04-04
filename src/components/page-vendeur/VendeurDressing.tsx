@@ -3,7 +3,7 @@
 import { ArticleForSale } from '@/types/types';
 import { useEffect, useState } from 'react';
 import NewsFeedView from '../page-home/new-feed/NewsFeedView';
-import useQueryFirestore from '@/hooks/useQueryFirestore';
+import useFirestoreData from '@/hooks/useFirestoreData';
 
 type Props = {
   vendeur: string;
@@ -11,16 +11,16 @@ type Props = {
 
 const VendeurDressing = ({ vendeur }: Props) => {
   const [articlesVendeur, setArticlesVendeur] = useState<ArticleForSale[]>();
-  const { listArticlesQuery } = useQueryFirestore();
+  const { listArticles } = useFirestoreData();
 
   useEffect(() => {
-    if (listArticlesQuery) {
-      const listArticlesFilter = listArticlesQuery.filter(
+    if (listArticles) {
+      const listArticlesFilter = listArticles.fullListArticlesForSale.filter(
         (article) => article.userInfos.userId === vendeur,
       );
       setArticlesVendeur(listArticlesFilter);
     }
-  }, [listArticlesQuery]);
+  }, [listArticles]);
 
   return (
     <div className="py-4">
